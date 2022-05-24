@@ -55,10 +55,6 @@ print(type(type(5))) # <class 'type'>
 
 </td>
 </tr>
-</table>
-
-
-<table>
 <tr>
 <td width="40%">
 
@@ -349,9 +345,6 @@ print('You rolled a', random.randint(1,6))
 
 </td>
 </tr>
-</table>
-
-<table>
 <tr>
 <td width="40%">
 
