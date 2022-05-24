@@ -2,27 +2,38 @@
 # Fundamentals
 
 
-- [Variables, Objects, & Types](#variables-objects--types)
-  - [Types](#types)
-  - [Literals](#literals)
-  - [Type Conversion](#type-conversion)
-  - [Mutability](#mutability)
-- [I/O](#io)
-  - [Print](#print)
-    - [End](#end)
-    - [Multiple Parameters](#multiple-parameters)
-    - [Sep](#sep)
-  - [Input](#input)
-  - [Accepting Command Line Arguments](#accepting-command-line-arguments)
-- [Terminal Fun](#terminal-fun)
-  - [ASCII Art](#ascii-art)
-  - [Delayed Print](#delayed-print)
-  - [Color](#color)
+- [Fundamentals](#fundamentals)
+  - [Variables, Objects, & Types](#variables-objects--types)
+    - [Types](#types)
+    - [Literals](#literals)
+    - [Type Conversion](#type-conversion)
+    - [Mutability](#mutability)
+  - [I/O](#io)
+    - [Print](#print)
+      - [End](#end)
+      - [Multiple Parameters](#multiple-parameters)
+      - [Sep](#sep)
+    - [Input](#input)
+    - [Accepting Command Line Arguments](#accepting-command-line-arguments)
+  - [Terminal Fun](#terminal-fun)
+    - [ASCII Art](#ascii-art)
+    - [Delayed Print](#delayed-print)
+    - [Color](#color)
 
+<table>
+<tr>
 
 ## Variables, Objects, & Types
 
+</tr>
+<tr>
+<th>
+</th>
+<td width="40%">
+
 Variables are names given to objects. These allow us to specify the operations we'd like to perform on that data in our source code. Objects are collections of data stored in memory, we refer to objects using variables. You can get an identifier for an object with the function `id()`
+</td>
+<td width="60%">
 
 ```python
 x = 5 # x is the variable, 5 is the object
@@ -32,6 +43,10 @@ print(id(message))
 ```
 > 512341256<br>
 > 231661621
+</td>
+</tr>
+</table>
+
 
 Everything is an object in python, including None, booleans, integers, floats, modules, classes, and functions. This means they can be assigned to variables, passes as parameters to functions, and be put into lists and dictionaries.
 
