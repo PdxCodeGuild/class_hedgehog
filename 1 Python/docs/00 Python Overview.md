@@ -1,18 +1,6 @@
 
 # Overview
-- [Running Python](#running-python)
-- [Installing Packages with `pip`](#installing-packages-with-pip)
-- [Checking Your Installation Path](#checking-your-installation-path)
-- [Common Built-in Modules](#common-built-in-modules)
-- [Other Popular Modules](#other-popular-modules)
-- [Keywords](#keywords)
-- [Resources](#resources)
-  - [Practice Problems](#practice-problems)
-  - [Courses / Online Books](#courses--online-books)
-  - [Lists of Resources](#lists-of-resources)
-  - [Online Courses](#online-courses)
-  - [Books](#books)
-  - [Reference Documents and Tutorials](#reference-documents-and-tutorials)
+
 
 Python is a popular general-purpose multi-paradigm programming language. General purpose means it can be used for a variety of purposes: desktop applications, [games](https://wiki.python.org/moin/GameProgramming), [embedded systems](https://micropython.org/), web development (Flask and Django), [data science](https://www.upwork.com/hiring/data/15-python-libraries-data-science/), [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence) and more. It also means that its core principles carry over to other languages, so you'll be able to more easily broaden your horizon. Python always has an active community with plenty of learning resources, conferences, and libraries. For more information, check out the [Python Language Reference](https://docs.python.org/3/reference/index.html#reference-index) and [Python Standard Library](https://docs.python.org/3/library/index.html). The [wikipedia article](https://en.wikipedia.org/wiki/Python_(programming_language)) offers a decent overview.
 
@@ -82,43 +70,43 @@ These can be installed using `pip install <module>`. You can find more libraries
 import keyword
 keyword.kwlist
 ```
-| keyword | description |
-| ---     | --- |
-| **and** | boolean operator |
-| **as** | used with imports |
-| **assert** | used for debugging |
-| **async** | asynchronous |
-| **await** | asynchronous |
-| **break** | used with loops, exit the current loop |
-| **class** | blueprints of an object, including data and methods |
+| keyword      | description                                                               |
+| ------------ | ------------------------------------------------------------------------- |
+| **and**      | boolean operator                                                          |
+| **as**       | used with imports                                                         |
+| **assert**   | used for debugging                                                        |
+| **async**    | asynchronous                                                              |
+| **await**    | asynchronous                                                              |
+| **break**    | used with loops, exit the current loop                                    |
+| **class**    | blueprints of an object, including data and methods                       |
 | **continue** | used for loops, skip the rest of the current iteration and go to the next |
-| **def** | define a function |
-| **del** | delete, used with lists and dicts |
-| **elif** | else-if, part of a conditional |
-| **else** | part of a conditional |
-| **except** | part of exception handling |
-| **False** | boolean literal |
-| **finally** |  part of exception handling |
-| **for** | define a for-loop |
-| **from** | used with imports |
-| **global** | define a global variable |
-| **if** | part of conditionals |
-| **import** | used with imports |
-| **in** | a boolean operator, also part of for-loops |
-| **is** | a boolean operator, tests for equality |
-| **lambda** | a short-hand function |
-| **None** | represents the absence of a value |
-| **nonlocal** | variable scope |
-| **not** | a boolean operator |
-| **or** | a boolean operator |
-| **pass** | a placeholder |
-| **raise** | exceptions |
-| **return** | functions |
-| **True** | boolean literal |
-| **try** | exceptions |
-| **while** | looping |
-| **with** | safely open and close files |
-| **yield** | generators |
+| **def**      | define a function                                                         |
+| **del**      | delete, used with lists and dicts                                         |
+| **elif**     | else-if, part of a conditional                                            |
+| **else**     | part of a conditional                                                     |
+| **except**   | part of exception handling                                                |
+| **False**    | boolean literal                                                           |
+| **finally**  | part of exception handling                                                |
+| **for**      | define a for-loop                                                         |
+| **from**     | used with imports                                                         |
+| **global**   | define a global variable                                                  |
+| **if**       | part of conditionals                                                      |
+| **import**   | used with imports                                                         |
+| **in**       | a boolean operator, also part of for-loops                                |
+| **is**       | a boolean operator, tests for equality                                    |
+| **lambda**   | a short-hand function                                                     |
+| **None**     | represents the absence of a value                                         |
+| **nonlocal** | variable scope                                                            |
+| **not**      | a boolean operator                                                        |
+| **or**       | a boolean operator                                                        |
+| **pass**     | a placeholder                                                             |
+| **raise**    | exceptions                                                                |
+| **return**   | functions                                                                 |
+| **True**     | boolean literal                                                           |
+| **try**      | exceptions                                                                |
+| **while**    | looping                                                                   |
+| **with**     | safely open and close files                                               |
+| **yield**    | generators                                                                |
 
 
 
