@@ -16,7 +16,7 @@
 from turtle import *
 
 setposition(0, 0)
-
+#Left and Right arm code body from lab page
 i = 0
 while i < 10:    
 	forward(2.5)
@@ -28,8 +28,6 @@ penup()
 setposition(0, 0)
 left(180)
 pendown()
-
-
 i = 0
 while i < 10:    
 	forward(2.5)
@@ -38,6 +36,7 @@ while i < 10:
 	left(90)
 	i = i + 1
 
+#Body
 penup()
 setposition(1.25, 0)
 pendown()
@@ -45,19 +44,21 @@ right(90)
 forward(25)
 left(90)
 
-
+#Head grabbed code body from lab page
+fillcolor('red')
+begin_fill()
 edge_length = 100
 n_sides = 180
-
 i = 0
 while i < n_sides:
 	forward(edge_length/n_sides)
 	right(360/n_sides)
 	i = i + 1
+end_fill()   
 
 left(90)
 forward(55)
-
+#Legs
 i = 0
 while i < 10:    
 	forward(2.5)
@@ -75,8 +76,6 @@ while i < 10:
 	forward(2.5)
 	left(90)
 	i = i + 1
-
-
 done()
 
 
