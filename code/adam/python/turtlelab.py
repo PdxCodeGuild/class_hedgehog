@@ -57,7 +57,26 @@ while i < n_sides:
 
 left(90)
 forward(55)
-done()
+
+i = 0
+while i < 10:    
+	forward(2.5)
+	left(90)
+	forward(2.5)
+	right(90)
+	i = i + 1
+penup()
+setposition(1.25, -30)
+pendown()
+i = 0
+while i < 10:    
+	forward(2.5)
+	right(90)
+	forward(2.5)
+	left(90)
+	i = i + 1
 
 
 done()
+
+
