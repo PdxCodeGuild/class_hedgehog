@@ -22,15 +22,15 @@ while value < 0.01 :
 value = value*100
 print(value)
 #various coin value calculations. Omitted anything higher than half-follar.
-coin_quantity['half-dollar'] = int(value //50)
-value %= 50  
-coin_quantity['quarter'] = int(value //25)
-value %= 25            
-coin_quantity['dime'] = int(value //10)
-value %= 10   
-coin_quantity['nickel'] = int(value //5)
-value %= 5  
-coin_quantity['penny'] = int(value //1)
-value %= 25
+coin_quantity['half-dollar'] = int(value //coin_list[1][1])
+value %= coin_list[1][1]  
+coin_quantity['quarter'] = int(value //coin_list[2][1])
+value %= coin_list[2][1]            
+coin_quantity['dime'] = int(value //coin_list[3][1])
+value %= coin_list[3][1]   
+coin_quantity['nickel'] = int(value //coin_list[4][1])
+value %= coin_list[4][1]  
+coin_quantity['penny'] = int(value //coin_list[5][1])
+value %= coin_list[5][1]
 
 print(f"{coin_quantity['half-dollar']} half-dollar(s), {coin_quantity['quarter']} quarter(s), {coin_quantity['dime']} dime(s), {coin_quantity['nickel']} nickel(s), {coin_quantity['penny']} {'penny' if coin_quantity['penny']==1 else 'pennies'}.")
