@@ -1,35 +1,33 @@
-From colorama import Fore, Back, Style
-
 
 print('Hello World')
 
 # string, surrounded by quotes
-# "this is a string"
-# 'This is also a string'
+"this is a string"
+'This is also a string'
 
 # Integer, whole number
 
-# 5 #int
-# "5" # str
-# 5.0 #float
-# ["tomato", 4, 2.3] #list
-# True #boolean
-# None # none
-# {} #dictionary
-# {'appel': 'red', 'pumpkin': 'orange'}
+5 #int
+"5" # str
+5.0 #float
+["tomato", 4, 2.3] #list
+True #boolean
+None # none
+{} #dictionary
+{'appel': 'red', 'pumpkin': 'orange'}
 
-# ('Hello', 'World') #Tuple / immutable .. can not change
+('Hello', 'World') #Tuple / immutable .. can not change
 
-# statement = 3 >4
-# #if statement
+statement = 3 >4
+#if statement
 
 
-# if "3 < 4":
-#     print('condition was true')
-# elif not statement:
-#     print('what is happening')
-# else:
-#     print('not true')
+if "3 < 4":
+    print('condition was true')
+elif not statement:
+    print('what is happening')
+else:
+    print('not true')
 
 greeting = "Hello"
 
@@ -42,8 +40,4 @@ colors[2]= "pink"
 
 print(colors)
 
-
-print(Fore.RED + "some red text")
-print(Back.BLUE + "blue background text")
-print(Fore.CYAN + Back.BLACK + "some cool text")
 
