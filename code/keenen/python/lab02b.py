@@ -11,7 +11,7 @@ quarters = pennies // 25
 
 # print(quarters)
 
-after_quarters = pennies - (quarters * 25)
+after_quarters = pennies % 25
 
 # print(after_quarters)
 
@@ -21,15 +21,15 @@ dimes = after_quarters // 10
 
 # print(dimes)
 
-after_dimes = after_quarters - (dimes * 10)
+after_dimes = after_quarters % 10
 
 # print(after_dimes)
 
 nickels = after_dimes // 5
 
-after_nickels = after_dimes - (nickels * 5)
+after_nickels = after_dimes % 5
 
-pennies_remaining = after_nickels // 1
+pennies_remaining = after_nickels 
 
 # print(pennies_remaining)
 
