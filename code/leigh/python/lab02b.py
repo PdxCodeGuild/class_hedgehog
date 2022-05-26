@@ -3,11 +3,17 @@
 # Leigh Fair-Smiley
 # 5/25/2022
 
+coins = [
+    ('half-dollar', 50),
+    ('quater', 25),
+    ('dime', 10),
+    ('nickel', 5),
+    ('penny', 1)
+]
+
 amount = float(input("Enter  dollar amount: "))
 amount = int(amount * 100)
 
-print(f"""{amount // 25} quarters,
-{(amount % 25) // 10} dimes,
-{(amount % 25 % 10) // 5} nickles,
-{amount % 5} pennies
-""")
+for coin in coins:
+    print(f"{amount // coin[1]} {coin[0]}, ")
+    amount = amount % coin[1]
