@@ -1,3 +1,6 @@
+# Keenen Pendergraft
+# lab02b - Make Change 
+# 25 May 2022
 
 dollar_amount = float(input('Enter a dollar amount: '))
 
