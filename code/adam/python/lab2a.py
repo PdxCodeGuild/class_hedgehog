@@ -1,4 +1,5 @@
 import random
+
 print("What is the name of the last person you called? ")
 person = input("> ")
 
