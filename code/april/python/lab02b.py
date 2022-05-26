@@ -4,7 +4,7 @@ April
 25 May 2022
 """
 
-# Let's convert a dollar amount into a number of coins.The input will be the total 
+# Convert a dollar amount into a number of coins.The input will be the total 
 # amount, the output will be the number of quarters, dimes, nickles, and pennies.
 # Always break the total into the highest coin value first, resulting in the fewest 
 # amount of coins.
