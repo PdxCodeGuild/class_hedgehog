@@ -24,10 +24,12 @@ while True:
         if len(adjetive) == 3:
             break
 
-print(f"""
+madlib = (f"""
 When i was at the beach with {person},
 we hoped on the dragon to go to {place}
 to play {verb} with {person}.
 We had to leave early {person} felt, {adjetive[random.randint(0,2)]}.
 
 """)
+
+print(madlib)

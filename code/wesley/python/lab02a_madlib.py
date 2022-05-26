@@ -2,7 +2,6 @@
 # Ask the user for each word you'll put in your Mad Lib.
 # Use string concatenation to combine with user input with other strings to form the Mad Lib.
 # Display the Mad Lib to the user.   
-
 noun_1 = input("Enter a noun: ")
 plural_noun_1 = input("Enter a plural noun: ")
 noun_2 = input("Enter another noun: ")
