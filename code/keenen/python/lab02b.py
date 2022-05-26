@@ -25,10 +25,14 @@ after_dimes = after_quarters - (dimes * 10)
 
 # print(after_dimes)
 
-pennies_remaining = after_dimes // 1
+nickels = after_dimes // 5
+
+after_nickels = after_dimes - (nickels * 5)
+
+pennies_remaining = after_nickels // 1
 
 # print(pennies_remaining)
 
-output = f'{int(quarters)} quarter(s), {int(dimes)} dime(s), and {int(pennies_remaining)} penny(ies)'
+output = f'{int(quarters)} quarter(s), {int(dimes)} dime(s), {int(nickels)} nickel(s), and {int(pennies_remaining)} penny(ies)'
 
 print(output)
