@@ -31,6 +31,9 @@ Instructor:
 
 | Lab Number | Title | Due Date |
 | ---------- | ----- | -------- |
+| Lab 01     | Code Folder | 07 JUN |
+| Lab 02a    | Madlib | 08 JUN |
+| Lab 02b    | Make Change | 08 JUN |
 
 </details>
 
