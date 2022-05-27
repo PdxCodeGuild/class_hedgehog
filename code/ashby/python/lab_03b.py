@@ -43,14 +43,18 @@ Ask the user to enter the numbers one at a time, putting them into a list. If th
 """
 nums = []
 average = 0
-
+#Loop for user input
 while True:
     user_input = input("Please enter a number, or 'done' to find the average of all entered valued: ")
     if user_input == "done":
         print("Please give us a moment to tally up your average.")
         break
+    #Add user input to list
     nums.append(int(user_input))
+#running total
 for num in nums:
     average +=num
-average /= len(nums)
+#exception for zero average / cannot divide by zero error
+if average >0:
+    average /= len(nums)
 print( f"The average of your numbers is {average}!")
