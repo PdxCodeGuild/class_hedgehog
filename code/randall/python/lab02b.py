@@ -10,7 +10,7 @@ which throws away the remainder. 10/3 is 3.333333, 10//3 is 3.
 """
 user_input = float(input("Enter a dollar amount including cents (eg.. 4.38): "))
 
-total_pennies = user_input*100
+total_pennies = round(user_input*100)
 
 quarters = total_pennies//25
 t = total_pennies%25
