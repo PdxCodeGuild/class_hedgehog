@@ -36,12 +36,12 @@ nums = []
 sum_nums = 0
 
 while True:
-    number = input("Enter a number or enter 'done' when finished: ")
-    if number == 'done':
+    number = input("Enter a number or enter 'done' when finished: ") # prompt for user input
+    if number == 'done': # stop when user enters 'done'
         break
-    nums.append(int(number))
+    nums.append(int(number)) # add to list
 for num in nums: # iterate through list
     sum_nums += num # get running sum
     average = sum_nums/len(nums) # get average by dividing sum by number of elements in list    
 
-print(f"You entered: {nums}\nThe sum is {sum_nums}\nThe average is: {round(average)}")    
+print(f"You entered: {nums}\nThe sum is {sum_nums}\nThe average is: {round(average)}") #print list, sum, and average
