@@ -3,16 +3,17 @@
 
 
  
-amount = input("Enter a dollar amount: ")
-amount = float(amount)
+amount = float(input("Enter a dollar amount: "))
+
 #print(type(amount))
-amount = amount * 100
+amount = int(round(amount * 100))
 #print(int(amount))
 num_pennies = 0
 num_nickels = 0
 num_dime = 0
 num_quaters = 0
-amount = int(amount)
+
+
 if amount < 0:
     print("""
     
@@ -53,15 +54,17 @@ new_ammt = new_ammt * 100
 new_ammt = int(new_ammt)
 
 
+print(coins[0][1])
 def change(ammt):
+ 
     if ammt >= 50:
-        coins[0] = ammt // coins[0][1]
+        num = ammt // (coins[0][1])
         ammt = ammt % 10
-        return coins[0]
+        return num(coins[0])
     if ammt >= 25:
-        coins[1] = ammt // coins[1][1]
+        (coins[1]) = ammt // (coins[1][1]) 
         ammt = ammt % 10 
-        return coins[1]
+        return (coins[1])
 
 print(change(new_ammt))
 
