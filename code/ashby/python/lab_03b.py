@@ -49,20 +49,7 @@ while True:
     if user_input == "done":
         print("Please give us a moment to tally up your average.")
         break
-    for x in user_input:
-        if x not in string.digits:
-            print("Invalid character, please try again.")
-            continue
-    #if user_input in string.ascii_letters or user_input in string.punctuation:
-    #if user_input not in string.digits:
-    #     print("You have entered an invalid character, please try again.")
-    #     continue
-    try:
-        nums.append(int(user_input))
-    except ValueError:
-        print("invalid character, please try again.")
-        continue
-
+    nums.append(int(user_input))
 for num in nums:
     average +=num
 average /= len(nums)
