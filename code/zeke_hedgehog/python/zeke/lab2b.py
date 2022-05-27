@@ -33,7 +33,7 @@ print(amount)
 
 
 #total amount
-penny = int(100 * amount)
+penny = int(round(100 * amount))
 #floor division of amount by 25
 quarter = penny // 25
 # Modulo- take whats left over after the quarters 
