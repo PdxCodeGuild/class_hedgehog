@@ -3,7 +3,16 @@ We're going to average a list of numbers. Start with the following list, iterate
 
 The code below shows how to loop through an array, and prints the elements one at a time.
 """
-import string
+# Ash_average function for reference and funsies
+
+def ash_average(nums):
+    running_total = 0
+    for num in nums:
+        running_total += num
+    if running_total == 0 :
+        return (0)
+    return running_total / len(nums)
+
 #Version 1
 """
 #Number list pre-made
@@ -45,7 +54,7 @@ nums = []
 average = 0
 #Loop for user input
 while True:
-    user_input = input("Please enter a number, or 'done' to find the average of all entered valued: ")
+    user_input = input("Please enter a whole number, or 'done' to find the average of all entered valued: ")
     if user_input == "done":
         print("Please give us a moment to tally up your average.")
         break
