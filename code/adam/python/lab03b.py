@@ -9,8 +9,8 @@ sum = 0
 for i in range(0, len(nums)):
 
     sum = sum + nums[i]
-    average = sum / 2
-
+    average = sum / len(nums)
+    round(average, 4)
 print(average)
 # loop over the elements
 # for num in nums:
@@ -33,9 +33,9 @@ while True:
         
         for i in range(0, len(nums)):
             sum = sum + nums[i]
-            average = sum / 2
-
-        print(f"The sum of you list is{sum} and the average is {average}.")
+            average = sum / len(nums)
+            round(average, 4)
+        print(f"The sum of you list is {sum} and the average is {average}.")
         break
     else: 
         user_num = int(user_num)
