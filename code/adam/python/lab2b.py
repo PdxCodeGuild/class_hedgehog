@@ -48,23 +48,23 @@ coins = [
     ('penny', 1)
 ]
 
-new_ammt =  input("Enter a dollar amount: ")
-new_ammt = float(amount)
-new_ammt = new_ammt * 100
-new_ammt = int(new_ammt)
+
+dollar_amount = float(input("Enter an amount in dollars: "))
+
+pennies  = int(round(dollar_amount * 100))
+output = ""
+for coin in coins:
+    num_of_coins = pennies // coin[1]
+    pennies %= coin[1]
+    
+    
+    print(f"{coin[0]} {num_of_coins}")
+    
+output = {}
 
 
-print(coins[0][1])
-def change(ammt):
- 
-    if ammt >= 50:
-        num = ammt // (coins[0][1])
-        ammt = ammt % 10
-        return num(coins[0])
-    if ammt >= 25:
-        (coins[1]) = ammt // (coins[1][1]) 
-        ammt = ammt % 10 
-        return (coins[1])
+# for coin in coins:
+#     num_of_coins = pennies // coin[1]
+#     pennies %= coin[1]
 
-print(change(new_ammt))
-
+#     output[coin[0]] = num_of_coins
