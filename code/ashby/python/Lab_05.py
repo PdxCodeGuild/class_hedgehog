@@ -3,6 +3,7 @@
 
 """Write a function check_palindrome which takes a string, 
 and returns True if the string's a palindrome, or False if it's not."""
+#Fun fact: The fear of palindromes is called Aibohphobia, which is a palindrome itself. That is pretty messed up.
 
 def palindrome_check(input):
     from string import punctuation as punc
