@@ -12,6 +12,7 @@ verb = input("> ")
 adjetive = []
 print("Now, give me three adjetives or 'done'? ")
 
+
 while True:
     adjetive_in = input("> ")
     

@@ -19,7 +19,7 @@ coin_quantity = {'golden dollar coin': 0, 'half-dollar': 0, 'quarter': 0, 'dime'
 value = float(input("Hello! please enter a dollar amount in the format of '0.00': "))
 while value < 0.01 :
     value = float(input("Please choose a positive value, or a value greater than 0. Also, no fractions of a penny please: "))
-value = value*100
+value = int(round(value*100))
 #various coin value calculations. 
 
 for x in coin_list:
