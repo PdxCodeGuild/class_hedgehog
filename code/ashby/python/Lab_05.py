@@ -48,35 +48,35 @@ def anagram_check(input_1, input_2):
 
 # Fun interface for fun
 
-print(f"""
-Hello! Please select from the following options:
+
+while True:
+    user_input = input((f"""
+Hello! These are your options:
 
 1. Palindrome checker
 2. Anagram checker
 3. Exit
- """)
 
-while True:
-    user_input = input("Please enter your number selection here: ")
+Please enter a number associated with your selection from above: """))
     if user_input == "1":
         
-        word_1 = input("Welcome to the palindrome checker!\nPlease type in the word you would like to check: ")
+        word_1 = input("\nWelcome to the palindrome checker!\nPlease type in the word you would like to check: ")
         if palindrome_check(word_1):
             print(f"{word_1} is a palindrome! Congratulations!")
-            break
+            
         else: 
             print(f"{word_1} is not a palindrome.")
-            break
+            
     elif user_input =="2":
-        word_1 = input("\nPlease type in your first word: ")
+        word_1 = input("\nWelcome to the anagram checker! Please type in your first word: ")
         word_2 = input("\nPlease type in your second word: ")
 
         if anagram_check(word_1,word_2) == True:
             print(f"{word_1} and {word_2} are anagrams! Yay!")
-            break
+            
         else: 
             print(f'Unfortunately, {word_1}and {word_2} are not anagrams.')
-            break
+            
     elif user_input =="3":
         print("Have a good day!")
         break
