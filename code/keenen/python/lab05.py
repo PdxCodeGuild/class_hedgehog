@@ -47,8 +47,6 @@ print(check_anagram(word_1, word_2))
 """ Palindrome Checker w/ defining function """
 
 def check_palindrome(word):
-    word = ""
-
     if word == word [::-1]:
         return True
     else:
@@ -56,3 +54,4 @@ def check_palindrome(word):
 
 word = input('Enter a word to check if it is a palindrome: ')
 print(check_palindrome(word))
+
