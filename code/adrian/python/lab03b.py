@@ -5,7 +5,7 @@
 # Remember len will give you the length of a list.
 
 
-
+# Version 1
 
 nums = [5, 0, 8, 3, 4, 1, 6]
 result = []
@@ -17,3 +17,4 @@ for num in nums:
     result.append(i)
 
 print(i / len(nums))
+
