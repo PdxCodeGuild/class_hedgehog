@@ -5,7 +5,7 @@ penny = 1
 
 dollar_amount = input("Enter a dollar amount: ")
 
-dollar_amount = float(dollar_amount) * 100
+dollar_amount = round(float(dollar_amount) * 100)
 
 quarters = dollar_amount//quarter
 
@@ -21,4 +21,4 @@ leftover_3 = leftover_2 - nickels * 5
 
 pennies = leftover_3//penny
 
-print(f"{int(quarters)} quarters, {int(dimes)} dimes, {int(nickels)} nickels and {int(pennies)} pennies")
+print(f"You would have {int(quarters)} quarters, {int(dimes)} dimes, {int(nickels)} nickels and {int(pennies)} pennies")
