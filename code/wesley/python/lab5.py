@@ -21,12 +21,10 @@ print(check_palindrome(user_word))
 
 
 def check_anagram(first_word, second_word):
-    first_low = first_word.lower()
-    second_low = second_word.lower()
-    first_rep = first_low.replace(" ", '')
-    second_rep = second_low.replace(" ", '')
-    first_list = list(sorted(first_rep))
-    second_list = list(sorted(second_rep))
+    first_low = first_word.lower().replace(" ", '')
+    second_low = second_word.lower().replace(" ", '')
+    first_list = list(sorted(first_low))
+    second_list = list(sorted(second_low))
     
     if first_list == second_list:
         return (f"{first_word} and {second_word} are anagrams.")
