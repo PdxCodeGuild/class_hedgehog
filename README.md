@@ -35,6 +35,7 @@ Instructor:
 | Lab 02a    | Madlib | 08 JUN |
 | Lab 02b    | Make Change | 08 JUN |
 | Lab 5      | Palindrome Checker | 10 JUN |
+| Lab 6 | Credit Card Validation | 14 JUN |
 
 </details>
 
