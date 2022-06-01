@@ -23,10 +23,9 @@ noun_3 =input('Enter another noun: ')
 
 # Use string concatenation to combine with user input with other strings to form the Mad Lib.
 
-madlib = f """
-Be kind to your {noun_1}-footed {plural_noun_1}
+madlib = f""" Be kind to your {noun_1}-footed {plural_noun_1}  
 For a duck may be somebody`s {noun_2},
-Be kind to your {plural_noun_2} in {place}
+Be kind to your {plural_noun_2} in {place_1}
 Where the weather is always {adjective}.
 You may think that this is the {noun_1},
 Well it is.
