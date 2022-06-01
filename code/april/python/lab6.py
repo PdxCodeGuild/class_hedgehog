@@ -2,21 +2,25 @@
 Lab 6: Credit Card Validation
 April
 31 May 2022
-"""
 
+Made change from first version of lab to where function will take 
+number with or without spaces.
+"""
 #sample_cc = 4 5 5 6 7 3 7 5 8 6 8 9 9 8 5 5
 
 def main():
     # Take credit card number as input 
-    credit_card_number = (input("Enter the credit card number: \n"))   
+    credit_card_number = (input("Enter the credit card number: \n"))
 
     # Convert the input string into a list of ints
-    cc_convert = credit_card_number.split() 
+    cc_convert = credit_card_number.replace(" ","") # Removes spaces
 
     cc_list = []
-    for nums in cc_convert:
-        cc_list.append(int(nums))
-    print(f"Credit card number as list: \n{cc_list}")
+    cc_list[:] = cc_convert # Separates into list
+
+    for nums in range(0, len(cc_list)): 
+        cc_list[nums] = int(cc_list[nums]) # Convert to ints  
+    print(f"Credit card number as list of ints: \n{cc_list}")
 
     # Slice off the last digit. That is the check digit.
     check_digit = cc_convert[-1] # Use later for validation
@@ -52,7 +56,7 @@ def main():
         print("Card is valid")
         return True
     else:
-        print("Card is not valid") # If not, not valid
+        print("Card is not valid") # If not equal it is not valid
         return False
 
 main()    
