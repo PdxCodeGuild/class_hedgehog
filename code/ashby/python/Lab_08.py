@@ -58,39 +58,68 @@ def pick_6(user_ticket, winning_ticket):
 
 
 
-list_1= [55, 27, 40, 37, 17, 65]
-list_2 = [55, 27, 6, 37, 6, 65]
+""" Version 1 """
 
 
-
-
-# Start your balance at 0
+"""# Start your balance at 0
 balance = 0
 
 winning_ticket = random_list()
-"""check, winnings = pick_6(list_1,list_2)
-balance += winnings-2"""
 
 # Loop 100,000 times, for each loop:
 play_iteration= 100000
 while play_iteration != 0:
 
-    # Generate a list of 6 random numbers representing the ticket
-    # Find how many numbers match
+# Generate a list of 6 random numbers representing the ticket
+# Find how many numbers match
     check, winnings = pick_6(random_list(), winning_ticket)
     play_iteration -= 1
 
-    # Subtract 2 from your balance (you bought a ticket)
-    # Add to your balance the winnings from your matches
+# Subtract 2 from your balance (you bought a ticket)
+# Add to your balance the winnings from your matches
     balance += winnings - 2
-    print(f" {check} match(es)")
+
+#Statement for those who wanna seem them digits
+    #print(f" {check} match(es). You win {winnings}")
 
 # After the loop, print the final balance (Hint: This will be negative)
-print(balance)
+print(balance)"""
 
 
+""" Version 2 """
 
+# Start your balance at 0
+balance = 0
+earnings = 0
+expenses = 0
+roi = 0
+winning_ticket = random_list()
 
+# Loop 100,000 times, for each loop:
+play_iteration= 100000
+while play_iteration != 0:
+
+# Generate a list of 6 random numbers representing the ticket
+# Find how many numbers match
+    check, winnings = pick_6(random_list(), winning_ticket)
+
+#check for grand prize winner
+    if check ==6:
+        print(f"Grand prize winner on iteration {play_iteration}! Congratulations!")
+    play_iteration -= 1
+
+# Subtract 2 from your balance (you bought a ticket)
+# Add to your balance the winnings from your matches
+    earnings += winnings
+    expenses += 2
+
+#Statement for those who wanna seem them digits
+    #print(f" {check} match(es). You win {winnings}")
+balance = 0 - expenses + earnings
+roi = ((earnings - expenses)/expenses)*100
+# After the loop, print the final balance (Hint: This will be negative)
+
+print(f"You earned {earnings} giving you a return on investment of {roi}% and a final balance of {balance}.")
 
 
 
