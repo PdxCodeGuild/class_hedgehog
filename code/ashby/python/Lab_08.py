@@ -30,31 +30,16 @@ def random_list(nums=6):
         rand_list.append(randint(1,99))
     return rand_list
 
-def pick_6_prize(check_value):
-    if check_value ==1:
-        return(1, 4)
-    elif check_value ==2:
-        return(2, 7)
-    elif check_value ==3:
-        return(3, 100)
-    elif check_value ==4:
-        return(4, 50000)
-    elif check_value == 5:
-        return(5, 1000000)
-    elif check_value ==6:
-        return(6, 25000000)
-    else:
-        return(0,0)
-
-
 def pick_6(user_ticket, winning_ticket):
+    pick_6_prize = {0:0,1:4,2:7,3:100,4:50000,5:1000000,6:25000000}
     check = 0
     #check print statements
     #print(user_ticket, winning_ticket)
     for x in range(len(winning_ticket)):
         if user_ticket[x] == winning_ticket[x]:
             check +=1 
-    return(pick_6_prize(check))
+    return(check, pick_6_prize[check])
+
 
 
 
