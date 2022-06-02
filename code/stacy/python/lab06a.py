@@ -1,20 +1,41 @@
 import random
 import string
-def password_generator():
-    characters = list(string.punctuation + string.digits + string.ascii_letters)
-    password_length = int(input("Enter the length of the password to be generated: \n\t> "))
-    password_character_list = []
-    password = ''
-    for x in range(password_length):
-        x = random.choice(characters)
-        password_character_list.append(x)
-    password = password.join(password_character_list)
-    print(password)
-password_generator()
+# def password_generator():
+#     characters = list(string.punctuation + string.digits + string.ascii_letters)
+#     password_length = int(input("Enter the length of the password to be generated: \n\t> "))
+#     password_character_list = []
+#     password = ''
+#     for x in range(password_length):
+#         x = random.choice(characters)
+#         password_character_list.append(x)
+#     password = password.join(password_character_list)
+#     print(password)
+# password_generator()
 #####################################################################################################
 '''Version 2'''
-
-
+def password_generator():
+    num_of_lower = int(input("Enter the number of lowercase letters: \n\t> "))
+    num_of_upper = int(input("Enter the number of uppercase letters: \n\t> "))
+    num_of_digit = int(input("Enter the number of digits: \n\t> "))
+    num_of_punc = int(input("Enter the number of punctuation characters: \n\t> "))
+    password_character_list = []
+    for x in range(num_of_lower):
+        x = random.choice(string.ascii_lowercase)
+        password_character_list.append(x)
+    for x in range(num_of_upper):
+        x = random.choice(string.ascii_uppercase)
+        password_character_list.append(x)
+    for x in range(num_of_digit):
+        x = random.choice(string.digits)
+        password_character_list.append(x)
+    for x in range(num_of_punc):
+        x = random.choice(string.punctuation)
+        password_character_list.append(x)
+    random.shuffle(password_character_list)
+    password = ''
+    password = password.join(password_character_list)
+    print(f"Your password is: \n\n\t{password}\n")
+password_generator()
 
 '''
 Random Password Generator
