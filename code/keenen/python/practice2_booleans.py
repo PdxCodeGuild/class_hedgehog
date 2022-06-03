@@ -9,14 +9,22 @@
 
 
 def go_hiking(energy_level, weather):
-    if energy_level == 'tired' and weather == 'rainy':
-        return False
-    if energy_level == 'tired' and weather == 'sunny':
-        return False
-    if energy_level == 'spry' and weather == 'rainy':
-        return False
+   
+    ''' Solution 1 '''
+    # if energy_level == 'spry' and weather == 'sunny':
+    #     return True
+    # if energy_level == 'tired' and weather == 'rainy':
+    #     return False
+    # if energy_level == 'tired' and weather == 'sunny':
+    #     return False
+    # if energy_level == 'spry' and weather == 'rainy':
+        # return False
+
+    ''' Solution 2 '''
     if energy_level == 'spry' and weather == 'sunny':
         return True
+    else:
+        return False
 
 def test_go_hiking():
     assert go_hiking('tired', 'rainy') == False
@@ -29,9 +37,19 @@ def test_go_hiking():
 # # Write a function that returns True if the number is a double digit
 
 def double_digit(num):
-    if len(str(num).replace('-', '')) == 2:
+
+    ''' Solution 1 '''
+    # if len(str(num).replace('-', '')) == 2:
+    #     return True
+    # else: 
+    #     return False
+
+    ''' Solution 2 '''
+    num = str(num)
+    num = num.replace('-', '')
+    if len(num) == 2:
         return True
-    else: 
+    else:
         return False
 
 def test_double_digit():
