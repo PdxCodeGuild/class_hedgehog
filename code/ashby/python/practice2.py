@@ -6,7 +6,7 @@
 
 # Go Hiking
 # Write a function that takes a string indicating energy level and weather
-
+"""Very specific, but I guess if it fits the bill it pays"""
 
 def go_hiking(energy, weather):
     return energy == "spry" and weather == "sunny"
@@ -20,6 +20,7 @@ def test_go_hiking():
 
 # Double Digit
 # Write a function that returns True if the number is a double digit
+"""This one feels kinda gross, I might revisit this later"""
 
 def double_digit(num):
     return num in range(10,99) or num in range(-99,-10)
@@ -33,6 +34,7 @@ def test_double_digit():
 
 # Opposite
 # Write a function that takes two integers, `a` and `b`, and returns `True` if one is positive and the other is negative, and return `False` otherwise.
+"""Pretty pleased with this one. Simple and to the point"""
 
 def opposite(a, b):
     return a*b < 0
@@ -47,7 +49,7 @@ def test_opposite():
 # Near 100
 # Write a function that returns True if a number within 10 of 100.
 
-
+"""Again, very specific, but thems the brakes"""
 def near_100(num):
     return num in range(90,110)
 
