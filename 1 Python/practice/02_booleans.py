@@ -9,7 +9,7 @@
 # Write a function that takes a string indicating energy level and weather
 
 
-def go_hiking(weather):
+def go_hiking(energy_level, weather):
     ...
 
 def test_go_hiking():
