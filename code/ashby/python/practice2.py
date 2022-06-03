@@ -1,4 +1,3 @@
-
 # Practice 2: Booleans, Comparisons, & Conditionals
 # Copy and paste this file into your own "02_booleans.py"
 # Fill in the code for each of the functions
@@ -9,8 +8,8 @@
 # Write a function that takes a string indicating energy level and weather
 
 
-def go_hiking(energy_level, weather):
-    ...
+def go_hiking(energy, weather):
+    return energy == "spry" and weather == "sunny"
 
 def test_go_hiking():
     assert go_hiking('tired', 'rainy') == False
@@ -23,7 +22,7 @@ def test_go_hiking():
 # Write a function that returns True if the number is a double digit
 
 def double_digit(num):
-    ...
+    return num in range(10,99) or num in range(-99,-10)
 
 def test_double_digit():
     assert double_digit(5) == False
@@ -36,6 +35,7 @@ def test_double_digit():
 # Write a function that takes two integers, `a` and `b`, and returns `True` if one is positive and the other is negative, and return `False` otherwise.
 
 def opposite(a, b):
+    return a*b < 0
     ...
 
 def test_opposite():
@@ -49,7 +49,7 @@ def test_opposite():
 
 
 def near_100(num):
-    ...
+    return num in range(90,110)
 
 def test_near_100():
     assert near_100(50) == False
