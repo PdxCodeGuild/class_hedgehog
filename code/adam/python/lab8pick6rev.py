@@ -96,7 +96,7 @@ def winner():
         
     #ROI(balance, expense)
     print(f"{winning_matches}")
-    print(f"You spent ${net_loss} on tickets and won {total}.")
+    print(f"You spent ${net_loss} on tickets and won ${total}.")
     #print(f"Your return on investment is {ROI()} . ")
 
 
