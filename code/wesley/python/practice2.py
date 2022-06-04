@@ -9,8 +9,12 @@
 # Write a function that takes a string indicating energy level and weather
 
 
-def go_hiking(energy_level, weather):
-    ...
+def go_hiking(energy, weather):
+    if energy == "spry" and weather == "sunny":
+        return True
+    else:
+        return False
+
 
 def test_go_hiking():
     assert go_hiking('tired', 'rainy') == False
@@ -23,7 +27,12 @@ def test_go_hiking():
 # Write a function that returns True if the number is a double digit
 
 def double_digit(num):
-    ...
+    if num in range(10, 99):
+        return True
+    elif num in range(-99, -10):
+        return True
+    else:
+        return False
 
 def test_double_digit():
     assert double_digit(5) == False
@@ -36,7 +45,10 @@ def test_double_digit():
 # Write a function that takes two integers, `a` and `b`, and returns `True` if one is positive and the other is negative, and return `False` otherwise.
 
 def opposite(a, b):
-    ...
+    if a < 0 and b > 0 or a > 0 and b < 0:
+        return True
+    else:
+        return False
 
 def test_opposite():
     assert opposite(10, -1) == True
@@ -49,7 +61,10 @@ def test_opposite():
 
 
 def near_100(num):
-    ...
+    if num in range(90, 110):
+        return True
+    else:
+        return False
 
 def test_near_100():
     assert near_100(50) == False
