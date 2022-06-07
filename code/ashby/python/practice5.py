@@ -10,6 +10,8 @@
 # Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
 
 def even_even(nums):
+    # count = [x for x in nums if x%2==0]
+    # return len(count)%2==0
     count = 0
     for x in nums:
         if x%2==0:
@@ -106,8 +108,7 @@ def test_average():
 
 def remove_empty(mylist):
     for x in mylist:
-        if x=="":
-            mylist.remove("")
+        mylist.remove("")
     return mylist
 
 def test_remove_empty():
