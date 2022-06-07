@@ -9,7 +9,12 @@
 # Capitalize text and insert dashes between each letter
 
 def loud_text(text):
-    ...
+    text = text.upper()
+    text_list = []
+    for letter in text:
+        text_list.append(letter)
+    text = '-'.join(text_list)
+    return text
 
 def test_loud_test():
     assert loud_text('hello') == 'H-E-L-L-O'
@@ -21,7 +26,12 @@ def test_loud_test():
 # Get a string from the user, print out another string, doubling every letter.
 
 def double_letters(word):
-    ...
+    letter_list = []
+    for letter in word:
+        letter_list.append(letter)
+        letter_list.append(letter)        
+    word = ''.join(letter_list)
+    return word
 
 def test_double_letters():
     assert double_letters('hello') == 'hheelllloo'
@@ -30,7 +40,11 @@ def test_double_letters():
 # Count the number of letter occurances in a string
 
 def count_letter(letter, word):
-    ...
+    letter_count = 0
+    for item in word:
+        if item == letter:
+            letter_count += 1
+    return letter_count
 
 def test_count_letter():
     assert count_letter('i', 'antidisestablishmentterianism') == 5
@@ -41,7 +55,12 @@ def test_count_letter():
 # Return the letter that appears the latest in the english alphabet.
 
 def latest_letter(word):
-  ...
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    latest_letter = 'a'
+    for letter in word:
+        if alphabet.index(letter) > alphabet.index(latest_letter):
+            latest_letter = letter
+    return latest_letter
 
 def test_latest_letter():
     assert latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis') == 'v'
@@ -51,7 +70,8 @@ def test_latest_letter():
 # Write a function that returns the number of occurances of 'hi' in a given string.
 
 def count_hi(text):
-  ...
+    count = text.count('hi')
+    return count
 
 def test_count_hi():
     assert count_hi('hihi') == 2
@@ -62,7 +82,16 @@ def test_count_hi():
 # Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
 
 def snake_case(text):
-    ...
+    import string
+    text = text.lower()
+    valid_characters = []
+    for letter in text:
+        if letter not in string.punctuation:
+            valid_characters.append(letter)
+    text = ''.join(valid_characters)
+    text_list = text.split()
+    snake_text = '_'.join(text_list)
+    return snake_text
 
 def test_snake_case():
     assert snake_case('Hello World!') ==  'hello_world'
@@ -72,7 +101,15 @@ def test_snake_case():
 # Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 
 def camel_case(text):
-    ...
+    import string
+    text = text.title().replace(' ','')
+    valid_characters = []
+    for letter in text:
+        if letter not in string.punctuation:
+            valid_characters.append(letter)
+    valid_characters[0] = valid_characters[0].lower()
+    camel_text = ''.join(valid_characters)
+    return camel_text
 
 def test_camel_case():
     assert camel_case('Hello World!') == 'helloWorld'
@@ -82,7 +119,17 @@ def test_camel_case():
 # Write a function that converts text to alternating case.
 
 def alternating_case(text):
-    ...
+    text = text.lower()
+    mocking_list = []
+    index = 0
+    for letter in text:
+        if not index % 2:
+            mocking_list.append(letter.upper())
+        else:
+            mocking_list.append(letter)
+        index += 1
+    mocking_text = ''.join(mocking_list)
+    return mocking_text
 
 def test_alternating_case():
     assert alternating_case('Hello World!') ==  'HeLlO WoRlD!'
