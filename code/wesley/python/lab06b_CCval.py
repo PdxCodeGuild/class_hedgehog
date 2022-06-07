@@ -17,8 +17,8 @@ def cc_valid():
     total = str(total)
     
     if total[1] == check_digit:
-        print("Valid")
+        return "Valid"
     else: 
-        print("Invalid")
+        return "Invalid"
 
 cc_valid()

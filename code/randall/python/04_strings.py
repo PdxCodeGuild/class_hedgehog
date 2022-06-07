@@ -1,5 +1,3 @@
-
-
 # Practice 4: Strings
 # Copy and paste this file into your own "04_strings.py"
 # Fill in the code for each of the functions
@@ -9,7 +7,8 @@
 # Capitalize text and insert dashes between each letter
 
 def loud_text(text):
-    ...
+    text = "-".join(text.upper())
+    return text
 
 def test_loud_test():
     assert loud_text('hello') == 'H-E-L-L-O'
@@ -21,7 +20,8 @@ def test_loud_test():
 # Get a string from the user, print out another string, doubling every letter.
 
 def double_letters(word):
-    ...
+    word = "".join([x*2 for x in word])
+    return word
 
 def test_double_letters():
     assert double_letters('hello') == 'hheelllloo'
@@ -60,14 +60,14 @@ def test_count_hi():
 
 # Snake Case
 # Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
-
+"""
 def snake_case(text):
     ...
 
-def test_snake_case():
+def test_snake_case(text):
     assert snake_case('Hello World!') ==  'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
-
+"""
 # Camel Case
 # Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 

@@ -1,6 +1,3 @@
-
-
-
 # Practice 5: Lists
 # Copy and paste this file into your own "05_lists.py"
 # Fill in the code for each of the functions
@@ -108,8 +105,3 @@ def combine_all(nums):
     
 def test_combine_all():
     assert combine_all([[5,2,3],[4,5,1],[7,6,3]]) == [5,2,3,4,5,1,7,6,3]
-
-
-
-
-

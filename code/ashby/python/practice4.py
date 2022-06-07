@@ -1,5 +1,3 @@
-
-
 # Practice 4: Strings
 # Copy and paste this file into your own "04_strings.py"
 # Fill in the code for each of the functions
@@ -9,7 +7,11 @@
 # Capitalize text and insert dashes between each letter
 
 def loud_text(text):
-    ...
+    text = text.upper()
+    loud_list = list(text)
+    loud_text = "-".join(loud_list)
+    return loud_text
+
 
 def test_loud_test():
     assert loud_text('hello') == 'H-E-L-L-O'
@@ -21,7 +23,13 @@ def test_loud_test():
 # Get a string from the user, print out another string, doubling every letter.
 
 def double_letters(word):
-    ...
+    word_list = list(word)
+    dub_list = []
+    for x in word_list:
+        dub_list.append(x*2)
+    word = "".join(dub_list)
+    return word
+    
 
 def test_double_letters():
     assert double_letters('hello') == 'hheelllloo'
@@ -30,7 +38,11 @@ def test_double_letters():
 # Count the number of letter occurances in a string
 
 def count_letter(letter, word):
-    ...
+    count = 0
+    for x in word:
+        count += bool(x==letter)
+    return count
+    
 
 def test_count_letter():
     assert count_letter('i', 'antidisestablishmentterianism') == 5
@@ -41,7 +53,12 @@ def test_count_letter():
 # Return the letter that appears the latest in the english alphabet.
 
 def latest_letter(word):
-  ...
+    from string import ascii_lowercase as letters
+    last = "p"
+    for x in word:
+        if (letters.index(x) > letters.index(last)):
+            last = x
+    return last
 
 def test_latest_letter():
     assert latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis') == 'v'
@@ -51,7 +68,17 @@ def test_latest_letter():
 # Write a function that returns the number of occurances of 'hi' in a given string.
 
 def count_hi(text):
-  ...
+
+    #return text.lower().count("hi")
+
+    count = 0
+    text_list = list(text)
+    for x in range(len(text_list)):
+            if x == range(len(text_list)):
+                break
+            elif text_list[x] == "h" and text_list[x+1] =="i":
+                count +=1
+    return count
 
 def test_count_hi():
     assert count_hi('hihi') == 2
@@ -62,9 +89,15 @@ def test_count_hi():
 # Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
 
 def snake_case(text):
-    ...
+    from string import punctuation
+    punc = list(punctuation)
+    snake = text.lower()
+    for x in punc:
+        snake = snake.replace(x, "")
+    snake = snake.replace(" ", "_")
+    return snake
 
-def test_snake_case():
+def test_snake_case(text):
     assert snake_case('Hello World!') ==  'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
 
@@ -72,7 +105,18 @@ def test_snake_case():
 # Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 
 def camel_case(text):
-    ...
+    from string import punctuation
+    punc = list(punctuation)
+    for x in punc:
+        text = text.replace(x, "")
+    camel = text.split(" ")
+    for x in range(len(camel)):
+        if x ==0:
+            camel[x] = camel[x].lower()
+        else:
+            camel[x]= camel[x].title()
+    camel = "".join(camel)
+    return camel
 
 def test_camel_case():
     assert camel_case('Hello World!') == 'helloWorld'
@@ -82,7 +126,12 @@ def test_camel_case():
 # Write a function that converts text to alternating case.
 
 def alternating_case(text):
-    ...
+    altern = list(text)
+    for x in range(len(altern)):
+        if x%2:
+            altern[x]= altern[x].upper()
+    altern = "".join(altern)
+    return altern
 
 def test_alternating_case():
     assert alternating_case('Hello World!') ==  'HeLlO WoRlD!'

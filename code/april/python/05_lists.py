@@ -13,7 +13,14 @@
 # Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
 
 def even_even(nums):
-    ...
+    even = []
+    for num in nums:
+        if num % 2 == 0:
+            even.append(num)
+    if len(even) % 2 == 0:
+        return True
+    else:
+        return False        
 
 def test_even_even():
     assert even_even([5, 6, 2]) == True
@@ -24,11 +31,12 @@ def test_even_even():
 # Write a function that takes a list and returns a new list with the elements in reverse order
 
 def reverse(nums):
-    ...
+    nums.reverse()
+    return nums
+
 
 def test_reverse():
     assert reverse([1, 2, 3]) == [3, 2, 1]
-
 
 
 # Common Elements
@@ -36,7 +44,11 @@ def test_reverse():
 
 
 def common_elements(nums1, nums2):
-  ...
+    common = []
+    for num in nums1:
+        if num in nums2:
+            common.append(num)
+    return common          
 
 def test_common_elements():
     assert common_elements([1, 2, 3], [2, 3, 4]) == [2, 3]
@@ -55,7 +67,9 @@ def test_combine():
 
 
 # Find Pair
-# Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+# Given a list of numbers, and a target number, find a pair of numbers 
+# from the list that sum to a target number. Optional: return a list of 
+# all pairs of numbers that sum to a target value.
 
 
 def find_pair(nums, target):
@@ -108,7 +122,6 @@ def combine_all(nums):
     
 def test_combine_all():
     assert combine_all([[5,2,3],[4,5,1],[7,6,3]]) == [5,2,3,4,5,1,7,6,3]
-
 
 
 
