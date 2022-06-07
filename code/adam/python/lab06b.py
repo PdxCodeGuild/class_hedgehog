@@ -21,15 +21,43 @@
 
 
 
+def is_valid():
+        card_num = input("Enter you card number: ")
+        cc_num = []
+        card_num = card_num.split()
+        for num in card_num:
+                cc_num.append(int(num))
+        
+        check_dig = cc_num.pop()
+        
+        counter = 0
+        for num in cc_num:
+                if counter % 2:
+                        pass
+                else:
+                        cc_num[counter] = num * 2
+                counter += 1
+        if cc_num[counter] > 9:
+                cc_num[counter] -= 9
 
 
-def valid():
-        credit_num = input("Enter a 16 digit credit card number")
+        
+        total = sum(cc_num)
+
+        check = int(str(total[1]))
+
+        return check == check_dig
+
+print(is_valid())
+
+def is_valid():
+        credit_num = input("Enter a 16 digit credit card number: ")
         #credit_num = "4556737586899855"
         numbers = []
         credit_num = list(credit_num)
         for num in credit_num:
                 numbers.append(int(num))
+        
         #print(numbers) 
 
        
@@ -49,7 +77,7 @@ def valid():
                 
                       numbers[counter] = num * 2
                       if numbers[counter] > 9:
-                              numbers[counter] = numbers[counter] - 9
+                              numbers[counter] -= - 9
                 counter += 1
         total = sum(numbers) 
         

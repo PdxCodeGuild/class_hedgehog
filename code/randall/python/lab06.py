@@ -30,7 +30,6 @@ def card_validator(cc_num):
         num_list.append(int(n))
 
     check_dig = num_list[-1]
-    #print(check_dig)
     num_list.pop()
     num_list.reverse()
     list_doubled = [num_list[n] * 2 if n % 2 == 0 else num_list[n] for n in range(len(num_list))]

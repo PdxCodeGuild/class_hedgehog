@@ -21,6 +21,8 @@ def peaks_and_valleys(dataset):
         peak_valley_indices.append(valley_indices[x])
     return peak_valley_indices
 
+''' Version 2 '''
+
 def is_an_x_mkI(dataset): #Will print with lines with square brackets on both ends
     visualization_of_data = []
     sorted_dataset = []
@@ -44,43 +46,41 @@ def is_an_x_mkI(dataset): #Will print with lines with square brackets on both en
         visualization_of_data_string += ''.join(line)+'\n'
     return visualization_of_data_string
 
+''' Version 3 '''
+
+def is_an_x_mkII(dataset): #Will print with lines with square brackets on both ends
+    visualization_of_data = []
+    sorted_dataset = []
+    sorted_dataset.extend(dataset)
+    num_of_lines = sorted_dataset.pop()
+    index = 0
+    for line in range(num_of_lines):
+        visualization_of_data.append([])
+        index += 1
+    index = 0
+    index2 = 0
+    peak_indices = peaks(dataset)
+    for line in range(num_of_lines):
+        for num in dataset:
+            if num >= line+1:
+                visualization_of_data[index].append('x')
+            # elif num <= peak_indices[index2]:
+            #     visualization_of_data[index].append('o')
+            #     index2 += 1
+            else:
+                visualization_of_data[index].append(' ')
+        index += 1
+    visualization_of_data.reverse()
+    visualization_of_data_string = ''
+    for line in visualization_of_data:
+        visualization_of_data_string += ''.join(line)+'\n'
+    return visualization_of_data_string
+
 def main():    
     dataset = [1,2,3,4,5,6,7,6,5,4,5,6,7,8,9,8,7,6,7,8,9]
-    visualization = is_an_x_mkI(dataset)
+    visualization = is_an_x_mkII(dataset)
     print(visualization)
 main()
-
-
-''' Version 3'''
-
-# def is_an_x_mkI(dataset): #Will print with lines with square brackets on both ends
-#     visualization_of_data = []
-#     sorted_dataset = []
-#     sorted_dataset.extend(dataset)
-#     num_of_lines = sorted_dataset.pop()
-#     index = 0
-#     for line in range(num_of_lines):
-#         visualization_of_data.append([])
-#         index += 1
-#     index = 0
-#     index2 = 0
-#     peak_indices = peaks(dataset)
-#     for line in range(num_of_lines):
-#         for num in dataset:
-#             if num >= line+1:
-#                 visualization_of_data[index].append('x')
-#             # elif num <= peak_indices[index2]:
-#             #     visualization_of_data[index].append('o')
-#             #     index2 += 1
-#             else:
-#                 visualization_of_data[index].append(' ')
-#         index += 1
-#     visualization_of_data.reverse()
-#     visualization_of_data_string = ''
-#     for line in visualization_of_data:
-#         visualization_of_data_string += ''.join(line)+'\n'
-#     return visualization_of_data_string
-
 
 '''
 Peaks and Valleys
