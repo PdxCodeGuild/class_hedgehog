@@ -96,7 +96,7 @@ def merge(nums1, nums2):
     ...
     
 def test_merge():
-    merge([5,2,1], [6,8,2]) == [[5,6],[2,8],[1,2]]
+    assert merge([5,2,1], [6,8,2]) == [[5,6],[2,8],[1,2]]
 
 
 # Combine All
