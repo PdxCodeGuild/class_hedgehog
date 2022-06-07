@@ -44,7 +44,7 @@ def latest_letter(word):
   ...
 
 def test_latest_letter():
-    return latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis') == 'v'
+    assert latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis') == 'v'
 
 
 # Count Hi
@@ -86,4 +86,4 @@ def alternating_case(text):
 
 def test_alternating_case():
     assert alternating_case('Hello World!') ==  'HeLlO WoRlD!'
-    assert alternating_case('This is another example.') == 'ThIs iS AnOtHeR ExAmPle.'
+    assert alternating_case('This is another example.') == 'ThIs iS AnOtHeR ExAmPlE.'
