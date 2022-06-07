@@ -1,3 +1,4 @@
+
 # Practice 2: Booleans, Comparisons, & Conditionals
 # Copy and paste this file into your own "02_booleans.py"
 # Fill in the code for each of the functions
@@ -6,13 +7,11 @@
 
 # Go Hiking
 # Write a function that takes a string indicating energy level and weather
-"""Very specific, but I guess if it fits the bill it pays"""
-
-from cmath import sqrt
 
 
 def go_hiking(energy, weather):
-    return energy == "spry" and weather == "sunny"
+    return energy == 'spry' and weather == 'sunny'
+    
 
 def test_go_hiking():
     assert go_hiking('tired', 'rainy') == False
@@ -24,16 +23,9 @@ def test_go_hiking():
 # Double Digit
 # Write a function that returns True if the number is a double digit
 
-
 def double_digit(num):
-    """Solution 3, because what if abs wasn't a function and I hated myself. Also, produces a complex so not a good idea."""
-    #return sqrt(num**2) in range(10,99)
-
-    """Solution 2, slightly cleaner"""
-    return abs(num)in range(10,99)
-    
-    """Solution 1, kinda gross"""
-    #return num in range(10,99) or num in range(-99,-10)
+    return len(str(abs(num))) == 2
+        
 
 def test_double_digit():
     assert double_digit(5) == False
@@ -44,13 +36,12 @@ def test_double_digit():
 
 # Opposite
 # Write a function that takes two integers, `a` and `b`, and returns `True` if one is positive and the other is negative, and return `False` otherwise.
-"""Pretty pleased with this one. Simple and to the point"""
 
 def opposite(a, b):
-    if a == 0 or b ==0:
-        return "I refuse to get caught up in this philosophical discussion, please do not use zero in the future."
-    return a*b < 0
-    ...
+    if a < 0 and b > 0 or b < 0 and a > 0:
+        return True
+    else:
+        return False
 
 def test_opposite():
     assert opposite(10, -1) == True
@@ -61,12 +52,12 @@ def test_opposite():
 # Near 100
 # Write a function that returns True if a number within 10 of 100.
 
-"""Again, very specific, but thems the brakes"""
+
 def near_100(num):
-    return num in range(90,110)
-    
-    #Alternate solution
-    #return num >= 90  and num <= 110
+    if num >= 90 and num <= 111:
+        return True
+    else:
+        return False
 
 def test_near_100():
     assert near_100(50) == False

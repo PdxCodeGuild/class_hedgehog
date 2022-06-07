@@ -1,4 +1,5 @@
 
+from operator import ne
 import random
 # Pick6
 # Have the computer play pick6 many times and determine net balance.
@@ -53,8 +54,8 @@ def num_matchers(winning_ticket, rand_ticket):
 
 #def ROI():
 
-    ROI = (new_earnings - new_expenses)/ new_expenses
-    return ROI
+    # ROI = (new_earnings - new_expenses)/ new_expenses
+    # return ROI
 
 
 
@@ -63,16 +64,17 @@ def num_matchers(winning_ticket, rand_ticket):
 def winner():
     balance = 0
     net_loss = 0
-    #winning_ticket = pick_6()
-
+    winning_ticket = pick_6()
+    total = 0
     for num in range(100000):
-        balance = 0
+        
         net_loss += 2
         ticket = pick_6()
-        winning_ticket = pick_6()
+        # winning_ticket = pick_6()
         # winning_matches = 0
         winning_matches = num_matchers(winning_ticket, ticket)
-
+        if winning_matches == 0:
+            balance = net_loss
         if winning_matches == 1:
             balance += 4
            
@@ -89,11 +91,12 @@ def winner():
             balance += 1000000
            
         elif winning_matches == 6:
-            balance += 25000000
-        expense = net_loss + balance
+           balance += 25000000
+        total = balance - net_loss
+        
     #ROI(balance, expense)
     print(f"{winning_matches}")
-    print(f"You won ${balance}, and spent ${expense}!!")
+    print(f"You spent ${net_loss} on tickets and won ${total}.")
     #print(f"Your return on investment is {ROI()} . ")
 
 
