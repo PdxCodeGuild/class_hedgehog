@@ -21,7 +21,7 @@
 
 
 
-def is_valid():
+def is_valid_1():
         card_num = input("Enter you card number: ")
         cc_num = []
         card_num = card_num.split()
@@ -48,9 +48,9 @@ def is_valid():
 
         return check == check_dig
 
-print(is_valid())
+print(is_valid_1())
 
-def is_valid():
+def is_valid_2():
         credit_num = input("Enter a 16 digit credit card number: ")
         #credit_num = "4556737586899855"
         numbers = []
@@ -104,4 +104,4 @@ def is_valid():
         return credit_num 
 
 
-print(valid())
+print(is_valid_2())

@@ -20,9 +20,8 @@ import random
 # Another function could be num_matches(winning, ticket) which returns the number of matches between the winning numbers and the ticket.
 
 
-#1 Generate a list of 6 random numbers representing the winning ticket
+
 def pick6():
-    # winning_ticket = [random.randint(1,99) for x in range(6)]
     winning_ticket = []   
     for x in range(0,6):
         i = random.randint(1,99)
@@ -30,24 +29,35 @@ def pick6():
 
     return winning_ticket
 
-pick6()
+# pick6()
 
 def num_matches(winning, ticket):
+    matches = 0
+    for x in range(len(winning)):
+        if winning[x] == ticket[x]:
+            matches += 1
+        return matches
 
-#2 Start your balance at 0
-    balance = 0
-    ticket = []
+
+winning = pick6()
+balance = 0
+total = 0
+
+
+for x in range(100000):
+    matches = num_matches(winning, pick6())
+    balance -= 2
+    if matches == 1:
+        total += 4 
+    elif matches == 2:
+        total += 7
+    elif matches == 3:
+        total += 100
+    elif matches == 4:
+        total += 50000
+    elif matches == 5:
+        total += 1000000
+    elif matches == 6:
+        total += 25000000
     
-
-#3 Loop 100,000 times, for each loop:
-  
-#4 Generate a list of 6 random numbers representing the ticket
-
-
-#5 Subtract 2 from your balance (you bought a ticket)
-# bought = balance - 2
-#6 Find how many numbers match
-
-#7 Add to your balance the winnings from your matches
-
-#8 After the loop, print the final balance (Hint: This will be negative)
+print(balance - total)
