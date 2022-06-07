@@ -1,3 +1,4 @@
+"""
 #Magic 8-Ball
 name = input("What is your name? ")
 question = input("Ask me a yes or a no question: ")
@@ -27,3 +28,12 @@ else:
   print("Error")
 print(f"{name} asks: {question}")
 print(f"Magic 8-Ball's answer: {answer} ")
+"""
+#def loud_text(text):
+#    text = "-".join(text.upper())
+#loud_text("Hello party people")
+
+#word = "Randy"
+#word = "".join([x*2 for x in word])
+#print(word) #RRaannddyy
+
