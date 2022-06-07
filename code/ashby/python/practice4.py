@@ -97,7 +97,7 @@ def snake_case(text):
     snake = snake.replace(" ", "_")
     return snake
 
-def test_snake_case(text):
+def test_snake_case():
     assert snake_case('Hello World!') ==  'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
 
@@ -126,9 +126,10 @@ def test_camel_case():
 # Write a function that converts text to alternating case.
 
 def alternating_case(text):
-    altern = list(text)
+    altern = list(text.lower())
+    print(altern)
     for x in range(len(altern)):
-        if x%2:
+        if not x%2:
             altern[x]= altern[x].upper()
     altern = "".join(altern)
     return altern
