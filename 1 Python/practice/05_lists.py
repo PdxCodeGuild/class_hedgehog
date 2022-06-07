@@ -109,43 +109,6 @@ def combine_all(nums):
 print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 
 
-# Fibonacci
-# Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
-
-def fibonacci(n):
-    ...
-print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
-
-# Factorial
-# Write a function that takes `n` as a parameter and returns `n` factorial.
-
-
-def factorial(n):
-  ...
-print(factorial(5)) # 120
-
-
-# Find Unique
-# Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
-
-
-def find_unique(nums):
-    ...
-nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
-unique_nums = find_unique(nums) # [12, 24, 35, 88, 120, 155]
-
-
-
-## Progressive Tax
-
-# Income Percentage of Income
-# Paid in Tax Amount of Tax
-# $5,000 10%
-# $50,000 25%
-# $100,000 28%
-# $150,000 33%
-# $350,000 35%
-
 
 
 
