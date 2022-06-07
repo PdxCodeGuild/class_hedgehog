@@ -61,7 +61,7 @@ def test_combine():
 def find_pair(nums, target):
   ...
 
-def test_find_pari():
+def test_find_pair():
     assert find_pair([5, 6, 2, 3], 7) == [5, 2]
 
 
