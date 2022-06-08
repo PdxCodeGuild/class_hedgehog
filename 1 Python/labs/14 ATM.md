@@ -13,23 +13,23 @@ class ATM:
     def __init__(self):
         pass
 
-    def check_balance():
+    def check_balance(self):
         # Returns account balance
         pass
 
-    def deposit(amount):
+    def deposit(self, amount):
         # deposits he given amount to the account
         pass
 
-    def check_withdrawal(amount):
+    def check_withdrawal(self, amount):
         # returns true if the withdrawn amount won't put the account in the negative
         pass
 
-    def withdraw(amount):
+    def withdraw(self, amount):
         # withdraws the amount from the account and returns the amount
         pass
 
-    def calc_interest():
+    def calc_interest(self):
         # returns the amount of interest calculated on the account
         pass
 
