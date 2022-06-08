@@ -23,7 +23,7 @@ def peaks_and_valleys(dataset):
 
 ''' Version 2 '''
 
-def is_an_x_mkI(dataset): #Will print with lines with square brackets on both ends
+def is_an_x_mkI(dataset):
     visualization_of_data = []
     sorted_dataset = []
     sorted_dataset.extend(dataset)
@@ -48,7 +48,17 @@ def is_an_x_mkI(dataset): #Will print with lines with square brackets on both en
 
 ''' Version 3 '''
 
-def is_an_x_mkII(dataset): #Will print with lines with square brackets on both ends
+def waterline(dataset):
+    waterline = []
+    peak_indices = peaks(dataset)
+    for index, peak in enumerate(peak_indices):
+        for count, num in enumerate(dataset):
+            if num == dataset[peak_indices[index]] and count > peak_indices[index]:
+                waterline.append(count)
+                break
+    return waterline
+    
+def is_an_x_mkII(dataset):
     visualization_of_data = []
     sorted_dataset = []
     sorted_dataset.extend(dataset)
@@ -58,17 +68,20 @@ def is_an_x_mkII(dataset): #Will print with lines with square brackets on both e
         visualization_of_data.append([])
         index += 1
     index = 0
-    index2 = 0
     peak_indices = peaks(dataset)
+    waterline_indices = waterline(dataset)
+    peak_index = 0
     for line in range(num_of_lines):
-        for num in dataset:
-            if num >= line+1:
+        for count, num in enumerate(dataset):
+            if num > line:
                 visualization_of_data[index].append('x')
-            # elif num <= peak_indices[index2]:
-            #     visualization_of_data[index].append('o')
-            #     index2 += 1
-            else:
+            elif num <= line+1 and count <= peak_indices[peak_index]:
                 visualization_of_data[index].append(' ')
+            elif num <= line and ((count > peak_index and count < waterline_indices[peak_index]) or (count > peak_index and count < waterline_indices[peak_index+1% len(peak_indices)])):#value at previous peak
+                visualization_of_data[index].append('o')
+                #num index less than peak index
+            if line == dataset[peak_indices[peak_index]]:#
+                peak_index += 1  
         index += 1
     visualization_of_data.reverse()
     visualization_of_data_string = ''
