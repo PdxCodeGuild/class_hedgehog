@@ -18,7 +18,15 @@ Over 21, advise "Already Busted"
 
 Print out the current total point value and the advice.
 """
+"""
+Updates in Version 1:
+Moved print statement into same line with advice
 
+Removed variable reassignment, and just used card_total instead of 
+using additional card_value variable
+
+Updated error in code
+"""
 # # First, ask the user for three playing cards 
 # # (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K)
 
@@ -46,19 +54,17 @@ Print out the current total point value and the advice.
 #     card3 = str(input("Please, enter your third card: ").upper())
 
 #     card_total = point_value[card1] + point_value[card2] + point_value[card3]
-#     print(card_total)
 
-#     card_value = card_total
-
-#     if card_value < 17:
-#         print("Hit!")
-#     elif card_value >= 17:
-#         print("Stay")
-#     elif card_value == 21:
-#         print("Blackjack")
-#     elif card_value >21:
-#         print("Already Busted")        
-
+#     if card_total < 17:
+#         print(f"{card_total} Hit!")
+#     elif card_total > 17 and card_total < 21:
+#         print(f"{card_total} Stay")
+#     elif card_total == 21:
+#         print(f"{card_total} Blackjack")
+#     elif card_total >21:
+#         print(f"{card_total} Already Busted")
+#     else:
+#         print("Error")  
 
 # main()
 
@@ -81,6 +87,8 @@ Moved print statement into same line with advice
 
 Removed variable reassignment, and just used card_total instead of 
 using additional card_value variable
+
+Updated error in code
 
 Added option to try again or stop
 """
@@ -117,9 +125,10 @@ def main():
                 point_value["A"] = 11
                 card_total = point_value[card1] + point_value[card2] + point_value[card3]
   
+  
             if card_total < 17:
                 print(f"{card_total} Hit!")
-            elif card_total >= 17:
+            elif card_total > 17 and card_total < 21:
                 print(f"{card_total} Stay")
             elif card_total == 21:
                 print(f"{card_total} Blackjack")
