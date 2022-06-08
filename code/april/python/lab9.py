@@ -57,7 +57,7 @@ Updated error in code
 
 #     if card_total < 17:
 #         print(f"{card_total} Hit!")
-#     elif card_total > 17 and card_total < 21:
+#     elif card_total >= 17 and card_total < 21:
 #         print(f"{card_total} Stay")
 #     elif card_total == 21:
 #         print(f"{card_total} Blackjack")
@@ -128,7 +128,7 @@ def main():
   
             if card_total < 17:
                 print(f"{card_total} Hit!")
-            elif card_total > 17 and card_total < 21:
+            elif 17 <= card_total < 21:
                 print(f"{card_total} Stay")
             elif card_total == 21:
                 print(f"{card_total} Blackjack")
