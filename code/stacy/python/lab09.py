@@ -107,7 +107,7 @@ def play_blackjack():
     d_hand.append(draw(deck))
     d_hand.append(draw(deck))
     dealer_hand = value(d_hand)
-    while dealer_hand < 17:
+    while dealer_hand < 17 and not (player_hand == 21 and len(p_hand) == 2):
         d_hand.append(draw(deck))
         dealer_hand = value(d_hand)
         
