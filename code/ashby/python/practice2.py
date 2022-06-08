@@ -30,7 +30,7 @@ def double_digit(num):
     #return sqrt(num**2) in range(10,99)
 
     """Solution 2, slightly cleaner"""
-    return abs(num)in range(10,99)
+    return abs(num)in range(10,100)
     
     """Solution 1, kinda gross"""
     #return num in range(10,99) or num in range(-99,-10)
@@ -63,7 +63,7 @@ def test_opposite():
 
 """Again, very specific, but thems the brakes"""
 def near_100(num):
-    return num in range(90,110)
+    return num in range(90,111)
     
     #Alternate solution
     #return num >= 90  and num <= 110
@@ -73,3 +73,5 @@ def test_near_100():
     assert near_100(99) == True
     assert near_100(105) == True
     assert near_100(115) == False
+    assert near_100(110) == True    
+    assert near_100(90) == True
