@@ -9,7 +9,32 @@ Let's represent an ATM with a class containing two attributes: a balance and an 
 -   `calc_interest()` returns the amount of interest calculated on the account
 
 ```python
- atm = ATM() # create an instance of our class
+class ATM:
+    def __init__(self):
+        pass
+
+    def check_balance():
+        # Returns account balance
+        pass
+
+    def deposit(amount):
+        # deposits he given amount to the account
+        pass
+
+    def check_withdrawal(amount):
+        # returns true if the withdrawn amount won't put the account in the negative
+        pass
+
+    def withdraw(amount):
+        # withdraws the amount from the account and returns the amount
+        pass
+
+    def calc_interest():
+        # returns the amount of interest calculated on the account
+        pass
+
+
+atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
 
 menu_options = {
@@ -25,16 +50,17 @@ while True:
     for label, option in menu_options.items():
         print(f'{label}. {option}')
 
-    command = input('\nEnter the number of the option you would like to perform\n> ')
+    command = input(
+        '\nEnter the number of the option you would like to perform\n> ')
     command = menu_options.get(command)
 
     if command == 'Balance':
-        balance = atm.check_balance() # call the check_balance() method
+        balance = atm.check_balance()  # call the check_balance() method
         print(f'Your balance is ${balance}')
 
     elif command == 'Deposit':
         amount = float(input('How much would you like to deposit? '))
-        success = atm.deposit(amount) # call the deposit(amount) method
+        success = atm.deposit(amount)  # call the deposit(amount) method
         if not success:
             print("Deposit amount must be a positive number.")
         else:
@@ -51,7 +77,7 @@ while True:
             print(f'Withdrew ${amount}')
 
     elif command == 'Interest':
-        amount = atm.calc_interest() # call the calc_interest() method
+        amount = atm.calc_interest()  # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
 
@@ -61,8 +87,9 @@ while True:
 
     else:
         print('Command not recognized')
+
 ```
 
-## Version 2
+## Version 2 (Optional)
 
 Have the ATM maintain a list of transactions. Every time the user makes a deposit or withdrawal, add a string to a list saying 'user deposited $15' or 'user withdrew $15'. Add a new method `print_transactions()` to your class for printing out the list of transactions.
