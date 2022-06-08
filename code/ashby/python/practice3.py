@@ -45,9 +45,9 @@ def extract_less_than_ten(nums):
     """Solution 2"""
     answer = []
     for x in nums:
-        if x<10:
-            answer.append(x)
-    return answer
+        if x>=10:
+            nums.remove(x)
+    return nums
 
 def test_extract_less_than_ten():
     assert extract_less_than_ten([2, 8, 12, 18]) == [2, 8]
