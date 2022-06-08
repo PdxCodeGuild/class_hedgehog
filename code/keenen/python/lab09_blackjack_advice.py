@@ -45,7 +45,8 @@ def main():
         '10': 10,
         'J': 10,
         'Q': 10,
-        'K': 10}
+        'K': 10
+        }
 
     # print(cards)
 
@@ -53,7 +54,8 @@ def main():
         'bust': 'Already Busted!',
         'hit': 'Hit!',
         'stay': 'Stay!',
-        'blackjack': 'Blackjack!'}
+        'blackjack': 'Blackjack!'
+        }
 
     # print(advice)
 
