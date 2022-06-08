@@ -30,7 +30,7 @@ def test_double_letters():
 # Count the number of letter occurances in a string
 
 def count_letter(letter, word):
-    ...
+    return word.count(letter)
 
 def test_count_letter():
     assert count_letter('i', 'antidisestablishmentterianism') == 5
@@ -41,7 +41,8 @@ def test_count_letter():
 # Return the letter that appears the latest in the english alphabet.
 
 def latest_letter(word):
-  ...
+    highest_letter = sorted(word)[-1]
+    return highest_letter
 
 def test_latest_letter():
     assert latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis') == 'v'
