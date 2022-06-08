@@ -14,8 +14,11 @@ def blackjack_advice():
 
     for card in cards:
         if card == "A" and total <= 21:
-            total += 10 
-            
+            if total + 10 < 21:
+                total +=10
+            else:
+                total = total 
+        
     def advice():
         if total < 17:
             return "Hit"
