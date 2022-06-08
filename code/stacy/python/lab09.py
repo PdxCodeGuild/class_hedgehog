@@ -51,19 +51,26 @@ def advice(hand_value: int):
         return f'{hand_value}: Stay.'
 
 def draw(deck: list):
-    card = deck.pop(randint(0, len(deck)))
+    card = deck.pop(randint(0, len(deck)-1))
     return card
 
 def value(hand: list):
     sum = 0
+    aces = []
     for card in hand:
-        if card.isnumeric() == True:
+        if card.upper() == 'A':
+            aces.append(card)
+        elif card.isnumeric() == True:
             card = int(card)
-        elif card.upper() == 'A':
-            card = 1
+            sum += card
         elif card.upper() in ['J', 'Q', 'K']:
             card = 10
-        sum += card
+            sum += card
+    for ace in aces:
+        if sum + 11 <= 21:
+            sum += 11
+        elif sum + 11 > 21:
+            sum += 1
     return sum
 
 def play_blackjack():
@@ -71,43 +78,42 @@ def play_blackjack():
     deck = []
     deck.extend(cards*4)
 
-    hand = []
+    p_hand = []
     player_hand = 0
-    hand.append(draw(deck))
-    hand.append(draw(deck))
-    player_hand = value(hand)
+    p_hand.append(draw(deck))
+    p_hand.append(draw(deck))
+    player_hand = value(p_hand)
 
     keep_drawing = True
-    if (player_hand == 21 and len(player_hand) == 2):
-        print(f'{player_hand}, Blackjack!')
+    if (player_hand == 21 and len(p_hand) == 2):
         keep_drawing = False
     while keep_drawing == True:
-        draw_again = input(f'You drew {hand}. Your score is {player_hand}. Would you like to stay, hit, or ask for advice? \n\t> ').lower().replace(' ','')
+        draw_again = input(f'You drew {p_hand}. Your score is {player_hand}. Would you like to stay, hit, or ask for advice? \n\t> ').lower().replace(' ','')
         if draw_again[0] == 's':    
             keep_drawing = False
         elif draw_again[0] == 'h':
-            hand.append(draw(deck))
-            player_hand = value(hand)
+            p_hand.append(draw(deck))
+            player_hand = value(p_hand)
             if player_hand > 21:
-                winner = f'Player busts. Dealer wins.'
+                winner = f'You drew a {p_hand[-1]}. Player busts. Dealer wins.'
                 return winner
         elif draw_again[0] == 'a':
             print(advice(player_hand))
         else:
             print("Please choose 'stay', 'draw', or 'advice'.")
 
-    hand = []
+    d_hand = []
     dealer_hand = 0
-    hand.append(draw(deck))
-    hand.append(draw(deck))
-    dealer_hand = value(hand)
+    d_hand.append(draw(deck))
+    d_hand.append(draw(deck))
+    dealer_hand = value(d_hand)
     while dealer_hand < 17:
-        hand.append(draw(deck))
-        dealer_hand = value(hand)
+        d_hand.append(draw(deck))
+        dealer_hand = value(d_hand)
         
-    if (player_hand == 21 and len(player_hand) == 2) and not (dealer_hand == 21 and len(dealer_hand) == 2):
-        winner = 'Blackjack! Player wins!'
-    elif (player_hand == 21 and len(player_hand) == 2) and (dealer_hand == 21 and len(dealer_hand) == 2):
+    if (player_hand == 21 and len(p_hand) == 2) and not (dealer_hand == 21 and len(d_hand) == 2):
+        winner = f'Player got Blackjack! Dealer got {dealer_hand}. Player wins!'
+    elif (player_hand == 21 and len(p_hand) == 2) and (dealer_hand == 21 and len(d_hand) == 2):
         winner = 'Player and Dealer both got Blackjack! Dealer wins!'
     elif player_hand <= 21 and dealer_hand > 21:
         winner = 'Dealer busts! Player wins!'
