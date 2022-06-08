@@ -37,8 +37,9 @@ def test_double_digit():
 
 def opposite(a, b):
     # return not a == abs(a) xor b == abs(b) # apperently the xor boolean operator doesnt exist in python
-    return (a != abs(a) or b != (abs(b))) and (a == abs(a) or b == (abs(b)))
-
+    # return (a != abs(a) or b != (abs(b))) and (a == abs(a) or b == (abs(b)))
+    return a * b < 0
+    
 def test_opposite():
     assert opposite(10, -1) == True
     assert opposite(2, 3) == False
