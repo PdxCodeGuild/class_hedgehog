@@ -1,6 +1,3 @@
-from sre_constants import JUMP
-
-
 def peaks(dataset):
     peak_indices = []
     for x in range(1, len(dataset)-1):
@@ -26,7 +23,7 @@ def peaks_and_valleys(dataset):
 
 ''' Version 2 '''
 
-def is_an_x_mkI(dataset): #Will print with lines with square brackets on both ends
+def is_an_x_mkI(dataset):
     visualization_of_data = []
     sorted_dataset = []
     sorted_dataset.extend(dataset)
@@ -59,10 +56,9 @@ def waterline(dataset):
             if num == dataset[peak_indices[index]] and count > peak_indices[index]:
                 waterline.append(count)
                 break
-    # print(waterline)
     return waterline
     
-def is_an_x_mkII(dataset): #Will print with lines with square brackets on both ends
+def is_an_x_mkII(dataset):
     visualization_of_data = []
     sorted_dataset = []
     sorted_dataset.extend(dataset)
@@ -74,13 +70,6 @@ def is_an_x_mkII(dataset): #Will print with lines with square brackets on both e
     index = 0
     peak_indices = peaks(dataset)
     waterline_indices = waterline(dataset)
-    print(peak_indices)
-    '''
-    for each line
-    if the number is greater than the line + 1 (line starts at 0) then print x
-    if the number is less than the line but is less than or equal to the previous peak value, print o
-    if the number is less than the line but does not meet previous coniditions, empty space
-    '''
     peak_index = 0
     for line in range(num_of_lines):
         for count, num in enumerate(dataset):
@@ -92,11 +81,8 @@ def is_an_x_mkII(dataset): #Will print with lines with square brackets on both e
                 visualization_of_data[index].append('o')
                 #num index less than peak index
             if line == dataset[peak_indices[peak_index]]:#
-                peak_index += 1
-            
-                    
+                peak_index += 1  
         index += 1
-
     visualization_of_data.reverse()
     visualization_of_data_string = ''
     for line in visualization_of_data:
