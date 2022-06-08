@@ -24,6 +24,43 @@ What's your third card? A
 values = {"K":10,"Q":10,"J":10,"10":10,"9":9,"8":8,"7":7,"6":6,"5":5,"4":4,"3":3,"2":2,"A":1}
 
 
+"""def blackjack_advice():
+    hand = []
+    total = 0
+    while len(hand) <3:
+        player_input = input("Please enter your number card, or the FIRST letter of a face card: ").upper()
+        if player_input not in values.keys():
+            print("That is not an option, please try again")
+            continue
+        else:
+            hand.append(player_input)
+    # Less than 17, advise to "Hit"
+    # Greater than or equal to 17, but less than 21, advise to "Stay"
+    # Exactly 21, advise "Blackjack!"
+    # Over 21, advise "Already Busted"
+
+    total = sum([values[c] for c in hand])
+    if total >21:
+        return f"{total}, Already busted."
+    elif total == 21:
+        return f"{total}, Blackjack!"
+    elif total in range(17,21):
+        return f"{total}, I would suggest staying."
+    else:
+        return f"{total}, I would suggest a hit."
+
+print(blackjack_advice())"""
+
+    
+
+# Less than 17, advise to "Hit"
+# Greater than or equal to 17, but less than 21, advise to "Stay"
+# Exactly 21, advise "Blackjack!"
+# Over 21, advise "Already Busted"
+
+
+"""Version 2"""
+
 def blackjack_advice():
     hand = []
     total = 0
@@ -34,8 +71,15 @@ def blackjack_advice():
             continue
         else:
             hand.append(player_input)
-    print(f"Your cards are {hand}")
+    
     total = sum([values[c] for c in hand])
+# Added in for loop, checks for "A" in hand and adds in 10. I cannot think of a need for an actual for loop in this to check every card since you could only ever benefit from one Ace being counted as elevel at a time, but it felt more complete to me so it stays
+    #if "A" in hand and total <=11:
+    #    total+=10
+    for x in hand:
+        if x =="A" and total <=11:
+            total += 10
+
     if total >21:
         return f"{total}, Already busted."
     elif total == 21:
@@ -47,12 +91,6 @@ def blackjack_advice():
 
 print(blackjack_advice())
 
-    
-
-# Less than 17, advise to "Hit"
-# Greater than or equal to 17, but less than 21, advise to "Stay"
-# Exactly 21, advise "Blackjack!"
-# Over 21, advise "Already Busted"
 
 
 
@@ -60,9 +98,3 @@ print(blackjack_advice())
 
 
 
-
-
-
-"""
-Version 2 (optional)
-Aces can be worth 11 if they won't put the total point value of both cards over 21. Remember that you can have multiple aces in a hand."""
