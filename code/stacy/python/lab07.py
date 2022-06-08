@@ -23,7 +23,7 @@ def peaks_and_valleys(dataset):
 
 ''' Version 2 '''
 
-def is_an_x_mkI(dataset):
+def is_an_x_mkI(dataset): #Will print with lines with square brackets on both ends
     visualization_of_data = []
     sorted_dataset = []
     sorted_dataset.extend(dataset)
@@ -74,11 +74,11 @@ def is_an_x_mkII(dataset):
     for line in range(num_of_lines):
         for count, num in enumerate(dataset):
             if num > line:
-                visualization_of_data[index].append('x')
+                visualization_of_data[index].append('^')
             elif num <= line+1 and count <= peak_indices[peak_index]:
                 visualization_of_data[index].append(' ')
             elif num <= line and ((count > peak_index and count < waterline_indices[peak_index]) or (count > peak_index and count < waterline_indices[peak_index+1% len(peak_indices)])):#value at previous peak
-                visualization_of_data[index].append('o')
+                visualization_of_data[index].append('~')
                 #num index less than peak index
             if line == dataset[peak_indices[peak_index]]:#
                 peak_index += 1  
