@@ -6,11 +6,8 @@ def latest_letter(word): #passes word in
 
 print(latest_letter("poqzmry"))
 """
-from ntpath import join
+import random
 
-
-mystring = 'Python'
-print(reversed(mystring)) # <reversed object at 0x7fb67b77dd68>
-print(list(reversed(mystring))) # ['n', 'o', 'h', 't', 'y', 'P']
-print(sorted(mystring)) # ['P', 'h', 'n', 'o', 't', 'y']
-print(mystring.join(mystring))
+the_picks = [random.randint(1, 99) for x in range(0, 6)]
+the_picks.sort()
+print(the_picks)
