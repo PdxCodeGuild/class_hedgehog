@@ -33,7 +33,7 @@
 def main():
 
     cards = {
-        "A": 1,
+        'A': 1,
         '2': 2,
         '3': 3,
         '4': 4,
@@ -58,9 +58,9 @@ def main():
         }
 
     # print(advice)
-
+    player_choices = cards.keys()
     hand = []
-
+    print(f'These are your choices: {player_choices}')
     hand.append(str(input("What's your first card: ")).upper())
     hand.append(str(input("What's your second card: ")).upper())
     hand.append(str(input("What's your third card: ")).upper())
