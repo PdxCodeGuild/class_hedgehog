@@ -2,7 +2,7 @@ from random import randint
 def pick6():
     ticket = []
     for x in range(6):
-        x = randint(1, 100)
+        x = randint(1, 99)
         ticket.append(x)
     return ticket
 
@@ -54,11 +54,16 @@ def main():
         5: 1000000,
         6: 25000000
     }
+    outcome_counter = {}
     winning_ticket = pick6()
     balance = 0
     for _ in range(100000): 
         player_ticket = pick6()
         number_of_matches = num_matches(winning_ticket, player_ticket)   
+        if number_of_matches not in outcome_counter:
+            outcome_counter[number_of_matches] = 1
+        else:
+            outcome_counter[number_of_matches] += 1
         balance -= 2
         balance += payout.get(number_of_matches, 0)
     return_on_investment = (balance-200000)/200000
@@ -66,7 +71,7 @@ def main():
         'Balance': balance,
         'ROI': return_on_investment
     }
-    
+    print(outcome_counter)
     print(results)
     '''
     Pick6
