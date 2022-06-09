@@ -1,4 +1,4 @@
-from random import randint
+from random import shuffle
 
 # def advice(hand_value: int):
 #     if hand_value <= 17:
@@ -51,7 +51,7 @@ def advice(hand_value: int):
         return f'{hand_value}: Stay.'
 
 def draw(deck: list):
-    card = deck.pop(randint(0, len(deck)-1))
+    card = deck.pop(0)
     return card
 
 def value(hand: list):
@@ -77,6 +77,7 @@ def play_blackjack():
     cards = ['A', '2', '3', '4', '5', '6' , '7', '8', '9', 'J', 'Q', 'K']
     deck = []
     deck.extend(cards*4)
+    shuffle(deck)
 
     p_hand = []
     player_hand = 0
