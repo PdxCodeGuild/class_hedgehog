@@ -53,9 +53,14 @@ def rot_cipher_2(): #Allows user to input text to be encrpyted and rotation used
 def rot_cipher(): #Allows user to input text to be encrpyted and rotation used in encryption
 
     #Builds library list using string module
-    alphabet = list(string.ascii_lowercase)
-    #set rot value, stored as variable to modify later
-    
+    alphabet = []
+    for x, y in zip(string.ascii_lowercase, string.ascii_uppercase):
+        alphabet.append(x)
+        alphabet.append(y)
+    punc_list = list(string.punctuation)
+    num_list = list(string.digits)
+
+
     #inputs text - limited to lowercase
     plain_text = input("Please enter the sentence you would like to encrypt: ")
     while True:
@@ -65,11 +70,29 @@ def rot_cipher(): #Allows user to input text to be encrpyted and rotation used i
             print("Invalid rotation cipher. Please enter a number in integer form.")
             continue
         break
+
+    while True:
+        spec_char = input("Would you like to rotate punctuation and number characters as well y/n: ").lower()
+        if spec_char[0] == "n" or spec_char == "y":
+            break
+        else:
+            print("I do not understand...")
+            continue
+    
     plain_list = list(plain_text)
     #iterate through list, check for inclusion in alphabet and modify by +13 index in alphabet list
+    
+
     for l in range(len(plain_list)):
         if plain_list[l] in alphabet:
-            plain_list[l] = alphabet[(alphabet.index(plain_list[l])+rot)%len(alphabet)]
+            plain_list[l] = alphabet[(alphabet.index(plain_list[l])+(rot*2))%len(alphabet)]
+    if spec_char == "y":
+        for l in range(len(plain_list)):
+            if plain_list[l] in punc_list:
+                plain_list[l] = punc_list[(punc_list.index(plain_list[l])+rot)%len(punc_list)]
+            if plain_list[l] in num_list:
+                plain_list[l] = num_list[(num_list.index(plain_list[l])+rot)%len(num_list)]
+            
     #rejoins list together for return
     return f"{''.join(plain_list)}"
 
