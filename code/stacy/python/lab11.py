@@ -2,20 +2,29 @@ import string
 
 ''' Version 1 '''
 
-def rot_13_mkI(input_string):
+# def rot_13_mkI(input_string):
+#     lower_alphabet = string.ascii_lowercase
+#     output_string = ''
+#     for index, letter in enumerate(input_string):
+#         output_string+= ''.join(lower_alphabet[(index + 13)%26])
+#     return output_string
+
+''' Version 2 '''
+
+def rot_mkII(input_string:str, rot_x: int):
     lower_alphabet = string.ascii_lowercase
     output_string = ''
     for index, letter in enumerate(input_string):
-        output_string+= ''.join(lower_alphabet[(index + 13)%26])
+        output_string+= ''.join(lower_alphabet[(index + rot_x)%26])
     return output_string
-
-''' Version 2 '''
 
 ''' Version 3 '''
 
 def main():
-    print(rot_13_mkI('abcdefghijklmnopqrstuvwxyz'))
-    
+    rot_x = int(input("Enter rotational factor for ROT cypher (must be an integer): \n\t: ").replace(' ',''))
+    user_input = (rot_mkII(input("Enter letters to be encrypted with ROT13 cypher: \n\t> "), rot_x))
+    print(user_input)
+
 main()
 
 
