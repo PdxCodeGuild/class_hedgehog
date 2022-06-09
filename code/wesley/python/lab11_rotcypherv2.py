@@ -8,7 +8,7 @@ def rotcypher():
 
     rot = []
     for i, user_string in enumerate(user_string):
-        if i + 13 < 25:
+        if i + rotation < 25:
             rot.append(letters[i + rotation])
         else:
             rot.append(letters[i - rotation])
