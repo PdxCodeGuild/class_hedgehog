@@ -108,7 +108,8 @@ def test_average():
 
 def remove_empty(mylist):
     for x in mylist:
-        mylist.remove("")
+        if x=="":
+            mylist.remove("")
     return mylist
 
 def test_remove_empty():
