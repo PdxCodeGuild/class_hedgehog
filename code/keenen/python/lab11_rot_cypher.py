@@ -59,14 +59,59 @@
 
         
 """ Version 2 """
-        
 
-counter = 0
-rotations = int(input('How many rotations would you like to perform on each character you enter: '))
-counter += rotations
+import string
 
-while counter > 26:
-    counter -= 26
+def rot():
+
+    rot_list = list(string.ascii_lowercase)
+    rotated = ''
+    # print(rot_list)
+    user = input('\nEnter the alphabetical characters you would like to encrypt/rotate: ').lower()
+    rotations = int(input('\nHow many rotations would you like to perform on each character you enter: '))
+
+    for character in user:
+        if character in rot_list:
+            index = (rot_list.index(character) + rotations) % 26
+            # print(index)
+            rotated += rot_list[index]
+            # print(rotated)
+        else:
+            rotated += character
+
+    print(f'\nThe encrypted version of the characters you entered is: {rotated}')
 
 
-print(counter)
+rot()
+    
+    
+    
+    
+    
+    
+    
+    
+    # list_keys = list(rot_user.keys())
+    # list_values = list(rot_user.values())
+    
+    # print(list_keys)
+    # print(list_values)
+    # output = ''
+
+    # while counter > 26:
+    #     counter -= 26
+    # # print(counter)
+
+    # for i in list_values:
+    #     # print(rot_user.keys())
+    #     while user == list_values.index(user):
+    #         print(list_values[i])
+
+    #     output = rot_user[(rotations) + counter]
+    # print(output)
+    
+    # for i, v in enumerate(rot_user):
+    #     output = (i + counter) % 26
+    # # print(output)
+    # for output in rot_user.keys():
+    #     print((rot_user.keys()))
