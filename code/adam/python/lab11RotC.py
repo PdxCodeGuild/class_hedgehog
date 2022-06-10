@@ -1,5 +1,5 @@
-#
-# 
+
+
 #  # Rot Cipher
 
 # Write a program that prompts the user for a string, and encodes it with ROT13. 
@@ -25,15 +25,15 @@ def ROT():
     
     for ch in user_cipher:
         if ch in alphabet:
+            #Replace  ROT_inc with 13 to produce your ROT13 cipher.
             cipher_value = (alphabet.index(ch) + ROT_inc) % 26
             encrypted_string += ''.join(alphabet[cipher_value]) 
 
         else:
             encrypted_string += ch
-    
+    print(f"Your final encrypted phrase is {encrypted_string} ")
     return encrypted_string
-
-
+    
 ROT()
     
 #     import string  
