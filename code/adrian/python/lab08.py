@@ -1,4 +1,3 @@
-import random
 # Have the computer play pick6 many times and determine net balance.
 
 # Initially the program will pick 6 random numbers as the 'winner'. 
@@ -19,45 +18,58 @@ import random
 # One function you might write is pick6() which will generate a list of 6 random numbers, which can then be used for both the winning numbers and tickets. 
 # Another function could be num_matches(winning, ticket) which returns the number of matches between the winning numbers and the ticket.
 
+import random
 
 
 def pick6():
     winning_ticket = []   
-    for x in range(0,6):
-        i = random.randint(1,99)
-        winning_ticket.append(i)
+    for _ in range(6):
+        winning_ticket.append(random.randint(1, 99))
 
     return winning_ticket
 
 # pick6()
 
-def num_matches(winning, ticket):
+def num_matches(winning, current):
     matches = 0
-    for x in range(len(winning)):
-        if winning[x] == ticket[x]:
+    for x in range(6):
+        if winning[x] == current[x]:
             matches += 1
-        return matches
+
+    return matches
 
 
-winning = pick6()
-balance = 0
-total = 0
+def main():
+    payout = {
+        1: 4,
+        2: 7,
+        3: 100,
+        4: 50_000,
+        5: 1_000_000,
+        6: 25_000_000
+    }
 
-
-for x in range(100000):
-    matches = num_matches(winning, pick6())
-    balance -= 2
-    if matches == 1:
-        total += 4 
-    elif matches == 2:
-        total += 7
-    elif matches == 3:
-        total += 100
-    elif matches == 4:
-        total += 50000
-    elif matches == 5:
-        total += 1000000
-    elif matches == 6:
-        total += 25000000
+    outcome = {}
     
-print(balance - total)
+    winning = pick6()
+
+    cost = 0
+    profit = 0
+    
+    for _ in range(100_000):
+
+        ticket = pick6()
+
+        cost += 2
+
+        matches = num_matches(winning, ticket)
+        if matches not in outcome:
+            outcome[matches] = 1
+        else:
+            outcome[matches] += 1
+
+        profit += payout.get(matches, 0)
+
+    print(f"Balance: ${profit - cost}")
+    print(f"ROI: {(profit - cost) / cost}")
+    print(outcome)

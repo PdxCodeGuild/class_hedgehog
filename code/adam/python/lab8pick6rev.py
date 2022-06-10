@@ -1,5 +1,4 @@
 
-from operator import ne
 import random
 # Pick6
 # Have the computer play pick6 many times and determine net balance.
@@ -39,8 +38,8 @@ import random
 def pick_6():
     import random
     ticket = []
-    for x in range(6):
-        ticket.append(random.randint(0, 100))
+    for _ in range(6):
+        ticket.append(random.randint(1, 99))
     return ticket
 
 
@@ -59,45 +58,58 @@ def num_matchers(winning_ticket, rand_ticket):
 
 
 
-
-
 def winner():
-    balance = 0
-    net_loss = 0
+    winnings = {
+        1: 4,
+        2: 7,
+        3: 100,
+        4: 50_000,
+        5: 1_000_000,
+        6: 25_000_000
+
+    }
+    outcome = {}
+    #balance = 0
+    cost = 0
+    profit = 0
     winning_ticket = pick_6()
-    total = 0
-    for num in range(100000):
-        
-        net_loss += 2
+    #total = 0
+    for _ in range(100_000):
+        cost +=2
         ticket = pick_6()
         # winning_ticket = pick_6()
         # winning_matches = 0
         winning_matches = num_matchers(winning_ticket, ticket)
-        if winning_matches == 0:
-            balance = net_loss
-        if winning_matches == 1:
-            balance += 4
+        #if matches not in outcome:
+            #outcome[matches] = 1
+        #else:
+            #outcome[matches]+=1
+        profit += winnings.get(winning_matches, 0)
+        
+        # if winning_matches == 1:
+        #     balance += 4
            
-        elif winning_matches == 2:
-            balance += 7
+        # elif winning_matches == 2:
+        #     balance += 7
             
-        elif winning_matches == 3:
-            balance += 100
+        # elif winning_matches == 3:
+        #     balance += 100
             
-        elif winning_matches == 4:
-            balance += 50000
+        # elif winning_matches == 4:
+        #     balance += 50000
            
-        elif winning_matches == 5:
-            balance += 1000000
+        # elif winning_matches == 5:
+        #     balance += 1000000
            
-        elif winning_matches == 6:
-           balance += 25000000
-        total = balance - net_loss
+        # elif winning_matches == 6:
+        #    balance += 25000000
+        # total = balance - net_loss
         
     #ROI(balance, expense)
     print(f"{winning_matches}")
-    print(f"You spent ${net_loss} on tickets and won ${total}.")
-    #print(f"Your return on investment is {ROI()} . ")
+    print(f"Balance: {(profit - cost)}")
+    print(f"ROI: {(profit - cost) / cost}")
+    
 
 
 winner()

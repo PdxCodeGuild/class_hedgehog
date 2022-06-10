@@ -1,10 +1,10 @@
 import random
 
 def pick6():
-    winning_num = []
+    ticket = []
     for x in range(0,6):
-        winning_num.append(random.randint(1,99))
-    return(winning_num)
+        ticket.append(random.randint(1,99))
+    return ticket
 
 winning_ticket = pick6()
 
@@ -34,7 +34,6 @@ while x <= 100000:
 
 print(balance)
 
-pick6()
 
 
 
