@@ -1,4 +1,6 @@
-# # Rot Cipher
+#
+# 
+#  # Rot Cipher
 
 # Write a program that prompts the user for a string, and encodes it with ROT13. 
 # For each character, find the corresponding character, add it to an output string. 
@@ -9,34 +11,44 @@
 # |---------|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 # | English | a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
 # | ROT+13  | n| o| p| q| r| s| t| u| v| w| x| y| z| a| b| c| d| e| f| g| h| i| j| k| l| m|
+
 import string
-def ROT(user_string:str, ROTN:int):
+
+def ROT():
     import string
-    alphabet = string.ascii_lowercase
+    alphabet = list(string.ascii_lowercase)
 
-    output_string = ""
+    user_cipher = input("Enter a the phrase or passage you would like to encrypt: ").lower().replace(string.punctuation, "_")
+    ROT_inc = int(input("Enter the value you would like to increment your cipher by (ROT number): "))
+   
+    encrypted_string = ""
     
-    for i, letter in enumerate(user_string):
-        output_string += ''.join(alphabet[(i + ROTN) % 26]) 
-    return output_string
+    for ch in user_cipher:
+        if ch in alphabet:
+            cipher_value = (alphabet.index(ch) + ROT_inc) % 26
+            encrypted_string += ''.join(alphabet[cipher_value]) 
 
-
-def main():
+        else:
+            encrypted_string += ch
     
-    import string  
-    ROT_inc = input("Enter the value you would like to increment your cipher by (ROT number): ")
-    user_cipher = (ROT(input("Enter a the phrase or passage you would like to encrypt: ").lower().replace(string.punctuation, ""), int(ROT_inc)))
-    print(user_cipher)
-    print("Do you have another item to encrypt, Y or N?")
-    again = input(">: ").upper()
-    if again == "Y":
-        main()
-    else:
-        quit(0)
-main()
+    return encrypted_string
 
 
-    # alphabet = {
+ROT()
+    
+#     import string  
+#     ROT_inc = input("Enter the value you would like to increment your cipher by (ROT number): ")
+#     user_cipher = (ROT(input("Enter a the phrase or passage you would like to encrypt: ").lower().replace(string.punctuation, ""), int(ROT_inc)))
+#     print(user_cipher)
+#     print("Do you have another item to encrypt, Y or N?")
+#     again = input(">: ").upper()
+#     if again == "Y":
+#         main()
+#     else:
+#         quit(0)
+# main()
+
+  # alphabet = {
     #     0: "a",
     #     1: "b",
     #     2: "c",
@@ -65,7 +77,7 @@ main()
     #     25: "z",
     # }
 
-    # rev_alpha = {
+    # inc_alpha = {
     #     "a": 0,
     #     "b": 1,
     #     "c": 2,
@@ -94,12 +106,7 @@ main()
     #     "z": 25
     # }
 
-
-
-
-
-
-
+  
 
 
 
