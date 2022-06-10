@@ -1,13 +1,13 @@
-"""
-def latest_letter(word): #passes word in
-    highest_letter = sorted(word)[-1] #creates sorted list in alphabetic order and selects last item in string
-    print(word)
-    return highest_letter #returns the lasr letter in the string
 
-print(latest_letter("poqzmry"))
-"""
-import random
-
-the_picks = [random.randint(1, 99) for x in range(0, 6)]
-the_picks.sort()
-print(the_picks)
+# declaring string variables
+str1 = 'Understanding'
+str2 = '%s'
+str3 = 'at'
+str4 = 'GeeksforGeeks'
+  
+# concatenating strings but %s not equal to string variables
+final_str = "%s %s %s %s" % (str1, str3, str4)
+  
+# printing the final string
+print("Concatenating multiple strings using Python '%s' operator:\n")
+print(final_str)
