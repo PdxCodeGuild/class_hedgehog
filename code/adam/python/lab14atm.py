@@ -11,19 +11,19 @@
 
 # ```python
 
-from re import A
+
 
 
 class ATM:
     def __init__(self):
         self.balance = 0
-        self.interest_rate = .01
-        pass
+        self.interest_rate = .001
+        #pass
 
     def check_balance(self):
         return self.balance
         # Returns account balance
-        #
+        #pass
 
     def deposit(self, amount):
         self.balance += amount
@@ -46,7 +46,7 @@ class ATM:
     def calc_interest(self):
         return self.interest_rate * self.balance 
         # returns the amount of interest calculated on the account
-        pass
+        #pass
 
 
 atm = ATM()  # create an instance of our class
@@ -107,4 +107,6 @@ while True:
 
 # ## Version 2 (Optional)
 
-# Have the ATM maintain a list of transactions. Every time the user makes a deposit or withdrawal, add a string to a list saying 'user deposited $15' or 'user withdrew $15'. Add a new method `print_transactions()` to your class for printing out the list of transactions.
+# Have the ATM maintain a list of transactions. 
+# Every time the user makes a deposit or withdrawal, add a string to a list saying 'user deposited $15' or 'user withdrew $15'.
+# Add a new method `print_transactions()` to your class for printing out the list of transactions.
