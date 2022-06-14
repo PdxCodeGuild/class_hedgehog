@@ -15,9 +15,8 @@ Stretch Goals:
     Z-test
     MANOVA (Multivariant ANOVA)
 """
-
-dataset = [[], [], []] # List of subject IDs, list of dependent values, list of independent values
-
+#####################################################################################################
+''' Functions for mathematical operations '''
 def mean(dataset):
     n = len(dataset)
     sum = 0
@@ -41,44 +40,48 @@ def standard_deviation(variance: float): # variance and list of values
     standard_deviation = variance ** 1/2
     return standard_deviation
 
-######## still not sure how classes work, but I'll just write a skeleton and fix it later
+''' Dataset for subject ID, dependent variable value, independent variable value '''
+dataset = [[], [], []] # List of subject IDs, list of dependent values, list of independent values
+
+#######################################################################################################
 class Subject:
-    # Each subject will have an identifier and values for variables. We'll start with 1 dependent variable
-    def __init__(self, subject: dict, dependent: int, independent: int): # subject dict will be {'name': 'x', 'ID': y}
-        self.subject_name = subject.get('name') # ID number or name
-        self.subject_number = subject.get('ID')
+    def __init__(self, subject_ID: str, dependent: int, independent: int): 
+        self.ID = subject_ID
         self.dependent_value = dependent
         self.independent_value = independent
         
-class Dependent_variable: # Will need variable name, type of variable (discrete, categorical, etc)
-    def __init__(self, variable_name, variable_type):
-        self.variable_name = variable_name
-        self.variable_type = variable_type
+class Dependent_variable: # Will need variable name, type of variable (discrete, continuous, etc)
+    def __init__(self, variable_dict): # Dictionary for name, type, and metadata for variable
+        self.variable_name = variable_dict.get('variable_name')
+        self.variable_type = variable_dict.get('variable_type') # Should be discrete for now, but this sets up other variable types for the future
     
-class Independent_variable:
-    def __init__(self, variable_name, variable_type):
-        self.variable_name = variable_name
-        self.variable_type = variable_type
+class Independent_variable: 
+    def __init__(self, variable_dict): 
+        self.variable_name = variable_dict.get('variable_name')
+        self.variable_type = variable_dict.get('variable_type')
 
-class Experimental_data: # Will use this to create an instance of each experiment
-    def __init__(self, dataset, dependent_variable, independent_variable):
-        self.subject_IDs = []
-        self.dependent_values = []
-        self.independent_values = []
-        self.dependent_name = ''
-        self.dependent_type = '' # let's start with discrete variables to make it easier to calculate
-        self.independent_name = ''
-        self.independent_type = ''
-    
-class Distribution: # We're using a class for this in case we want to reuse just the distribution data later
-    # Distribution will calculate mean, sum of squares, variance, and standard deviation
-    def __init__(self, dataset: list): # Work in progress
-        self.mean = mean(dataset)
-        self.sum_of_squares = sum_of_squares(self.mean, dataset)
-        self.variance = variance(self.variance, dataset)
+class Distribution: 
+    def __init__(self, dependent_values: list): # Dataset will be a list of dependent variable values
+        self.mean = mean(dependent_values)
+        self.sum_of_squares = sum_of_squares(self.mean, dependent_values)
+        self.variance = variance(self.variance, dependent_values)
         self.standard_deviation = standard_deviation(self.variance)
 
+class Experiment: 
+    ''' Pass in a list of lists for data, and a dict for variable type/name'''
+    def __init__(self, dataset, variable_dict, distribution: dict): # Distribution will be a dict containing all values from the Distribution class, might not need dataset if it inherits that info
+        ''' For multiple sample tests, values will be a list with multiple lists, one for each set of values '''
+        self.subject_IDs = [] 
+        self.dependent_values = []
+        self.independent_values = []
+        self.dependent_name = variable_dict.get('dependent_name')
+        self.dependent_type = variable_dict.get('dependent_type')
+        self.independent_name = variable_dict.get('independent_name')
+        self.independent_type = variable_dict.get('independent_type')
+    
+
 class Paired_sample_t_test:
+    ''' Needs refactor to take in Experiment class info '''
     def __init__(self, subject, dependent, independent, dataset):
         self.sample_size = ''
         self.dependent = ''
@@ -104,9 +107,9 @@ class Paired_sample_t_test:
         pass
     
 class Independent_t_test:
-
-    pass
+    def __init__(self):
+        pass
 
 class Single_sample_t_test:
-
-    pass
+    def __init__(self):
+        pass
