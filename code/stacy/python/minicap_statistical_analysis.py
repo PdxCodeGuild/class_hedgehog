@@ -79,9 +79,30 @@ class Distribution: # We're using a class for this in case we want to reuse just
         self.standard_deviation = standard_deviation(self.variance)
 
 class Paired_sample_t_test:
+    def __init__(self, subject, dependent, independent, dataset):
+        self.sample_size = ''
+        self.dependent = ''
+        self.independent = ''
+        self.standard_deviation1 = ''
+        self.standard_deviation2 = ''
+        self.effect_size = ''
+        self.statistical_significance = ''
 
-    pass
+    def effect_size(self):
 
+        pass
+
+    def statistical_significance(self):
+
+        pass
+
+    def visualize_distribution(self):
+
+        pass
+    def __str__(self):
+
+        pass
+    
 class Independent_t_test:
 
     pass
