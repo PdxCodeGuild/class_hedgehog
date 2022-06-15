@@ -21,7 +21,7 @@ class ATM:
 
     def deposit(self, amount):
         self.balance = self.balance + amount
-        self.transactions.append(f"User deposited ${amount}.")
+        self.transactions.append(f"User deposited ${amount}")
         return self.balance
         
         
@@ -32,7 +32,7 @@ class ATM:
     def withdraw(self, amount):
         # withdraws the amount from the account and returns the amount
         self.balance = self.balance - amount
-        self.transactions.append(f"User withdrew ${amount}.")
+        self.transactions.append(f"User withdrew ${amount}")
         return self.balance
        
 
@@ -40,12 +40,9 @@ class ATM:
         # returns the amount of interest calculated on the account
         interest_balance = (self.balance*self.interest_rate)
         self.balance = self.balance + interest_balance
+        self.transactions.append(f"User earned ${interest_balance} from interest")
         return interest_balance
         
-    def transactions(self):
-        # tracks transactions and returns a list of them on command.
-        for transaction in self.transactions:
-            print(transaction)
 
     def __str__(self):
         for transaction in self.transactions:
@@ -105,7 +102,6 @@ while True:
 
     elif command == 'Interest':
         amount = atm.calc_interest()  # call the calc_interest() method
-        atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
 
     elif command == "Print transactions":
