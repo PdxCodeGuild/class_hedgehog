@@ -16,90 +16,161 @@ initializer, as well as the following functions:
 
 """
 
+# class ATM:
+#     def __init__(self, 
+#                 balance=0, 
+#                 interest_rate=0.1):
+
+#         self.balance = float(balance)
+#         self.interest_rate = float(interest_rate)
+
+
+#     def check_balance(self):
+#     # Returns account balance
+#         return self.balance
+
+#     def deposit(self, amount):   
+#     # deposits the given amount to the account
+#         self.balance += float(amount)
+#         return self.balance
+        
+
+#     def check_withdrawal(self, amount):
+#     # returns true if the withdrawn amount won't put the account in the negative
+#         withdrawal = self.balance - amount
+#         if withdrawal >= 0:
+#             success = True
+#         else:
+#             success = False
+#         return success
+
+
+#     def withdraw(self, amount):
+#         self.balance -= amount
+#         return self.balance
+
+#     def calc_interest(self):
+#         interest = self.balance * self.interest_rate
+#         self.balance += interest
+#         return interest
+
+
+# atm = ATM()  # create an instance of our class
+# print("Welcome to the ATM")
+
+
+
+
+# menu_options = {
+#     '1': 'Balance',
+#     '2': 'Deposit',
+#     '3': 'Withdraw',
+#     '4': 'Interest',
+#     '5': 'Exit'
+# }
+
+# while True:
+#     print()
+#     for label, option in menu_options.items():
+#         print(f'{label}. {option}')
+
+#     command = input(
+#         "\nEnter the number of the option you would like to perform\n-> ")
+#     command = menu_options.get(command)
+
+#     if command == "Balance":
+#         balance = atm.check_balance()  # call the check_balance() method
+#         print(f"Your Balance is: ${balance:.2f}")
+
+#     elif command == "Deposit":
+#         amount = float(input("How much would you like to deposit?\n-> "))
+#         success = atm.deposit(amount)  # call the deposit(amount) method
+#         if not success:
+#             print("Deposit amount must be a positive number.")
+#         else:
+#             print(f"Deposited: ${amount:.2f}")
+
+#     elif command == "Withdraw":
+#         amount = float(input('How much would you like to withdraw?\n> $'))
+#         success = atm.check_withdrawal(amount)
+
+#         if not success:
+#             print("Insufficient funds")
+#         else:
+#             atm.withdraw(amount)
+#             print(f"Withdrew ${amount:.2f}")
+
+#     elif command == "Interest":
+#         amount = atm.calc_interest()  # call the calc_interest() method
+#         # atm.deposit(balance) # this give the interest on the deposit amount not the balance #
+#         print(f"Accumulated ${amount:.2f} in interest")
+
+#     elif command == "Exit":
+#         print("Goodbye!")
+#         break
+
+#     else:
+#         print("Command not recognized")
+
+
+
+##### Version 2 (Optional) #####
+
+"""Have the ATM maintain a list of transactions. Every time the user makes 
+a deposit or withdrawal, add a string to a list saying 'user deposited $15' 
+or 'user withdrew $15'. Add a new method `print_transactions()` to your class 
+for printing out the list of transactions."""
+
 class ATM:
     def __init__(self, 
-                account_number="", 
-                first_name="", 
-                last_name="", 
                 balance=0, 
                 interest_rate=0.1,
-                amount=""):
+                transactions=[]):
 
-        self.account_number = account_number
-        self.first_name = first_name
-        self.last_name = last_name 
         self.balance = balance
         self.interest_rate = interest_rate
-        self.amount = amount
-
-    # def account_detail(self):
-    #     print("\nAccount Information")
-    #     print(f"First Name: {self.first_name()}")
-    #     print(f"Last Name: {self.last_name()}")
-    #     print(f"Account Number: {self.account_number}")
-    #     print(f"Balance: {self.balance}")
-    #     print(f"Interest Rate: {self.interest_rate}\n")
-
-    # def __str__(self):
-    #     return(f"""
-    #     Account Information
-    #     First Name: {self.first_name},
-    #     Last Name: {self.last_name},
-    #     Account Number: {self.account_number},
-    #     Balance: {self.balance},
-    #     Interest Rate: {self.interest_rate}
-    #     """)
-
+        self.transactions = transactions
 
 
     def check_balance(self):
     # Returns account balance
-        # return (f"Your Balance is: ${self.balance}")
         return self.balance
-        # pass
 
     def deposit(self, amount):   
     # deposits the given amount to the account
-        self.balance += float(amount)
-        print(f"Deposited: ${amount}")
-        print(f"Current account balance: ${self.balance}")
-
-        # pass
+        self.balance += amount
+        self.transactions.append(f"You deposited: ${amount:.2f}")
+        return self.balance
         
 
     def check_withdrawal(self, amount):
     # returns true if the withdrawn amount won't put the account in the negative
-        if amount <= self.balance:
+        withdrawal = self.balance - amount
+        if withdrawal >= 0:
             success = True
         else:
-            success =False
+            success = False
         return success
 
 
     def withdraw(self, amount):
-        # withdraws the amount from the account and returns the amount
-        pass
+        self.balance -= amount
+        self.transactions.append(f"You withdrew:  ${amount:.2f}")
+        return self.balance
 
     def calc_interest(self):
-        # returns the amount of interest calculated on the account
-        pass
+        interest = self.balance * self.interest_rate
+        self.balance += interest
+        return interest
 
-# balance = 0
-# interest_rate = 0.1
+    def transaction_history(self):
+        for i in self.transactions:
+            return self.transactions
 
 atm = ATM()  # create an instance of our class
-print('Welcome to the ATM')
+print("Welcome to the ATM")
 
 
-def select_account(accounts):
-    print("Select Account: ")
-    for i, account in enumerate(accounts):
-        print(i, account.account_number)
-    selection = input("-> ")
-    return int(selection)
-
-
-accounts = [ATM(12345), ATM(98765)]
 
 
 menu_options = {
@@ -107,7 +178,8 @@ menu_options = {
     '2': 'Deposit',
     '3': 'Withdraw',
     '4': 'Interest',
-    '5': 'Exit'
+    '5': 'History',
+    '6': 'Exit'
 }
 
 while True:
@@ -116,48 +188,42 @@ while True:
         print(f'{label}. {option}')
 
     command = input(
-        '\nEnter the number of the option you would like to perform\n> ')
+        "\nEnter the number of the option you would like to perform\n-> ")
     command = menu_options.get(command)
 
-    if command == 'Balance':
+    if command == "Balance":
         balance = atm.check_balance()  # call the check_balance() method
-        print(f"Your Balance is: ${balance}")
+        print(f"Your Balance is: ${balance:.2f}")
 
-    elif command == 'Deposit':
-        amount = float(input('How much would you like to deposit? '))
+    elif command == "Deposit":
+        amount = float(input("How much would you like to deposit?\n-> $"))
         success = atm.deposit(amount)  # call the deposit(amount) method
         if not success:
             print("Deposit amount must be a positive number.")
         else:
-            print(f'Deposited ${amount}')
+            print(f"Deposited: ${amount:.2f}")
 
-    elif command == 'Withdraw':
-        amount = float(input('How much would you like to withdraw?\n> $'))
+    elif command == "Withdraw":
+        amount = float(input('How much would you like to withdraw?\n-> $'))
         success = atm.check_withdrawal(amount)
 
         if not success:
-            print('Insufficient funds')
+            print("Insufficient funds")
         else:
             atm.withdraw(amount)
-            print(f'Withdrew ${amount}')
+            print(f"Withdrew: ${amount:.2f}")
 
-    elif command == 'Interest':
+    elif command == "Interest":
         amount = atm.calc_interest()  # call the calc_interest() method
-        atm.deposit(amount)
-        print(f'Accumulated ${amount} in interest')
+        print(f"Accumulated: ${amount:.2f} in interest")
+    
+    elif command == "History":
+        history = atm.transaction_history()
+        print(f"Transaction History: \n{history}")
 
-    elif command == 'Exit':
+    elif command == "Exit":
         print("Goodbye!")
         break
 
     else:
-        print('Command not recognized')
-
-
-
-## Version 2 (Optional)
-
-"""Have the ATM maintain a list of transactions. Every time the user makes 
-a deposit or withdrawal, add a string to a list saying 'user deposited $15' 
-or 'user withdrew $15'. Add a new method `print_transactions()` to your class 
-for printing out the list of transactions."""
+        print("Command not recognized")
