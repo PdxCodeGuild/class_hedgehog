@@ -8,24 +8,21 @@ class ATM:
         return self.balance
 
     def deposit(self, amount):
-        self.balance = self.balance + amount
+        self.balance += amount
         return self.balance
         
 
     def check_withdrawal(self, amount):
-        # returns true if the withdrawn amount won't put the account in the negative
         if self.balance - amount > 0:
             return True
         else: 
             return False
 
     def withdraw(self, amount):
-        # withdraws the amount from the account and returns the amount
-        self.balance - amount
+        self.balance -= amount
         return amount
 
     def calc_interest(self):
-        # returns the amount of interest calculated on the account
         return self.balance * self.interest_rate
         
 
