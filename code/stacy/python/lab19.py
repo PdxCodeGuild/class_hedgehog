@@ -35,7 +35,7 @@ def choose_option(list_of_options):
                 return user_choice
         return choose_option(list_of_options)
     elif user_choice == 'Any':
-        list_of_options.pop(list_of_options.index('Any'))
+        list_of_options.pop(0)
         if list_of_options[0][0] == '9':
             user_choice = str(randint(9,32))
         else:
@@ -69,14 +69,29 @@ def main():
                 correct_answers += 1
     elif choices[1] == 'multiple':
         for question in questions:
-
-            pass
-        
+            answers = []
+            answers.append(html.unescape(question.get('correct_answer')))
+            for incorrect_answer in question.get('incorrect_answers'):
+                answers.append(html.unescape(incorrect_answer))
+            print(html.unescape(question.get('question')))
+            for answer in answers:
+                print(answer)
+            user_answer = input("Wnter your answer: \n\t> ").lower().replace(' ','')
+            if user_answer == answers[0].lower().replace(' ',''):
+                correct_answers += 1        
 
     elif choices[2] == 'any':
         for question in questions:
-
-            pass
+            answers = []
+            answers.append(html.unescape(question.get('correct_answer')))
+            for incorrect_answer in question.get('incorrect_answers'):
+                answers.append(html.unescape(incorrect_answer))
+            print(html.unescape(question.get('question')))
+            for answer in answers:
+                print((answer))
+            user_answer = input("Wnter your answer: \n\t> ").lower().replace(' ','')
+            if user_answer == answers[0].lower().replace(' ',''):
+                correct_answers += 1     
 
     print(f'You got {correct_answers} answers correct.')
 
