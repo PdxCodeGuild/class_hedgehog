@@ -22,25 +22,25 @@ to decode them you'll have to use the `html` module's `unescape` method.
 import requests
 import html
 
+def main():
+    trivia_game = requests. get("https://opentdb.com/api.php?amount=10&category=18&type=boolean").json()
 
-trivia_game = requests. get("https://opentdb.com/api.php?amount=10&category=18&type=boolean").json()
+    questions = trivia_game["results"]
 
-questions = trivia_game["results"]
+    correct = 0
+    incorrect = 0
+    for question in questions:
+        print(html.unescape(question["question"]))
+        answer = input("Please, select 'True' or 'False': ").title()
+        if answer == question["correct_answer"]:
+            print("Correct Answer")
+            correct += 1
+        else:
+            print("Incorrect Answer")
+            incorrect += 1
+    print(f"\n* Results *\nNumber correct: {correct}\nNumber incorrect: {incorrect}\n")
 
-correct = 0
-incorrect = 0
-for question in questions:
-    print(html.unescape(question["question"]))
-    answer = input("Please, select 'True' or 'False': ").title()
-    if answer == question["correct_answer"]:
-        print("Correct Answer")
-        correct += 1
-    else:
-        print("Incorrect Answer")
-        incorrect += 1
-print(f"\n* Results *\nNumber correct: {correct}\nNumber incorrect: {incorrect}\n")
-
-
+main()
 
 ## Part 2 (optional)
 """
