@@ -49,7 +49,8 @@ menu = """
 3) Edit contact
 4) Delete contact
 5) List all
-6) Exit
+6) Save to file
+7) Exit
 """
 while True:
     choice = input(menu + "-> ")
@@ -93,6 +94,14 @@ while True:
     elif choice == "5":
         for contact in contacts:
             print(contact)
+
+    elif choice == "6":
+        with open("contacts.txt", "w") as file:
+            output = []
+            for contact in contacts:
+                output.append(str(contact))
+            file.write("\n".join(output))
+
     else:
         print("Have a nice day!")
         break
