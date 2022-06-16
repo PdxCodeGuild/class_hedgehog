@@ -73,3 +73,7 @@ def main():
     print(f"Balance: ${profit - cost}")
     print(f"ROI: {(profit - cost) / cost}")
     print(outcome)
+
+
+if __name__=="__main__":
+    main()
