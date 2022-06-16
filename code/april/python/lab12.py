@@ -161,16 +161,18 @@ class ATM:
     def calc_interest(self):
         interest = self.balance * self.interest_rate
         self.balance += interest
+        # updated to show the interest earned in the transaction history
+        self.transactions.append(f"Interest earned: ${interest:.2f}") 
         return interest
 
     def transaction_history(self):
         for i in self.transactions:
             return self.transactions
 
+   
+
 atm = ATM()  # create an instance of our class
 print("Welcome to the ATM")
-
-
 
 
 menu_options = {
@@ -214,12 +216,15 @@ while True:
             print(f"Withdrew: ${amount:.2f}")
 
     elif command == "Interest":
-        amount = atm.calc_interest()  # call the calc_interest() method
-        print(f"Accumulated: ${amount:.2f} in interest")
+        amount = atm.calc_interest()  
+        print(f"Interest: ${amount:.2f}")
     
     elif command == "History":
+        balance = atm.check_balance()
         history = atm.transaction_history()
-        print(f"Transaction History: \n{history}")
+        print("\nTransaction History:\n") # update to print Transaction history nicer
+        for item in history:
+            print(item)
 
     elif command == "Exit":
         print("Goodbye!")
