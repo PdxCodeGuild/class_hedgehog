@@ -23,7 +23,7 @@
 
 import requests
 import html
-from random import choice,randint
+from random import choice,randint,shuffle
 
 def choose_option(list_of_options):
     for option in list_of_options:
@@ -74,12 +74,12 @@ def main():
             for incorrect_answer in question.get('incorrect_answers'):
                 answers.append(html.unescape(incorrect_answer))
             print(html.unescape(question.get('question')))
-            for answer in answers:
-                print(answer)
-            user_answer = input("Wnter your answer: \n\t> ").lower().replace(' ','')
-            if user_answer == answers[0].lower().replace(' ',''):
+            shuffle(answers)
+            for index, answer in enumerate(answers):
+                print((f'{index}: {answer}'))
+            user_answer = int(input("Enter your answer: \n\t> "))
+            if answers[user_answer] == html.unescape(question.get('correct_answer')):
                 correct_answers += 1        
-
     elif choices[2] == 'any':
         for question in questions:
             answers = []
@@ -87,10 +87,11 @@ def main():
             for incorrect_answer in question.get('incorrect_answers'):
                 answers.append(html.unescape(incorrect_answer))
             print(html.unescape(question.get('question')))
-            for answer in answers:
-                print((answer))
-            user_answer = input("Wnter your answer: \n\t> ").lower().replace(' ','')
-            if user_answer == answers[0].lower().replace(' ',''):
+            shuffle(answers)
+            for index, answer in enumerate(answers):
+                print((f'{index}: {answer}'))
+            user_answer = int(input("Enter your answer: \n\t> "))            
+            if answers[user_answer] == html.unescape(question.get('correct_answer')):
                 correct_answers += 1     
 
     print(f'You got {correct_answers} answers correct.')
