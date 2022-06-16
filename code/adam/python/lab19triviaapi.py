@@ -22,10 +22,10 @@ trivia = response.json()
 
 correct = 0
 incorrect = 0  
-for i, triv in enumerate(trivia["results"]):
+for i, question in enumerate(trivia["results"]):
     print("\tAnswer True or False")
-    question = input(html.unescape(f"Question {i + 1}: \t {triv['question']}")).title()
-    if question == triv["correct_answer"]:
+    user_answer = input(html.unescape(f"Question {i + 1}: \t {question['question']}")).title()
+    if user_answer == question["correct_answer"]:
         correct +=1
     else:
         incorrect +=1
