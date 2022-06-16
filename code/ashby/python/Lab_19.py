@@ -1,5 +1,6 @@
 import requests
 import html
+import random
 def main_1():
 
     response = requests.get("https://opentdb.com/api.php?amount=10&category=18&type=boolean").json()
@@ -113,7 +114,8 @@ def trivia(address = "https://opentdb.com/api.php?amount=10&category=18&type=boo
     #pulls questions, formats, and checks answers against provided answers in API
     for i, result in enumerate(results):
         if result["type"] == "multiple":
-            answer_pool = [x for x in result["incorrect_answers","correct_answer"]]
+            answer_pool = [result["incorrect_answers"]]
+            answer_pool.append(results["correct_answer"])
             pass
         else:
             print (f"\n{i+1}. {html.unescape(result['question'])}")
@@ -150,7 +152,7 @@ def main():
             trivia()
         elif user_choice == 2:
             print("Future content")
-            trivia(generate_trivia_address())
+            print(generate_trivia_address())
         elif user_choice ==3:
             print("Goodbye, come again!")
             break
