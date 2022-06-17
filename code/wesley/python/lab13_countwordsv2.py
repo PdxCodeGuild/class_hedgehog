@@ -9,11 +9,11 @@ new_string = response.text.translate(str.maketrans('', '', punctuation))
 new_list = new_string.lower().split()
 
 word_dict = {}
-for word in new_list:
-    if word in word_dict:
-        word_dict[word] += 1
+for i in range(len(new_list) -1):
+    if new_list[i] + ' ' + new_list[i+1] in word_dict:
+        word_dict[new_list[i] + ' ' + new_list[i+1]] += 1
     else:
-        word_dict[word] = 1
+        word_dict[new_list[i] + ' ' + new_list[i+1]] = 1
 
 words = list(word_dict.items()) 
 words.sort(key=lambda tup: tup[1], reverse=True)  
