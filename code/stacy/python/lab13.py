@@ -34,6 +34,57 @@
 """ Version 2 """
 
 
+# import requests
+# import string
+
+# def main():
+#     response = requests.get('https://www.gutenberg.org/cache/epub/257/pg257.txt')
+#     response.encoding = 'utf-8' # set encoding to utf-8
+#     # print(response.text)
+ 
+#     dict_of_words = {}
+#     dict_of_word_pairs = {}
+#     response = response.text.lower().replace('\n', '').replace('\r', '')
+#     for character in string.punctuation:
+#         response = response.replace(character, ' ')
+#     for digit in string.digits:
+#         response = response.replace(digit, '')
+#     response = response.replace('  ', ' ')
+#     list_of_words = response.split(' ')
+
+
+#     previous_word = list_of_words[0]
+#     for word in list_of_words:
+#         if f'{previous_word} {word}' not in dict_of_word_pairs and word != ' ' and word != '':
+#             dict_of_word_pairs[f'{previous_word} {word}'] = 1
+#             previous_word = word
+#         elif f'{previous_word} {word}' in dict_of_word_pairs:
+#             dict_of_word_pairs[f'{previous_word} {word}'] += 1
+#             previous_word = word
+
+#     list_of_pairs = []
+#     for pair in dict_of_word_pairs:
+#         if dict_of_word_pairs[pair] > 10:
+#             list_of_pairs.append((pair, dict_of_word_pairs.get(pair)))
+
+#     # print(list_of_pairs)
+
+#     for i in range(len(list_of_pairs)):
+#         for j in range(len(list_of_pairs)-1):
+#             if list_of_pairs[j][1] < list_of_pairs[j+1][1]:
+#                 list_of_pairs[j], list_of_pairs[j+1] = list_of_pairs[j+1], list_of_pairs[j]
+#     for x in range(10):
+#         print(list_of_pairs[x])
+    
+
+
+# main()
+
+
+#########################################################################################################
+""" Version 3 """
+
+
 import requests
 import string
 
@@ -69,19 +120,26 @@ def main():
 
     # print(list_of_pairs)
 
-    for i in range(len(list_of_pairs)):
-        for j in range(len(list_of_pairs)-1):
-            if list_of_pairs[j][1] < list_of_pairs[j+1][1]:
-                list_of_pairs[j], list_of_pairs[j+1] = list_of_pairs[j+1], list_of_pairs[j]
-    for x in range(10):
-        print(list_of_pairs[x])
+    # for i in range(len(list_of_pairs)):
+    #     for j in range(len(list_of_pairs)-1):
+    #         if list_of_pairs[j][1] < list_of_pairs[j+1][1]:
+    #             list_of_pairs[j], list_of_pairs[j+1] = list_of_pairs[j+1], list_of_pairs[j]
     
-
-
+    user_word = input("Enter a word: \n\t> ").lower()
+    list_of_following_words = []
+    for pair in list_of_pairs:
+        if user_word in pair[0] and user_word[0] == pair[0][0]:
+            following_word = str(pair).replace('\'','').replace(',','').split(' ')
+            list_of_following_words.append(following_word[1])
+    if list_of_following_words == []:
+        print(f"There are no words that frequently (> 10 instances) follow {user_word}.")
+    else:
+        print(f"These words most frequently follow {user_word}:")
+        for word in list_of_following_words:
+            print(word)
 main()
 
 
-#########################################################################################################
 """
 Lab 13: Count Words
 Let's write a python module to analyze a given text file containing a book for its vocabulary frequency and display the most frequent words to the user in the terminal. Remember there isn't any "perfect" way to identify a word in english (acronymns, mr/ms, contractions, etc), try to find rules that work best.
