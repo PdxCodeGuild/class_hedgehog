@@ -37,10 +37,10 @@ txt_list = response.text.translate(str.maketrans(' ',' ', punctuation)).lower().
 word_dict = {}
 
 for i in txt_list:
-    if i in word_dict:
-        word_dict[i] += 1
-    else:
+    if i not in word_dict:
         word_dict[i] = 1
+    else:
+        word_dict[i] += 1
 # print(word_dict)
      
 
