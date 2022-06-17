@@ -6,7 +6,7 @@ response.encoding = 'utf-8'
 
 new_string = response.text.translate(str.maketrans('', '', punctuation))
 
-new_list = new_string.split()
+new_list = new_string.lower().split()
 
 word_dict = {}
 for word in new_list:
