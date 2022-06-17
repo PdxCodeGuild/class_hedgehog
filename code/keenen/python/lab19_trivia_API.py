@@ -3,8 +3,6 @@ import requests
 import html
 from colorama import Fore, Style
 
-
-
 def main():
 
 
@@ -33,14 +31,8 @@ def main():
             correct += 1
         else:
             incorrect += 1
-
-    print('Correct:',correct)
-    print('Incorrect:',incorrect)
+    
+    print(Fore.GREEN + 'Correct:'+ Style.RESET_ALL,correct)
+    print(Fore.RED + 'Incorrect:'+ Style.RESET_ALL,incorrect)
 
 main()
-
-
-
-
-
-

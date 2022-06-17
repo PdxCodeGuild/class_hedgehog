@@ -23,7 +23,7 @@
 
 import requests
 import html
-from random import choice,randint
+from random import choice,randint,shuffle
 
 def choose_option(list_of_options):
     for option in list_of_options:
@@ -35,7 +35,7 @@ def choose_option(list_of_options):
                 return user_choice
         return choose_option(list_of_options)
     elif user_choice == 'Any':
-        list_of_options.pop(list_of_options.index('Any'))
+        list_of_options.pop(0)
         if list_of_options[0][0] == '9':
             user_choice = str(randint(9,32))
         else:
@@ -60,6 +60,9 @@ def main():
     trivia_unwrapped = trivia.json()
     questions = trivia_unwrapped['results']
     
+    if questions == []:
+        print("Data not retrieved")
+        return
     correct_answers = 0
     if choices[1] == 'boolean':
         for question in questions:
@@ -69,14 +72,30 @@ def main():
                 correct_answers += 1
     elif choices[1] == 'multiple':
         for question in questions:
-
-            pass
-        
-
+            answers = []
+            answers.append(html.unescape(question.get('correct_answer')))
+            for incorrect_answer in question.get('incorrect_answers'):
+                answers.append(html.unescape(incorrect_answer))
+            print(html.unescape(question.get('question')))
+            shuffle(answers)
+            for index, answer in enumerate(answers):
+                print((f'{index}: {answer}'))
+            user_answer = int(input("Enter your answer: \n\t> "))
+            if answers[user_answer] == html.unescape(question.get('correct_answer')):
+                correct_answers += 1        
     elif choices[2] == 'any':
         for question in questions:
-
-            pass
+            answers = []
+            answers.append(html.unescape(question.get('correct_answer')))
+            for incorrect_answer in question.get('incorrect_answers'):
+                answers.append(html.unescape(incorrect_answer))
+            print(html.unescape(question.get('question')))
+            shuffle(answers)
+            for index, answer in enumerate(answers):
+                print((f'{index}: {answer}'))
+            user_answer = int(input("Enter your answer: \n\t> "))            
+            if answers[user_answer] == html.unescape(question.get('correct_answer')):
+                correct_answers += 1     
 
     print(f'You got {correct_answers} answers correct.')
 
