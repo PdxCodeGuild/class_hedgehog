@@ -21,6 +21,12 @@ open('alice.txt', 'wb').write(response.content)
 with open('alice.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 
+# Remove elements that are not words
+not_word = []
+for element in text:
+    if element in not_word:
+        ...
+
 # Make everything lowercase, strip punctuation, split into a list of words
 text = text.lower().split()
 
