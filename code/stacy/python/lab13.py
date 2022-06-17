@@ -33,7 +33,6 @@
 #########################################################################################################
 """ Version 2 """
 
-
 # import requests
 # import string
 
@@ -51,7 +50,6 @@
 #         response = response.replace(digit, '')
 #     response = response.replace('  ', ' ')
 #     list_of_words = response.split(' ')
-
 
 #     previous_word = list_of_words[0]
 #     for word in list_of_words:
@@ -76,14 +74,10 @@
 #     for x in range(10):
 #         print(list_of_pairs[x])
     
-
-
 # main()
-
 
 #########################################################################################################
 """ Version 3 """
-
 
 import requests
 import string
@@ -93,7 +87,6 @@ def main():
     response.encoding = 'utf-8' # set encoding to utf-8
     # print(response.text)
  
-    dict_of_words = {}
     dict_of_word_pairs = {}
     response = response.text.lower().replace('\n', '').replace('\r', '')
     for character in string.punctuation:
