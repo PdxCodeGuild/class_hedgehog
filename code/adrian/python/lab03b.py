@@ -7,14 +7,25 @@
 
 # Version 1
 
-nums = [5, 0, 8, 3, 4, 1, 6]
-result = []
-i = 0
+# nums = [5, 0, 8, 3, 4, 1, 6]
+# result = []
+# i = 0
 
-# loop over the elements
-for num in nums:
-    i += num
-    result.append(i)
+# # loop over the elements
+# for num in nums:
+#     i += num
+#     result.append(i)
 
-print(i / len(nums))
+# print(i / len(nums))
 
+
+# Version 2
+
+
+
+# nums = []
+# while True:
+#     user_input = input("Enter a number, or 'done' to quit: ")
+#     nums.append(int(user_input))
+
+# print(nums)

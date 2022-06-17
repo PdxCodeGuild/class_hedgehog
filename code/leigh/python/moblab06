@@ -1,0 +1,77 @@
+# Mob lab 06
+# LCR
+# Leigh Fair-Smiley, Keenen Pndergraft, Adam McWhorter, April Marie, Ezekiel Wells
+
+"""
+LCR is a dice game, one of pure chance. Therefore, we can write a simulator to avoid wasting the time playing it ourselves.
+
+    Each player begins with 3 chips. Players take turns rolling three six-sided dice, each of which is marked with "L", "C", "R" on one side,
+    
+     and a single dot on the three remaining sides. For each "L" or "R" thrown, the player must pass one chip to the player to their left or right,
+      respectively. A "C" indicates a chip to the center (pot). A dot has no effect.
+
+    If a player has fewer than three chips left, they're still in the game but their number of chips is the number of dice they roll on their turn,
+     rather than rolling all three. When a player has zero chips, they pass the dice on their turn, but may receive chips from others and take their
+      next turn accordingly. The winner is the last player with chips left, and wins the center pot.
+
+When the program starts, it should ask for the names of the players, until the user enters 'done'. Then it should run the simulation, tell the
+ user who won, and ask the player whether they'd like to play again. We can represent the players as a list of dictionaries with each dictionary
+  containing two key-value pairs: player's name and the number of chips they have, e.g. {'name': 'Billy', 'chips': 3}.
+"""
+
+import random
+
+def get_users():
+    users = []
+    while True:
+        user = input("Enter new user or type 'done' to quit: ")
+        if user == "done":
+            break
+        users.append({"User": user, "Chips": 3})
+    return users
+
+def main():
+    users = get_users()
+    choices = ["L", "C", "R", "", "", ""]
+    center = 0
+    end = False
+    while end == False:
+        # check if only one user has chips 
+        # count if number of players with no chips is equal to one less than the total number of players to find the winner
+        total_zeros = 0
+        for user in users:
+            if user["Chips"] == 0:
+                total_zeros += 1
+        if total_zeros == len(users) - 1:
+            for user in users:
+                if user["Chips"] > 0:
+                    print(f"{user['User']} has won the game with {user['Chips']} Chips")
+            end = True
+            break
+        # move through payers and reference index to move chips and track number of rolls
+        for x in range(len(users)):
+            # select number of die to give to current player
+            if users[x]["Chips"] > 2:
+                num_die = 3
+            else:
+                num_die = users[x]["Chips"]
+            # for number of die find roll out of roll options and move chips accordingly
+            for die in range(num_die):
+                roll = random.choice(choices)
+                if roll == "L":
+                    users[x]["Chips"] -= 1
+                    if x == 0:
+                        users[len(users) - 1]["Chips"] += 1
+                    else:
+                        users[x - 1]["Chips"] += 1
+                elif roll == "C":
+                    users[x]["Chips"] -= 1
+                    center += 1
+                elif roll == "R":
+                    users[x]["Chips"] -= 1
+                    if x == len(users) - 1:
+                        users[0]["Chips"] += 1
+                    else:
+                        users[x + 1]["Chips"] += 1
+                
+main()

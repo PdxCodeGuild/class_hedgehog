@@ -17,6 +17,21 @@ def check_palindrome():
 print(check_palindrome())
 
 
+#palindrome solution 2
+# def check_palindrome(string):
+#     word = list(string)
+#     reversed_word = word[::-1]
+
+#     if word == reversed_word:
+#         return True
+#     else:
+#         return False
+
+# print(check_palindrome("level"))
+# print(check_palindrome("potato"))
+
+
+
 
 # ANAGRAM
 # Two words are anagrams of eachother if the letters of one can be rearranged to fit the other. e.g. anagram and nag a ram.
@@ -44,3 +59,22 @@ def check_anagram(string1, string2):
 
 
 print(check_anagram("lis ten", "S ilen t"))
+
+
+
+# Anagram solution 2
+
+# def check_anagram(string1, string2):
+#     string1 = string1.lower()
+#     string2 = string2.lower()
+
+#     string1 = string1.replace(" ", "")
+#     string2 = string2.replace(" ", "")
+
+#     list1 = sorted(string1)
+#     list2 = sorted(string2)
+
+#     return list1 == list2
+
+# print(check_anagram("anagram", "nag a ram"))
+# print(check_anagram("hedgehog" "so n ic"))
