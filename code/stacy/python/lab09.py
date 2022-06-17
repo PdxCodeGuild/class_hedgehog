@@ -74,7 +74,7 @@ def value(hand: list):
     return sum
 
 def play_blackjack():
-    cards = ['A', '2', '3', '4', '5', '6' , '7', '8', '9', 'J', 'Q', 'K']
+    cards = ['A', '2', '3', '4', '5', '6' , '7', '8', '9', '10', 'J', 'Q', 'K']
     deck = []
     deck.extend(cards*4)
     shuffle(deck)
