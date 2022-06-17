@@ -51,12 +51,11 @@ def main():
     #text_list = text.split(" ")
 
     for word in text_list:
-        if word in word_dict and word not in [string.digits, "www", "ebook", "gutenberg", "projectgutenberg-tm", "license.1.e.6.", "e-mail", "copyright" ]:
+        if word in word_dict and word not in [string.digits,"the","to","and", "of", "i","a","in", "he", "www", "ebook", "gutenberg", "projectgutenberg-tm", "license.1.e.6.", "e-mail", "copyright" ]:
             word_dict[word] += 1
         else: 
             word_dict[word] = 1
-        
-    
+            
     words = list(word_dict.items()) # .items() returns a list of tuples
     words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
     for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
@@ -71,25 +70,6 @@ def main():
 
 print(main())
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ```
 
 # ## Version 2 (optional)
 
