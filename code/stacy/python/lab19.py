@@ -60,6 +60,9 @@ def main():
     trivia_unwrapped = trivia.json()
     questions = trivia_unwrapped['results']
     
+    if questions == []:
+        print("Data not retrieved")
+        return
     correct_answers = 0
     if choices[1] == 'boolean':
         for question in questions:
