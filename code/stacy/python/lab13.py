@@ -120,10 +120,10 @@ def main():
 
     # print(list_of_pairs)
 
-    # for i in range(len(list_of_pairs)):
-    #     for j in range(len(list_of_pairs)-1):
-    #         if list_of_pairs[j][1] < list_of_pairs[j+1][1]:
-    #             list_of_pairs[j], list_of_pairs[j+1] = list_of_pairs[j+1], list_of_pairs[j]
+    for i in range(len(list_of_pairs)):
+        for j in range(len(list_of_pairs)-1):
+            if list_of_pairs[j][1] < list_of_pairs[j+1][1]:
+                list_of_pairs[j], list_of_pairs[j+1] = list_of_pairs[j+1], list_of_pairs[j]
     
     user_word = input("Enter a word: \n\t> ").lower()
     list_of_following_words = []
@@ -134,7 +134,7 @@ def main():
     if list_of_following_words == []:
         print(f"There are no words that frequently (> 10 instances) follow {user_word}.")
     else:
-        print(f"These words most frequently follow {user_word}:")
+        print(f"These words most frequently follow {user_word}, starting with most frequent:")
         for word in list_of_following_words:
             print(word)
 main()
