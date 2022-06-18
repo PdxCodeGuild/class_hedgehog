@@ -1,28 +1,21 @@
 # Python ₘᵢₙᵢ capstone
+# Weather API
 
-# On this day in history API
-
-import datetime
 import requests
+import creds     #import external file (creds.py) which contains
+                 # the API key with the variable "api_key". Keeps API key secret
 
-month = input("Welcome to the On this Day API!\n\nEnter a month (1 - 12): ")
-day = input("Enter a day (1 - 31): ")
-year = input("Enter a year: ")
+base_url = "http://api.openweathermap.org/data/2.5/weather"
+city = input("Enter city name: ")
 
-url_events = 'https://byabbe.se/on-this-day/{}/{}/events.json'
-url_people = 'https://byabbe.se/on-this-day/{}/{}/people.json'
-url_deaths = 'https://byabbe.se/on-this-day/{}/{}/deaths.json'
+requests_url = f"{base_url}?appid={creds.api_key}&q={city}" 
+response = requests.get(requests_url)
 
-
-"""
-headers = {
-  "wikipedia": "https://en.wikipedia.org/wiki/{}",
-  "date": "https://byabbe.se/on-this-day/{}/{}",
-}
-"""
-
-def get_category(url):
-    response = requests.get(url)
-    results = response.json()["results"]
-    for result in results:
-        print(result["title"])
+if response.status_code == 200:
+    data = response.json()
+    weather = data["weather"]
+    print(weather[0]["description"])
+    temperature = round(data["main"]["temp"] - 273.15, 2) * 9/5 + 32 #Converts Kelvin to Fahrenheit and rounds 
+    print(f"Temperature: {temperature}")
+else:
+    print("Error")
