@@ -21,10 +21,11 @@ Stretch Goals:
 """ Import modules """
 
 import requests
+import random
 
 #######################################################################################################
 
-''' Functions for mathematical operations '''
+""" Functions for mathematical operations """
 
 def mean(dataset):
     n = len(dataset)
@@ -46,14 +47,14 @@ def variance(sum_of_squares: float, dataset: list): # sum of squares and list of
     return variance
 
 def standard_deviation(variance: float): # variance and list of values
-    standard_deviation = variance ** 1/2
+    standard_deviation = variance ** (1/2)
     return standard_deviation
 
 #######################################################################################################
 
 """ API """
 
-subject_data_request = requests.get('https://fakerapi.it/api/v1/persons?_quantity=2')
+subject_data_request = requests.get('https://fakerapi.it/api/v1/persons?_quantity=20')
 subject_data_request_unpacked = subject_data_request.json()
 # print(subject_data_request_unpacked)
 subject_data = subject_data_request_unpacked['data']
@@ -61,13 +62,22 @@ subject_data = subject_data_request_unpacked['data']
 
 #######################################################################################################
 
-''' Data '''
+""" Data """
 
-
-
-""" Testing """
-
-
+dataset = []
+for index, data in enumerate(subject_data):
+    subject = {}
+    subject_ID = index + 1
+    gender = data['gender']
+    if gender == 'male':
+        dependent_value = random.randint(60 , 120)
+    elif gender == 'female':
+        dependent_value = random.randint(47, 107)
+    subject['ID'] = subject_ID
+    subject['gender'] = gender
+    subject['dependent value'] = dependent_value
+    dataset.append(subject)
+# print(dataset)
 
 #######################################################################################################
 
@@ -117,7 +127,7 @@ subject_data = subject_data_request_unpacked['data']
     #     return self.variance
 
     # def standard_deviation(self): # variance and list of values
-    #     self.standard_deviation = self.variance ** 1/2
+    #     self.standard_deviation = self.variance ** (1/2)
     #     return self.standard_deviation
 
 #######################################################################################################
@@ -126,17 +136,27 @@ subject_data = subject_data_request_unpacked['data']
 
 class Dataset:
     def __init__(self, dataset: list):
-        self.dependent_variable_name = ''
-        self.independent_variable_name = ''
-        self.dependent_variable_type = ''
-        self.independent_variable_type = ''
+        self.dependent_variable_name = 'weight'
+        self.dependent_variable_type = 'ratio'
+        self.dependent_variable_data_type = 'continuous'
+        self.independent_variable_name = 'gender'
+        self.independent_variable_type = 'nominal'
+        self.independent_variable_data_type = 'discrete'
         self.subject_IDs = []
+        for subject in dataset:
+            self.subject_IDs.append(subject.get('ID'))
         self.dependent_values = []
+        for subject in dataset:
+            self.dependent_values.append(subject.get('dependent value'))
         self.independent_values = []
+        for subject in dataset:
+            self.independent_values.append(subject.get('gender'))
+    
+    def print_data(self):
+        return f' Subject IDs: {self.subject_IDs} \nDependent Variable Values: {self.dependent_values} \nIndependent Variable Values: {self.independent_values}\n'
 
     def __str__(self):
-
-        pass
+        return f'ID: Identification number\nGender: Male = 0, Female = 1\nDependent Variable Name: {self.dependent_variable_name}\nDependent Variable Type: {self.dependent_variable_type}\nDependent Data Type: Continuous\nIndependent Variable Name: Gender\nIndependent Variable Type: Nominal\nIndependent Data Type: Discrete\n'
 
 class Distribution: 
     def __init__(self, dependent_values: list): # Dataset will be a list of dependent variable values
@@ -153,16 +173,46 @@ class Distribution:
         return f'mean: {self.mean} \nsum of squares: {self.sum_of_squares} \nvariance: {self.variance} \nSD: {self.standard_deviation}\n'
 
 class Independent_t_test:
-    def __init__(self):
-    
-        pass
+    def __init__(self, dataset):
+        self.sample_1 = []
+        self.sample_2 = []
+        for subject in dataset:
+            if subject.get('gender') == 'male':
+                self.sample_1.append(subject.get('dependent value'))
+            elif subject.get('gender') == 'female':
+                self.sample_2.append(subject.get('dependent value'))
+        # print(self.sample_1, self.sample_2)
+
+        self.sample_1_distribution = Distribution(self.sample_1)
+        self.sample_1_mean = self.sample_1_distribution.mean
+        self.sample_1_sum_of_squares = self.sample_1_distribution.sum_of_squares
+        self.sample_1_variance = self.sample_1_distribution.variance
+        self.sample_1_standard_deviation = self.sample_1_distribution.standard_deviation
+
+        self.sample_2_distribution = Distribution(self.sample_2)
+        self.sample_2_mean = self.sample_2_distribution.mean
+        self.sample_2_sum_of_squares = self.sample_2_distribution.sum_of_squares
+        self.sample_2_variance = self.sample_2_distribution.variance
+        self.sample_2_standard_deviation = self.sample_2_distribution.standard_deviation
+
+        self.t_value = (self.sample_1_mean - self.sample_2_mean)/(((self.sample_1_variance/len(self.sample_1))+(self.sample_2_variance/len(self.sample_2)))**(1/2))
+
+        self.degrees_of_freedom = len(self.sample_1) + len(self.sample_2) - 2
+
 
     def __str__(self):
+        return f'Sample 1 size: {len(self.sample_1)}\nSample 1 mean: {self.sample_1_mean}\nSample 1 SD: {self.sample_1_standard_deviation}\nSample 2 size: {len(self.sample_2)}\nSample 2 mean: {self.sample_2_mean}\nSample 2 SD: {self.sample_2_standard_deviation}\nt-value: {self.t_value}\nDegrees of Freedom: {self.degrees_of_freedom}'
+        
 
-        pass
+#########################################################################################################
 
+""" Testing """
+test1_data = Dataset(dataset)
+test1_independent_t_test = Independent_t_test(dataset)
+print(test1_independent_t_test)
+
+#########################################################################################################
 class Paired_sample_t_test:
-    ''' Needs refactor to take in Experiment class info '''
     def __init__(self, subject, dependent, independent, dataset):
         self.sample_size = ''
         self.dependent = ''
