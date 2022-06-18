@@ -2,7 +2,7 @@
 # Weather API
 
 import requests
-import creds     #import external file (creds.py) which contains
+import creds     #import external file (creds.py added to .gitignore) which contains
                  # the API key with the variable "api_key". Keeps API key secret
 
 base_url = "http://api.openweathermap.org/data/2.5/weather"
