@@ -12,9 +12,6 @@ def main():
 
         lyrics = response.json()
         
-        if artist.lower() == "wu-tang" or "wutang" or "wu tang" or "wu-tang clan":
-            print("You have great taste in music!")
-
         if 'lyrics' in lyrics:    
             print(lyrics['lyrics'])
             re_play = input("Would you like to try a different artist or title or quit? :")
