@@ -1,25 +1,40 @@
 def main():
     import requests 
     print("Welcome the the lyrical machine! We'll find you're lyrics or won't! Try us to find out")
+    artist = input("Please enter an artist: ")
+    title = input(f'Please enter a song from {artist}: ')
+    artist = artist.replace(' ', '%20')
+    title = title.replace(' ', '%20')
     
     while True:
-        artist = input("Please enter an artist: ")
-        title = input(f'Please enter a song from {artist}: ')
-        artist = artist.replace(' ', '%20')
-        title = title.replace(' ', '%20')
-
+            
         response = requests.get(f'https://api.lyrics.ovh/v1/{artist}/{title}')
 
         lyrics = response.json()
+        
+        if artist.lower() == "wu-tang" or "wutang" or "wu tang" or "wu-tang clan":
+            print("You have great taste in music!")
 
         if 'lyrics' in lyrics:    
             print(lyrics['lyrics'])
-            re_play = input("Would you like to try a different artist and title? y/n? :")
+            re_play = input("Would you like to try a different artist or title or quit? :")
         else:
-            print("You either misspelt the artist, the title or you have no taste in music!")
+            print("You either misspelled the artist, the title or you have no taste in music!")
             re_play = input("Would you like to try again? y/n? :")
     
-        if re_play.lower() == 'n':
+        if re_play.lower() == 'artist':
+            artist = input('Please enter your new artist:')
+            title = input('Please enter your new title: ')
+            continue
+        elif re_play.lower() == 'title':
+            title = input('Please enter your new title: ')
+            continue
+        elif re_play.lower() == 'y':
+            artist = input("Please enter an artist: ")
+            title = input(f'Please enter a song from {artist}: ')
+            continue
+        elif re_play.lower() == 'n' or 'quit':
             break
+
 
 main()
