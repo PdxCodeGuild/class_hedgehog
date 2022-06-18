@@ -1,7 +1,7 @@
 # Python ₘᵢₙᵢ capstone
 # Weather API
-import colorama
-from colorama import Fore
+
+from colorama import Fore  # for purdy colors
 import requests
 import creds     #import external file (creds.py added to .gitignore) which contains
                  # the API key with the variable "api_key". Keeps API key secret
