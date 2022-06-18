@@ -54,7 +54,7 @@ def standard_deviation(variance: float): # variance and list of values
 
 """ API """
 
-subject_data_request = requests.get('https://fakerapi.it/api/v1/persons?_quantity=20')
+subject_data_request = requests.get('https://fakerapi.it/api/v1/persons?_quantity=100')
 subject_data_request_unpacked = subject_data_request.json()
 # print(subject_data_request_unpacked)
 subject_data = subject_data_request_unpacked['data']
