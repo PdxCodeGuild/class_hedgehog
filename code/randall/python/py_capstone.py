@@ -3,7 +3,6 @@
 # Weather  ---  https://openweathermap.org/api
 # UV Index ---  https://data.epa.gov/efservice/getEnvirofactsUVDAILY/ZIP
 
-from sre_parse import State
 from colorama import Fore  # for purdy colors
 import requests
 import creds     #import external file (creds.py added to .gitignore) which contains
