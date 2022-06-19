@@ -46,7 +46,7 @@ def uv_index():
         elif uv <= 5:
               print(Fore.YELLOW + "UV index is moderate. Enjoy your day!")
         elif uv <= 7:                                                           #change these
-                print(Fore.RED + "UV index is high. Enjoy your day!")
+                print(Fore.YELLOW + "UV index is high. Enjoy your day!")
         elif uv <= 10:
                 print(Fore.RED + "UV index is very high. Enjoy your day!")
         elif uv >= 11:
