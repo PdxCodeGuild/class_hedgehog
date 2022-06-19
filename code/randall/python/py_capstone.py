@@ -51,12 +51,10 @@ def uv_index():
                 print(Fore.RED + "UV index is very high. Enjoy your day!")
         elif uv >= 11:
                 print(Fore.RED + "UV index is extreme. Enjoy your day!")
-        
-        
     else:
         print("Error")
 
-user_input = input(Fore.GREEN + "Welcome to Weather & UV index Checker. Would you like to see the UV index (u) or weather (w)? (u/w): ").lower()
+user_input = input(Fore.GREEN + "Welcome to Weather & UV index Checker. Type (w) for Weather or (u) for UV index:  ").lower()
 
 if user_input == "w":
     weather()
