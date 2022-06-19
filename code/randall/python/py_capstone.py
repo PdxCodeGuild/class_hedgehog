@@ -9,13 +9,13 @@ import requests
 import creds     #import external file (creds.py added to .gitignore) which contains
                  # the API key with the variable "api_key". Keeps API key secret
 
-def weather():
+def weather():      # Not getting accurate weather data
     """This function will return the general weather conditions of the entered city"""
 
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     city = input(Fore.GREEN +"Welcome to Weather Checker. For current conditions, please enter a city name: ")
     state = input(Fore.GREEN +"Please enter the state: ")
-    requests_url = f"{base_url}?q={city},{state}&appid={creds.api_key}"
+    requests_url = f"{base_url}?q={city},{state},USA&appid={creds.api_key}"
     response = requests.get(requests_url)
 
     if response.status_code == 200:
@@ -37,9 +37,21 @@ def uv_index():
     if response.status_code == 200:
         data = response.json()
         zip = data[0]["ZIP_CODE"]              
-        UV = data[0]["UV_INDEX"]
-        UV_ALERT = data[0]["UV_ALERT"]
-        print(f"For zip code {zip}, the UV index is {UV} and the UV alert level is {UV_ALERT}")
+        uv = data[0]["UV_INDEX"]
+        uv_alert = data[0]["UV_ALERT"]
+        print(f"For zip code {zip}, the UV index is {uv} and the UV alert level is {uv_alert}")
+        uv = int(uv)
+        if uv <= 2:
+           print(Fore.GREEN + "UV index is low. Enjoy your day!")
+        elif uv <= 5:
+              print(Fore.YELLOW + "UV index is moderate. Enjoy your day!")
+        elif uv <= 7:                                                           #change these
+                print(Fore.RED + "UV index is high. Enjoy your day!")
+        elif uv <= 10:
+                print(Fore.RED + "UV index is very high. Enjoy your day!")
+        elif uv >= 11:
+                print(Fore.RED + "UV index is extreme. Enjoy your day!")
+        
         
     else:
         print("Error")
