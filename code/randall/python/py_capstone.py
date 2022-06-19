@@ -3,6 +3,7 @@
 # Weather  ---  https://openweathermap.org/api
 # UV Index ---  https://data.epa.gov/efservice/getEnvirofactsUVDAILY/ZIP
 
+from sre_parse import State
 from colorama import Fore  # for purdy colors
 import requests
 import creds     #import external file (creds.py added to .gitignore) which contains
@@ -13,7 +14,8 @@ def weather():
 
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     city = input(Fore.GREEN +"Welcome to Weather Checker. For current conditions, please enter a city name: ")
-    requests_url = f"{base_url}?appid={creds.api_key}&q={city}" 
+    state = input(Fore.GREEN +"Please enter the state: ")
+    requests_url = f"{base_url}?q={city},{state}&appid={creds.api_key}"
     response = requests.get(requests_url)
 
     if response.status_code == 200:
@@ -37,7 +39,7 @@ def uv_index():
         zip = data[0]["ZIP_CODE"]              
         UV = data[0]["UV_INDEX"]
         UV_ALERT = data[0]["UV_ALERT"]
-        print(zip)
+        print(f"For zip code {zip}, the UV index is {UV} and the UV alert level is {UV_ALERT}")
         
     else:
         print("Error")
