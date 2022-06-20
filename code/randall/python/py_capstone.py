@@ -22,7 +22,7 @@ def weather():      # Not getting accurate weather data
         weather = data["weather"]
         print(Fore.YELLOW + weather[0]["description"].title())
         temperature = round(data["main"]["temp"] - 273.15) * 9/5 + 32 #Converts Kelvin to Fahrenheit and rounds 
-        print(f"Temperature: {temperature} °f")
+        print(Fore.YELLOW + f"Temperature: {temperature} °f")
     else:
         print("Error")
 
