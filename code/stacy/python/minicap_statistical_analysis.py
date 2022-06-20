@@ -70,9 +70,9 @@ for index, data in enumerate(subject_data):
     subject_ID = index + 1
     gender = data['gender']
     if gender == 'male':
-        dependent_value = random.randint(60 , 120)
+        dependent_value = (random.randint(30 , 60) + random.randint(30 , 60))
     elif gender == 'female':
-        dependent_value = random.randint(47, 107)
+        dependent_value = (random.randint(24, 54) + random.randint(24, 54))
     subject['ID'] = subject_ID
     subject['gender'] = gender
     subject['dependent value'] = dependent_value
