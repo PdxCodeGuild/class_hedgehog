@@ -1,4 +1,4 @@
-
+#Square Every Digit Codewars
 def square_digits(num):
     num = str(num)
     num = [int(i) for i in (num)]
