@@ -41,15 +41,15 @@ def Excuses():
     user_input = choices.get(user_input)
 
     if user_input == 'Family':
-        print(f"\n{fam_excuse}\n")
+        print(f"\nFamily excuse: {fam_excuse[0]['excuse']}\n")
     elif user_input == 'Office':
-        print(f"\n{office_excuse}\n")
+        print(f"\nOffice excuse: {office_excuse[0]['excuse']}\n")
     elif user_input == 'Children':
-        print(f"\n{kids_excuse}\n")
+        print(f"\nKids excuse: {kids_excuse[0]['excuse']}\n")
     elif user_input == 'School':
-        print(f"\n{school_excuse}\n")
+        print(f"\nSchool excuse: {school_excuse[0]['excuse']}\n")
     elif user_input == 'Party':
-        print(f"\n{party_excuse}\n")
+        print(f"\nParty excuse: {party_excuse[0]['excuse']}\n")
     else:
         print(f"\nNot an option try again\n")
         
