@@ -93,6 +93,7 @@ def main():
             if len(week_meals)>0:
                 for iter in iter_list:
                     print(iter + " " + week_meals[iter]['strMeal'])
+                pause = input("Press enter to continue.")
             else:
                 print("Nothing on the books this week chef.")
    
