@@ -1,18 +1,8 @@
-#Square Every Digit Codewars
-def square_digits(num):
-    num = str(num)
-    num = [int(i) for i in (num)]
-    x = []
-    
-    for a in (num):
-         x.append(a**2)
-    
-    x = [str(int) for int in x]
-    x_joined = "".join(x)
-    x_joined = int(x_joined)
-    print(x_joined)
+def get_count(sentence):
+    count = 0
+    for char in sentence:
+        if char in 'aeiouAEIOU':
+            count += 1
+    return count
 
-square_digits(9119)
-
-
-
+print(get_count("I don't know what we're yelling about"))
