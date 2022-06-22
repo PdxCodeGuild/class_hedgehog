@@ -1,8 +1,11 @@
 def main():
     import requests 
-    print("Welcome the the lyrical machine! We'll find you're lyrics or won't! Try us to find out")
-    artist = input("Please enter an artist: ")
-    title = input(f'Please enter a song from {artist}: ')
+    from colorama import Fore, Back, Style
+    from rich.console import Console
+    console = Console()
+    console.print("[green]Welcome the the lyrical machine! We'll find you're lyrics or won't! Try us to find out[/green]")
+    artist = console.input("Please enter an [green]artist[/green]: ")
+    title = console.input(f'Please enter a song from [green]{artist}[/green]: ')
     artist = artist.replace(' ', '%20')
     title = title.replace(' ', '%20')
     
@@ -14,24 +17,23 @@ def main():
     
         if 'lyrics' in lyrics:    
             print(lyrics['lyrics'])
-            re_play = input("Would you like to try a different artist or title or quit? :")
+            re_play = console.input("Would you like to try a different [green]artist[/green] or [green]title[/green] or [red]quit[/red]? :")
         else:
-            print("You either misspelled the artist, the title or you have no taste in music!")
+            console.print("You either misspelled the [green]artist[/green], the [green]title[/green] or [bold red]you have no taste in music[bold red]!")
             re_play = input("Would you like to try again? y/n? :")
     
         if re_play.lower() == 'artist':
-            artist = input('Please enter your new artist:')
-            title = input('Please enter your new title: ')
+            artist = console.input('Please enter your new [green]artist[/green]:')
+            title = console.input('Please enter your new [green]title[/green]: ')
             continue
         elif re_play.lower() == 'title':
-            title = input('Please enter your new title: ')
+            title = console.input('Please enter your new [green]title[/green]: ')
             continue
         elif re_play.lower() == 'y':
-            artist = input("Please enter an artist: ")
-            title = input(f'Please enter a song from {artist}: ')
+            artist = console.input("Please enter an [green]artist[/green]: ")
+            title = console.input(f'Please enter a song from [green]{artist}[/green]: ')
             continue
         elif re_play.lower() == 'n' or 'quit':
             break
-
 
 main()
