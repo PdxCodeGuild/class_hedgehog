@@ -24,12 +24,10 @@ def find_breweries():
         choice = input(menu + "-> ")
         if choice == "1":
             ip_address = requests.get('https://api.ipify.org').text
-            # print("IP address: {}".format(ip_address))
 
             #use IP adress and API to get location data
             loc_data = requests.get(f'https://ipapi.co/{ip_address}/json/')
             loc_data = loc_data.json()
-            # print (loc_data)
 
             location_detail = {
             "IP": ip_address,
@@ -38,7 +36,8 @@ def find_breweries():
 
             city = location_detail["city"]
             
-            # use API to get up to 5(set 5 as a limit) Breweries, Cideries and Craft Beer Bottle Shops nearby based on zip code
+            # use location data and API to get up to 5(set 5 as a limit) Breweries, Cideries and 
+            # Craft Beer Bottle Shops nearby based on zip code
             response = requests.get(f"https://api.openbrewerydb.org/breweries?by_city={city}&per_page=5")
             breweries = response.json()
             if len(breweries) <= 0:
@@ -49,18 +48,18 @@ def find_breweries():
                 street = i["street"]
                 city_b = i["city"]
                 state_b = i["state"]
-                phone_num = i["phone"] # format phone number later
+                phone_num = i["phone"] 
                 website = i["website_url"]
                 print(f"\nName:\n{name}\nType:\n{type}\nAddress:\n{street}\n{city_b}, {state_b}\nPhone Number:\n{phone_num}\nWebsite:\n{website}\n")
 
             continue
-
+        
+        # allow user to enter a zipcode to find 
         elif choice == "2":
             zipcode2 = input("Enter Zipcode: ")
 
             regexp = re.compile("^\d{5}$")
             if not regexp.search(zipcode2):
-                # print("Invalid input {}".format(zipcode2))
                 print(f"{zipcode2} is not a valid zipcode.\nPlease enter a valid zipcode.")
                 continue
 
@@ -80,7 +79,6 @@ def find_breweries():
                 print(f"\nName:\n{name}\nType:\n{type}\nAddress:\n{street}\n{city_b}, {state_b}\nPhone Number:\n{phone_num}\nWebsite:\n{website}\n")
 
             continue
-            ########### figure out error message if incorrect user input/not a zip code
 
         elif choice == "3":
             print("Goodbye!")
@@ -96,7 +94,4 @@ def find_breweries():
             break
         
 
-
-
 find_breweries()
-
