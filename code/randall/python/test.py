@@ -1,17 +1,18 @@
-# Just test things
+#Square Every Digit Codewars
+def square_digits(num):
+    num = str(num)
+    num = [int(i) for i in (num)]
+    x = []
+    
+    for a in (num):
+         x.append(a**2)
+    
+    x = [str(int) for int in x]
+    x_joined = "".join(x)
+    x_joined = int(x_joined)
+    print(x_joined)
+
+square_digits(9119)
 
 
-"""
-Black Knight: “Tis but a scratch.”
-King Arthur: “A scratch? Your arm’s off!
-King Arthur: “Look, you stupid b***ard, you’ve got no arms left!”
-Black Knight: “Yes I have.”
-King Arthur: “Look!”
-Black Knight: “It’s just a flesh wound…”
 
-Black Knight: “Right, I’ll do you for that!”
-King Arthur: “You’ll what?”
-Black Knight: “Come here!”
-King Arthur: “What are you gonna do, bleed on me?”
-
-"""
