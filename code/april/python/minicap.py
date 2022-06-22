@@ -48,7 +48,8 @@ def find_breweries():
                 street = i["street"]
                 city_b = i["city"]
                 state_b = i["state"]
-                phone_num = i["phone"] 
+                phone = i["phone"] 
+                phone_num = "(" + phone[:3] + ")" + phone[3:6] + "-" + phone[6:10]
                 website = i["website_url"]
                 print(f"\nName:\n{name}\nType:\n{type}\nAddress:\n{street}\n{city_b}, {state_b}\nPhone Number:\n{phone_num}\nWebsite:\n{website}\n")
 
@@ -74,7 +75,8 @@ def find_breweries():
                 street = i["street"]
                 city_b = i["city"]
                 state_b = i["state"]
-                phone_num = i["phone"] 
+                phone = i["phone"] 
+                phone_num = "(" + phone[:3] + ")" + phone[3:6] + "-" + phone[6:10] 
                 website = i["website_url"]
                 print(f"\nName:\n{name}\nType:\n{type}\nAddress:\n{street}\n{city_b}, {state_b}\nPhone Number:\n{phone_num}\nWebsite:\n{website}\n")
 
@@ -95,3 +97,4 @@ def find_breweries():
         
 
 find_breweries()
+
