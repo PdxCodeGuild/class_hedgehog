@@ -71,8 +71,10 @@ for index, data in enumerate(subject_data):
     gender = data['gender']
     if gender == 'male':
         dependent_value = (random.randint(30 , 60) + random.randint(30 , 60))
+        # dependent_value = (random.randint(30 , 60) + random.randint(40 , 50))
     elif gender == 'female':
         dependent_value = (random.randint(24, 54) + random.randint(24, 54))
+        # dependent_value = (random.randint(24, 54) + random.randint(38, 48))
     subject['ID'] = subject_ID
     subject['gender'] = gender
     subject['dependent value'] = dependent_value
@@ -143,9 +145,10 @@ class Independent_t_test:
         self.sample_2_variance = self.sample_2_distribution.variance
         self.sample_2_standard_deviation = self.sample_2_distribution.standard_deviation
 
-        self.t_value = (self.sample_1_mean - self.sample_2_mean)/(((self.sample_1_variance/len(self.sample_1))+(self.sample_2_variance/len(self.sample_2)))**(1/2))
-
         self.degrees_of_freedom = len(self.sample_1) + len(self.sample_2) - 2
+        self.common_variance = (self.sample_1_sum_of_squares + self.sample_2_sum_of_squares) / self.degrees_of_freedom
+        self.t_value = (self.sample_1_mean - self.sample_2_mean)/(((self.common_variance/len(self.sample_1))+(self.common_variance/len(self.sample_2)))**(1/2))
+
 
     def __str__(self):
         return f'Sample 1 size: {len(self.sample_1)}\nSample 1 mean: {self.sample_1_mean}\nSample 1 SD: {self.sample_1_standard_deviation}\nSample 2 size: {len(self.sample_2)}\nSample 2 mean: {self.sample_2_mean}\nSample 2 SD: {self.sample_2_standard_deviation}\nt-value: {self.t_value}\nDegrees of Freedom: {self.degrees_of_freedom}'
