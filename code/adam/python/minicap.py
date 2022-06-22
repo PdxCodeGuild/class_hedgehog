@@ -2,22 +2,19 @@
 import requests
 from requests import get
 
-
-
-#ip = input("Enter the IP address you would like to receive locational data for: ")
 def grab_ip():
     ip = get('https://ipapi.co/ip/').text
     return ip
 
 def main(ip=grab_ip()):
-    """This goal of the function is to return data about the IP that the user inputs or that is retrieved from user.
-        and store it in default file "visitors_ip.txt"
+    """The goal of this function is to return data about the IP that the user inputs or that is retrieved from user.
+        and store it in a default file "visitors_ip.txt"
         
         This function requires one argument.
-        ip: default is to grab the ip from the computer running the function.
-            but the user can input ip in a str form.
+        ip: the default is to grab the ip from the computer running the function.
+            but the user can input an ip in str form example("8.8.8.8").
         """
-#ip = "8.8.8.8"
+
     response = get(f"https://ipapi.co/{ip}/json/")
     user_data = response.json()
    
@@ -41,19 +38,3 @@ def main(ip=grab_ip()):
         Coordinate: Latitude {lat}, Longitude {long}""")
 
 print(main())
-
-    
-#print(user_info)    
-    
-# lat = data["latitude"]
-# long = data["longitude"]
-#     #print(get('https://ipapi.co/ip/')).text
-# print(lat,long)
-#main()
-    
-    
-
-
-
-
-#print(lat, long)
