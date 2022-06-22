@@ -12,7 +12,7 @@ Random NPC generator for DND, maybe a madlib like story generator to go with it"
 Roadmap:
 Basic interface [x]
 save weekly menu [x]
-
+single meal choice [x]
 --create user profile
 ----remember preferences
 ----save favorite meals
@@ -42,6 +42,11 @@ def striplist(texts):
 
 def meal_prep_format():
     intake = requests.get(f'https://www.themealdb.com/api/json/v1/1/random.php').json()['meals'][0]
+    intake = {key:value for key, value in intake.items() if (value != '' and value != ' ' and value != None)}
+
+    return intake
+
+def meal_prep_single_format(intake):
     intake = {key:value for key, value in intake.items() if (value != '' and value != ' ' and value != None)}
 
     return intake
@@ -81,13 +86,17 @@ def main():
         2. Build a new list
         3. Pick a day
         4. Ingredients list for the week
-        5. Exit
+        5. Quick recipe
+        6. Exit
         """)
         try:
             cook_choice = int(input("What will it be, chef: "))
         except (TypeError, ValueError):
             print("I am afraid I do not understand chef... let's try again")
             continue
+        
+        
+        
         if cook_choice == 1:
             print("\n")
             if len(week_meals)>0:
@@ -97,9 +106,14 @@ def main():
             else:
                 print("Nothing on the books this week chef.")
    
+        
+        
         if cook_choice == 2:
             for iter in iter_list:
                 week_meals[iter] = meal_prep_format()
+        
+        
+        
         if cook_choice == 3:
             day = input("Okie dokie chef! Please tell me what day it is: ").lower()
             if day in week_meals.keys():
@@ -107,6 +121,9 @@ def main():
                 meal_prep(week_meals[day])
             else: 
                 print("I am afraid I do not have that on the books chef.\n")
+        
+        
+        
         if cook_choice == 4:
             print("\nHere are your ingredients for the week chef!\n")
             for key in week_meals.keys():
@@ -116,12 +133,39 @@ def main():
                     except TypeError:
                         pass
             pause = input("Press enter to continue.")
+
         if cook_choice == 5:
+            print("\nPlease pick a category for your meal chef.\n")
+            categories = requests.get("https://www.themealdb.com/api/json/v1/1/list.php?c=list").json()['meals']
+            for i, cat in enumerate(categories):
+                print(i, cat.get("strCategory"))
+            try:
+                cat_input = int(input("\nEnter your number selection here please chef: "))
+            except (TypeError, ValueError, IndexError):
+                print("\nAfraid that is not an option chef")
+                continue
+            
+            options = requests.get(f"https://www.themealdb.com/api/json/v1/1/filter.php?c={categories[int(cat_input)].get('strCategory')}").json()['meals']
+            
+            for i, option in enumerate(options):
+                print(i, option.get('strMeal'))
+            try:
+                meal_choice = int(input("\nPlease tell me which number strikes your fancy chef: "))
+            except (TypeError, ValueError, IndexError):
+                print("\nAfraid that is not an option chef")
+                continue
+
+            single_meal = requests.get(f'https://www.themealdb.com/api/json/v1/1/search.php?s={options[meal_choice].get("strMeal")}').json()['meals'][0]
+            meal_prep(meal_prep_single_format(single_meal))
+           
+
+        
+        if cook_choice == 6:
             with open("C:/Users/bored/Documents/Python/Python work/chef_text.txt", "w") as f:
                 f.write(str(week_meals))
             print("See you next time chef!")
             break
-
+        
 main()
 
 
