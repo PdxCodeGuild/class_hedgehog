@@ -12,7 +12,10 @@ def grab_ip():
 def main(ip=grab_ip()):
     """This goal of the function is to return data about the IP that the user inputs or that is retrieved from user.
         and store it in default file "visitors_ip.txt"
-        default IP address is 8.8.8.8 (Google LLC.)
+        
+        This function requires one argument.
+        ip: default is to grab the ip from the computer running the function.
+            but the user can input ip in a str form.
         """
 #ip = "8.8.8.8"
     response = get(f"https://ipapi.co/{ip}/json/")
