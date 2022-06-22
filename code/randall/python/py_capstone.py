@@ -8,13 +8,13 @@ import requests
 import creds     #import external file (creds.py added to .gitignore) which contains
                  # the API key with the variable "api_key". Keeps API key secret
 
-def weather():      # Not getting accurate weather data
+def weather():      # Not getting accurate weather data ///fixed by removing USA from the url
     """This function will return the general weather conditions of the entered city"""
 
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     city = input(Fore.GREEN +"Welcome to Weather Checker. For current conditions, please enter a city name: ")
     state = input(Fore.GREEN +"Please enter the state: ")
-    requests_url = f"{base_url}?q={city},{state},USA&appid={creds.api_key}"
+    requests_url = f"{base_url}?q={city},{state},&appid={creds.api_key}"
     response = requests.get(requests_url)
 
     if response.status_code == 200:
@@ -29,7 +29,7 @@ def weather():      # Not getting accurate weather data
 def uv_index():
     """This function will return the UV index of the entered zip code"""
 
-    zip_code = input(Fore.WHITE +"Please enter the Zip Code: ")
+    zip_code = input(Fore.WHITE +"Please enter the Zip Code: ") 
     requests_url = f"https://data.epa.gov/efservice/getEnvirofactsUVDAILY/ZIP/{zip_code}/JSON"
     response = requests.get(requests_url)
     
