@@ -12,7 +12,7 @@ def weather():      # Not getting accurate weather data ///fixed by removing USA
     """This function will return the general weather conditions of the entered city"""
 
     base_url = "http://api.openweathermap.org/data/2.5/weather"
-    city = input(Fore.GREEN +"Welcome to Weather Checker. For current conditions, please enter a city name: ")
+    city = input(Fore.GREEN +"For current weather conditions, please enter a city name: ")
     state = input(Fore.GREEN +"Please enter the state: ")
     requests_url = f"{base_url}?q={city},{state},&appid={creds.api_key}"
     response = requests.get(requests_url)
@@ -53,7 +53,7 @@ def uv_index():
     else:
         print("Error")
 
-user_input = input(Fore.GREEN + "Welcome to Weather & UV index Checker. Type (w) for Weather or (u) for UV index:  ").lower()
+user_input = input(Fore.GREEN + "###  Welcome to Weather & UV Index Checker  ###\n Type (w) for Weather or (u) for UV index:  ").lower()
 
 if user_input == "w":
     weather()
