@@ -33,25 +33,33 @@ create shopping list option w/ all required ingredients for week [ ]
 import requests
 import ast
 
-def striplist(texts):
+
+
+def striplist(texts): #strips extra character from string
     from string import punctuation
     punc = list(punctuation) + [" ", "\n", "\r"]
     for x in punc:
         texts = texts.replace(x, "")
     return texts
 
-def meal_prep_format():
+
+
+def meal_prep_format(): # removes blank key:value pairs from dict
     intake = requests.get(f'https://www.themealdb.com/api/json/v1/1/random.php').json()['meals'][0]
     intake = {key:value for key, value in intake.items() if (value != '' and value != ' ' and value != None)}
 
     return intake
 
-def meal_prep_single_format(intake):
+
+
+def meal_prep_single_format(intake): # removed blank key:values from dict
     intake = {key:value for key, value in intake.items() if (value != '' and value != ' ' and value != None)}
 
     return intake
 
-def meal_prep(meal):
+
+
+def meal_prep(meal): #Formats meal information for terminal
     print(f"\nLets cook some {meal['strMeal']}\n")
     
     print("Here are the ingredients you will need!")
@@ -70,9 +78,11 @@ def main():
     week_meals = {}
 
     # Maybe code for later
-    # pull_list = requests.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list').json()['meals']
-    # area_list = [x["strArea"] for x in pull_list]
-    # type_list = [x for x in random.choice()]
+    """pull_list = requests.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list').json()['meals']
+    area_list = [x["strArea"] for x in pull_list]
+    type_list = [x for x in random.choice()]"""
+
+
     with open("C:/Users/bored/Documents/Python/Python work/chef_text.txt", "r") as f:
         read_file = f.read()
     week_meals = ast.literal_eval(read_file)
@@ -133,6 +143,8 @@ def main():
                     except TypeError:
                         pass
             pause = input("Press enter to continue.")
+
+
 
         if cook_choice == 5:
             print("\nPlease pick a category for your meal chef.\n")
