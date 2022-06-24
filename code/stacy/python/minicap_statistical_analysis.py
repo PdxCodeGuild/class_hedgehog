@@ -81,6 +81,21 @@ for index, data in enumerate(subject_data):
     dataset.append(subject)
 # print(dataset)
 
+dataset_2 = []
+for index, data in enumerate(subject_data):
+    subject = {}
+    subject_ID = index + 1
+    gender = data['gender']
+    if gender == 'male':
+        dependent_value = (random.randint(20 , 50) + random.randint(20 , 50))
+        # dependent_value = (random.randint(30 , 60) + random.randint(40 , 50))
+    elif gender == 'female':
+        dependent_value = (random.randint(14, 44) + random.randint(14, 44))
+        # dependent_value = (random.randint(24, 54) + random.randint(38, 48))
+    subject['ID'] = subject_ID
+    subject['gender'] = gender
+    subject['dependent value'] = dependent_value
+    dataset_2.append(subject)
 #######################################################################################################
 
 """ Classes """
@@ -169,7 +184,24 @@ class Single_sample_t_test:
     def __str__(self):
         return f'Sample size: {len(self.sample)}\n Sample mean: {self.sample_mean}\nSample SD: {self.sample_standard_deviation}\nPostulated mean: {self.postulated_mean}\nT-value: {self.t_value}\nDegrees of Freedom: {self.degrees_of_freedom}'
 
-
+class Paired_sample_t_test:
+    def __init__(self, dataset_1: list, dataset_2: list):
+        self.sample_size = len(dataset_1)
+        self.degrees_of_freedom = self.sample_size - 1
+        self.differences = []
+        for x in range(self.sample_size):
+            self.differences.append(dataset_1[x].get('dependent value') - dataset_2[x].get('dependent value'))
+        self.sum_differences = 0
+        for difference in self.differences:
+            self.sum_differences += difference
+        self.sum_differences_squared = 0
+        for difference in self.differences:
+            self.sum_differences_squared += (difference ** 2)
+        self.t_value = self.sum_differences / (((self.sample_size * (self.sum_differences_squared))-(self.sum_differences**2) / self.degrees_of_freedom)**(1/2))
+    
+    def __str__(self):
+        return f'Sample size: {self.sample_size}\nDegrees of Freedom" {self.degrees_of_freedom}\nT-value: {self.t_value}'
+    
 #########################################################################################################
 
 """ Testing """
@@ -180,44 +212,6 @@ print(independent_t_test)
 print()
 single_sample_t_test = Single_sample_t_test(dataset)
 print(single_sample_t_test)
-
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-
-""" ######################################  Works in Progress  ######################################"""
-
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-
-class Paired_sample_t_test:
-    def __init__(self, subject, dependent, independent, dataset):
-        self.sample_size = ''
-        self.dependent = ''
-        self.independent = ''
-        self.standard_deviation1 = ''
-        self.standard_deviation2 = ''
-        self.effect_size = ''
-        self.statistical_significance = ''
-
-    def effect_size(self):
-
-        pass
-
-    def statistical_significance(self):
-
-        pass
-
-    def visualize_distribution(self):
-
-        pass
-    
-    def __str__(self):
-
-        pass
-    
+print()
+paired_sample_t_test = Paired_sample_t_test(dataset, dataset_2)
+print(paired_sample_t_test)
