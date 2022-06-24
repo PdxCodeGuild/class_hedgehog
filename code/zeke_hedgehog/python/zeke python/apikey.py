@@ -8,5 +8,5 @@
 
 apikey = "810b7e7001c52f9e5613d09f59f4215f8101677d"
 
-https://today.zenquotes.io/[month]/[day]/[your_key]
+# https://today.zenquotes.io/[month]/[day]/[your_key]
 
