@@ -1,7 +1,7 @@
 body {
     text-align: center;
     color: gainsboro;
-    background-image: repeating-linear-gradient(45deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(0deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(135deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),linear-gradient(90deg, rgb(41, 27, 158),rgb(249, 77, 212));
+    background-image: linear-gradient(112.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(157.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(67.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(90deg, rgb(65, 48, 207),rgb(202, 204, 121)); background-blend-mode:overlay,overlay,overlay,normal;
 
 }
 
@@ -11,7 +11,7 @@ body {
 }
 
 .link {
-    color: rgb(212, 21, 7);
+    color: rgb(44, 1, 1);
 }
 
 q {
@@ -19,15 +19,20 @@ q {
 }
 
 img {
-    border-radius: 12px;
-    border: 5px solid gainsboro;
+    border-radius: 16px;
+    border: 8px solid rgb(136, 0, 0);
 
 }
 
 ul {
-    width: 7rem;
-    margin: 0 auto
+    display: inline-block;
+    list-style: "λ";
+    text-align: left;
+    /* width: 7rem;
+    margin: 0 auto */
 }
 
-
+li {
+    padding-left: 16px;
+}
 
