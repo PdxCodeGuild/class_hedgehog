@@ -65,6 +65,8 @@ def meal_prep(meal):
     print(meal["strInstructions"] )
     pause = input("press enter to go back to the main menu chef.")
 
+
+
 def main():
     iter_list = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
     week_meals = {}
@@ -73,9 +75,12 @@ def main():
     # pull_list = requests.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list').json()['meals']
     # area_list = [x["strArea"] for x in pull_list]
     # type_list = [x for x in random.choice()]
-    with open("C:/Users/bored/Documents/Python/Python work/chef_text.txt", "r") as f:
-        read_file = f.read()
-    week_meals = ast.literal_eval(read_file)
+    try:
+        with open("chef_text.txt", "r") as f:
+            read_file = f.read()
+        week_meals = ast.literal_eval(read_file)
+    except:
+        pass
     while True:
     
         print(f"""
@@ -161,14 +166,10 @@ def main():
 
         
         if cook_choice == 6:
-            with open("C:/Users/bored/Documents/Python/Python work/chef_text.txt", "w") as f:
+            with open("chef_text.txt", "w+") as f:
                 f.write(str(week_meals))
             print("See you next time chef!")
             break
         
 main()
-
-
-
-
 
