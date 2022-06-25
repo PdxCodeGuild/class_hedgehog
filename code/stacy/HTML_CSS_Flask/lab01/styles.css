@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    color: gainsboro;
+    background-image: repeating-linear-gradient(45deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(0deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(135deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),linear-gradient(90deg, rgb(41, 27, 158),rgb(249, 77, 212));
+
+}
+
+.intro {
+    padding: 0 40px;
+    font-family: 'Inter', sans-serif; 
+}
+
+.link {
+    color: rgb(212, 21, 7);
+}
+
+q {
+    font-family: 'Bilbo Swash Caps', cursive;
+}
+
+img {
+    border-radius: 12px;
+    border: 5px solid gainsboro;
+
+}
+
+ul {
+    width: 7rem;
+    margin: 0 auto
+}
+
+
+
