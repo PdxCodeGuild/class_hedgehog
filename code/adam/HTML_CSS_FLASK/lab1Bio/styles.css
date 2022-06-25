@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    background-image: repeating-linear-gradient(112.5deg, hsla(241,0%,57%,0.2) 0px, hsla(241,0%,57%,0.2) 0px,transparent 0px, transparent 1px,hsla(241,0%,57%,0.2) 1px, hsla(241,0%,57%,0.2) 4px,transparent 4px, transparent 5px,hsla(241,0%,57%,0.2) 5px, hsla(241,0%,57%,0.2) 8px),repeating-linear-gradient(22.5deg, hsla(241,0%,57%,0.2) 0px, hsla(241,0%,57%,0.2) 0px,transparent 0px, transparent 1px,hsla(241,0%,57%,0.2) 1px, hsla(241,0%,57%,0.2) 4px,transparent 4px, transparent 5px,hsla(241,0%,57%,0.2) 5px, hsla(241,0%,57%,0.2) 8px),linear-gradient(90deg, rgb(47, 47, 47),rgb(184, 184, 184));}
+
+h1 {
+    font-size: 50pct;
+}
+.intro {
+    padding: 0 40px;
+}
+.link {
+    font-size: smaller;
+    color:rgb(87, 33, 87) ;
+}
+q {
+    font-family: 'Courgette', cursive;
+}
+img {
+    border-radius: 1.5rem;
+    border: 2px solid rgba(72, 133, 202, 0.911);
+}
+ul {
+    display: inline-block;
+    list-style: "⁎";
+    margin-top: 0;
+   
+}
+li {
+    padding-left: 8px;
+}
