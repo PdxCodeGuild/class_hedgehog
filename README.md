@@ -27,6 +27,16 @@ Instructor:
 ### Assigned Labs:
 
 <details open>
+  <summary>HTML/CSS/Flask</summary>
+
+| Lab Number | Title | Due Date |
+| ---------- | ----- | -------- |
+| Lab 01     | [Bio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/01%20Bio.md) | 08 JUL |
+
+
+</details>
+
+<details>
   <summary>Python</summary>
 
 | Lab Number | Title | Due Date |
