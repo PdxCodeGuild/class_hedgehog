@@ -5,8 +5,14 @@ body {
 
 h1 {
     font-size: 50pct;
+    padding-bottom: 0;
 }
+h3 {
+    padding-top: 0;
+    
+ }
 .intro {
+    font-size: large;
     padding: 0 40px;
 }
 .link {
@@ -14,6 +20,7 @@ h1 {
     color:rgb(87, 33, 87) ;
 }
 q {
+    font-size: x-large;
     font-family: 'Courgette', cursive;
 }
 img {
@@ -28,4 +35,10 @@ ul {
 }
 li {
     padding-left: 8px;
+}
+.Bio {
+    
+    font-size: xx-large;
+    color: rgb(240, 34, 34);
+    
 }
