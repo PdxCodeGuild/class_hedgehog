@@ -24,6 +24,115 @@ translator = str.maketrans('', '', string.punctuation)
 remove_punctuation = text.translate(translator)
 text = remove_punctuation.lower().split()
 
+###################
+
+# added excluded word removal 
+def exclusions():
+    with open("articles.txt") as f:
+        articles = f.read()
+        # articles = articles.split()
+        # print(articles)
+
+    with open("conjunctions.txt") as f:
+        conjunctions = f.read()
+        # print(conjunctions)
+
+    with open("prepositions.txt") as f:
+        prepositions = f.read()
+        # print(prepositions)
+
+
+    def default_not():
+        not_words = open("not_words_list.txt", "w")
+        other_words = ["Gutenberg\n", "eBook \n", "www\n", "she\n", "he\n", "I\n", '"i\n', "they\n", "is\n", "they\n", "her\n", "him\n", "was\n", "it\n", "you\n", "all\n", "his\n", '“i\n',"UTF"]
+        not_words.writelines(other_words)
+        not_words.close()
+
+    def exclude_articles():
+        not_words = open("not_words_list.txt", "a")  
+        not_words.write(f"\n{articles}")
+        not_words.close()
+
+    def exclude_prepositions():
+        not_words = open("not_words_list.txt", "a")  
+        not_words.write(f"\n{prepositions}")
+        not_words.close()
+
+    def exclude_conjunctions():
+        not_words = open("not_words_list.txt", "a")  
+        not_words.write(f"\n{conjunctions}")
+        not_words.close()
+
+    def exclude_all():
+        not_words = open("not_words_list.txt", "a")  
+        not_words.write(f"\n{articles}\n{prepositions}\n{conjunctions}")
+        not_words.close()
+
+    def exclusion_choices():
+        while True:
+            menu = """
+            What would you like to exclude?
+            1) Exclude Nothing
+            2) Exclude Articles
+            3) Exclude Prepositions
+            4) Exclude Conjunctions
+            5) Exclude Articles and Prepositions
+            6) Exclude Articles and Conjunctions
+            7) Exclude Prepositions and Conjunctions
+            8) Exclude All
+            """
+            
+            choice = input(menu + "-> ")
+            default_not()
+            if choice == "1":
+                break
+            elif choice == "2":
+                exclude_articles()
+                break
+            elif choice == "3":
+                exclude_prepositions()
+                break
+            elif choice == "4":
+                exclude_conjunctions()
+                break
+            elif choice == "5":
+                exclude_articles()
+                exclude_prepositions()
+                break
+            elif choice == "6":
+                exclude_articles()
+                exclude_conjunctions()
+                break
+            elif choice == "7":
+                exclude_prepositions()
+                exclude_conjunctions()
+                break
+            elif choice == "8":
+                exclude_all()
+                break
+            else:
+                print("Error")
+                break
+
+    exclusion_choices()
+exclusions()
+
+
+#####################
+
+with open('not_words_list.txt', 'r', encoding='utf-8') as f:
+    not_words = f.read()
+
+translator2 = str.maketrans('', '', string.punctuation)
+remove_punctuation2 = not_words.translate(translator2)
+not_words = remove_punctuation2.lower().split()
+
+for word in list(text): 
+    if word in not_words:
+        text.remove(word)
+
+#####################
+
 # word_dict is a dictionary where the key is the word and the value is the count
 word_dict = {}
 
