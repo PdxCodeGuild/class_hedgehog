@@ -16,7 +16,7 @@ h3 {
     padding: 0 40px;
 }
 .link {
-    font-size: smaller;
+    font-size: medium;
     color:rgb(87, 33, 87) ;
 }
 q {
@@ -36,7 +36,7 @@ ul {
 li {
     padding-left: 8px;
 }
-.Bio {
+.bio {
     
     font-size: xx-large;
     color: rgb(240, 34, 34);
