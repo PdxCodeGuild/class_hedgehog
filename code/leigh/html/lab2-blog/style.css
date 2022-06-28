@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posts {
+    width: 75%;
+    text-align: center;
+    font-family: 'Anek Malayalam', sans-serif;
+    color: #E9967A;
+}
+
+.main {
+    margin-left: 25%;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+}
+
+aside {
+    background-color: #FFB6C1;
+}
