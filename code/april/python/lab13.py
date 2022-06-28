@@ -4,8 +4,6 @@ April
 16 June 2022
 """
 
-"""Version One"""
-
 import string
 import requests
 
@@ -21,14 +19,10 @@ open('alice.txt', 'wb').write(response.content)
 with open('alice.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 
-# Remove elements that are not words
-not_word = []
-for element in text:
-    if element in not_word:
-        ...
-
 # Make everything lowercase, strip punctuation, split into a list of words
-text = text.lower().split()
+translator = str.maketrans('', '', string.punctuation)
+remove_punctuation = text.translate(translator)
+text = remove_punctuation.lower().split()
 
 # word_dict is a dictionary where the key is the word and the value is the count
 word_dict = {}
@@ -40,10 +34,8 @@ for word in text:
     else:
         word_dict[word] = 1
 
-# print(word_dict)
 
 # Print the most frequent top 10 out with their counts. You can do that with the code below.
-
 words = list(word_dict.items()) # .items() returns a list of tuples
 words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
 for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
