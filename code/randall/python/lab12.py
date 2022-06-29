@@ -36,8 +36,6 @@ class ATM:
     def print_transactions(self, amount, transactions):
         pass
         
-
-
 atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
 
