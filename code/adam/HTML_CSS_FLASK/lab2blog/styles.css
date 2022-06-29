@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  background-color: aqua;
+}
+.item-a {
+  text-align: center;
+  margin-top: 1rem;
+}
+.nav {
+  
+  text-align: center;
+}
+.blog-1 {
+
+  height: 40rem;
+  margin-top: 2rem;
+  background-color: burlywood ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post {
+  height: 15rem;
+  width: 40rem;
+  padding: 2rem;
+  margin: 2rem;
+  border: 1px solid black;
+}
+.title-row {
+  display: flex;
+  justify-content: space-between;
+}
