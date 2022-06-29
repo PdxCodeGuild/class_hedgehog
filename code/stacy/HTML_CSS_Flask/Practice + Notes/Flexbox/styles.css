@@ -1,0 +1,38 @@
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    background-color: aqua;
+    border: 3px solid white;
+    border-radius: 5px;
+
+    /* center text within flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.wrapper {
+    padding: 20px;
+    height: 300px;
+    background-color: grey;
+    display: flex;
+    flex-direction: row; /* row is default, column is vertical*/
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+
+
+

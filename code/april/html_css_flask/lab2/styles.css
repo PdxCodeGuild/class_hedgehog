@@ -1,0 +1,81 @@
+:root {
+    font-size: 24px;
+}
+
+header {
+    font-family: "Raleway", sans-serif;
+    color: lightslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    font-family: "Lucida Sans", sans-serif;
+    background-image: radial-gradient(circle at 69% 86%, rgba(165, 165, 165,0.06) 0%, rgba(165, 165, 165,0.06) 25%,rgba(193, 193, 193,0.06) 25%, rgba(193, 193, 193,0.06) 50%,rgba(221, 221, 221,0.06) 50%, rgba(221, 221, 221,0.06) 75%,rgba(249, 249, 249,0.06) 75%, rgba(249, 249, 249,0.06) 100%),radial-gradient(circle at 49% 76%, rgba(129, 129, 129,0.06) 0%, rgba(129, 129, 129,0.06) 25%,rgba(164, 164, 164,0.06) 25%, rgba(164, 164, 164,0.06) 50%,rgba(200, 200, 200,0.06) 50%, rgba(200, 200, 200,0.06) 75%,rgba(235, 235, 235,0.06) 75%, rgba(235, 235, 235,0.06) 100%),radial-gradient(circle at 22% 64%, rgba(173, 173, 173,0.06) 0%, rgba(173, 173, 173,0.06) 25%,rgba(119, 119, 119,0.06) 25%, rgba(119, 119, 119,0.06) 50%,rgba(64, 64, 64,0.06) 50%, rgba(64, 64, 64,0.06) 75%,rgba(10, 10, 10,0.06) 75%, rgba(10, 10, 10,0.06) 100%),linear-gradient(307deg, rgb(255,255,255),rgb(255,255,255));
+    color: lightslategray;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+h3 {
+    font-family: "Franklin Gothic Medium", sans-serif;
+    font-style: italic;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+footer {
+    font-family: "Raleway", sans-serif;
+    background-color: slategrey;
+    color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-nav {
+    font-family: cursive;
+    background-color: #6B5B95;
+    color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.top-menu {
+    padding: 1rem;
+}
+
+.side-nav {
+    background-color: slategrey;
+    font-family: cursive;
+    color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+section {
+    border-top: 2px solid gainsboro;
+    border-bottom: 2px solid gainsboro;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+a:link {
+    color: gainsboro;
+}
+a:visited {
+    color: ghostwhite;
+}
+a:hover {
+    color: silver;
+}
