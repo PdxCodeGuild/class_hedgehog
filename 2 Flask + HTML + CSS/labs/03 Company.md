@@ -4,7 +4,7 @@
 
 Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. Browse the internet for existing company pages and imitate as much as you can.
 
-Feel free to use a CSS Framework or your own custon css.
+Feel free to use a CSS Framework or your own custom css.
 
 - [Bootstrap](https://getbootstrap.com/)
 ```html
