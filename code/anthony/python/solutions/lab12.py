@@ -1,41 +1,45 @@
-#ATM
 class ATM:
     def __init__(self):
         self.balance = 0
-        self.interest = 0.01
+        self.interest = .001
+        self.transactions = ["Created account"]
 
     def check_balance(self):
         # Returns account balance
         return self.balance
 
     def deposit(self, amount):
-        # deposits he given amount to the account
-        self.balance += amount
-        return self.balance
+        # deposits the given amount to the account
+        try:
+            amount = float(amount)
+            if amount > 0:
+                self.balance += amount
+                self.transactions.append(f"Deposited ${amount}")
+                return True
+            return False
+        except ValueError:
+            return False
 
     def check_withdrawal(self, amount):
         # returns true if the withdrawn amount won't put the account in the negative
-        if amount > self.balance:
-            return False
-        else:
+        if self.balance >= amount:
             return True
+        return False
 
     def withdraw(self, amount):
         # withdraws the amount from the account and returns the amount
-        if self.check_withdrawal(amount):
-            self.balance -= amount
-            return self.balance
-        else:
-            print("Insufficient funds")
-            
+        self.balance -= amount
+        self.transactions.append(f"Withdrew ${amount}")
+        return amount
+
     def calc_interest(self):
         # returns the amount of interest calculated on the account
-        self.balance = self.balance + (self.balance * self.interest)
-        return self.balance
+        return round(self.balance * self.interest, 3)
 
-    def print_transactions(self, amount, transactions):
-        pass
-        
+    def print_transactions(self):
+        return "\n".join(self.transactions) + f"\nCurrent Balace: ${self.balance}"
+
+
 atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
 
@@ -62,7 +66,7 @@ while True:
         print(f'Your balance is ${balance}')
 
     elif command == 'Deposit':
-        amount = float(input('How much would you like to deposit? '))
+        amount = input('How much would you like to deposit? ')
         success = atm.deposit(amount)  # call the deposit(amount) method
         if not success:
             print("Deposit amount must be a positive number.")
@@ -84,8 +88,8 @@ while True:
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
 
-    elif command == 'Print Transactions':
-        pass
+    elif command == "Print Transactions":
+        print(atm.print_transactions())
 
     elif command == 'Exit':
         print("Goodbye!")
