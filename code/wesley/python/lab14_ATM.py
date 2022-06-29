@@ -8,15 +8,15 @@ class ATM:
         return self.balance
 
     def deposit(self, amount):
-        self.balance += amount
+        if amount > 0:
+            self.balance += amount
         return self.balance
         
 
     def check_withdrawal(self, amount):
         if self.balance - amount > 0:
             return True
-        else: 
-            return False
+        return False
 
     def withdraw(self, amount):
         self.balance -= amount
