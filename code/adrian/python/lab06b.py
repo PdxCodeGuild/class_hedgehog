@@ -13,14 +13,11 @@ def main():
 
 
     # Slice off the last digit. That is the check digit.
-    check = (num_list[:-1])
-    check_list = check
-
+    check = num_list.pop()
     # Reverse the digits.
-    check_list.reverse()
-
+    num_list.reverse()
     # Double every other element in the reversed list.
-    dub = [x * 2 if user_input % 2 == 0 else x for user_input, x in enumerate(check_list)]
+    dub = [x * 2 if user_input % 2 == 0 else x for user_input, x in enumerate(num_list)]
 
     # subtract nine from numbers over nine.
     sub_list = [x - 9 if x > 9 else x for x in dub]
@@ -29,13 +26,13 @@ def main():
     add_all = sum(sub_list)
 
     # Take the second digit of that sum.
-    add_all = int(str(add_all)[:-1])
+    add_all = int(str(add_all)[1])
 
 # If that matches the check digit, the whole card number is valid.
-    if add_all == check[-1]:
-        print(f"valid {add_all} is = {check[-1]}")
+    if add_all == check:
+        print(f"valid {add_all} = {check}")
     else:
-        print(f"Not valid {add_all} is != {check[-1]}")
+        print(f"Not valid {add_all} != {check}")
 
 main()
 
