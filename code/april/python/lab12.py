@@ -19,7 +19,7 @@ initializer, as well as the following functions:
 # class ATM:
 #     def __init__(self, 
 #                 balance=0, 
-#                 interest_rate=0.1):
+#                 interest_rate=0.001):
 
 #         self.balance = float(balance)
 #         self.interest_rate = float(interest_rate)
@@ -124,7 +124,7 @@ for printing out the list of transactions."""
 class ATM:
     def __init__(self, 
                 balance=0, 
-                interest_rate=0.1,
+                interest_rate=0.001,
                 transactions=[]):
 
         self.balance = balance
@@ -138,9 +138,19 @@ class ATM:
 
     def deposit(self, amount):   
     # deposits the given amount to the account
-        self.balance += amount
-        self.transactions.append(f"You deposited: ${amount:.2f}")
-        return self.balance
+        try:
+            amount = float(amount)
+            if amount > 0:
+                self.balance += amount
+                self.transactions.append(f"You deposited: ${amount:.2f}")
+                return True
+            return False
+        except ValueError:
+            return False
+       
+        # self.balance += amount
+        
+        # return self.balance
         
 
     def check_withdrawal(self, amount):
