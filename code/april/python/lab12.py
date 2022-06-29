@@ -235,6 +235,7 @@ while True:
         print("\nTransaction History:\n") # update to print Transaction history nicer
         for item in history:
             print(item)
+        print(f"\nYour total balance is: ${balance:.2f}")
 
     elif command == "Exit":
         print("Goodbye!")
