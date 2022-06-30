@@ -21,7 +21,7 @@ def striplist(texts):
 
 def main():
     word_count = {}
-
+    double_count = {}
     # book_text = text.split(" ")
     # print(book_text)
 
@@ -33,17 +33,28 @@ def main():
     for i, book in enumerate(book_text_split):
         book_text_split[i] = striplist(book)
         
-    for book in book_text_split:
+    for i, book in enumerate(book_text_split):
         if book.lower() in word_count.keys():
             word_count[book.lower()] += 1
         else: 
             word_count[book.lower()] = 1
-    print(word_count)
+        if i != len(book_text_split)-1:
+            check = book_text_split[i]+ " " + book_text_split[i+1]
+            if check in double_count.keys():
+                double_count[check] += 1
+            else:
+                double_count[check] = 1
+    #print(word_count)
     #print(book_text_sep) 
 
+    print("The top ten words are (Drum roll please):")
     for x in sorted(word_count, key=word_count.get, reverse=True)[0:10]:
         print(x, word_count[x])
 
+    pause = input("The top ten DOUBLE words go to (Drum roll again):")
+
+    for x in sorted(double_count, key=double_count.get, reverse=True)[0:10]:
+        print(x, double_count[x])
 main()
 
 
