@@ -96,5 +96,5 @@ while True:
         break
     else:
         print('Command not recognized')
-print(transaction,"testing transaction")
+# print(transaction,"testing transaction")
 print("\n".join(transaction))
