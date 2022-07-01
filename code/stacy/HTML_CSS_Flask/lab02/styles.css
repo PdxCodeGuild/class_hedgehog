@@ -4,28 +4,65 @@
 
 body {
     padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 9fr;
-    grid-template-rows: 3rem 1fr 1.5rem;
-    /* background-color: chartreuse; */
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    background-image: repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%));
+}
+
+.sanity {
+    color: rgb(61, 35, 48);
+    font-size: 1.5rem;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    border: 0.5rem solid rgb(230, 9, 193);
+    border-radius: 2rem;
+    color: rgb(231, 0, 50);
+    justify-content: space-evenly;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    color:rgb(206, 3, 104)
 }
 
 nav {
     grid-column: 1/-1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(206, 3, 104);
+    background-color: black;
+    border-radius: 4rem;
 } 
 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    color: rgb(6, 199, 32);
+    text-decoration: none;
+}
+
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-content: left;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
 .wrapper {
-    padding: 20px;
-    background-color: rgb(61, 232, 255);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    display: grid;
-    justify-content: space-between;
-    align-items: center;
-    
+    padding: 2rem;
+    display: flex;
 }
 
 .post {
@@ -34,9 +71,8 @@ nav {
     padding: 1rem;
     height: 8rem;
     width: 8rem;
-    background-color: rgb(56, 19, 2);
-    border: 3px solid white;
-    border-radius: 5px;
-
-
+    background-color: rgb(172, 5, 89);
+    border: 3px solid rgb(247, 186, 186);
+    border-radius: 2rem;
+    margin: 2rem;
 }
