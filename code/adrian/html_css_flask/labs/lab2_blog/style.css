@@ -1,0 +1,145 @@
+/* Global Reset */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Grid for the body */
+.wrapper {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+
+.header {
+    background-image: linear-gradient(245deg, rgba(27, 27, 27, 0.04) 0%, rgba(27, 27, 27, 0.04) 93%,rgba(92, 92, 92, 0.04) 93%, rgba(92, 92, 92, 0.04) 100%),linear-gradient(44deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 39%,rgba(186, 186, 186, 0.04) 39%, rgba(186, 186, 186, 0.04) 100%),linear-gradient(134deg, rgba(178, 178, 178, 0.04) 0%, rgba(178, 178, 178, 0.04) 95%,rgba(237, 237, 237, 0.04) 95%, rgba(237, 237, 237, 0.04) 100%),linear-gradient(322deg, rgba(56, 56, 56, 0.04) 0%, rgba(56, 56, 56, 0.04) 58%,rgba(232, 232, 232, 0.04) 58%, rgba(232, 232, 232, 0.04) 100%),linear-gradient(139deg, rgba(51, 51, 51, 0.04) 0%, rgba(51, 51, 51, 0.04) 62%,rgba(35, 35, 35, 0.04) 62%, rgba(35, 35, 35, 0.04) 100%),linear-gradient(252deg, rgba(9, 9, 9, 0.04) 0%, rgba(9, 9, 9, 0.04) 39%,rgba(174, 174, 174, 0.04) 39%, rgba(174, 174, 174, 0.04) 100%),linear-gradient(229deg, rgba(241, 241, 241, 0.04) 0%, rgba(241, 241, 241, 0.04) 2%,rgba(140, 140, 140, 0.04) 2%, rgba(140, 140, 140, 0.04) 100%),linear-gradient(223deg, rgba(82, 82, 82, 0.04) 0%, rgba(82, 82, 82, 0.04) 36%,rgba(229, 229, 229, 0.04) 36%, rgba(229, 229, 229, 0.04) 100%),linear-gradient(90deg, rgb(245, 16, 17),rgb(177, 69, 207));
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding-left: 15rem;
+    padding-top: 1rem;
+    padding-right: 4rem;
+}
+
+/* Logo */
+.image {
+    margin-left: -12em;
+}
+
+/* Title */
+.text3 {
+    margin-left: 9rem;
+}
+
+/* Nav Bar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-spacing: 10px;
+}
+
+a {
+    color: gainsboro;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkcyan;
+}
+
+
+/* Blog Post Title and Boxes */
+.content {
+    padding: 2rem;
+    background-image: repeating-linear-gradient(358deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(280deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(337deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),linear-gradient(90deg, rgb(225, 16, 162),rgb(169, 105, 71));
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    height: 120px;
+    width: 600px;
+    background-image: linear-gradient(134deg, rgba(110, 49, 41, 0.5) 0%, rgba(110, 49, 41, 0.5) 14.286%,rgba(134, 48, 65, 0.5) 14.286%, rgba(134, 48, 65, 0.5) 28.572%,rgba(157, 46, 89, 0.5) 28.572%, rgba(157, 46, 89, 0.5) 42.858%,rgba(181, 45, 113, 0.5) 42.858%, rgba(181, 45, 113, 0.5) 57.144%,rgba(204, 43, 136, 0.5) 57.144%, rgba(204, 43, 136, 0.5) 71.43%,rgba(228, 42, 160, 0.5) 71.43%, rgba(228, 42, 160, 0.5) 85.716%,rgba(251, 40, 184, 0.5) 85.716%, rgba(251, 40, 184, 0.5) 100.002%),linear-gradient(122deg, rgb(223, 89, 139) 0%, rgb(223, 89, 139) 14.286%,rgb(195, 88, 127) 14.286%, rgb(195, 88, 127) 28.572%,rgb(167, 87, 116) 28.572%, rgb(167, 87, 116) 42.858%,rgb(140, 87, 104) 42.858%, rgb(140, 87, 104) 57.144%,rgb(112, 86, 92) 57.144%, rgb(112, 86, 92) 71.43%,rgb(84, 85, 81) 71.43%, rgb(84, 85, 81) 85.716%,rgb(56, 84, 69) 85.716%, rgb(56, 84, 69) 100.002%);
+    border: 3px solid #fff;
+    border-radius: 5px;
+    margin: 1rem 10rem;
+}
+
+.title {
+    margin: 2rem 24rem;
+}
+
+.text {
+    font-size: 3em;
+}
+
+
+/* Side bar */
+.sidebar {
+    background-image: repeating-linear-gradient(358deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(280deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),repeating-linear-gradient(337deg, rgb(0,0,0) 0px, rgb(0,0,0) 27px,transparent 27px, transparent 29px),linear-gradient(90deg, rgb(225, 16, 162),rgb(169, 105, 71));
+}
+
+.side-nav {
+    text-align: center;
+    height: 600px;
+	width: 360px;
+    background-image: linear-gradient(134deg, rgba(110, 49, 41, 0.5) 0%, rgba(110, 49, 41, 0.5) 14.286%,rgba(134, 48, 65, 0.5) 14.286%, rgba(134, 48, 65, 0.5) 28.572%,rgba(157, 46, 89, 0.5) 28.572%, rgba(157, 46, 89, 0.5) 42.858%,rgba(181, 45, 113, 0.5) 42.858%, rgba(181, 45, 113, 0.5) 57.144%,rgba(204, 43, 136, 0.5) 57.144%, rgba(204, 43, 136, 0.5) 71.43%,rgba(228, 42, 160, 0.5) 71.43%, rgba(228, 42, 160, 0.5) 85.716%,rgba(251, 40, 184, 0.5) 85.716%, rgba(251, 40, 184, 0.5) 100.002%),linear-gradient(122deg, rgb(223, 89, 139) 0%, rgb(223, 89, 139) 14.286%,rgb(195, 88, 127) 14.286%, rgb(195, 88, 127) 28.572%,rgb(167, 87, 116) 28.572%, rgb(167, 87, 116) 42.858%,rgb(140, 87, 104) 42.858%, rgb(140, 87, 104) 57.144%,rgb(112, 86, 92) 57.144%, rgb(112, 86, 92) 71.43%,rgb(84, 85, 81) 71.43%, rgb(84, 85, 81) 85.716%,rgb(56, 84, 69) 85.716%, rgb(56, 84, 69) 100.002%);
+	/* background-color: lightcoral; */
+	border: 3px solid #fff;
+	border-radius: 5px;
+    margin-top: 6rem;
+    margin-left: 2rem;
+    margin-bottom: 6rem;
+}
+
+ul {
+    margin-top: 6rem;
+}
+
+li {
+    list-style: none;
+    margin: 5em 0;
+    color: black;
+    font-size: 1.2em;
+}
+
+li:hover {
+    color: gainsboro;
+}
+
+
+
+/* Footer */
+.footer {
+    background-image: repeating-linear-gradient(12deg, rgb(255,255,255) 0px, rgb(255,255,255) 19px,transparent 19px, transparent 21px),repeating-linear-gradient(178deg, rgb(255,255,255) 0px, rgb(255,255,255) 19px,transparent 19px, transparent 21px),repeating-linear-gradient(139deg, rgb(255,255,255) 0px, rgb(255,255,255) 19px,transparent 19px, transparent 21px),linear-gradient(90deg, rgb(243, 76, 172),rgb(142, 2, 209));
+    /* background-image: linear-gradient(0deg, #ffffff 0%,transparent 100%),linear-gradient(0deg, #ffffff 0%,transparent 100%),linear-gradient(135deg, rgba(96, 96, 96, 0.21) 0%, rgba(96, 96, 96, 0.21) 50%,rgba(45, 45, 45, 0.21) 50%, rgba(45, 45, 45, 0.21) 100%),linear-gradient(0deg, rgba(220, 220, 220, 0.2) 0%, rgba(220, 220, 220, 0.2) 31%,rgba(200, 200, 200, 0.2) 31%, rgba(200, 200, 200, 0.2) 100%),linear-gradient(0deg, rgba(124, 124, 124, 0.26) 0%, rgba(124, 124, 124, 0.26) 15%,rgba(218, 218, 218, 0.26) 15%, rgba(218, 218, 218, 0.26) 100%),linear-gradient(45deg, rgba(157, 157, 157, 0.14) 0%, rgba(157, 157, 157, 0.14) 46%,rgba(26, 26, 26, 0.14) 46%, rgba(26, 26, 26, 0.14) 100%),linear-gradient(45deg, rgba(180, 180, 180, 0.1) 0%, rgba(180, 180, 180, 0.1) 45%,rgba(62, 62, 62, 0.1) 45%, rgba(62, 62, 62, 0.1) 100%),linear-gradient(135deg, rgba(33, 33, 33, 0.22) 0%, rgba(33, 33, 33, 0.22) 59%,rgba(164, 164, 164, 0.22) 59%, rgba(164, 164, 164, 0.22) 100%),linear-gradient(135deg, rgba(24, 24, 24, 0.11) 0%, rgba(24, 24, 24, 0.11) 71%,rgba(245, 245, 245, 0.11) 71%, rgba(245, 245, 245, 0.11) 100%),linear-gradient(0deg, rgba(5, 5, 5, 0.15) 0%, rgba(5, 5, 5, 0.15) 91%,rgba(50, 50, 50, 0.15) 91%, rgba(50, 50, 50, 0.15) 100%),linear-gradient(90deg, rgb(198, 198, 198),rgb(158, 158, 158)); */
+    grid-column-start: -3;
+    grid-column-end: -1;
+    color: lightcoral;
+}
+
+
+/* Rest of the text */
+.text2 {
+    color: black;
+}
+
+h1 {
+    color: gainsboro;
+}
+
+h2 {
+    margin-top: 1.5rem;
+    color: gainsboro;
+    text-align: center;
+}
+
+
+p {
+    color: gainsboro;
+    margin: 2rem 4rem;
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 1.2rem;
+}
