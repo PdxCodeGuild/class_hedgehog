@@ -1,3 +1,4 @@
+<!-- A cat walking company splash page -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -8,21 +9,69 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="https://kit.fontawesome.com/e512602f4c.js" crossorigin="anonymous"></script>
-   </head>
-   <body>
       <style>
          .jumbotron {
-         background-color: #1e85f4; /* Orange */
-         color: #ffffff;
+         background-color: #1e7ef4;
+         color: #fff;
          padding: 100px 25px;
          }
          .container-fluid {
          padding: 60px 50px;
          }
+         .bg-grey {
+         background-color: #f6f6f6;
+         }
+         .logo-small {
+         color: #1e7ef4;
+         font-size: 50px;
+         }
+         .logo {
+         color: #1e7ef4;
+         font-size: 200px;
+         }
+         .thumbnail {
+         padding: 0 0 15px 0;
+         border: none;
+         border-radius: 0;
+         }
+         .thumbnail img {
+         width: 100%;
+         height: 100%;
+         margin-bottom: 10px;
+         }
+         .carousel-control.right, .carousel-control.left {
+         background-image: none;
+         color: #1e7ef4;
+         }
+         .carousel-indicators li {
+    border-color: #1e7ef4;
+  }
+  .carousel-indicators li.active {
+    background-color: #1e7ef4;
+  }
+         .item h4 {
+         font-size: 19px;
+         line-height: 1.375em;
+         font-weight: 400;
+         font-style: italic;
+         margin: 70px 0;
+         }
+         .item span {
+         font-style: normal;
+         }
+         @media screen and (max-width: 768px) {
+         .col-sm-4 {
+         text-align: center;
+         margin: 25px 0;
+         }
+
+         }
       </style>
+   </head>
+   <body>
       <div class="jumbotron text-center">
          <h1>Cat Walkers</h1>
-         <p>We walk cats, so you don't have to</p>
+         <p>We walk cats, so you don't have to.</p>
          <p></p>
          <form class="form-inline">
             <div class="input-group">
@@ -34,17 +83,6 @@
          </form>
       </div>
       </div>
-      <style>
-         .logo {
-         font-size: 200px;
-         }
-         @media screen and (max-width: 768px) {
-         .col-sm-4 {
-         text-align: center;
-         margin: 25px 0;
-         }
-         }
-      </style>
       <div class="container-fluid">
          <div class="row">
             <div class="col-sm-8">
@@ -54,20 +92,117 @@
                <button class="btn btn-default btn-lg">Get in Touch</button>
             </div>
             <div class="col-sm-4">
-               <i class="fas fa-cat fa-10x"></i>
+               <i class="fas fa-cat fa-10x logo"></i>
             </div>
          </div>
       </div>
       <div class="container-fluid bg-grey">
          <div class="row">
             <div class="col-sm-4">
-               <i class="fas fa-paw fa-10x"></i>
+               <i class="fas fa-paw fa-10x logo"></i>
             </div>
             <div class="col-sm-8">
                <h2>Our Values</h2>
                <h4><strong>MISSION:</strong>We will walk your cat to stifle the natural evil that grows within a sedentary feline.</h4>
                <p><strong>VISION:</strong> To save as many cat owners souls as possible.</p>
             </div>
+         </div>
+      </div>
+      <div class="container-fluid text-center">
+         <h2>SERVICES</h2>
+         <h4>What we offer</h4>
+         <br>
+         <div class="row">
+            <div class="col-sm-4">
+               <span class="fas fa-walking logo-small"></span>
+               <h4>Cat Walking</h4>
+               <p>We take your cat for a walk!</p>
+            </div>
+            <div class="col-sm-4">
+               <span class="fas fa-cross logo-small"></span>
+               <h4>Exorcisms</h4>
+               <p>What happens when your little animal doesn't get regular exercise.</p>
+            </div>
+            <div class="col-sm-4">
+               <span class="fas fa-book-dead logo-small"></span>
+               <h4>KLAATU BARADA NIKTO</h4>
+               <p>When things have gone past the point of no return...</p>
+            </div>
+         </div>
+         <br><br>
+         <div class="row">
+            <div class="col-sm-4">
+               <span class="fas fa-brush logo-small"></span>
+               <h4>Painting</h4>
+               <p>Yep, we will also paint your cat. Choose from our catalog!</p>
+            </div>
+            <div class="col-sm-4">
+               <span class="fas fa-shower logo-small"></span>
+               <h4>Bath</h4>
+               <p>I bathe them and I clip them myself. And I stand by my performance.</p>
+            </div>
+            <div class="col-sm-4">
+               <span class="fas fa-rocket logo-small"></span>
+               <h4>Space Cat</h4>
+               <p>We haven't quite perfected this service. A liability waiver is required. First cat to survive gets free walks for all 9 of its lives.</p>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid text-center bg-grey">
+         <h2>Portfolio</h2>
+         <h4>What we do looks like</h4>
+         <div class="row text-center">
+            <div class="col-sm-4">
+               <div class="thumbnail">
+                  <img src="leash.png" alt="Leash Cat">
+                  <p><strong>Walking</strong></p>
+                  <p>First walk</p>
+               </div>
+            </div>
+            <div class="col-sm-4">
+               <div class="thumbnail">
+                  <img src="pika.jpg" alt="Painted Cat">
+                  <p><strong>Painting</strong></p>
+                  <p>Shocking</p>
+               </div>
+            </div>
+            <div class="col-sm-4">
+               <div class="thumbnail">
+                  <img src="space.jpg" alt="Space Cat">
+                  <p><strong>Space Cat</strong></p>
+                  <p>RIP Bartholomew Chungus Gingersnap III</p>
+               </div>
+            </div>
+         </div>
+         <h2>What our customers say</h2>
+      <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+               <li data-target="#myCarousel" data-slide-to="1"></li>
+               <li data-target="#myCarousel" data-slide-to="2"></li>
+             </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+               <div class="item active">
+                  <h4>"Cat Walkers saved my life, literally"<br><span style="font-style:normal;">Lennie Marks, Maintenance, Sansbury</span></h4>
+               </div>
+               <div class="item">
+                  <h4>"I let them borrow an old book of mine, still waiting to get that back!"<br><span style="font-style:normal;">Ash Williams, Hardwares, S-Mart</span></h4>
+               </div>
+               <div class="item">
+                  <h4>"I had them paint my Sparkles. We all just laughed and laughed and laughed."<br><span style="font-style:normal;">Karen, Unemployed, At home</span></h4>
+               </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
          </div>
       </div>
    </body>
