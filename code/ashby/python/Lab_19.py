@@ -47,11 +47,11 @@ def generate_trivia_address():
         { 'parameter': '10', 'name': 'Entertainment: Books' },
         { 'parameter': '11', 'name': 'Entertainment: Film' },
         { 'parameter': '12', 'name': 'Entertainment: Music' },
-        { 'parameter': '13', 'name': 'Entertainment: Musicals &amp; Theatres' },
+        { 'parameter': '13', 'name': 'Entertainment: Musicals and Theatres' },
         { 'parameter': '14', 'name': 'Entertainment: Television' },
         { 'parameter': '15', 'name': 'Entertainment: Video Games' },
         { 'parameter': '16', 'name': 'Entertainment: Board Games' },
-        { 'parameter': '17', 'name': 'Science &amp; Nature' },
+        { 'parameter': '17', 'name': 'Science and Nature' },
         { 'parameter': '18', 'name': 'Science: Computers' },
         { 'parameter': '19', 'name': 'Science: Mathematics' },
         { 'parameter': '20', 'name': 'Mythology' },
@@ -65,8 +65,8 @@ def generate_trivia_address():
         { 'parameter': '28', 'name': 'Vehicles' },
         { 'parameter': '29', 'name': 'Entertainment: Comics' },
         { 'parameter': '30', 'name': 'Science: Gadgets' },
-        { 'parameter': '31', 'name': 'Entertainment: Japanese Anime &amp; Manga' },
-        { 'parameter': '32', 'name': 'Entertainment: Cartoon &amp; Animations' }
+        { 'parameter': '31', 'name': 'Entertainment: Japanese Anime and Manga' },
+        { 'parameter': '32', 'name': 'Entertainment: Cartoon and Animations' }
     ]
 
     print("Hello! Select a difficulty from below please!")
@@ -114,9 +114,16 @@ def trivia(address = "https://opentdb.com/api.php?amount=10&category=18&type=boo
     #pulls questions, formats, and checks answers against provided answers in API
     for i, result in enumerate(results):
         if result["type"] == "multiple":
-            answer_pool = [result["incorrect_answers"]]
-            answer_pool.append(results["correct_answer"])
-            pass
+            answer_pool = html.unescape(result["incorrect_answers"])
+            answer_pool.append(html.unescape(result["correct_answer"]))
+            random.shuffle(answer_pool)
+            print (f"\n{i+1}. {html.unescape(result['question'])}")
+            player_input = input(f"Choose an answer: {', '.join(html.unescape(answer_pool))} ").title()
+            if player_input == result["correct_answer"].title():
+                print("Good job, you got it correct!")
+                player_score +=1
+            else:
+                print("Oof, maybe the next one will go better.")
         else:
             print (f"\n{i+1}. {html.unescape(result['question'])}")
             player_input = input("Enter if this is true or false: ").title()
@@ -127,13 +134,18 @@ def trivia(address = "https://opentdb.com/api.php?amount=10&category=18&type=boo
                 print("Oof, maybe the next one will go better.")
 #final statement / score
     print(f"\nYou got {player_score} question(s) correct!")
+    return player_score
 
 
 
 
 def main():
     #pulling data for query
-    print(f"""
+    
+
+    while True:
+
+        print(f"""
     Hello, welcome to the fantastic trivia game!
               Here are your options!
               
@@ -142,7 +154,6 @@ def main():
                       3. exit
                     """)
 
-    while True:
         try:
             user_choice = int(input("Enter your selection here: "))
         except TypeError:
@@ -151,8 +162,8 @@ def main():
         if user_choice == 1:
             trivia()
         elif user_choice == 2:
-            print("Future content")
-            print(generate_trivia_address())
+            pause = input("This is unfinished content. Press enter to say you understand.")
+            trivia(generate_trivia_address())
         elif user_choice ==3:
             print("Goodbye, come again!")
             break
@@ -163,3 +174,6 @@ def main():
             
     
 main()
+
+#Current issues
+#Sometimes still puts in the html unicode instead of unescaping (rare)

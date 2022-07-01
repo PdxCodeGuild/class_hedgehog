@@ -1,0 +1,99 @@
+
+
+.grid {
+  display: grid;
+  grid-template-columns: auto; 
+  grid-template-rows: auto 
+
+}
+
+title {
+  grid-column: 1 / span 8;
+  grid-row: 1 / span 1;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #006699;
+  background-color: rgb(99, 134, 165);
+}
+
+
+.sidebar-left {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 6;
+  background-color: rgb(99, 134, 165);
+  color: #006699;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: start;
+}
+.sidebar-right {
+  grid-column: 8 / span 1;
+  grid-row: 2 / span 6;
+  background-color: rgb(99, 134, 165);
+  color: #006699;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.art1 {
+
+  background-color: rgb(209, 101, 133);
+  color: #006699;
+  
+}
+
+
+
+header {
+  grid-column: 1 / span 8;
+  grid-row: 2 / span 1;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #006699;
+  background-color: chartreuse;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+
+}
+
+footer {
+  grid-column: 1 / span 8;
+  grid-row: 7 / span 1;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #006699;
+  background-color: blueviolet;
+} 
+
+/* Demo Specific Styles */
+body {
+  margin: 0 auto;
+  max-width: screen-width;
+  max-height: fit-content;
+  padding: 1em;
+}
+
+.grid > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    background-image: url(https://www.silive.com/resizer/ZAGCZqhMH5DsF26g-EVgiRzfWkw=/arc-anglerfish-arc2-prod-advancelocal/public/V72T27EW7RHMPNJZS5NAGU7EUU.jpeg);
+    background-size: cover;
+    color: #fdd605;
+    text-shadow: 2px 2px black;
+
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.parent{
+    display: flex;
+}
+
+.intro{
+    flex: 2;
+    font-size: 16px;
+    margin: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.image {
+    flex: 1;
+    border-radius: 25%;
+    border: 5px solid #fdd605;
+}
+
+.link {
+    color: #fdd605;
+}
+
+blockquote {
+    font-family: 'Permanent Marker', cursive;
+    font-size: xx-large;
+}
+
+
+
+ul {
+    display: inline-block;
+    list-style: "-";
+    margin-top: 0;
+}

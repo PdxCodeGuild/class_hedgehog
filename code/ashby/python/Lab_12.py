@@ -20,10 +20,12 @@ class ATM:
         return round(self.balance, 2)
 
     def deposit(self, amount):
-        self.balance = self.balance + amount
-        self.transactions.append(f"User deposited ${amount}")
-        return self.balance
-        
+        if amount >0:
+            self.balance = self.balance + amount
+            self.transactions.append(f"User deposited ${amount}")
+            return self.balance
+        else:
+            return False    
         
     def check_withdrawal(self, amount):
         if (self.balance - amount) >= 0:
