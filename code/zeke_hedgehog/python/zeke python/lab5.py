@@ -63,5 +63,5 @@ def check_anagram(string1, string2):
 
 
 print(check_anagram("bored", "robed"))
-print(check_anagram("night", "thing"))
+print(check_anagram("night", "thing")) 
 print(check_anagram("cat", "car"))
