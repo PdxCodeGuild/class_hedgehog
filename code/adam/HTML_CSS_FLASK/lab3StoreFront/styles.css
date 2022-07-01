@@ -8,6 +8,7 @@
   background-color: aqua;
 }
 h1 {
+  padding-top: 10.5rem;
   font-size: 8rem;
 }
 .links {
@@ -23,6 +24,7 @@ header {
 .lorem {
   font-size: 2rem;
   text-align: center;
+  padding: 2rem 4rem;
 }
 
 .products {
@@ -43,5 +45,7 @@ footer {
   font-size: 2rem;
   justify-content: space-between;
   border: 1px solid black;
+  border-radius: 5px;
   width: 140rem;
+  padding: 10rem;
 }
