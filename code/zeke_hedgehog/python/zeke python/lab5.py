@@ -14,7 +14,6 @@ Write a function check_palindrome which takes a string, and returns True if the 
 
 """
 
-
 # palindrome = input("enter a word: ")
 
 def check_palindrome(string):
@@ -45,14 +44,24 @@ Check if the two are equal
 
 """
 
+# def check_anagram(string1, string2):
+# Convert to lowercase
+# take out spaces from each word.replace(" "," " )
+# # Sort the letters of each word (sorted)
+#     list1 = sorted(string1)
+#     list.sort()
+#    list1 = sorted(string1)
+#    list2 = sorted(string2)
+# Check if the two are equal, return list1 == list2
+
+
 def check_anagram(string1, string2):
-# Convert each word to lower case (lower)
-    string1 = string1.lower()
-    string2 = string2.lower()
-# Remove all the spaces from each word (replace)
-    string1 = string1.replace(" "," " )
-    string2 = string2.replace(" "," ")
-# Sort the letters of each word (sorted)
-    list1 = sorted(string1)
-    string2 = string2.lower()
-# Check if the two are equal
+    string1 = string1.lower().replace(" ", "")
+    string2 = string2.lower().replace(" ", "")
+
+    return sorted(string1) == sorted(string2)
+
+
+print(check_anagram("bored", "robed"))
+print(check_anagram("night", "thing")) 
+print(check_anagram("cat", "car"))
