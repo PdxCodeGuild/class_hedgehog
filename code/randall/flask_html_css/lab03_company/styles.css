@@ -109,6 +109,9 @@
     background-color: #ff0000;
     color: #fff;
     }
+    .p-3 {
+        background-color:#f6f6f6;
+    }
     @media screen and (max-width: 768px) {
     .col-sm-4 {
     text-align: center;
