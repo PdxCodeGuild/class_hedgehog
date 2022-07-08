@@ -19,13 +19,14 @@ def index():
     try:
         distance = float(distance)
     except ValueError:
-        message = "Distance must be a number"
+        message = "Distance must be a number. "
+        distance = 0.0
     
     if unit_conversions.get(input_unit) == None:
-        message = "Invalid input unit"
+        message += "Invalid input unit. "
         input_unit = "m"
     if unit_conversions.get(output_unit) == None:
-        message = "Invalid output unit"
+        message += "Invalid output unit. "
         output_unit = "m"
 
     distance_in_meters = distance * unit_conversions.get(input_unit)
