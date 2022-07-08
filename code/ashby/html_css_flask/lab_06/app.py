@@ -1,4 +1,4 @@
-from crypt import methods
+
 from flask import Flask, request, render_template
 import string
 
@@ -25,11 +25,14 @@ def rot_cipher_lite(plain_text, rot=13):
 app = Flask(__name__)
 
 
-@app.route("/", method=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
 
     message = request.form.get("message", "")
     rotation = request.form.get("rotation", 13)
-    
+    encoded = rot_cipher_lite(message, int(rotation))
+    return render_template("index.html", encoded=encoded)
 
-app.run()
+
+
+app.run(debug=True)
