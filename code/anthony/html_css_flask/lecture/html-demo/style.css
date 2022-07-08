@@ -1,0 +1,35 @@
+:root {
+	font-size: 10px;
+	/* css variable */
+	--color-blue: rgb(120, 79, 245);
+	--color-bg: rgb(50, 50, 50);
+	--color-text: gainsboro;
+}
+
+body {
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-size: 1.6rem;
+}
+
+.sub-section {
+	display: flex;
+	flex-direction: row;
+}
+
+h1 {
+	background-color: brown;
+	margin-right: 1rem;
+	padding-bottom: 2rem;
+}
+
+h2 {
+	margin-right: 2rem;
+}
+
+a {
+	margin: 2.5rem;
+	display: block;
+	color: var(--color-blue);
+	max-width: 10pt;
+}
