@@ -2,31 +2,13 @@
 
 # Flask Todo List
 
-Let's build a todo list with Flask and a simple database that uses JSON to store the data.
+Let's build a simple todo list with Flask.
 
 ## Part 1
 
-Create a folder for your lab, and inside of that create a `db.json` with the following contents:
-
-**db.json**
-```json
-{
-  "todos":[
-    {
-      "text": "walk the dog",
-      "priority": "high"
-    },{
-      "text":"butter the cat",
-      "priority":"medium"
-    },{
-      "text":"wash dishes",
-      "priority":"low"
-    }
-  ]
-}
-```
-
-Next, write a Flask app that uses the [JsonDB](jsondb.py) class to load the database and render a template containing the information. The resulting HTML should look something like this, but feel free to use a `table` or `div`s instead.
+- Using a `form`, allow the user to save a new todo item to the database. This should include a `input` for text, a `select` for the priority, and a `button` for submitting the form.
+- Store added todos into a list.
+- Display those todos in the browser.
 
 ```html
 <ul>
@@ -37,6 +19,11 @@ Next, write a Flask app that uses the [JsonDB](jsondb.py) class to load the data
 ```
 
 ## Part 2
+- Add styles to each todo to display its priority, e.g. style high priority todos as red.
 
-Using a `form`, allow the user to save a new todo item to the database. This should include a `input` for text, a `select` for the priority, and a `button` for submitting the form.
+## Part 3
+- Add the ability to complete a todo
+- These can be styled with a line through them
 
+## Part 4
+- Add the ability to delete a todo
