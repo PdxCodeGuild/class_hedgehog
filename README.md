@@ -33,6 +33,9 @@ Instructor:
 | ---------- | --------------------------------------------------------------------------------------------------------------------- | -------- |
 | Lab 01     | [Bio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/01%20Bio.md)   | 08 JUL   |
 | Lab 02     | [Blog](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/02%20Blog.md) | 11 JUL   |
+| Lab 03     | [Company](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/03%20Company.md) | 14 JUL   |
+| Lab 04     | [Personal Portfolio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/04%20Personal%20Portfolio.md) | 19 JUL   |
+| Lab 06     | [Flask Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/06%20Flask%20Redo.md) | 21 JUL   |
 
 
 </details>

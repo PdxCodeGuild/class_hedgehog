@@ -1,0 +1,16 @@
+.High {
+	background-color: #fca5a5;
+}
+
+.Medium {
+	background-color: #fde047;
+}
+
+.Low {
+	background-color: #86efac;
+}
+
+.completed {
+	background-color: gainsboro;
+	text-decoration: line-through;
+}
