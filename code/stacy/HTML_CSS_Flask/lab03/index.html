@@ -187,30 +187,35 @@ Body:
           </div>
     </nav>
     <main class="d-flex justify-content-center flex-column align-items-center">
-      <div class="d-flex justify-content-center flex-column align-items-center" class="card bg-dark text-white" style="height: 100vh;" class="carousel slide" data-bs-ride="carousel">
+      <div class="d-flex justify-content-center flex-column carousel slide" style="height: 100vh;" id="carouselExampleControls" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active"> 
             <img src="zipline1.jpg" class="img-fluid">
-            <div class="carousel-caption right-caption">
-            First slide
-            </div>
+            <!-- <div class="d-flex text-black position-absolute top-0 end-0 text-center translate-middle-x fs-4" style="width: 10rem; margin-right: 3rem; margin-top: 6rem;">
+            Glide through the tree tops for an unforgetable view
+            </div> -->
           </div>
           <div class="carousel-item">
-            <div class="carousel-content">
-              <img src="zipline2.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block"  class="position-relative">
-                <h5 class="position-absolute top-0 start-50 translate-middle">
-                  Second slide
-              </div>
-            </div>
+            <img src="zipline2.jpg" class="img-fluid">
+            <!-- <div class="d-flex text-black position-absolute top-0 end-0 text-center fs-4" style="width: 10rem; margin-right: 3rem; margin-top: 3rem;">
+            Feel the wind on your face as you fly across the water 
+            </div> -->
           </div>
-          <div class="carousel-item">
-            <img src="zipline3.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              Third slide
-            </div>
+          <div class="carousel-item" >
+            <img src="zipline3.jpg" class="img-fluid">
+            <!-- <div class="d-flex text-black position-absolute top-0 end-0 text-center fs-4" style="width: 10rem;">
+              Climb bridges to gain height for a faster ziplining experience!
+            </div> -->
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
         
     </main>

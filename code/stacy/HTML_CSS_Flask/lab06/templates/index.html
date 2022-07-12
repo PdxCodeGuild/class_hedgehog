@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab06</title>
+</head>
+<body>
+    <p>Welcome to unit converter!
+        <ul>Supported units:</ul>
+        <li>in: inches</li>
+        <li>ft: feet</li>
+        <li>yd: yards</li>
+        <li>mi: miles</li>
+        <li>m: meters</li>
+        <li>km: kilometers</li>
+    </p>
+    <form action="/" method="post"> 
+        <input type="text" name="distance" placeholder="Enter distance"/>
+        <input type="text" name="input_unit" placeholder="Enter original unit"/>
+        <input type="text" name="output_unit" placeholder="Enter output unit"/>
+        <p>{{message}}</p>
+        <button>Submit</button>
+    </form>
+    <p>{{distance}} {{input_unit}} is {{converted_distance}} {{output_unit}}</p>
+</body>
+</html>
