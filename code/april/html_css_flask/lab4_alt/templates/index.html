@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    
+</head>
+<body>
+    <h1>Welcome to Rot Cipher!</h1>
+    <br />
+
+    <form action="/" method="post">
+        <div id="input-div">
+            <p id="inputs">String</p>
+            <input id="box" type="text" name="string_input" placeholder="Enter a string" />
+        </div>
+        <div id="input-div">
+            <p id="inputs">Rotations</p>
+            <input id="box" type="text" name="rotation" placeholder="Enter how many rotations" />
+        </div>
+        <p id="display" >{{message}}</p>
+        <button>Submit</button>
+    </form>
+
+    <p id="output">{{encoded}}</p>
+
+</body>
+</html>

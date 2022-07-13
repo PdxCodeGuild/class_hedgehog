@@ -1,0 +1,21 @@
+.High {
+    background-color: rgb(253, 139, 158);
+}
+
+.Medium {
+    background-color: rgb(241, 171, 41);
+}
+
+.Low {
+    background-color: rgb(118, 247, 118);
+}
+
+.completed {
+    background-color: grey;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
