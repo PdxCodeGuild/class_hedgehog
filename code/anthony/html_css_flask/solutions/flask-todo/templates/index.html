@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo List</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+	</head>
+	<body>
+		<form action="/" method="post">
+			<input name="todo_text" type="text" placeholder="Todo:" />
+			<select name="todo_priority">
+				<option value="High">High</option>
+				<option selected value="Medium">Medium</option>
+				<option value="Low">Low</option>
+			</select>
+			<button>Add Todo</button>
+		</form>
+		<ul>
+			{% for todo in todos %}
+			<!-- stop -->
+			{% if todo.completed %}
+			<li class="completed">
+				{{todo.text}}
+				<a href="/complete/{{loop.index - 1}}">Complete</a>
+				<a href="/delete/{{loop.index - 1}}">Delete</a>
+			</li>
+			{% else %}
+			<li class="{{todo.priority}}">
+				{{todo.text}}
+				<a href="/complete/{{loop.index - 1}}">Complete</a>
+				<a href="/delete/{{loop.index - 1}}">Delete</a>
+			</li>
+			{% endif %} {% endfor %}
+		</ul>
+	</body>
+</html>

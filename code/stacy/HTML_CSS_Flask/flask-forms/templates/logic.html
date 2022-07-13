@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Logic</title>
+</head>
+<body>
+    {% if temp > 90 %}
+    <p>It is too hot</p>
+    {% elif temp > 80 %}
+    <p>It's nice out</p>
+    {% elif temp > 70 %}
+    <p>It's a bit chilly</p>
+    {% endif %}
+    <br />
+    {% for fruit in fruits %}
+    <p>{{fruit}}</p>
+    {% endfor %}
+    <div>
+    {% for user in users %}
+    <h2>{{user.name}}</h2>
+    <p>Age: {{user.age}}</p>
+    <p>Favorite Color: {{user.fav_color}}</p>
+    {% endfor %}
+
+</div>
+</body>
+</html>
