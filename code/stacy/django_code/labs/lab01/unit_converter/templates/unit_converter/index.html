@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <div>
+            Welcome to unit converter!
+        </div>
+        <div class="user_input">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input name="measurement" type="number" step="0.01" placeholder="What is the number you would like to convert?">
+            <select name="input_unit" id="" method="POST">
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="yd">Yards</option>
+                <option value="mi">Miles</option>
+                <option value="m" >Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+            <select name="output_unit" id="" method="POST">
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="yd">Yards</option>
+                <option value="mi">Miles</option>
+                <option value="m" >Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+            <button>Submit</button>
+        </form>
+        </div>
+        <div>
+            {{measurement}} {{input_unit}} is {{converted_measurement}} {{output_unit}}
+        </div>
+    </div>
+</body>
+</html>
