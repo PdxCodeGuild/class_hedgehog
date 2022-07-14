@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+</head>
+<body style="">
+
+<div style="min-height: 100vh;
+margin: 0 50%;
+display: flex;
+align-items: center;
+justify-content: space-around;">
+<div style="">  
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="value" placeholder="unit to be converted" value="0" >
+        <input list="units" name="units_from" >
+        <br>
+        <br>
+        <label>Convert to <input list="units" name="units_to"  ></label>
+        <datalist id="units">
+            <option value="Feet">
+            <option value="Miles">
+            <option value="Meters">
+            <option value="Kilometers"></option>
+        </datalist>
+        <button>Submit</button>
+    </form>
+
+ <br><div>
+    <h4 style="text-align:center">{{returned}} {{units_to}}</h4>
+    {% if error %}
+    <h4 style="color:red; text-align:center">Invalid input, please input a number</h4>
+    {% endif %}
+</div>
+    </div>
+
+</body>
+</html>
