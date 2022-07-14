@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import unit_converter
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('convert/', include('unit_converter.urls'))
+    path('convert/', include('unit_converter.urls')),
 ]

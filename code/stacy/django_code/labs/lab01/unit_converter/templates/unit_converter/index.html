@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'unit_converter/css/styles.css' %}">
 </head>
 <body>
-    <div>
+    <div class="converter">
         <div>
             Welcome to unit converter!
         </div>
         <div class="user_input">
-        <form action="" method="POST">
+        <div class="input_value">
+            <form action="" method="POST">
             {% csrf_token %}
-            <input name="measurement" type="number" step="0.01" placeholder="What is the number you would like to convert?">
+            <input class="input_measurement" name="measurement" type="number" step="0.01" placeholder="What is the number you would like to convert?">
+        </div>
+        <div class="dropdowns">
             <select name="input_unit" id="" method="POST">
                 <option value="in">Inches</option>
                 <option value="ft">Feet</option>
@@ -24,6 +28,7 @@
                 <option value="m" >Meters</option>
                 <option value="km">Kilometers</option>
             </select>
+            <p>to</p>
             <select name="output_unit" id="" method="POST">
                 <option value="in">Inches</option>
                 <option value="ft">Feet</option>
@@ -32,7 +37,8 @@
                 <option value="m" >Meters</option>
                 <option value="km">Kilometers</option>
             </select>
-            <button>Submit</button>
+            <button class="submit">Submit</button>
+        </div>
         </form>
         </div>
         <div>
