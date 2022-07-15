@@ -27,12 +27,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-
-    message = request.form.get("message", "")
-    rotation = request.form.get("rotation", 13)
-    encoded = rot_cipher_lite(message, int(rotation))
-    return render_template("index.html", encoded=encoded)
-
+    try:
+        message = request.form.get("message", "")
+        rotation = request.form.get("rotation", 13)
+        encoded = rot_cipher_lite(message, int(rotation))
+        return render_template("index.html", encoded=encoded)
+    except (ValueError, TypeError):
+        return render_template("index.html", error = "Only whole numbers can be used for rotations!")
 
 
 app.run(debug=True)

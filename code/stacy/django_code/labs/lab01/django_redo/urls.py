@@ -1,4 +1,4 @@
-"""labs URL Configuration
+"""django_redo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import unit_converter
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rot/', include('rot.urls')),
-    path('unit_converter/', include("unit_converter.urls"))
+    path('convert/', include('unit_converter.urls')),
 ]
