@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <p>
+        <form action="/" method="post">
+            <input type="number" name="distance" placeholder="Enter distance">
+            <select name="unit_input">
+                <option value="ft">Feet</option>
+                <option value="mi">Miles</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+              to  
+            <select name="unit_output">
+                <option value="ft">Feet</option>
+                <option value="mi">Miles</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </p>
+        <p>
+            <br>
+            <h3>
+                {{distance}}{{unit_input}} is {{distance_selected}}{{unit_output}}
+            </h3>
+        </p>
+    </body>
+    </html>
