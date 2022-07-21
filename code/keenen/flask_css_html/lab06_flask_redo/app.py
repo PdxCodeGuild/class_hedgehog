@@ -25,6 +25,7 @@ def index():
         input = conversions.get(unit_input)
         output = conversions.get(unit_output)
         distance_converted = (distance * input) / output 
+        distance_converted = round(distance_converted, 2)
     else:
         unit_input = 'ft'
         distance_converted = 0
