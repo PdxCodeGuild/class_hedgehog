@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{person.first_name}} - details</title>
+    <link rel="stylesheet" href="{% static 'people/styles.css' %}">
+</head>
+<body>
+    <form action="{% url 'update' person.id %}" method="POST">
+        {% csrf_token %} {{form}}
+        <button>Submit</button>
+    </form>
+    <a href="{% url 'index' %}">&lArr; Back to home</a>
+    <h1>{{person.first_name}} {{person.last_name|default_if_none:''}}</h1>
+    <h3>Age: {{person.age|default_if_none:'N/A'}}</h3>
+    {% if person.is_close_friend %}
+    <p>You are close friends</p>
+    {% endif %}
+    <a href="{% url 'delete' person.id %}">Delete</a>
+</body>
+</html>
