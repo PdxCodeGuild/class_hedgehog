@@ -33,7 +33,8 @@ https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/docs/Django%
 
     urlpatterns = [
         path('admin/', admin.site.urls),
-        path('todo/', include('todotu.urls'))
+###### can make the path whatever you want, i just like to make it the same name as the app
+        path('myapp/', include('myapp.urls'))
     ]
 
 # add urls.py in app folder
@@ -45,8 +46,8 @@ https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/docs/Django%
     ]
 ###### all POST request require a / at end of path
 
-# Create templates
-    todotu/templates/todotu
+# Create templates, myapp is called todotu here
+    myproj/myapp/templates/myapp
         index.html
 
 # in views, import stuffs
@@ -79,3 +80,13 @@ https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/docs/Django%
 # Add some logic to views.py
     
 
+# Add static folder for css
+    same durectory as templates
+    so myproj/myapp/static/myapp/css/styles.css
+
+# load static in html file
+    in header:
+        {% load static %}
+###### link to style sheet
+        <link rel="stylesheet" href="{% static 'myapp/css/styles.css'%}">
+###### it will look for static file, useing myapp/static/myapp/css makes it so that it only loads the file that has the correct path, otherwise it will load the first file in any static folder
