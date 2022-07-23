@@ -21,7 +21,11 @@ def index(request):
 
 
 def complete(request, grocery_item_id):
-    grocery_item = GroceryItem.objects.get(id=grocery_item_id)
+    try:
+        grocery_item = GroceryItem.objects.get(id=grocery_item_id)
+    except GroceryItem.DoesNotExist:
+        return HttpResponseRedirect(reverse('index'))
+    
     grocery_item.completed = not grocery_item.completed
     
     grocery_item.save()
@@ -29,6 +33,10 @@ def complete(request, grocery_item_id):
 
 
 def delete(request, grocery_item_id):
-    grocery_item = GroceryItem.objects.get(id=grocery_item_id)
+    try:
+        grocery_item = GroceryItem.objects.get(id=grocery_item_id)
+    except GroceryItem.DoesNotExist:
+        return HttpResponseRedirect(reverse('index'))
+    
     grocery_item.delete()
     return HttpResponseRedirect(reverse('index'))
