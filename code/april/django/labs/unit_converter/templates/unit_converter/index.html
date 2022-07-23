@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter | Django Redo</title>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <h4>Enter an amount to convert into meters:</h4>
+    <form action="/unit_converter/" method="POST">
+        {% csrf_token %}
+        Distance in meters: 
+        <input type="number"  name="quantity" min="0" step="any" placeholder="What is the distance?  "><br /> 
+        Unit of measurement: 
+        <select name="unit_name" id="units">
+            <option value="feet" name="feet">feet</option>
+            <option value="miles" name="miles">miles</option>
+            <option value="meters" name="meters">meters</option>
+            <option value="kilometers" name="kilometers">kilometers</option>
+            <option value="yards" name="yards">yards</option>
+            <option value="inches" name="inches">inches</option>
+        </select>
+        <br />
+        <button>Submit</button>
+    </form>
+    {% if quantity != 0 %}
+    {{quantity}} {{unit_name}} is {{converted_amt}} meters
+    {% endif %}
+</body>
+</html>
+

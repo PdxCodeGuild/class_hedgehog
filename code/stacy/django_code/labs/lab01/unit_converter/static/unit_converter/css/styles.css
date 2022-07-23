@@ -1,0 +1,36 @@
+.converter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_value {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdowns {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit {
+    margin: 1rem;
+    background-color: transparent;
+    outline: none;
+}
+
+.input_measurement {
+    width: 300px;
+}
+
+.user_input {
+    margin: 1rem;
+}
+
+body {
+    background-image: linear-gradient(90deg, rgb(243, 114, 209) 0%,rgb(44, 19, 241) 100%);
+}
+

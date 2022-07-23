@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends</title>
+    <link rel="stylesheet" href="{% static 'people/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the people app!</h1>
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <input name="first_name" type="text" placeholder="First Name">
+        <input name="last_name" type="text" placeholder="Last Name">
+        <input name="age" type="number" placeholder="Age">
+        <input name="is_close_friend" type="checkbox">
+        <label for="">Besties?</label>
+    <button>Add                      </button>
+    </form>
+    {% for person in people %}
+        <div>
+            <a href="{% url 'person_detail' person.id %}"> {{person.first_name}} {% if person.last_name != None %} {{person.last_name}} {% endif %}</a>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
