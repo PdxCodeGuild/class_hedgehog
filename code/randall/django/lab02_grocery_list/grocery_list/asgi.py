@@ -1,5 +1,5 @@
 """
-ASGI config for follow_along project.
+ASGI config for grocery_list project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'follow_along.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grocery_list.settings')
 
 application = get_asgi_application()

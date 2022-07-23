@@ -1,5 +1,5 @@
 """
-WSGI config for follow_along project.
+WSGI config for grocery_list project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'follow_along.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'grocery_list.settings')
 
 application = get_wsgi_application()
