@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grocery List</title>
+        <link rel="stylesheet" href="{% static 'people/styles.css' %}">
+    </head>
+    <body>
+        <h1>Grocery List</h1>
+        <h3>Incomplete:</h3>
+        {% for grocery_item in grocery_list %}
+            {% if not grocery_item.completed %}
+                <p>{{grocery_item.created_date}} {{grocery_item.description}} <a href="{% url 'complete' grocery_item.id %}">Completed</a> <a href="{% url 'delete' grocery_item.id %}">Delete</a></p>
+            {% endif %}
+        {% endfor %}
+        <h3>Complete:</h3>
+        {% for grocery_item in grocery_list %}
+            {% if grocery_item.completed %}
+                <p>{{grocery_item.created_date}} {{grocery_item.description}} <a href="{% url 'complete' grocery_item.id %}">Completed</a> <a href="{% url 'delete' grocery_item.id %}">Delete</a></p>
+            {% endif %}
+        {% endfor %}
+        <form action="{% url 'index' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="description" placeholder="Enter grocery item description">
+            <button>Submit</button>
+        </form>
+    </body>
+</html>
