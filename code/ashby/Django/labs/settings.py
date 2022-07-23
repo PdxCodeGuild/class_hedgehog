@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'unit_converter',
     'pass_gen',
+    'grocery_list',
 ]
 
 MIDDLEWARE = [
