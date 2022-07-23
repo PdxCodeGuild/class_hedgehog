@@ -1,0 +1,42 @@
+#top-title {
+    font-family: 'David Libre', serif;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+#title {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+      font-size: inherit;
+  }
+
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+font-family: 'David Libre', serif;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+#footer-title {
+    text-decoration: underline;
+}
+
+#side-link:hover {
+    background-color: #283593;
+    color: whitesmoke;
+}
+
+#side-link {
+    color: #283593;
+} 
+

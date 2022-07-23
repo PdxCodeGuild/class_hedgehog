@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <style>
+        .low {
+            background-color: green;
+        }
+        .medium {
+            background-color: yellow;
+        }
+        .high {
+            background-color: red;
+        }
+        .completed {
+            background-color: grey;
+            text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>TO DO LIST</h1>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button>Submit</button>
+    </form>
+    <ul>
+        {% for todo in todos  %}
+        <div>
+            <li class='{{ todo.priority }}
+            {% if todo.completed %} completed {% endif %}
+            '>{{todo.text}}</li>
+            <a href="complete/{{forloop.counter0}}">Complete</a>
+            <a href="delete/{{forloop.counter0}}">Delete</a>
+        </div>
+        {% empty %}
+        <li>No to dos...</li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
