@@ -1,5 +1,15 @@
 {% extends 'main.html' %}
 {% block content %}
-<h1>grocery page</h1>
+<h1>Grocery page</h1>
+{% csrf_token %}
 
+<a href="{% url 'create_list' %}">Start list</a>
+{% for item in list %}
+<h3>{{list.details}}</h3>
+{% endfor %}
+<ul>
+    {% for item in items %}
+        <li>{{item.item_name}}</li>
+    {% endfor %}
+</ul>
 {% endblock content %}
