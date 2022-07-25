@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'password',
-    'grocery_list',
+    'password.apps.PasswordConfig',
+    'grocery_list.apps.GroceryListConfig',
 ]
 
 MIDDLEWARE = [
