@@ -19,6 +19,11 @@
 			<input name="age" type="number" placeholder="Age" />
 			<input name="besties" type="checkbox" />
 			<label for="">Besties?</label>
+			<select name="state">
+				{% for state in states %}
+				<option value="{{state.id}}">{{state.name}}</option>
+				{% endfor %}
+			</select>
 			<button>Add</button>
 		</form>
 
