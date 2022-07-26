@@ -22,9 +22,7 @@ def index(request):
         if request.POST.get('is_close_friend'):
             person.is_close_friend = True
         
-
         person.save()
-
 
     people = Person.objects.all()
 
@@ -52,7 +50,7 @@ def person_detail(request, person_id):
 
     context = {
         'person': person,
-        'form': UpdatePersonForm()
+        'form': UpdatePersonForm(formData)
     }
     return render(request, 'people/detail.html', context)
 
