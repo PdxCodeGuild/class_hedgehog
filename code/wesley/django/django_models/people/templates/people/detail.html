@@ -14,7 +14,7 @@
         {% csrf_token %} {{form}}
         <button>Submit</button>
     </form>
-    <a href="{% url 'index' %}">&lArr; Back to home</a>
+    <a href="{% url 'people:index' %}">&lArr; Back to home</a>
     <h1>{{person.first_name}} {{person.last_name|default_if_none:''}}</h1>
     <h3>Age: {{person.age|default_if_none:'N/A'}}</h3>
     {% if person.is_close_friend %}

@@ -11,18 +11,23 @@
 </head>
 <body>
     <h1>Welcome to the people app!</h1>
-    <form action="{% url 'index' %}" method="POST">
+    <form action="{% url 'people:index' %}" method="POST">
         {% csrf_token %}
         <input name="first_name" type="text" placeholder="First Name">
         <input name="last_name" type="text" placeholder="Last Name">
         <input name="age" type="number" placeholder="Age">
         <input name="is_close_friend" type="checkbox">
         <label for="">Besties?</label>
+        <select name="state">
+            {% for state in states %}
+                <option value="{{state.id}}">{{state.name}}</option>
+            {% endfor %}
+        </select>
     <button>Add                      </button>
     </form>
     {% for person in people %}
         <div>
-            <a href="{% url 'person_detail' person.id %}"> {{person.first_name}} {% if person.last_name != None %} {{person.last_name}} {% endif %}</a>
+            <a href="{% url 'people:person_detail' person.id %}"> {{person.first_name}} {% if person.last_name != None %} {{person.last_name}} {% endif %}</a>
         </div>
     {% endfor %}
 
