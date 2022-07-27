@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{student.name}}</title>
+	</head>
+	<body>
+		<h1>{{student.name}}</h1>
+		<h3>Grade: {{student.number_grade}} ({{student.letter_grade}})</h3>
+
+		<form action="{% url 'students:update' %}" method="POST">
+			{% csrf_token %}
+			<input type="hidden" value="{{student.id}}" name="student" />
+			<select name="assignment">
+				{% for lab in assignments %}
+				<option value="{{ lab.id }}">{{lab.title}}</option>
+				{% endfor %}
+			</select>
+			<button>Assign</button>
+		</form>
+
+		{% for lab in student.assignments.all %}
+		<p>{{ lab.title }}</p>
+		{% endfor %}
+	</body>
+</html>
