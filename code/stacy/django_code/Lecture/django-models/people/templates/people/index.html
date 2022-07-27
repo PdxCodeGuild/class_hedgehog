@@ -18,6 +18,11 @@
         <input name="age" type="number" placeholder="Age">
         <input name="is_close_friend" type="checkbox">
         <label for="">Close frineds?</label>
+        <select name="state" >
+        {% for state in states %}
+        <option value="{{state.id}}">{{state.name}}</option>
+        {% endfor %}
+        </select>
         <button>Add</button>
     </form>
 
