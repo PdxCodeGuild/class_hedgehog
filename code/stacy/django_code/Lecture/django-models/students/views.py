@@ -44,3 +44,4 @@ def update_student(request):
         student.save()
 
         return redirect(reverse('students:detail', args=(student_id,)))
+    return redirect(reverse('students:index'))

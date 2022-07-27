@@ -5,5 +5,6 @@ app_name = 'assignments'
 # {% url 'assignments:index' %}
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('create/', views.create_assignment, name='create')
 ]
