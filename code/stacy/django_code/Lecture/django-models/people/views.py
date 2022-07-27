@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from .models import Person
+from .models import Person, State
 from django.urls import is_valid_path, reverse
 from .forms import UpdatePersonForm
 
@@ -22,13 +22,18 @@ def index(request):
         person.first_name = form.get("first_name")
         person.last_name = form.get("last_name")
         person.age = form.get("age")
+        state_id = int(form.get("state"))
+        state = State.objects.get(id=state_id)
+        person.state = state
         if form.get("is_close_friend"):
             person.is_close_friend = True
         person.save()
 
     people = Person.objects.all()
+    states = State.objects.all()
     context = {
-        "people": people
+        "people": people,
+        "states": states
     }
     return render(request, 'people/index.html', context)
 

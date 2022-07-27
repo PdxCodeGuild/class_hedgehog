@@ -23,7 +23,7 @@ Let's create a simple todo app. This can be done with a two models for represent
 - TodoItem
   - text - CharField
   - priority - ForeignKey to Priority
-  - created_date - DateTimeField
+  - completed_date - DateTimeField
 
 
 ### Views
@@ -35,8 +35,6 @@ Let's create a simple todo app. This can be done with a two models for represent
 
 
 ## Part 2 (optional)
-
-Add a nullable DateTimeField `completed_date` to the `TodoItem` model. If the `completed_date` is null/None, that means it has not been completed. If it's not null, that means it has been completed.
 
 Show the completed items separately (at the bottom of the table or in another table), with grey text color and a line through them (`text-decoration:line-through`).
 

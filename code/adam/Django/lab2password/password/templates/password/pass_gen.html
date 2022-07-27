@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block title %}Password Generator{% endblock  %}
+
+{% block content %}
+
+    <h3>Lets have python make a complex password.</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <input type="number" name="password_length" placeholder="Number of characters in your password">
+        
+        <button>Submit</button>
+        
+        <h3>{{password}}</h3>
+    </form>
+    {% endblock content %}

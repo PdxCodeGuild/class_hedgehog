@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rot',
     'RPS',
+    'grocery_list',
 ]
 
 MIDDLEWARE = [
