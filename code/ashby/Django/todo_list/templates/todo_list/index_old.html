@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .High{
+        color: red
+      }
+      .Medium{
+        color: orange;
+      }
+      .Low{
+        color: green;
+      }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-6 py-2 flex justify-center">
+    <h1 class="font-bold text-2xl flex text-center" >List of Todos:</h1>
+    </div>
+    <div class='container mx-auto px-6 py-2 flex flex-col gap-5 items-center flex-wrap h-screen'>
+    {% for todo in todos %}
+    
+
+    <div class="w-1/2 justify-center    ">
+        
+        <div class="{{todo.priority}} border-2 border-gray-400 border-gray-400 bg-white rounded-b  p-4 flex flex-col justify-between leading-normal">
+          <div class="mb-8">
+            <p class="text-sm text-gray-600 flex items-center">
+            </p>
+            <h2 class=" text-lg text-center font-medium">{{todo.priority}}</h2>
+            <div class="text-gray-900 font-bold text-xl mb-2 text-center">{{todo.name}}</div>
+            <p class="text-gray-700 text-base text-center">{{todo.description}}</p>
+          </div>
+          <div class="flex flex-row justify-between">
+          <a href=" {% url 'todo_list:detail' todo.id %} ">Details</a> <a class="text-blue-600" href="">Complete</a> <a class="text-blue-600" href="">Delete</a>
+          </div>
+          <div class="flex justify-center">
+              <p class="text-gray-600 text-center">{{todo.created_date}}</p>    
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+
+    {% block content %}
+    <div>
+      <h1>Create a new Todo:</h1>
+      <form action="" method="POST">
+        {{form.as_p}}
+        <button>Create</button>
+      </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

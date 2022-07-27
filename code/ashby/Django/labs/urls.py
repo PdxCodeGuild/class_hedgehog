@@ -25,5 +25,9 @@ urlpatterns = [
 
     path('grocery/', include('grocery_list.urls')),
 
+    path('todo_list/', include('todo_list.urls')),
+
+    
+
     
 ]
