@@ -7,9 +7,11 @@
 		<title>Document</title>
 	</head>
 	<body>
+		<a href="{% url 'assignments:create' %}">Create new Assignment</a>
 		{% for item in assignments %}
 		<div>
 			<h2>{{item.title}}</h2>
+			<p>Due date: {{item.date_due|date:"l N dS Y"}}</p>
 			<ul>
 				{% for student in item.students.all %}
 				<li>{{student.name}}</li>
