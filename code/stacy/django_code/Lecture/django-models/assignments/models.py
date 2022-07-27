@@ -6,8 +6,8 @@ from django.forms import DateField
 class Assignment(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField()
-    date_assigned = models.DateField(auto_now_add=True)
-    date_due = models.DateField(blank=True, null=True)
+    date_assigned = models.DateField(blank=True, null=True)
+    date_due = models.DateField()
 
     def __str__(self):
         return self.title
