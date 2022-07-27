@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Person
+from .models import Person, State
 from .forms import UpdatePersonForm
 
 # CRUD
@@ -19,15 +19,21 @@ def index(request):
         person.first_name = request.POST.get('first_name')
         person.last_name = request.POST.get('last_name')
         person.age = request.POST.get('age')
+
+        state_id = int(request.POST.get('state'))
+        state = State.objects.get(id=state_id)
+        person.state = state
         if request.POST.get('is_close_friend'):
             person.is_close_friend = True
         
         person.save()
 
     people = Person.objects.all()
+    states = State.objects.all()
 
     context = {
-        'people': people
+        'people': people,
+        'states': states
     }
     return render(request, 'people/index.html', context)
 
