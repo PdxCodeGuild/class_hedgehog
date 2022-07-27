@@ -9,17 +9,16 @@
 <body>
     <h1>{{student.name}}</h1>
     <h3>Grade: {{student.number_grade}} ({{student.letter_grade}})</h3>
-    <form action="" method="POST">
+
+    <form action="{% url 'students:update' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" value="{{student.id}}" name="student">
         <select name="assignment" id="">
             {% for lab in assignments %}
-            <option value="{{lab.id}}">
-                {{lab.title}}
-            </option>
-            <button>Submit</button>
+            <option value="{{lab.id}}">{{lab.title}} </option>
             {% endfor %}
         </select>
+        <button>Assign</button>
     </form>
     {% for lab in student.assignments.all %}
     <p>{{lab.title}}</p>

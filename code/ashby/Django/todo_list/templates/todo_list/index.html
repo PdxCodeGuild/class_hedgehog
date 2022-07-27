@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todo_list/style.css' %}">
+    <title>Todos</title>
+</head>
+<body>
+
+    
+        <h1>ToDo List:</h1>
+    
+    <div class='list'>
+        {% for todo in todos %}
+        <div class='listComponent' >
+            <div>
+                <h4 class={% if todo.completed_date %} completed {% endif %} {{todo.priority}}>{{todo.priority}}</h4>
+            </div>
+            <div class='titleBar'>
+                <h5 class="{% if todo.completed_date %} completed {% endif %} name" >{{todo.name}}</h3> <h5>Date Created: {{todo.created_date|date:'l, N d'}}</h5>
+            </div>
+            <div class = 'titleBar'>
+                <a href="{% url 'todo_list:detail' todo.id %} ">Details</a> <a href="{% url 'todo_list:complete' todo.id %} ">Completed</a> <a href="{% url 'todo_list:delete' todo.id %}">Delete</a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    
+<hr>
+    <h3>Make a New Todo:</h3>
+<hr>
+
+<form action="{% url 'todo_list:create' %}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <button>Create New</button>
+</form>
+</body>
+</html>

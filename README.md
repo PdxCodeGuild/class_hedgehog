@@ -32,6 +32,8 @@ Instructor:
 | Lab Number | Title                                                                                                         | Due Date |
 | ---------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | Lab 01     | [Django Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/01%20Django%20Redo.md) | 27 JUL   |
+| Lab 02     | [Grocery List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/02%20Grocery%20List.md) | 05 AUG   |
+| Lab 03     | [Todo List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/03%20Todo.md) | 09 AUG   |
 
 </details>
 
