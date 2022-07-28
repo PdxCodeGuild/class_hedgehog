@@ -27,15 +27,26 @@ Instructor:
 ### Assigned Labs:
 
 <details open>
+  <summary>Django</summary>
+
+| Lab Number | Title                                                                                                         | Due Date |
+| ---------- | ------------------------------------------------------------------------------------------------------------- | -------- |
+| Lab 01     | [Django Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/01%20Django%20Redo.md) | 27 JUL   |
+| Lab 02     | [Grocery List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/02%20Grocery%20List.md) | 05 AUG   |
+| Lab 03     | [Todo List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/03%20Todo.md) | 09 AUG   |
+
+</details>
+
+<details>
   <summary>HTML/CSS/Flask</summary>
 
-| Lab Number | Title                                                                                                                 | Due Date |
-| ---------- | --------------------------------------------------------------------------------------------------------------------- | -------- |
-| Lab 01     | [Bio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/01%20Bio.md)   | 08 JUL   |
-| Lab 02     | [Blog](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/02%20Blog.md) | 11 JUL   |
-| Lab 03     | [Company](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/03%20Company.md) | 14 JUL   |
+| Lab Number | Title                                                                                                                                               | Due Date |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Lab 01     | [Bio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/01%20Bio.md)                                 | 08 JUL   |
+| Lab 02     | [Blog](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/02%20Blog.md)                               | 11 JUL   |
+| Lab 03     | [Company](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/03%20Company.md)                         | 14 JUL   |
 | Lab 04     | [Personal Portfolio](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/04%20Personal%20Portfolio.md) | 19 JUL   |
-| Lab 06     | [Flask Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/06%20Flask%20Redo.md) | 21 JUL   |
+| Lab 06     | [Flask Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/2%20Flask%20%2B%20HTML%20%2B%20CSS/labs/06%20Flask%20Redo.md)                 | 21 JUL   |
 
 
 </details>

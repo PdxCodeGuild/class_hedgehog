@@ -3,7 +3,6 @@ import random
 
 # Create your views here.
 def index(request):
-    print(request.POST)
     user = request.POST.get('my_choice', None)
     choices = ['rock', 'paper', 'scissors']
     computer = random.choice(choices)

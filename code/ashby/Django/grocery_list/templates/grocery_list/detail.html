@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{grocery.grocery_item}}</title>
+</head>
+<body>
+    <h1>{{grocery.grocery_item}}</h1>
+    <br>
+    <h3>Date added: {{grocery.date_added}}</h3>
+    <br>
+    <h3>Last updated: {{grocery.date_updated}}</h3>
+    <br>
+    {% if grocery.purchased %}
+        <p>This item was purchased</p>
+    {% endif  %}
+    <br>
+    <a href="{% url 'grocery' %}">&lArr; Return to Home Page</a>
+</body>
+</html>

@@ -19,5 +19,15 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('unit_converter/', include('unit_converter.urls'))
+    path('unit_converter/', include('unit_converter.urls')),
+
+    path('pass_gen/', include('pass_gen.urls')),
+
+    path('grocery/', include('grocery_list.urls')),
+
+    path('todo_list/', include('todo_list.urls')),
+
+    
+
+    
 ]

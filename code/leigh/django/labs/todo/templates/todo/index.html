@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <form action="{% url 'todo:create' %}" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <select name="priority">
+            {% for priority in priorities %}
+                <option value="{{priority.id}}">{{priority.priority}}</option>
+            {% endfor %}
+        </select>
+        <button>Add Todo</button>
+    </form>
+    <h2>Incomplete:</h2>
+    {% for item in todos %}
+        {% if not item.completed_date %}
+            <div>
+                <h4>{{item.created_date}} {{item.description}}</h4>
+                <a href="{% url 'todo:complete' item.id %}">Completed</a> <a href="{% url 'todo:delete' item.id %}">Delete</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <h2>Complete:</h2>
+    {% for item in todos %}
+        {% if item.completed_date %}
+            <div>
+                <h4 style="text-decoration:line-through; color:grey;">{{item.created_date}} {{item.description}}</h4>
+                <a href="{% url 'todo:complete' item.id %}">Completed</a> <a href="{% url 'todo:delete' item.id %}">Delete</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

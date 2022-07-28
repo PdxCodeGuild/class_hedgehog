@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Start page -->
+<div class="row instructions">
+    <h2>Message encoder</h2> 
+</div>
+<div class="instructions-box row">Enter your message into the form bellow then use the slider to change the amount of rotations. 
+
+</div>   
+</div><br>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="center-box container col-sm-6"><br>
+        <form action="{{ url_for('index') }}" method="POST">
+            
+                <div class="message-box">
+                    <label class="word-label" for="word">Enter your Message to Encode:</label> 
+                    <div><input type="text" name="word" id="word" size="30" maxlength="30" placeholder="Enter Message"></div><br>
+                </div><br>
+                <div class="number-box">
+                    <label class="rotation-label" for="rotation">Rotation Slider:</label> 
+                    <div><input type="range" name="rotation" id="rotation" min="1" max="25" placeholder="Slide the Scale"></div><br>
+                </div>
+                
+                <input type="submit" value="Generate">
+                
+        </form>
+    </div><br>
+    <div class="col-sm-2"></div>
+</div>
+{% endblock %}
