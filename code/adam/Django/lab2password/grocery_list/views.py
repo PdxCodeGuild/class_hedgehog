@@ -49,7 +49,7 @@ def update_list(request, pk):
             form.save()
             return redirect('groceries')
 
-    context = {"list": list}        
+    context = {"form": form}        
     return render(request, 'grocery_list/create_list.html', context)
 
 def delete_list(request, pk):
