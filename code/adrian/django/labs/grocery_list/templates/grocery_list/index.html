@@ -7,12 +7,14 @@
     <title>Grocery List</title>
 </head>
 <body>
-    <h1>Grocery List</h1>
-
-    <form action="{% url 'index' %}" method="POST">
-        {% csrf_token %}
-        <input name="grocery" type="text" placeholder"grocery">
-        <button>Add</button>
-    </form>
+    <a href="{% url 'grocery_list:create' %}"> Add new item </a>
+    {% for item in grocery_list %}
+    <div>
+        <h2>{{item.description}}</h2>
+        <p>Created on: {{item.date_created|date:"l N dS Y"}}</p>
+        <p>Completed on: {{item.date_completed|date:"l N dS Y"}}</p>
+        <button>Completed</button>
+    </div>
+    {% endfor %}
 </body>
 </html>
