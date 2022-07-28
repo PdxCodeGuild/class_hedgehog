@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import GroceryList, Item
+from .models import GroceryList
 
 class StartList(ModelForm):
     class Meta:

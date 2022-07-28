@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% block content %}
+<h2>List: {{grocery_list.details}}</h2>
+    {% for item in grocery_list.item.item_name %}
+        <li>{{item.item_name}}</li>
+    {% endfor %}
+
+
+
+{% endblock content %}
