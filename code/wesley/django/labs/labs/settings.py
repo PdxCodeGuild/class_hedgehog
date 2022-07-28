@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rot',
     'RPS',
     'grocery_list',
+    'todo',
 ]
 
 MIDDLEWARE = [

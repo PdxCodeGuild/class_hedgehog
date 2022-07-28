@@ -1,0 +1,68 @@
+@import  src= "img folder/download-2.jpg)
+h3{
+    text-decoration: underline;
+    text-align: center;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;}
+
+.Tesla {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; 
+}
+.a_button {
+    
+        border: 0;
+        line-height: 2.5;
+        padding: 0 8px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgb(179, 174, 174);
+        box-shadow: inset 2px 2px 3px rgba(206, 9, 9, 0.6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+h2 {
+        text-decoration: underline
+    }
+
+
+
+
+h1{
+    opacity: 100%;
+    background-color: rgb(220, 218, 228);
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+
+img {
+    
+    border: solid;
+    border-radius: 25%;
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 0.432);
+    display: block;
+    /* background-color: rgba(82, 81, 85, 0.973); */
+    text-align: left;
+    padding: 0 70px;
+}
+/* ul{
+    background-color: rgb(48, 47, 56);
+    display: inline-block;
+  } */
+
+#background2 {
+    background-color: rgba(122, 117, 117, 0.712);
+    margin: 30px;
+}

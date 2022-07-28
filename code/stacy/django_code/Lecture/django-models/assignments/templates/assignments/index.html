@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments</title>
+</head>
+<body>
+    <a href="{% url 'assignments:create' %}">Create new assignment</a>
+    {% for item in assignments %}
+    <div>
+        <h2>{{item.title}}</h2>
+        <p>Due Date: {{item.date_due}} </p>
+        <ul>
+            {% for student in item.students.all %}
+            <li>{{student.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
