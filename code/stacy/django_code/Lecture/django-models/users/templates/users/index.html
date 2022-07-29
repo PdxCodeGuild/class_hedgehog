@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    {% include 'users/_navbar.html' %}
+    {% for user in users %}
+    <div>
+        <p>{{user.username}}
+            {% if request.user.role == 'admin' %} 
+            - {{user.role}}
+            {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+{% endblock content %}
