@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="{% static 'grocery_list/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to your personalized Grocery List:</h1>
+
+    <div class = 'list'>
+    {% for grocery in groceries %}
+    <div class='listComponent'>
+        <a class={% if grocery.purchased %} 'purchased' {% endif %} 'unpurchased' href="{% url 'details' grocery.id %}">{{grocery.grocery_item}}</a>
+        <a href="{% url 'complete' grocery.id %}  ">Purchased</a> <a href=" {% url 'delete' grocery.id %}">Delete</a>
+    </div>    
+    <br>    
+    {% endfor %}
+
+    </div>
+    <form action="{% url 'grocery' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button>Submit</button>
+    </form>
+
+
+</body>
+</html>

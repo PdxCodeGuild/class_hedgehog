@@ -9,10 +9,10 @@
 <body>
     <h1>{{item.desc}}</h1>
     <h3>Date created - {{item.created_date}}</h3>
-    <form action="{% url 'update' item.id %}" method='POST'>
+    <form action="{% url 'grocerylist:update' item.id %}" method='POST'>
         {% csrf_token %} {{form_update}}
         <button>Submit</button>
     </form>
-    <a href="{% url 'index' %}">&lArr; Back to home</a>
+    <a href="{% url 'grocerylist:index' %}">&lArr; Back to home</a>
 </body>
 </html>

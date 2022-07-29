@@ -2,17 +2,32 @@
 {% block title %}Grocery List{% endblock %}
 {% block content %}
 
-
 <h1>Grocery page</h1>
+
+<a href="{% url 'create-list' %}">Start list</a>
+<hr>
+
 {% csrf_token %}
 
-<a href="{% url 'create_list' %}">Start list</a>
-{% for item in list %}
-<h3>{{list.details}}</h3>
-{% endfor %}
-<ul>
-    {% for item in items %}
-        <li>{{item.item_name}}</li>
+<div>
+    {% for list in lists %}
+        <div>
+            <a href="{% url 'update-list' list.id %}">Edit</a>
+            <a href="{% url 'delete-list' list.id %}">Delete</a>
+            <br>
+            <h5>{{list.completed}} --<a href="{% url 'check_list' list.id %}">{{list.details}}</h5>
+           
+            <hr>
+        </div>
     {% endfor %}
-</ul>
+</div>
+
+
+{% for item in list %}
+{% comment %} <ul>
+    
+</ul> {% endcomment %}
+
+{% endfor %}
+   
 {% endblock content %}

@@ -1,0 +1,29 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.wrapper {
+    padding: 20px;
+    height: 500px;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+
+.box{
+    height: 150px;
+    width: 100px;
+    background-color: cornflowerblue;
+    border: 3px solid #fff;
+    border-radius: 5px;
+}
+
