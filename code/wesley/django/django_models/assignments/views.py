@@ -29,7 +29,7 @@ def create_assignment(request):
 
             assignment.save()
 
-            return redirect(reverse('assignment:index')) 
+            return redirect(reverse('assignments:index')) 
         else:
             context = {
                 'form': form
