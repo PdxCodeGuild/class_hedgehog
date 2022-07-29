@@ -1,0 +1,7 @@
+<h1>Hello {{request.user.username}}</h1>
+{% if not request.user.is_anonymous %}
+<a href="{% url 'users:logout' %}">logout</a>
+{% else %}
+<a href="{% url 'users:signup' %}">signup</a>
+<a href="{% url 'users:login' %}">login</a>
+{% endif %}
