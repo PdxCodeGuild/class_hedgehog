@@ -17,23 +17,20 @@
 
 <body>
    
-    <form action="" method="POST">
-
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit">
-    </form>
-
-    <h1>
-        {{ message }}
-    </h1>
+    <div>
+        
+        {% for item in list %}
+            <h5>
+                {{item.url}}--
+                <a href="{{item.url}}">{{item.code}}--</a>
+            </h5>
+        {% endfor %}
+            
+    </div>
         
   
         
 </body>
-
-
-
 
 
 </html>
