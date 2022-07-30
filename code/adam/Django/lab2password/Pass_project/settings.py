@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'password.apps.PasswordConfig',
     'grocery_list.apps.GroceryListConfig',
+    'todos.apps.TodosConfig',
 ]
 
 MIDDLEWARE = [

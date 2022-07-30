@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>Grocery list</h1>
-    <form action="{% url 'index' %}" method="POST">
+    <form action="{% url 'grocerylist:index' %}" method="POST">
         {% csrf_token %} {{form_add}}
         <button>Submit</button>
     </form>
     <ul>
         {% for item in item_list %}
-        <a href="{% url 'update' item.id %}">
+        <a href="{% url 'grocerylist:update' item.id %}">
             <li>{{ item.desc }}</li>
         </a>
         {% endfor %}

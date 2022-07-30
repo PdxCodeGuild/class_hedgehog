@@ -1,4 +1,17 @@
+from django.forms import ModelForm
 from django import forms
+from .models import GroceryItem
 
-class UpdateGroceryList(forms.Form):
-    description = forms.CharField(max_length=30)
+
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
+class GroceryForm(ModelForm):
+    class Meta:
+        model = GroceryItem
+        fields = "__all__"
+        widgets = {
+            'date_created': DateInput(),
+            'date_completed': DateInput()
+        }

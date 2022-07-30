@@ -1,0 +1,6 @@
+{% if not request.user.is_anonymous %}
+<a href="{% url 'users:logout' %}">logout</a>
+{% else %}
+<a href="{% url 'users:signup' %}">Signup</a>
+<a href="{% url 'users:login' %}">login</a>
+{% endif %}
