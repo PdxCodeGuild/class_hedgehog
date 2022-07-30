@@ -1,3 +1,8 @@
+"""
+Co-conspirators:
+Stacy, Adrian, Wesley, Leigh, Randall
+"""
+
 from audioop import reverse
 from textwrap import shorten
 from django.shortcuts import redirect, render
