@@ -33,7 +33,7 @@ def save(request):
     if request.method == 'POST':
         form = request.POST
         shortened_url = ShortenedURL()
-        shortened_url.url = form.get('url')
+        shortened_url.url = form.get('long_url')
         taken = True
         while taken:
             new_url = create_code()
@@ -42,7 +42,7 @@ def save(request):
                 taken = False
                 shortened_url.code = new_url
                 shortened_url.save()
-    return redirect('index')
+    return redirect('earlshorten:index')
 
 def yeet(request, url_code):
     """
@@ -50,9 +50,19 @@ def yeet(request, url_code):
     url_shortener
     """
 
-        
-
-    return redirect('')
+    '''
+    take shortened url, look up associated url, redirect to original url
+    '''    
+    try:
+        original_url = ShortenedURL.objects.get(code=url_code)
+        original_url.counter += 1
+        original_url.save()
+        if 'https' in original_url.url:
+            return redirect(original_url.url)
+        else:
+            return redirect('https://' + original_url.url)
+    except ShortenedURL.DoesNotExist:
+        return redirect('earlshorten:index')
 
 """
 Part 1
