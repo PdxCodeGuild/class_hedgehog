@@ -5,6 +5,6 @@ app_name = "earlshorten"
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', views.save, name='save'),
+    path('save/', views.save, name='save'),
     path('yeet/<str:url_code>', views.yeet, name='yeet')
 ]
