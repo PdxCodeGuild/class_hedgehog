@@ -4,6 +4,7 @@ from .models import GroceryList, Item
 from .forms import StartList
 # Create your views here.
 
+
 def index(request):
     list = GroceryList.objects.all()
     
@@ -16,10 +17,11 @@ def index(request):
     return render(request, "grocery_list/grocery.html", context)
 
 
+
 def grocery_list(request, pk):
     list = GroceryList.objects.get(id=pk)
-    items = Item.objects.all()
-    
+    items = list.item_set.all()
+    print(items)
     context = {"grocery_list": list,
                 "items": items,
         }
