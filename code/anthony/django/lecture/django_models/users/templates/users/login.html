@@ -1,0 +1,17 @@
+{% extends 'users/base.html' %}
+
+<!-- title block -->
+{% block title %} Login {% endblock %}
+
+<!-- main content -->
+{% block content %}
+<h1>Login</h1>
+<a href="{% url 'users:index' %}">back to home</a>
+<form action="{% url 'users:login' %}" method="POST">
+	{% csrf_token %}
+	<input type="text" name="username" placeholder="Username:" />
+	<input type="password" name="password" placeholder="Password:" />
+	<button>Log in</button>
+	<a href="{% url 'users:signup' %}">or signup</a>
+</form>
+{% endblock %}

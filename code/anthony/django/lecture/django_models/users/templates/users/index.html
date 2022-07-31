@@ -1,0 +1,22 @@
+{% extends 'users/base.html' %}
+<!--  -->
+{% block title %} Users {% endblock %}
+
+<!-- content -->
+{% block content %}
+<!--  -->
+{% include 'users/_navbar.html' %}
+<!-- no format -->
+{% for user in users %}
+<div>
+	<p>
+		{{user.username}}
+		<!-- no format -->
+		{% if request.user.role == 'admin' %}
+		<!-- no format -->
+		-{{user.role}} {% endif %}
+	</p>
+</div>
+{% endfor %}
+<!--  -->
+{% endblock %}
