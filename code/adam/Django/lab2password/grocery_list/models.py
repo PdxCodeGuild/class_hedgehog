@@ -13,7 +13,7 @@ class GroceryList(models.Model):
     completed = models.CharField(choices=status_choices, max_length=15, default="Incomplete") 
     created = models.DateTimeField(auto_now_add=True)
 
-    
+
     def __str__(self):
         return self.details
         

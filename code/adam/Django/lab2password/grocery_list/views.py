@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import GroceryList, Item
-from .forms import StartList
+from .forms import GroceryForm, ItemForm
 # Create your views here.
 
 
@@ -21,7 +21,6 @@ def index(request):
 def grocery_list(request, pk):
     list = GroceryList.objects.get(id=pk)
     items = list.item_set.all()
-    print(items)
     context = {"grocery_list": list,
                 "items": items,
         }
@@ -30,9 +29,9 @@ def grocery_list(request, pk):
 
 
 def create_list(request):
-    form = StartList()
+    form = GroceryForm()
     if request.method == 'POST':
-        form = StartList(request.POST)
+        form = GroceryForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('groceries')
@@ -44,14 +43,19 @@ def create_list(request):
 
 def update_list(request, pk):
     list = GroceryList.objects.get(id=pk)
-    form = StartList(instance=list)
+    form = GroceryForm(instance=list)
+    item_form = ItemForm()
     if request.method == 'POST':
-        form = StartList(request.POST, instance=list)
-        if form.is_valid():
+        form = GroceryForm(request.POST, instance=list)
+        item_form = ItemForm(request.POST)
+        if form.is_valid() or item_form.is_valid():
             form.save()
+            item_form.save()
             return redirect('groceries')
-
-    context = {"form": form}        
+    
+    context = {"form": form,
+          "item_form": item_form
+    }        
     return render(request, 'grocery_list/create_list.html', context)
 
 def delete_list(request, pk):
@@ -62,6 +66,6 @@ def delete_list(request, pk):
     
     return render(request, 'grocery_list/delete.html', {'obj': list})
 
-    # form = StartList()
+    # form = GroceryForm()
 
-# def add_item(request, pk):
+# def add_item(request):

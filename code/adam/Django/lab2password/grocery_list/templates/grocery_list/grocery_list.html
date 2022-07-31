@@ -2,7 +2,7 @@
 {% block content %}
 <h2>List: {{grocery_list.details}}</h2>
     {% for item in items %}
-        <li>{{item.item_name}}</li>
+        <li>{{item.item_name}}-- Qty: {{item.quantity}}</li>
     {% endfor %}
 
 
