@@ -1,0 +1,13 @@
+{% extends 'todos/base.html' %}
+
+{% block title %}
+{{request.user.username}} | Todo App
+{% endblock %}
+
+{% block content %}
+
+{% for todo in todos %}
+  <p>{{todo.text}}</p>
+{% endfor %}
+
+{% endblock %}
