@@ -59,8 +59,9 @@ def complete(request, todo_id):
 def delete(request, todo_id):
     try:
         item = ToDoItem.objects.get(id=todo_id)
+        item.delete()
     except ToDoItem.DoesNotExist:
         return redirect(reverse('todo:index'))
-    item.delete()
 
     return redirect(reverse('todo:index'))
+
