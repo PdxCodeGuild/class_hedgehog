@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% block title %} {{request.user.username}}'s Blog {% endblock %}
+{% block content%}
+    <h1>Hello {{request.user.username}}</h1>
+    {% include 'blog/_navbar.html' %}
+
+{% endblock %}

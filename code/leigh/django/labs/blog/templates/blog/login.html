@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <h1>Login</h1>
+    {% include 'blog/_form.html' with path='blog:login' button='Login' %}
+{% endblock content %}

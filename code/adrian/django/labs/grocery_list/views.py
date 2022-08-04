@@ -1,6 +1,7 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
+import grocery_list
 from grocery_list.forms import GroceryForm
 from .models import GroceryItem
 # Create your views here.
@@ -44,3 +45,18 @@ def create_item(request):
         'form': GroceryForm()
     }
     return render(request, 'grocery_list/create.html', context)
+
+
+def completed(request, item_id):
+    item = GroceryItem.objects.get(id=item_id)
+    item.save()
+
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+
+
+def delete_item(request, item_id):
+    item = GroceryItem.objects.get(id=item_id)
+    item.delete()
+
+    return HttpResponseRedirect(reverse('grocery_list:index'))

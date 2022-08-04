@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1>Register</h1>
+<p>{{request.user.username}}</p>
+
+{% include 'blog/_form.html' with path="register" button_text="Register" %}
+
+{% endblock %}

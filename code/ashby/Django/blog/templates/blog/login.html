@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+{% include 'blog/_form.html' with path='blog:login' button_text='Login' %}
+{% endblock content %}

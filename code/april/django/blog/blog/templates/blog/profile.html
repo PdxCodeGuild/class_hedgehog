@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+{% comment %} {{request.user.username}} | Profile  {% endcomment %}
+Profile
+{% endblock title %}
+
+{% block content %}
+
+<h4>Profile</h4>
+
+<p>Welcome to the profile page, {{request.user.username}}!</p>
+
+{% endblock content %}
