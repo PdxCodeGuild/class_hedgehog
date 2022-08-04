@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'RPS',
     'gorcery_list',
     'todo',
+    'blog',
 ]
 
 MIDDLEWARE = [

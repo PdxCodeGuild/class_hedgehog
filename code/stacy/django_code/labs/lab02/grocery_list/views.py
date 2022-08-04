@@ -16,13 +16,12 @@ The user should be presented with an input field and a button (in a form). When 
 """
 # Create, List
 def index(request):
-    
     if request.method == "POST":
         form = request.POST
         grocery_item = GroceryItem()
         grocery_item.description = form.get("description")
-        # grocery_item.created_date = form.get("created_date")
-        # grocery_item.completed_date = form.get("completed_date")
+        grocery_item.created_date = form.get("created_date")
+        grocery_item.completed_date = form.get("completed_date")
         if form.get("is_completed"):
             grocery_item.is_completed = True
         else:

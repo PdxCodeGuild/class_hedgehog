@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{post.title}}{% endblock title %}
+{% block content %}
+    <h4>{{post.title}}</h4>
+    <p>{{post.body}}</p>
+    <img src="{{post.image}}" height="200" width="200" alt="">
+    <p>created: {{post.date_created}}</p>
+    <p>edited: {{post.date_edited}}</p>
+{% endblock content %}
