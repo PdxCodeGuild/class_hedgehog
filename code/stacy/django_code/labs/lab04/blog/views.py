@@ -111,6 +111,25 @@ def update(request, post_id):
    
     return render(request, 'blog/update.html', context)
 
+def delete(request, blog_id):
+
+    pass
+
+def blogosphere(request):
+    blogs = BlogPost.objects.all()
+    context = {
+        "blogs": blogs
+    }
+    return render(request, 'blog/blogosphere.html', context)
+
+def view_blog(request, blog_id):
+    blog = BlogPost.objects.get(id=blog_id)
+    context = {
+        "blog": blog
+    }
+    return render(request, 'blog/blogpost.html', context)
+
+
 """
 
 Blog

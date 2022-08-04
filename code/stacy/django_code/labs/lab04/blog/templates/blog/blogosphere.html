@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Blogosphere {% endblock title %}
+
+{% block content %}
+{% for blog in blogs %}
+
+<div>
+    <p>
+    {{blog.title}}
+    </p>
+    <p>
+        {{blog.user.username}}
+    </p>
+</div>
+
+{% endfor %}
+{% endblock content %}
