@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 
-from .forms import  AuthForm
+from .forms import  AuthForm, NewPost
+from .models import BlogPost
 
 def index(request):
     return render(request, 'blog/index.html')
@@ -51,8 +52,64 @@ def login(request):
 
 @login_required
 def profile(request):
-    return render(request, 'blog/profile.html')
+    posts = BlogPost.objects.filter(user=request.user)
+    context = {
+        "posts": posts
+    }
+    return render(request, 'blog/profile.html', context)
 
+
+@login_required
+def create(request):
+    if request.method == "POST":
+        form = NewPost(request.POST)
+        if form.is_valid():
+            blog_post = BlogPost()
+            blog_post.title = form.cleaned_data['title']
+            blog_post.body = form.cleaned_data['body']
+            blog_post.public = form.cleaned_data['public']
+            blog_post.user = request.user
+            blog_post.save()
+
+            return redirect('profile')
+        context = {
+            "form": form
+        }
+    elif request.method == "GET":
+        context = {
+            "form": NewPost()
+        }
+    return render(request, 'blog/create.html', context)
+
+def update(request, post_id):
+    if request.method == "GET":
+        try:
+            blog_post = BlogPost.objects.get(id=post_id)
+        except BlogPost.DoesNotExist:
+            return redirect('profile')
+        if request.user == blog_post.user:
+            context = {
+                "blog_post": blog_post,
+                "form": NewPost({"title": blog_post.title, "body": blog_post.body, "public": blog_post.public})
+            }
+            return render(request, 'blog/update.html', context)
+        else:
+            return redirect('profile')
+    elif request.method == "POST":
+        try:
+            blog_post = BlogPost.objects.get(id=post_id)
+        except BlogPost.DoesNotExist:
+            return redirect('profile')
+        form = NewPost(request.POST)
+        if form.is_valid():
+            blog_post.title = form.cleaned_data['title']
+            blog_post.body = form.cleaned_data['body']
+            blog_post.public = form.cleaned_data['public']
+
+            blog_post.save()
+        return redirect('profile')
+   
+    return render(request, 'blog/update.html', context)
 
 """
 
