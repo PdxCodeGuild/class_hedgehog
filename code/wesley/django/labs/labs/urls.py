@@ -22,4 +22,5 @@ urlpatterns = [
     path('RPS/', include('RPS.urls')),
     path('grocery_list/', include('grocery_list.urls')),
     path('todo/', include('todo.urls')),
+    path('blog/', include('blog.urls')),
 ]
