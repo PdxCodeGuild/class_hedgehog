@@ -1,0 +1,15 @@
+<nav>
+    <h2>
+        <a href="{% url 'blog:posts' %}">Blog App</a>
+    </h2>
+    
+    <div class="links">
+        {% if not request.user.is_anonymous %}
+            <a href="{% url 'blog:logout' %}">logout</a>
+            <a href="{% url 'blog:profile' %}">profile</a>
+        {% else %}
+            <a href="{% url 'blog:register' %}">register</a>
+            <a href="{% url 'blog:login' %}">login</a>
+        {% endif %}
+    </div>
+</nav>
