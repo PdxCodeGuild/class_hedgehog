@@ -1,0 +1,14 @@
+{% extends 'users/base.html' %}
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+    <h1>Login</h1>
+    <a href="{% url 'users:login' %}">Back to Home</a>
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <input type="text" name='username' placeholder='Enter username'>
+        <input type="password" name='password' placeholder='Enter password'>
+        <button>Login</button>
+        <a href="{% url 'users:signup' %}">or Signup</a>
+    </form>
+{% endblock content %}

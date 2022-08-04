@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{todo.name}}</title>
+    <style>
+        .Low{
+            background-color:#4d7c0f;
+        }
+        .Medium{
+            background-color:#d97706;
+        }
+        .High{
+            background-color:#b91c1c
+        }
+        .completed{
+            background-color:grey;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% if not todo.completed_date%}
+        <h3 class = {{todo.priority}} >{{todo.priority}}</h3>
+        {% else %}
+        <h3 class = "completed"> Completed Task</h3>
+        {% endif %}
+        
+        <div>
+            <h1>{{todo.name}}</h1>
+        </div>
+        <div>Date created: {{todo.created_date}} | Date completed: {% if todo.completed%} {{todo.completed_date}} {% else %} Not completed yet {% endif%} </div>
+        <br>
+        <p>{{todo.description}}</p>
+        
+        
+</div>
+<a href="{% url 'todo_list:index'%}">&lArr; Return to home </a>
+
+
+    
+</body>
+</html>

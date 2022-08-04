@@ -23,5 +23,11 @@ urlpatterns = [
 
     path('pass_gen/', include('pass_gen.urls')),
 
+    path('grocery/', include('grocery_list.urls')),
+
+    path('todo_list/', include('todo_list.urls')),
+
+    
+
     
 ]

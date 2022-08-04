@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    {% comment %} create and save new todo {% endcomment %}
+    <h3>Add New Todo:</h3>
+        <form action="{% url 'todo:create' %}" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button>Submit</button>
+        </form>
+
+    {% comment %} list of todos {% endcomment %}
+    <div>
+        <h3>Todo List: </h3>
+        <ul>
+        {% for todo in todos %}
+        {% if not todo.completed_date %}
+            <li>
+                <span style="font-weight:bold;">{{ todo }}</span>
+                    <ul>
+                        <li>Priority: {{todo.priority}}</li>
+                        <li>Created: {{ todo.created_date | date:"l, F j" }}</li>
+                        <button style="background:lightblue;"> <a href="{% url 'todo:completed' todo.id %}" >Completed</a></button>
+                        <button style="background:coral;"> <a href="{% url 'todo:delete' todo.id %}" >Delete</a></button>
+                    </ul>
+            </li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h3>Completed</h3>
+        <ul>
+        {% for todo in todos %}
+        {% if todo.completed_date %}
+            <li style="text-decoration:line-through; color:grey;">
+                <span style="font-weight:bold;">{{ todo }}</span>
+                <ul>
+                    <li>Priority: {{todo.priority}}</li>
+                    <li>Created: {{ todo.created_date | date:"l, F j" }}</li>
+                    <li>Completed: {{ todo.completed_date | date:"l, F j" }}</li> 
+                    <button style="background:coral;"> <a href="{% url 'todo:delete' todo.id %}" >Delete</a></button>
+                </ul>
+            </li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
