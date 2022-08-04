@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block title %}Register{% endblock title %}
+{% block content %}
+<h1>Welcome to the Bloggy blog</h1>
+<h3>Register below!</h3>
+<form action="{% url 'blog:register' %}" method='POST'>
+    {% csrf_token %}
+    <input type="text" name='username' placeholder='Username'>
+    <input type="password" name='password' placeholder='Password'>
+    <button>Register</button>
+</form>
+{% include 'blog/_navbar.html' %}
+{% endblock content %}

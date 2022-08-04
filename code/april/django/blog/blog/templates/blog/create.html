@@ -1,11 +1,13 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-Blog App
+Create New Post
 {% endblock title %}
 
 {% block content %}
 
-<h4>Blog App Home</h4>
+<h1>Create New Post</h1>
+
+{% include 'blog/_form.html' with path="create" button_text="Submit"%}
 
 {% endblock content %}
