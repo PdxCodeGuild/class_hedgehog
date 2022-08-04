@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{request.user.username}}{% endblock title %}
+{% block content %}
+    <h4>Hello {{request.user.username}}</h4>
+    <a href="{% url 'blog:create' %}">Create new post</a>
+    {% for post in posts %}
+        <div>
+            <a href="{% url 'blog:edit' post.id %}">{{post.title}}</a>
+            <img src="{{post.image}}" height="50" width="50" alt="">
+        </div>
+    {% endfor %}
+{% endblock content %}
