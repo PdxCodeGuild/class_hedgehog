@@ -6,7 +6,8 @@
 
 <h1>Welcome to your profile, {{request.user.username}}</h1>
 {% for post in posts %}
-<p><a href=" {% url 'update' post.id %} ">{{post.title}}</a></p>
+<p><a href=" {% url 'update' post.id %} ">Update: {{post.title}}</a></p>
+<p><a href=" {% url 'view_blog' post.id %} ">View Blog: {{post.title}}</a></p>
 <p>Last Updated: {{post.date_edited}}</p>
 {% endfor %}
 

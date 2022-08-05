@@ -3,6 +3,10 @@
 {% block title %}{{blog.title}}{% endblock title %}
 
 {% block content %}
+{% if blog.image %}
+<img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+{% else %} NO IMAGE
+{% endif %}
 {{blog.body}}
 <a href=" {% url 'blogosphere' %} "> Back to Blogosphere </a>
 <a href=" {% url 'profile' %} "> Back to Home </a>

@@ -8,3 +8,4 @@ class NewPost(forms.Form):
     title = forms.CharField(max_length=24)
     body = forms.CharField()
     public = forms.BooleanField(required=False)
+    image = forms.ImageField(required=False, label="Upload Image")

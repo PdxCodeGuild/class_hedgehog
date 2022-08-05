@@ -11,7 +11,10 @@ class BlogPost(models.Model):
     public = models.BooleanField(blank=True, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_edited = models.DateTimeField(auto_now=True)
+    image = models.ImageField(blank=True, upload_to='blog_images')
 
+    def __str__(self):
+        return self.title
 
 """
 BlogPost
