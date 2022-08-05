@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block title %} {{request.user.username}}'s Blog {% endblock %}
+{% block content%}
+    <h1>Hello {{request.user.username}}</h1>
+    {% include 'blog/_navbar.html' %}
+    <h3>Add a post</h3>
+    <form action="{% url 'blog:create' %}" method='POST'>
+        {% csrf_token %} {{form}}
+        <button>Post</button>
+    </form>
+    <h3>My posts</h3>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'blog:edit' post.id %}">{{post.title}}</a>
+        </li>
+    {% endfor %}
+
+{% endblock %}

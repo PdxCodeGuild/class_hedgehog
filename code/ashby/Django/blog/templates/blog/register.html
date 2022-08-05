@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+
+{% include 'blog/_form.html' with path='blog:register' button_text='register' %}
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+
+a {
+    color: #6b7280;
+  }
+  
+a:visited {
+    color: #6b7280;
+}
+
+body {
+    background-color: #d1d5db;
+}
+
+.post-title {
+    text-transform: capitalize;
+} 
+
+.post-date {
+    color: gray;
+}

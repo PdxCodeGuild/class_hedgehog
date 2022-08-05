@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+{{request.user.username}} | Profile 
+{% endblock title %}
+
+{% block content %}
+
+
+<h4>Profile</h4>
+
+<p>Welcome to the profile page, {{request.user.username}}!</p>
+
+
+{% if not blog_posts %}
+    <h4>You have no posts.</h4>
+{% else %}
+<h4>Your Blog Posts:</h4>
+{% for post in blog_posts %}
+    <ul>
+        <li class="post-title"><a href="{% url 'post' post.id %}">{{post.title}}</a></li>
+    </ul>
+{% endfor %}
+{% endif %}
+
+
+{% endblock content %}

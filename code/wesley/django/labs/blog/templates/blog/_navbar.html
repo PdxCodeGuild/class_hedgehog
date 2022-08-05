@@ -1,0 +1,7 @@
+<a href="{% url 'blog:index' %}">Home</a>
+{% if not request.user.is_anonymous %}
+<a href="{% url 'blog:logout' %}">logout</a>
+{% else %}
+<a href="{% url 'blog:register' %}">Signup</a>
+<a href="{% url 'blog:login' %}">login</a>
+{% endif %}
