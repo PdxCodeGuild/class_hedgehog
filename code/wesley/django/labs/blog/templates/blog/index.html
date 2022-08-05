@@ -4,7 +4,7 @@
 <H1>Welcome to the Blog</H1>
 {% for post in posts %}
 <li>
-    <a href="{% url 'blog:view' post.id %}">{{post.title}} by {{post.user}}</a>
+    <a href="{% url 'blog:view' post.id %}">{{post.title}} by {{post.user}}</a>{{post.date_created}}
 </li>
 {% endfor %}
 <br>

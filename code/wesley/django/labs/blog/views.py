@@ -72,12 +72,13 @@ def logout(request):
 
 @login_required
 def create_post(request):
-    form = NewPost(request.POST)
+    form = NewPost(request.POST, request.FILES)
     if request.method == "POST":
         blog_post = BlogPost()
         if form.is_valid():
             blog_post.title = form.cleaned_data['title']
             blog_post.body = form.cleaned_data['body']
+            blog_post.image = form.cleaned_data['image']
             blog_post.user = request.user
             if form.cleaned_data['public']:
                 blog_post.public = True
@@ -105,7 +106,7 @@ def editpost(request, post_id):
             return redirect('blog:profile')
         context = {
             "post": post,
-            'form': NewPost({"title": post.title, 'body': post.body, 'public': post.public})
+            'form': NewPost({"title": post.title, 'body': post.body, 'public': post.public, 'image': post.image})
         }
         return render(request, 'blog/edit.html', context)
     elif request.method == 'POST':
