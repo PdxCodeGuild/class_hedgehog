@@ -20,7 +20,7 @@
         <div style = "margin:1rem;">
             {% for post in user_post  %}
             <div>
-                <h4>{{post.title}}</h4>
+                <h4><a href="{% url 'blog:detail' post.id %}">{{post.title}}</a></h4>
                 <p>{{post.body}}</p>
                 <div>
                     <a href=" {% url 'blog:edit' post.id %}">Edit</a>
