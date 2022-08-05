@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-from blog.forms import AuthForm
-
+from .forms import AuthForm, NewBlogPost
+from .models import BlogPost
 
 def index(request):
     return render(request, 'blog/index.html')
@@ -31,6 +31,7 @@ def register(request):
     }
     return render(request, 'blog/register.html', context)
 
+
 def login(request):
     if request.method == "POST":
         form = AuthForm(request.POST)
@@ -55,9 +56,49 @@ def login(request):
     }
     return render(request, 'blog/login.html', context)
 
+
+@login_required
+def create(request):
+    if request.method == "POST":
+        form = NewBlogPost(request.POST)
+        if form.is_valid():
+            post = BlogPost()
+            post.title = form.cleaned_data['title']
+            post.body = form.cleaned_data['body']
+            post.user = request.user
+            post.public = form.cleaned_data['public']
+        
+            post.save()
+        return redirect('profile')
+    
+    context = {
+        'form': NewBlogPost
+    }
+
+    return render(request, 'blog/create.html', context)
+
+
 @login_required
 def profile(request):
-    return render(request, 'blog/profile.html')
+    blog_posts = BlogPost.objects.filter(user=request.user)
+
+    context = {
+        'blog_posts': blog_posts
+    }
+
+    return render(request, 'blog/profile.html', context)
+
+
+@login_required
+def post(request, post_id):
+    post = BlogPost.objects.get(id=post_id)
+
+    context = {
+        'post': post
+    }
+
+    return render(request, 'blog/post.html', context)
+
 
 def logout(request):
     auth.logout(request)

@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'blog/styles.css' %} ">
     <title>{% block title %}{% endblock title %} </title>
+
 </head>
 <body>
     {% include 'blog/_navbar.html' %}
-
+<hr>
     {% block content %}
 
     {% endblock content %}

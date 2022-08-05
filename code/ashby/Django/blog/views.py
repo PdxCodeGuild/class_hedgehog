@@ -10,10 +10,13 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, 'blog/home.html')
+    context = {
+        'posts': BlogPost.objects.all().filter(public=True).order_by('-date_edited')
+    }
+    return render(request, 'blog/home.html', context)
 
 
-#TODO make register
+
 def register(request):
     if request.method == 'POST':
         form= AuthForm(request.POST)
@@ -33,7 +36,7 @@ def register(request):
     return render(request, 'blog/register.html', context)
 
 
-#TODO make login route
+
 def login(request):
     if request.method == 'POST':
         form= AuthForm(request.POST)
@@ -63,7 +66,7 @@ def login(request):
         }
     return render(request, 'blog/login.html', context)
 
-#TODO make profile route
+
 def logout(request):
     auth.logout(request)
     return redirect('blog:index')
@@ -76,7 +79,7 @@ def profile(request):
 @login_required(login_url='blog:index')
 def create(request):
     if request.method == 'POST':
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             blog = BlogPost()
             blog.title = form.cleaned_data['title']
@@ -84,6 +87,8 @@ def create(request):
             blog.public = form.cleaned_data['public']
             blog.user = request.user
             blog.date_created = timezone.now()
+            blog.image=form.cleaned_data['image']
+            blog.image = form.cleaned_data['image']
             blog.save()
             return redirect('blog:profile')
         else:
@@ -91,4 +96,54 @@ def create(request):
                 'form' : form,
             }
             return render(request, 'blog/profile.html', context)
+
+@login_required(login_url='blog:index')
+def edit(request, post_id):
+    if request.method == 'GET':
+        try:
+            post = BlogPost.objects.get(id=post_id)
+            if post.user == request.user:
+                context ={
+                    'post': post,
+                    'form': BlogForm(instance=post)
+                }
             
+                return render(request, 'blog/edit.html', context)
+    
+        except BlogPost.DoesNotExist:
+            return redirect('blog:profile')   
+    
+    elif request.method == 'POST':
+        try:
+            post = BlogPost.objects.get(id=post_id)
+        except BlogPost.DoesNotExist:
+            pass
+
+        form = BlogForm(request.POST, request.FILES, instance = post)
+        if form.is_valid():
+            form.save()
+    return redirect('blog:profile')
+
+@login_required(login_url='blog:index')
+def delete(request, post_id):
+    try:
+        post = BlogPost.objects.get(id=post_id)
+        if request.user == post.user:
+            post.delete()
+            
+    except BlogPost.DoesNotExist:
+        pass
+    return redirect('blog:profile')
+
+def detail(request, post_id):
+    try:
+        post = BlogPost.objects.get(id=post_id)
+        if post.public == True or post.user == request.user:
+            context = {
+                'post': post,
+            }
+            return render(request, 'blog/detail.html', context)
+            
+    except BlogPost.DoesNotExist:
+        pass
+    return redirect('blog:profile')

@@ -62,13 +62,14 @@ def profile(request):
 @login_required
 def create(request):
     if request.method == "POST":
-        form = NewPost(request.POST)
+        form = NewPost(request.POST, request.FILES)
         if form.is_valid():
             blog_post = BlogPost()
             blog_post.title = form.cleaned_data['title']
             blog_post.body = form.cleaned_data['body']
             blog_post.public = form.cleaned_data['public']
             blog_post.user = request.user
+            blog_post.image = form.cleaned_data['image']
             blog_post.save()
 
             return redirect('profile')
@@ -110,6 +111,25 @@ def update(request, post_id):
         return redirect('profile')
    
     return render(request, 'blog/update.html', context)
+
+def delete(request, blog_id):
+
+    pass
+
+def blogosphere(request):
+    blogs = BlogPost.objects.all()
+    context = {
+        "blogs": blogs
+    }
+    return render(request, 'blog/blogosphere.html', context)
+
+def view_blog(request, blog_id):
+    blog = BlogPost.objects.get(id=blog_id)
+    context = {
+        "blog": blog
+    }
+    return render(request, 'blog/blogpost.html', context)
+
 
 """
 

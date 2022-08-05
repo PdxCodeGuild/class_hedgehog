@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{post.title}}{% endblock title %}
+{% block content %}
+{% include 'blog/_navbar.html' %}
+
+<h1>{{post.title}}</h1>
+<form action="{% url 'blog:edit' post.id %}" method='POST'>
+{% csrf_token %} {{form}}
+<button>Update</button>
+</form>
+
+
+{% endblock content %}
+
+
+
