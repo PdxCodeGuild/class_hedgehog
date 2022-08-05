@@ -11,9 +11,12 @@
                 <a href="{% url 'delete-post' post.id %}">Delete</a>
                 <a href="{% url 'delete-post' post.id %}">Delete</a>
                 <br>
-                <span>@{{post.user}}</span>
+                <div>
+                    <span>@{{post.user}}</span>
 
-                <h5>{{post.id}} | {{post.title}}</h5>
+                    <h5>{{post.id}} | {{post.title}}</h5>
+                    <p>{{post.body}}</p>
+                </div>
                 {% comment %}  {% endcomment %}
                 {% comment %}  {% endcomment %}
                 {% comment %} FINISH preseting blogpost on this page {% endcomment %}
