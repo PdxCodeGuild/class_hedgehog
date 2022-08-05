@@ -10,7 +10,10 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, 'blog/home.html')
+    context = {
+        'posts': BlogPost.objects.all().filter(public=True).order_by('-date_edited')
+    }
+    return render(request, 'blog/home.html', context)
 
 
 #TODO make register
@@ -91,4 +94,41 @@ def create(request):
                 'form' : form,
             }
             return render(request, 'blog/profile.html', context)
+
+@login_required(login_url='blog:index')
+def edit(request, post_id):
+    if request.method == 'GET':
+        try:
+            post = BlogPost.objects.get(id=post_id)
+            if post.user == request.user:
+                context ={
+                    'post': post,
+                    'form': BlogForm(instance=post)
+                }
             
+                return render(request, 'blog/edit.html', context)
+    
+        except BlogPost.DoesNotExist:
+            return redirect('blog:profile')   
+    
+    elif request.method == 'POST':
+        try:
+            post = BlogPost.objects.get(id=post_id)
+        except BlogPost.DoesNotExist:
+            pass
+
+        form = BlogForm(request.POST, instance = post)
+        if form.is_valid():
+            form.save()
+    return redirect('blog:profile')
+
+@login_required(login_url='blog:index')
+def delete(request, post_id):
+    try:
+        post = BlogPost.objects.get(id=post_id)
+        if request.user == post.user:
+            post.delete()
+            
+    except BlogPost.DoesNotExist:
+        pass
+    return redirect('blog:profile')

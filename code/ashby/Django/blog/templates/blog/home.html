@@ -7,5 +7,21 @@
 
 
 {% block content  %}
+<div style='display:flex; justify-content:center; margin: 0 auto' >
+    <h1>TimeLine</h1>
+</div>
+<div style='display:flex; flex-direction: column; justify-content:center; margin: 0 auto'>
+    {% for post in posts  %}
+    <div>
+        <div style='display:flex; justify-content:center; margin: 0 auto'>
+            <h4>{{post.title}}</h4>
+        </div>
+        <p style='display:flex; justify-content:center; margin: 0 auto'>Post created: {{post.date_created}} | Last edited: {{post.date_edited}}</p>
+        <p style='display:flex; justify-content:center; margin: 0 auto'>{{post.body}}</p>
+        
+    </div>
 
+    {% endfor %}
+
+</div>
 {% endblock content  %}
