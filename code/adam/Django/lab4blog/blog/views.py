@@ -16,3 +16,10 @@ def index(requests):
         "msg": msg
     }
     return render(requests, 'blog/index.html', context)
+
+
+
+def createPost(requests):
+    context = {}
+
+    return render(requests, 'blog/create_post.html', context)
