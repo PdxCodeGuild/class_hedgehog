@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} New Post {% endblock title %}
+
+{% block content %}
+
+<h1>Create</h1>
+{% include 'blog/_form.html' with path="create" button_text="Create" %}
+<a href=" {% url 'profile' %} ">Back to Profile</a>
+{% endblock content %}
