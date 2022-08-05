@@ -14,8 +14,11 @@
     {% for post in posts  %}
     <div>
         <div style='display:flex; justify-content:center; margin: 0 auto'>
-            <h4>{{post.title}}</h4>
+            <a href="{% url 'blog:detail' post.id %}"><h4>{{post.title}}</h4></a>
         </div>
+        
+            <h5 style='display:flex; justify-content:center; margin: 0 auto'>{{post.user}}</h5>
+        
         <p style='display:flex; justify-content:center; margin: 0 auto'>Post created: {{post.date_created}} | Last edited: {{post.date_edited}}</p>
         <p style='display:flex; justify-content:center; margin: 0 auto'>{{post.body}}</p>
         

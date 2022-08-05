@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+{{post.title}}
+{% endblock title %}
+
+{% block content %}
+<div style='display:flex; flex-direction:column; justify-content:center; margin: 0 auto; align-items:center;' >
+    <div>
+        <h1>{{post.title}}</h1>
+    </div>
+    <div>
+        <h3>By: {{post.user}} | Date posted: {{post.date_created}}</h3>
+    </div>
+    <div>
+        <p>{{post.body}}</p>
+    </div>
+    <div>
+        <h6>| Date edited: {{post.date_edited}} |</h6>
+    </div>
+</div>
+{% endblock content %}

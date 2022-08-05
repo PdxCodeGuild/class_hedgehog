@@ -132,3 +132,16 @@ def delete(request, post_id):
     except BlogPost.DoesNotExist:
         pass
     return redirect('blog:profile')
+
+def detail(request, post_id):
+    try:
+        post = BlogPost.objects.get(id=post_id)
+        if post.public == True or post.user == request.user:
+            context = {
+                'post': post,
+            }
+            return render(request, 'blog/detail.html', context)
+            
+    except BlogPost.DoesNotExist:
+        pass
+    return redirect('blog:profile')
