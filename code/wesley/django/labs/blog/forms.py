@@ -9,7 +9,7 @@ class AuthForm(forms.Form):
 class NewPost(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title', 'body', 'public']
+        fields = ['title', 'body', 'public', 'image']
         widgets = {
             'public': CheckboxInput()
         }
