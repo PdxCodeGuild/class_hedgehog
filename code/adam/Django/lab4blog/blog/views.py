@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from blog.models import BlogPost, User
 from .forms import BlogForm
 
@@ -13,10 +13,9 @@ def loginPage(request):
 
 
 def index(request):
-    msg = "Turtle Island is great, so many turtles here."
-
+    blogpost = BlogPost.objects.all()
     context = {
-        "msg": msg
+        "blogpost": blogpost
     }
     return render(request, 'blog/index.html', context)
 
@@ -26,10 +25,21 @@ def createPost(request):
     form = BlogForm()
     if request.method == "POST":
         form = BlogForm(request.POST)
-        print(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        
             
     context = {
         "form": form
     }
 
     return render(request, 'blog/create_post.html', context)
+
+
+def deletePost(request, pk):
+    blogpost = BlogPost.objects.get(id=pk)
+    if request.method == "POST":
+        blogpost.delete()
+        return redirect('index')
+    return render(request, 'blog/delete.html', {'obj': blogpost})
