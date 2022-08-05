@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+def file_route(instance, filename):
+    return f'blog/templates/blog/uploads/{instance.user.id}/{filename}'
+
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField(max_length=500)
@@ -12,6 +15,7 @@ class BlogPost(models.Model):
     public = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_edited = models.DateTimeField(auto_now=True)
+    image = models.FileField(upload_to=file_route, blank=True)
 
     def __str__(self):
         return self.title
