@@ -1,0 +1,30 @@
+
+a {
+    color: gainsboro;
+  }
+  
+a:visited {
+    color: gainsboro;
+}
+
+body {
+    background-color: ghostwhite;
+    color: darkslategray;
+}
+
+.completed-button {
+    background: seagreen; 
+}
+
+.deleted-button {
+    background: red;
+}
+
+.item-list {
+    text-transform: capitalize;
+}
+
+.date {
+    list-style-type: none;
+    font-size: 0.75rem;
+}
