@@ -3,6 +3,28 @@
 
 
 {% block content %}
+<h2>{{user.username}}</h2>
 
+<div>
+    {% for post in blogpost %}
+        <p>{{post.title}}</p>
+    {% endfor %}
+</div>
+
+{% comment %} 
+<div class="profile-continer">
+    <div>
+
+
+    </div>
+
+    <div>
+
+    </div>
+
+    <div>
+        Recent Activity
+    </div>
+</div> {% endcomment %}
 
 {% endblock content %}

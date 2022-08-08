@@ -22,7 +22,7 @@
                 {% endif %}
                 <br>
                 <div>
-                    <span>@{{post.user}}</span>
+                    <span><a href="{% url 'user-profile' post.user.id %}">@{{post.user}}</a></span>
 
                     <h5>{{post.id}} | <a href="{% url 'blogpost' post.id %}">{{post.title}}</a></h5>
                     <p>{{post.body}}</p>

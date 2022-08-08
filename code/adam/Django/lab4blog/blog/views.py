@@ -73,6 +73,13 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    blogpost = user.blogpost_set.all()
+    context = {"user" : user, "blogpost": blogpost} 
+    return render(request, 'blog/profile.html', context)
+
+
 
 
 def blogPost(request, pk):
