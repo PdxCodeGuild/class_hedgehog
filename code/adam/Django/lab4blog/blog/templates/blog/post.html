@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block title %}{{blogpost.title}}{% endblock title %}
+{% block content %}
+
+<h3>{{blogpost.title}}--{{blogpost.user}}</h3>
+
+<p>{{blogpost.body}}</p>
+<div>
+    {% for message in blog_messages %}
+    <div>
+        <small>@{{message.user}}  {{message.created|timesince}} ago </small>
+        
+        <p>{{message.body}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

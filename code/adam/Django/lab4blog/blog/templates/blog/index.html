@@ -1,10 +1,18 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h3>Test at is best</h3>
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
 
-<div>
-    <a href="{% url 'create-post' %}">Create Post</a>
+    }
+</style>
+
+<h2>Check out my blog!</h2>
+<a href="{% url 'create-post' %}">Create Post</a>
+<hr>
+<div class="home-container">
     <div>
         {% for post in blogpost%}
             <div>
@@ -16,25 +24,27 @@
                 <div>
                     <span>@{{post.user}}</span>
 
-                    <h5>{{post.id}} | {{post.title}}</h5>
+                    <h5>{{post.id}} | <a href="{% url 'blogpost' post.id %}">{{post.title}}</a></h5>
                     <p>{{post.body}}</p>
                 </div>
-                {% comment %}  {% endcomment %}
-                {% comment %}  {% endcomment %}
-                {% comment %} FINISH preseting blogpost on this page {% endcomment %}
-                {% comment %} finish update-view {% endcomment %}
+                
             </div>
-        
+            <hr>
         {% endfor %}
+        <p>Total Post's: {{blogpost_count}}</p>
     </div>
+        
 
+    <div>
+        <h3>Recent Activity</h3>
+    </div>
 
 
 </div>
 
 
 
-{{msg}}
+
 
 
 {% endblock content %}

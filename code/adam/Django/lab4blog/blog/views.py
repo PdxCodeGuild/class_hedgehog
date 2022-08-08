@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from blog.models import BlogPost, User
+from blog.models import BlogPost, User, Message
 from .forms import BlogForm
 
 
@@ -61,12 +61,39 @@ def registerPage(request):
 
 
 
+
 def index(request):
     blogpost = BlogPost.objects.all()
+    blogpost_count = blogpost.count()
+
     context = {
-        "blogpost": blogpost
+        "blogpost": blogpost,
+        "blogpost_count": blogpost_count, 
     }
     return render(request, 'blog/index.html', context)
+
+
+
+
+def blogPost(request, pk):
+    blogpost = BlogPost.objects.get(id=pk)
+    blog_messages = blogpost.message_set.all()
+
+    if request.method == 'POST':
+        message = Message.objects.create(
+            user=request.user,
+            blogpost=blogpost,
+            body=request.POST.get('body')
+        )
+        return redirect('blogpost', pk=blogpost.id)
+
+    context = {
+        "blogpost": blogpost,
+        "blog_messages": blog_messages,
+    
+    }
+
+    return render(request, 'blog/post.html', context)
 
 
 @login_required(login_url='login')
@@ -104,6 +131,8 @@ def updatePost(request, pk):
     context = {'form': form}
     return render(request, 'blog/create_post.html', context)
 
+
+@login_required(login_url='login')
 def deletePost(request, pk):
     blogpost = BlogPost.objects.get(id=pk)
     if request.method == "POST":
