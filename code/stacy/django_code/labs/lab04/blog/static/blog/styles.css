@@ -1,4 +1,30 @@
 body {
+    text-align: center;
+    align-items: center;
+    background-color: rgb(46, 231, 22);
+}
 
-    background-color: blue;
+.blogosphere_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog_post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.updated {
+    font-size: 12px;
+}
+
+.thumbnail {
+        border: 1px solid #ddd; /* Gray border */
+        border-radius: 4px;  /* Rounded border */
+        padding: 5px; /* Some padding */
+        width: 50px; /* Set a small width */
+        height: 50px;
 }

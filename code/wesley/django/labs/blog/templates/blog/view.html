@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{post.tile}}{% endblock title %}
+{% block content %}
+{% include 'blog/_navbar.html' %}
+<h1>{{post.title}}</h1>
+<p>{{post.body}}</p>
+<h6>{{post.user}}</h6>
+<img src="{{post.image}}" alt="">
+{% endblock content %}

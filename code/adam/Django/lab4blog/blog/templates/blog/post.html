@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% block title %}{{blogpost.title}}{% endblock title %}
+{% block content %}
+<style>
+    .post-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+
+    }
+
+</style>
+
+
+<div class="post-container">
+    <div>
+        <h3>{{blogpost.title}}</h3>
+        <h4>By:{{blogpost.user}}</h4>
+        <p>{{blogpost.body}}</p>
+        <hr>
+        <hr>
+    </div>
+    
+    <div>
+        <h3>Recent Activity</h3>
+    </div>
+   
+    <div class="comment-body">
+        {% for message in blog_messages %}
+        <div>
+            <small>@{{message.user}}  {{message.created|timesince}} ago </small>
+            
+            <p>{{message.body}}</p>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+</div>    
+   
+<div>
+    
+
+
+    {% if request.user.is_authenticated %}
+    <div class="comment-form">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="body" placeholder="Write your message here..."/>
+        </form>
+    </div>
+    {% endif %}
+</div>
+    
+
+
+
+{% endblock content %}

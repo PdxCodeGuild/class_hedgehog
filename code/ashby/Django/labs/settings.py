@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pass_gen',
     'grocery_list',
     'todo_list',
+    'blog',
 ]
 
 MIDDLEWARE = [

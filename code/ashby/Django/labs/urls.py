@@ -27,7 +27,7 @@ urlpatterns = [
 
     path('todo_list/', include('todo_list.urls')),
 
-    
+    path('blog/', include('blog.urls')),
 
     
 ]

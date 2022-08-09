@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+{{request.user.username}} | {{post.title}} 
+{% endblock title %}
+
+{% block content %}
+    <h3 class="post-title" >{{post.title}}</h3>
+    <p class="post-date">{{request.user.username}} | {{post.date_created|date:"F j, Y"}}</p>
+    <p>{{post.body}}</p>
+
+{% endblock content %}

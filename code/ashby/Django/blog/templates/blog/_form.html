@@ -1,0 +1,11 @@
+
+<div>
+<br>    
+    <form  action='{% url path %}' method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button>{{button_text}}</button>
+    </form>
+
+
+</div>

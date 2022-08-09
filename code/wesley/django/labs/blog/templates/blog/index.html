@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block title %}Bloggy blog{% endblock title %}
+{% block content %}
+<H1>Welcome to the Blog</H1>
+{% for post in posts %}
+<li>
+    <a href="{% url 'blog:view' post.id %}">{{post.title}} by {{post.user}}</a>{{post.date_created}}
+</li>
+{% endfor %}
+<br>
+{% include "blog/_navbar.html"%}
+{% endblock content %}

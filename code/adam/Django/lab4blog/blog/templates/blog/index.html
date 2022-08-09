@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+
+    }
+</style>
+
+<h2>Check out my blog!</h2>
+<a href="{% url 'create-post' %}">Create Post</a>
+<hr>
+<div class="home-container">
+    <div>
+        {% for post in blogpost%}
+            <div>
+                {% if request.user == post.user %}
+                <a href="{% url 'update-post' post.id %}">Update</a>
+                <a href="{% url 'delete-post' post.id %}">Delete</a>
+                {% endif %}
+                <br>
+                <div>
+                    <span><a href="{% url 'user-profile' post.user.id %}">@{{post.user}}</a></span>
+
+                    <h5>{{post.id}} | <a href="{% url 'blogpost' post.id %}">{{post.title}}</a></h5>
+                    <p>{{post.body}}</p>
+                </div>
+                
+            </div>
+            <hr>
+        {% endfor %}
+        <p>Total Post's: {{blogpost_count}}</p>
+    </div>
+        
+
+    <div>
+        <h3>Recent Activity</h3>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}
