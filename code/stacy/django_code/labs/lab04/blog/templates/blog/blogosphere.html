@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Blogosphere {% endblock title %}
+
+{% block content %}
+<a href="{% url 'profile' %}">Back to Profile</a>
+{% for blog in blogs %}
+
+<div class='blogosphere_item'>
+    <p>
+        {% if blog.image %}
+        <img src=" {{ blog.image.url }}" alt="thumbnail" class="thumbnail">
+        {% elif not blog.image %}
+        <img src="/media/blog_images/404.jpg" alt="404 image not found" class="thumbnail">
+        {% endif %}
+    </p>
+    <p>
+        <a href=" {% url 'view_blog' blog.id %}"> {{blog.title}}</a>
+    </p>
+    <p>
+        {{blog.user.username}}
+    </p>
+</div>
+
+{% endfor %}
+{% endblock content %}

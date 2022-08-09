@@ -1,0 +1,21 @@
+<div style='display:flex ; flex-direction:row ; justify-content:space-between'>
+    <div >
+        <h1>Super Sweet Blog Time</h1>     
+    </div>
+    <div >
+        <div style='display:flex; justify-content:center; margin: 0 auto'>
+            <h4>{{request.user.username}}</h4>
+        </div>
+        <div>
+            <a href=" {% url 'blog:index' %} ">Home</a>
+            {% if not request.user.is_anonymous %}
+            <a href=" {% url 'blog:profile' %} ">My Profile</a>
+            <a href=" {% url 'blog:logout' %} ">Logout</a>
+            {% else %}
+            <a href=" {% url 'blog:login' %}">Login</a>
+            <a href="{% url 'blog:register' %} ">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    
+</div>
