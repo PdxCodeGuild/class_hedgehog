@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery App</title>
+    <link rel="stylesheet" href="{% static 'grocery_list/styles.css' %}">
+
+</head>
+<body>
+    <h1>Grocery App</h1>
+    <br/>
+    <h2>Add New Grocery Item:</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button>Add</button>
+    </form>
+
+    <br />
+
+    <h1>Grocery List Items:</h1>
+    <h3>Incomplete</h3>
+    {% for item in items %}
+    {% if not item.completed %}
+        <ul>
+            <li>
+                <span class="item-list">{{item}}</span>
+                <button class="completed-button"> <a href="{% url 'completed' item.id %}" >Completed</a></button>
+                <button class="deleted-button"> <a href="{% url 'delete' item.id %}" >Delete</a></button>
+            </li>
+            <li class="date">Date Added: {{item.created_date}}</li>
+        </ul>
+    {% endif %}    
+    {% endfor %}
+
+    <br />
+
+    <h3>Completed</h3>
+    {% for item in items %}
+    {% if item.completed %}
+        <ul>
+            <li>
+                {{item}}
+                <button class="deleted-button"> <a href="{% url 'delete' item.id %}" >Delete</a></button>
+            </li>
+            <li class="date">Date completed: {{item.completed_date}}</li>
+        </ul>
+    {% endif %}    
+    {% endfor %}
+
+</body>
+</html>
