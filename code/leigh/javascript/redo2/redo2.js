@@ -5,9 +5,6 @@ let rot_input = document.querySelector('#rot');
 let run_bt = document.querySelector('#run');
 let output = document.querySelector('#output');
 
-for (letter of "abcdefg") {
-    console.log(letter)
-}
 run_bt.onclick = function() {
     phrase = phrase_input.value
     rot = Number(rot_input.value)
