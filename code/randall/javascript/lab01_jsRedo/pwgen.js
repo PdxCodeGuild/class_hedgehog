@@ -24,7 +24,7 @@ function getChars(desiredLength, array){
        if (choiceIndex > -1) {
         array.splice(choiceIndex, 1);
       }
-       charString =charString + choice
+       charString =charString + choice 
        ++passIndex
     }
     return charString
