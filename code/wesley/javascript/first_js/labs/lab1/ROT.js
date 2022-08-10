@@ -1,21 +1,24 @@
 
 
-// // user_string = list(input("Please enter a string: "))
-// const userString = prompt('Enter the string: ')
+const userString = prompt('Enter the string: ')
+let rotateAmount = prompt('Enter amount to rotate:')
+rotateAmount = parseInt(rotateAmount)
+const lowerUserString = userString.toLowerCase()
+const lowercase = ['abcdefghijklmnopqrstuvwxyz']
 
-// const lowercase = 'abcdefghijklmnopqrstuvwxyz'
-
-// // for (char of userString) {
-// //     if (char + 13 < 25)
-// // }
-
-
-
-// for (char of userString) {
-//     for (letter of lowercase) {
-//        if (char in letter) {
-//         //    let location = letter.index[char];
-//            console.log(char)
-//        }
-//     }
-// }
+function rotatePhrase(userString){
+    let rot = ''
+    for (char of userString){
+        for (let char2 of lowercase){
+           if (char2.includes(char)){
+               const location = char2.indexOf(char)
+               const rotatedIn = (location + rotateAmount) % char2.length
+               const rotatedLet = char2[rotatedIn]
+               rot += rotatedLet
+            }
+        }
+    }
+    return rot
+    
+}
+console.log(rotatePhrase(userString))
