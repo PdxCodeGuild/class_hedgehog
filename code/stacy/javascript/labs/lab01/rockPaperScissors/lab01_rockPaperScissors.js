@@ -1,16 +1,3 @@
-// import random
-//     valid_choices = ['rock', 'paper', 'scissors']
-//     player_choice = input("Please choose rock, paper, or scissors: \n\t> ").replace(' ','').lower()
-//     if player_choice not in valid_choices:
-//         print(f"{player_choice} is not a valid choice! Try again!")
-//         return rock_paper_scissors()
-//     computer_choice = random.choice(valid_choices)
-//     if beats.get(player_choice) == computer_choice:
-//         return f"{player_choice.title()} beats {computer_choice}, you win!"
-//     elif beats.get(computer_choice) == player_choice:
-//         return f"{computer_choice.title()} beats {player_choice}. You lose!"
-//     elif player_choice == computer_choice:
-//         return f"You both chose {player_choice}! You tie!"
 // #########################################################################################################
 // '''Version 2'''
 // def main():
@@ -31,41 +18,26 @@ function getRandomItem(choices) {
     return item;
 }
 
-
 function rockPaperScissors() {
-
-    const valid_choices = ['rock', 'paper', 'scissors']
-
-    const beats = {"rock": "scissors", "paper": "rock", "scissors": "paper"}
-
-    let playerChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase()
-    if ($.inArray(playerChoice, valid_choices)) {
-        // no code, just a crude if not statement
+    const validChoices = ['rock', 'paper', 'scissors'];
+    const beats = {"rock": "scissors", "paper": "rock", "scissors": "paper"};
+    let playerChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
+    // console.log(playerChoice)
+    if (validChoices.includes(playerChoice)) {
+        // alert(`You chose ${playerChoice}!`);
     } else {
-        alert("Not a valid choice!")
-        return rockPaperScissors()
+        alert("Not a valid choice!");
+        return rockPaperScissors();
+    };
+    computerChoice = getRandomItem(validChoices);
+    // console.log(computerChoice) 
+    if (beats[playerChoice] == computerChoice) {
+        return alert(`You chose ${playerChoice}. Computer chose ${computerChoice}. You win!`);
+    } else if (beats[computerChoice] == playerChoice) {
+        return alert(`You chose ${playerChoice}. Computer chose ${computerChoice}. Computer wins!`);
+    } else if (playerChoice == computerChoice) {
+        return alert(`You both chose ${playerChoice}. It's a tie!`);
     }
-
-
-
 }
-// let inputUnit = prompt("Enter input unit \n\t> ")
-// get player input
 
-// generate computer choice
-
-// compare and decide who wins with if/else
-
-
-
-//     player_choice = input("Please choose rock, paper, or scissors: \n\t> ").replace(' ','').lower()
-//     if player_choice not in valid_choices:
-//         print(f"{player_choice} is not a valid choice! Try again!")
-//         return rock_paper_scissors()
-//     computer_choice = random.choice(valid_choices)
-//     if beats.get(player_choice) == computer_choice:
-//         return f"{player_choice.title()} beats {computer_choice}, you win!"
-//     elif beats.get(computer_choice) == player_choice:
-//         return f"{computer_choice.title()} beats {player_choice}. You lose!"
-//     elif player_choice == computer_choice:
-//         return f"You both chose {player_choice}! You tie!"
+rockPaperScissors()
