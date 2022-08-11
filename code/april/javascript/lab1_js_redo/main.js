@@ -17,6 +17,9 @@ let unit = unitConversions[unitName]
 
 let total = quantity * unit
 
+let convertedAmt =`${quantity} meter(s) equals ${total} ${unitName}`
 
+console.log(convertedAmt)
+alert(convertedAmt)
 
-console.log (`${quantity} meter(s) equals ${total} ${unitName}`)
+// console.log (`${quantity} meter(s) equals ${total} ${unitName}`)
