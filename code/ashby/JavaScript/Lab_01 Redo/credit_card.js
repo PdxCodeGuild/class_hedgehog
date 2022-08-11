@@ -1,6 +1,17 @@
 const creditNumber = document.querySelector('#credit-number');
 const creditButton = document.querySelector('#credit-button');
 const creditResult = document.querySelector('#credit-result');
+const numberTracker = document.querySelector('#number-tracker');
+
+console.log(String('').length)
+
+
+creditNumber.addEventListener('input', function(){
+    numberTracker.innerText = String(creditNumber.value).length
+    if(String(creditNumber.value).length !=16){
+        numberTracker.style.color = 'red'
+    } else {numberTracker.style.color = 'green'}
+})
 
 creditButton.addEventListener('click', function(){
     let creditNum = creditNumber.value;
