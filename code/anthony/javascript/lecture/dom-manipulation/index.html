@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <style>
+    html{
+      background-color: gray;
+    }
+  </style>
+  <script defer src="./passwordgen.js"></script>
+</head>
+<body>
+  <input type="number" id="password-length" value="8">
+
+  <label for="lowercase">Lowercase</label>
+  <input checked type="checkbox" id="lowercase">
+
+  <label for="uppercase">Uppercase</label>
+  <input type="checkbox" id="uppercase">
+
+  <label for="digits">Digits</label>
+  <input type="checkbox" id="digits">
+
+  <label for="special-characters">Special Characters</label>
+  <input type="checkbox" id="special-characters">
+
+  <button id="generate-btn">Generate Password</button>
+
+  <p id="password"></p>
+  <!-- <h1 id="message">Hello World</h1>
+  <input id="user-input" type="text">
+  <button id="submit">Submit</button> -->
+</body>
+</html>
