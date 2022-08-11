@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiple thingies! | Very Wow!</title>
+
+    <style>
+        body{
+            background-color: #14213d;
+        }
+
+        h1{
+            color: #e5e5e5;
+        }
+
+        input{
+            background-color: #778da9;
+            color:#6a040f
+            
+        }
+        p{
+            color: #e5e5e5;
+        }
+        ::placeholder { 
+            color: #6a040f
+        }
+
+        button{
+            background-color: #e0e1dd;
+        }
+        h3{
+            color:#ef476f
+        }
+    </style>
+
     <script defer src="./RPS_game.js"></script>
     <script defer src="./pass_gen.js"></script>
     <script defer src="./rot_13.js"></script>
+    <script defer src ='./credit_card.js'></script>
 </head>
 <body>
 <div>
@@ -34,6 +65,15 @@
     <input type="number" id="input_rotation" min="1" max="26" value="13">
     <button id="encrypt_button" >Encrypt</button>
     <h3 id="encrypted_message"></h3>
+
+</div>
+
+<div>
+    <h1>Credit Card Validation!</h1>
+    <p>Enter card number:</p>
+    <input id="credit-number" type="number" >
+    <button id="credit-button">Validate card</button>
+    <h3 id="credit-result"></h3>
 </div>
 
 </body>
