@@ -1,15 +1,16 @@
 
-let userInput = document.querySelector('RPS')
-let run_bt = document.querySelector('run2')
-let output = document.querySelector('output')
+
+const run_bt = document.querySelector('#run2')
+const output = document.querySelector('#output')
+const choicesArray = ['rock', 'paper', 'scissors'];
 
 
-run_bt.onclick = function () {
-
-    const choicesArray = ['rock', 'paper', 'scissors'];
-    const userChoice = userInput.options[userInput.selectedIndex].value;
+function rPs() {
+    const userInput = document.querySelector('#RPS')
     const compChoice = choicesArray[(Math.floor(Math.random()* choicesArray.length))]
-    
+    const userChoice = userInput.value;
+   
+
     if (userChoice == compChoice) {
         alert("It's a tie!")
     }
@@ -32,3 +33,5 @@ run_bt.onclick = function () {
         alert('you lose, comp wins with Rock')
     }
 }
+
+run_bt.addEventListener('click', rPs)
