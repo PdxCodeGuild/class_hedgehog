@@ -11,6 +11,10 @@
 // main()
 
 
+const validChoices = ['rock', 'paper', 'scissors'];
+const beats = {"rock": "scissors", "paper": "rock", "scissors": "paper"};
+const playerChoice = document.querySelector("#player-choice")
+const shootBtn = document.querySelector("#shoot")
 
 function getRandomItem(choices) {
     const index = Math.floor(Math.random() * choices.length);
@@ -19,25 +23,20 @@ function getRandomItem(choices) {
 }
 
 function rockPaperScissors() {
-    const validChoices = ['rock', 'paper', 'scissors'];
-    const beats = {"rock": "scissors", "paper": "rock", "scissors": "paper"};
-    let playerChoice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
-    // console.log(playerChoice)
-    if (validChoices.includes(playerChoice)) {
-        // alert(`You chose ${playerChoice}!`);
-    } else {
-        alert("Not a valid choice!");
-        return rockPaperScissors();
+    let winner = '';
+    let player = playerChoice.value;
+    let computer = getRandomItem(validChoices);        
+    if (beats[player] == computer) {
+        winner = "Winner: player!"
+    } else if (beats[computer] == player) {
+        winner = "Winner: computer!"
+    } else if (player == computer) {
+        winner = "Winner: tie!"
     };
-    computerChoice = getRandomItem(validChoices);
-    // console.log(computerChoice) 
-    if (beats[playerChoice] == computerChoice) {
-        return alert(`You chose ${playerChoice}. Computer chose ${computerChoice}. You win!`);
-    } else if (beats[computerChoice] == playerChoice) {
-        return alert(`You chose ${playerChoice}. Computer chose ${computerChoice}. Computer wins!`);
-    } else if (playerChoice == computerChoice) {
-        return alert(`You both chose ${playerChoice}. It's a tie!`);
-    }
+    document.querySelector("#winner").innerText = winner;
+    document.querySelector("#player-hand").innerText = "Player choice: " + player;
+    document.querySelector("#computer-hand").innerText = "Computer choice: " + computer;
+    return winner;
 }
 
-rockPaperScissors()
+shootBtn.addEventListener("click", rockPaperScissors);
