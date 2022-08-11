@@ -7,7 +7,7 @@ let encrypt_button = document.querySelector('#encrypt_button');
 let encrypted_message = document.querySelector('#encrypted_message');   
 
 
-encrypt_button.onclick = function(){ alert('starting')
+encrypt_button.onclick = function(){ 
 let    rotatedPhrase = '';
 const alphabets = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz', '1234567890', '!@#$%^&*()+=+,-./'];
 let    inputMessage = input_message.value;
