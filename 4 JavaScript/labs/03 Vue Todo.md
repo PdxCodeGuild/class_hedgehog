@@ -1,7 +1,7 @@
 
 
 
-# Vue Todo
+# Todo
 
 Let's make a todo-list with the following features:
 
@@ -13,4 +13,4 @@ Removed items should disappear entirely. Completed items should appear at the bo
 
 ## Version 2
 
-Use Bootstrap, Materialize, or custom CSS to make it look beautiful.
+Use Bootstrap, Materialize, or custom CSS to make it look beautiful. Try to add as much detail as possible.
