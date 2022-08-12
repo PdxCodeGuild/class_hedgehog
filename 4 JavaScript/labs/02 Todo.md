@@ -1,6 +1,3 @@
-
-
-
 # Todo
 
 Let's make a todo-list with the following features:
