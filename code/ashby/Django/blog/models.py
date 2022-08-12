@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 def file_route(instance, filename):
-    return f'blog/templates/blog/uploads/{instance.user.id}/{filename}'
+    return f'static/blog/uploads/{instance.user.id}/{filename}'
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
