@@ -1,7 +1,8 @@
 $ = (a) => document.querySelector(a);
 
 const number = $("#number");
-const runBtn = $("#run-btn");
+const runBtnPhrase = $("#run-btn-phrase");
+const runBtnRomanNumeral = $("#run-btn-roman-numeral");
 const outputDiv = $("#output-div");
 
 const teens = {
@@ -56,10 +57,10 @@ const hundredsPlace = {
 }
 
 function convertToPhrase() {
-    let numString = number.value;
-    let lengthString = numString.length;
+    const numString = number.value;
+    const lengthString = numString.length;
     // console.log(lengthString)
-    let phrase = ''
+    let phrase = '';
     if (lengthString > 3 || (lengthString == 3 && numString[0] == 0)) {
         phrase += "Please enter a number between 0 and 999 without leading 0s";
     };
@@ -87,21 +88,19 @@ function convertToPhrase() {
     return phrase;
 }
 
-runBtn.addEventListener("click", convertToPhrase);
+function convertToRomanNumeral() {
+    let numNumber = ParseInt(number.value);
+    if (numNumber) { // TODO: this is where I left off
 
-// Number to Phrase
-// Convert a given number into its English representation. 
-// For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
+    }
 
-// Hint: you can use modulus to extract the ones and tens digit.
+    let romanNumeral = '';
 
-// x = 67
-// tens_digit = x//10
-// ones_digit = x%10
-// Hint 2: use the digit as an index for a list of strings or the key in a dictionary.
+    return romanNumeral;
+};
 
-// Version 2
-// Handle numbers from 100-999.
+runBtnPhrase.addEventListener("click", convertToPhrase);
+runBtnRomanNumeral.addEventListener("click", convertToRomanNumeral);
 
 // Version 3 (optional)
 // Convert a number to roman numerals.
