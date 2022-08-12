@@ -1,7 +1,7 @@
 
 
-const run_bt = document.querySelector('#run2')
-const output = document.querySelector('#output')
+const run_btn = document.querySelector('#run2')
+
 const choicesArray = ['rock', 'paper', 'scissors'];
 
 
@@ -34,4 +34,4 @@ function rPs() {
     }
 }
 
-run_bt.addEventListener('click', rPs)
+run_btn.addEventListener('click', rPs)
