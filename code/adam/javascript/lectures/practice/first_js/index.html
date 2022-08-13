@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./unitConvert.js"></script>
+</head>
+<body>
+    <label for="user-number">Enter unit to be converted:</label>
+    <input type="number" id="user-number" ></input>
+    <label for="user-unit">Enter unit type:</label>
+    <select name="unitConvert" id="user-unit">
+        <option value="in">in</option>
+        <option value="ft">ft</option>
+        <option value="yd">yd</option>
+        <option value="mi">mi</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
+    </select>
+    <label for="output-unit">Enter output unit:</label>
+    <select name="unitConvert" id="output-unit">
+        <option value="in">in</option>
+        <option value="ft">ft</option>
+        <option value="yd">yd</option>
+        <option value="mi">mi</option>
+        <option value="m">m</option>
+        <option value="km">km</option>
+    </select>
+    <br>
+    <button onclick="unitConversion()">ClickMe</button>
+</body>
+</html>
