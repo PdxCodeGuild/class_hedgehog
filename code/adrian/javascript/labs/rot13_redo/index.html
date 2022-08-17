@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rot13</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="./main.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+        html{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex flex-col items-center space-y-5">
+        <h1 class="text-4xl animate__animated animate__bounceIn">Welcome to Rot Cypher!</h1>
+        <input type="text" id="message" placeholder="Enter message" class="drop-shadow-2xl border-4 border-teal-300 rounded-md ">
+        <input type="number" id="rot-amount" placeholder="Enter amount" class="drop-shadow-2xl border-4 border-teal-300 rounded-md ">
+        
+        <button id="encrypt-btn" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-2 border-slate-400">Encrypt</button>
+        <p id="encryption" class="text-2xl">Your encrypted message: </p>
+    </div>
+</body>
+</html>
