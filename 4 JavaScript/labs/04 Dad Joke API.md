@@ -1,12 +1,12 @@
 
 # Dad Joke API
 
-Use the [Dad Joke API](https://icanhazdadjoke.com/api) to get a dad joke and display it to the user. You may want to also use [time.sleep](https://www.geeksforgeeks.org/sleep-in-python/) to add suspense.
+Use the [Dad Joke API](https://icanhazdadjoke.com/api) to get a dad joke and display it to the user.
 
 
 ## Part 1
 
-Use the [requests](https://github.com/psf/requests) library to send an HTTP request to `https://icanhazdadjoke.com/` with the `accept` header as `application/json`. This will return a dad joke in JSON format. You can then use the `.json()` method on the response to get a dictionary. Get the joke out of the dictionary and show it to the user.
+Use fetch or axios to send an HTTP request to `https://icanhazdadjoke.com/` with the `accept` header as `application/json`. This will return a dad joke in JSON format. You can then use the `.json()` method on the response to get a javascript object. Get the joke out of the object and show it to the user.
 
 ```Javascript
 fetch("https://icanhazdadjoke.com/", {
@@ -21,3 +21,7 @@ fetch("https://icanhazdadjoke.com/", {
 ## Part 2 
 
 Add the ability to "search" for jokes using [another endpoint](https://icanhazdadjoke.com/api#search-for-dad-jokes).
+
+## Part 3
+
+Add some styling! Flex your css skills.
