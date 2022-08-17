@@ -1,8 +1,10 @@
 <nav>
     <h2>Blog Page</h2>
     <ul class="links">
-      <li><a href="{% url 'login' %}">login</a></li>
-      <li><a href="{% url 'register' %}">register</a></li>
-      <li><a href="{% url 'profile' %}">profile</a></li>
+      <li><a href="{% url 'blog:login' %}">login</a></li>
+      <li><a href="{% url 'blog:logout' %}">logout</a></li>
+      <li><a href="{% url 'blog:register' %}">register</a></li>
+      <li><a href="{% url 'blog:profile' %}">profile</a></li>
+      <li><a href="{% url 'blog:create' %}">create</a></li>
     </ul>
   </nav>

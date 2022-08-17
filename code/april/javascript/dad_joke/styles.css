@@ -1,0 +1,14 @@
+
+html {
+    background-color: lightslategray;
+    text-align: center;
+}
+
+h2, h4 {
+    color: gainsboro;
+}
+
+#new-joke-btn {
+    background-color: gainsboro;
+    color: lightslategray;
+}

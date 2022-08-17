@@ -2,12 +2,17 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 from blog.models import BlogPost
 
 from .forms import AuthForm, CreatePost
 
 # Create your views here.
+
+
+def index(request):
+    return render(request, 'blog/index.html')
 
 
 def register(request):
@@ -24,7 +29,7 @@ def register(request):
             return render(request, 'blog/register.html', context)
 
     context = {
-        'form': AuthForm
+        'form': AuthForm()
     }
     return render(request, 'blog/register.html', context)
 
@@ -39,7 +44,8 @@ def login(request):
             password = form.cleaned_data['password']
             user = auth.authenticate(username=username, password=password)
             if user != None:
-                auth.login(request.GET.get('next'))
+                auth.login(request, user)
+                next = request.GET.get('next')
                 if next:
                     return redirect(next)
                 return redirect('blog:profile')
@@ -47,22 +53,33 @@ def login(request):
         context = {
             'form': form
         }
-        return render(request, 'blog/profile.html', context)
-
-    context = {
-        'form': AuthForm()
-    }
-    return render(request, 'blog/login.html')
+    else:
+        context = {
+            'form': AuthForm()
+        }
+    return render(request, 'blog/login.html', context)
 
 
 
 @login_required
 def profile(request):
-    return render(request, 'blog/profile.html')
+    posts = BlogPost.objects.filter(user=request.user)
+
+    context = {
+        'posts': posts
+    }
+    return render(request, 'blog/profile.html', context)
+
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('blog:login')
 
 
 
 
+@login_required
 def create(request):
     if request.method == "POST":
         form = CreatePost(request.POST)
@@ -71,8 +88,25 @@ def create(request):
             post.title = form.cleaned_data['title']
             post.body = form.cleaned_data['body']
             post.user = request.user
-            post.public = form.cleaned_data['public']
+            # post.public = form.cleaned_data['public']
+            post.date_created = timezone.now()
 
             post.save()
+        return redirect('blog:profile')
+    else:
+        context = {
+            'form': CreatePost()
+        }
+    return render(request, 'blog/create.html', context)
 
-    return redirect('blog:profile')
+
+
+@login_required
+def post(request, post_id):
+    posts = BlogPost.objects.get(id=post_id)
+
+    context = {
+        'posts': posts
+    }
+
+    return render(request, 'blog/profile.html', context)
