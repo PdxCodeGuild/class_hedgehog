@@ -4,10 +4,13 @@ from .models import BlogPost
 
 class AuthForm(forms.Form):
     username = forms.CharField(max_length=15, label="username")
-    password = forms.CharField(max_length=15, label="pasword")
+    password = forms.CharField(max_length=15, label="password", widget=forms.PasswordInput)
 
 
 class CreatePost(ModelForm):
     class Meta:
         model = BlogPost
-        fields = ("title", "body",)
+        fields = [
+            'title',
+            'body',
+        ]
