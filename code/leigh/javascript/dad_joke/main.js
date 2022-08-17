@@ -14,5 +14,9 @@ searchBtn.addEventListener("click", function() {
 
 
 function postJoke(data) {
-    jokeDiv.textContent = data.results[0].joke
+    if (data.results[0]) {
+        jokeDiv.textContent = data.results[0].joke
+    } else {
+        jokeDiv.textContent = "Joke not found"
+    }
 }
