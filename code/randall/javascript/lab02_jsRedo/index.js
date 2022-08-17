@@ -12,19 +12,19 @@ let $openList = $("#openList");
 let $completeList = $("#completeList");
 let $newTask = $("#newTask");
 
-// Generates new todo based on button click
+//new todo
 $newTask.click(()=>{
     addTodo()
     createTodoList()
   })
 
-// Opens prompt to take in todo item, and adds it to the list of oustanding tasks
+//add todo
 function addTodo() {
     let newTodo = prompt("Enter your todo item: ") // get new todo
     appendTodo(newTodo)
 }
 
-// Takes in a new todo from addTodo and appends it to todoList
+//append todo
 function appendTodo(todo) {
     let newItem = {
       item: todo,
@@ -36,7 +36,7 @@ function appendTodo(todo) {
   }
 
 
-// delete the todo entry to be removed entirely from the list 
+//delete
 function deleteTodo(todoToDelete){
     for(let i=0; i < todoList.length; i++) {
         if(todoList[i].item === todoToDelete.item){
@@ -46,7 +46,7 @@ function deleteTodo(todoToDelete){
     }
 }
 
-// Allow the todo item to change to/from open & complete
+//change
 function changeTodo(targetTodo) {
     for (let i=0; i < todoList.length; i++) {
         if(todoList[i].item === targetTodo.item) {
@@ -57,15 +57,15 @@ function changeTodo(targetTodo) {
 
 
 
-// Create a todo item
+// Create
 function makeNewTodoItem(todo) {
    let $newTodoItem, $newButtons
 
-    // new div for the item
+    // new div
     $newTodoItem = $(`<div>${todo.item}</div>`) 
     $newTodoItem.addClass("col-12 col-lg-6 offset-lg-3")
 
-    $newButtons = makeNewButtons(todo) // make them buttons
+    $newButtons = makeNewButtons(todo) 
 
     $newTodoItem.append($newButtons)
     console.log($newTodoItem)
@@ -73,14 +73,12 @@ function makeNewTodoItem(todo) {
     return $newTodoItem
 }
 
-// Create complete and delete buttons. Add to new div.
 function makeNewButtons(todo) {
     let $buttons, $completeButton, $deleteButton
 
     $buttons = $('<a></a>')
     $buttons.addClass('mx-2')
 
-    // make a new complete button with function to toggle complete/open
     $completeButton = $(`<button></button>`)
     $completeButton.addClass('bi bi-check-square')
     $completeButton.click(() => {
@@ -88,7 +86,7 @@ function makeNewButtons(todo) {
         createTodoList()
     })
 
-    // make a new delete button. add function to delete todo item on click
+
     $deleteButton = $(`<button></button>`)
     $deleteButton.addClass('bi bi-trash mx-1')
     $deleteButton.click(() => {
@@ -99,20 +97,19 @@ function makeNewButtons(todo) {
     return $buttons
 }
 
-// Clear the Todo List
+// Clear
 function clearTodoList() {
     $completeList.html('')
     $openList.html('')
 }
 
-// Update the Open and Complete lists
+// Update
 function createTodoList () {
     let $todoItem
 
     clearTodoList()
-    todoList.forEach(todo => { // cycles through the todo list items and makes a new div item from makeNewTodoItem.
+    todoList.forEach(todo => { 
         $todoItem = makeNewTodoItem(todo)
-        // filter the todo items into the completed or open lists
         if (todo.complete) {
             $completeList.append($todoItem)
             
@@ -121,7 +118,5 @@ function createTodoList () {
     }
  }); 
 }
-
 createTodoList()
-
 })
