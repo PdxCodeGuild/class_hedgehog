@@ -6,6 +6,13 @@
 
 {% block content %}
 
-<h2>Blog</h2>
-
+    <h1>Hello {{request.user.username}}</h1>
+    
+    <h2>BlogPost</h2>
+    {% for post in posts %}
+        <div>
+            <h4>{{post.title}}</h4>
+        </div>
+    {% endfor %}
+    
 {% endblock content %}

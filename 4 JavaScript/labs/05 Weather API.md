@@ -6,7 +6,7 @@ Let's use the [OpenWeatherMap API](https://openweathermap.org/api/one-call-api) 
 
 ## Part 1: Setup
 
-First [make an account](https://openweathermap.org/register), then copy your [api key](https://home.openweathermap.org/api_keys) and put it into a `secrets.js` file in the same directory as your `lab07-weather_api.html`. Make sure `secrets.js` is in the `.gitignore` and then add it to your html file using `<script src="secrets.js"></script>`.
+First [make an account](https://openweathermap.org/register), then copy your [api key](https://home.openweathermap.org/api_keys) and put it into a `secrets.js` file in the same directory as your `index.html`. Make sure `secrets.js` is in the `.gitignore` and then add it to your html file using `<script src="secrets.js"></script>`.
 
 
 ## Part 2: Get the Weather
@@ -38,7 +38,7 @@ console.log(datetime) // Thu Jun 18 2020 05:21:31 GMT-0700 (Pacific Daylight Tim
 You can then use the [datetime methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#Examples) to get the different components.
 
 
-## Part 3: Use Icons
+## Part 3: Use Icons/CSS
 
 We can display an icon representing the current weather, below is the data from the api, note the `icon` property.
 

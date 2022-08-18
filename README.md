@@ -27,6 +27,20 @@ Instructor:
 ### Assigned Labs:
 
 <details open>
+  <summary>JavaScript</summary>
+
+| Lab Number | Title                                                                                                         | Due Date |
+| ---------- | ------------------------------------------------------------------------------------------------------------- | -------- |
+| Lab 01     | [Redo (prompt/alert)](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/01%20JavaScript%20Redo.md) | 22 AUG   |
+| Lab 02     | [Redo (input/events)](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/01%20JavaScript%20Redo.md) | 24 AUG   |
+| Lab 03     | [Todo List (Mob)](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/03%20Todo.md) | 25 AUG   |
+| Lab 04     | [Dad Joke API](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/04%20Dad%20Joke%20API.md) |    |
+| Lab 05     | [Weather API](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/05%20Weather%20API.md) |    |
+| Lab 06     | [Pokedex](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/4%20JavaScript/labs/06%20Pokedex.md) |    |
+
+</details>
+
+<details>
   <summary>Django</summary>
 
 | Lab Number | Title                                                                                                         | Due Date |
@@ -34,6 +48,7 @@ Instructor:
 | Lab 01     | [Django Redo](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/01%20Django%20Redo.md) | 27 JUL   |
 | Lab 02     | [Grocery List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/02%20Grocery%20List.md) | 05 AUG   |
 | Lab 03     | [Todo List](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/03%20Todo.md) | 09 AUG   |
+| Lab 04     | [Blog](https://github.com/PdxCodeGuild/class_hedgehog/blob/main/3%20Django/labs/04%20Blog.md) | 17 AUG   |
 
 </details>
 
