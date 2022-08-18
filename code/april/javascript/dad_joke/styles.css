@@ -1,0 +1,18 @@
+
+html {
+    background-color: lightslategray;
+    text-align: center;
+}
+
+h2, h4, label, li {
+    color: gainsboro;
+}
+
+#new-joke-btn {
+    background-color: gainsboro;
+    color: lightslategray;
+}
+
+li {
+    margin: 1rem;
+}
