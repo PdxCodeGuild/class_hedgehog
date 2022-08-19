@@ -7,9 +7,16 @@
     <title>Local Weather</title>
     <script defer src="./main.js"></script>
     <script src="secrets.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h1>Today's Weather</h1>
-    <div id="current"></div>
+    <div class="content">
+        <span>
+            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="map"src='' style="border: 1px solid black"></iframe>
+            <br/><small><a id="map2" href=''>View Larger Map</a></small>
+        </span>
+        <div id="current"></div>
+    </div>
 </body>
 </html>
