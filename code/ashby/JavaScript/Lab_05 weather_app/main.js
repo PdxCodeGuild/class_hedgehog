@@ -19,25 +19,26 @@ function getLocation() {
 function showPosition(position) {
   const latitude = position.coords.latitude
   const longitude = position.coords.longitude
-  locationBar.innerHTML = "Latitude: " + position.coords.latitude +
-  " Longitude: " + position.coords.longitude;
+  locationBar.innerHTML = `Latitude: ${position.coords.latitude} 
+   Longitude: ${position.coords.longitude}`;
   getWeather(latitude, longitude, api)
 }
 
 function sortData(data){
+  weatherContainer.style.visibility = 'visible';
     let dateTime = new Date(data.dt*1000)  
-    document.querySelector('.date-container').innerHTML = `<h2>${dateTime.toLocaleString()}</h2>`
+    document.querySelector('.date-container').innerHTML = `<h2 class='date-contents'>${dateTime.toLocaleString()}</h2>`
     
     // temp-container
-    document.querySelector('.temp-container').innerHTML = `<div><p>Min Temp:</p> <p>${data.main.temp_min} F</p></div> <div><p>Current Temp:</p> <p>${data.main.temp} F</p></div> <div><p>Max Temp:</p> <p>${data.main.temp_max} F</p></div>`
+    document.querySelector('.temp-container').innerHTML = `<div><p class='data-text'>Min Temp:</p> <p class='data-text'>${data.main.temp_min} F</p></div> <div><p class='data-text'>Current Temp:</p> <p class='data-text'>${data.main.temp} F</p></div> <div><p class='data-text'>Max Temp:</p> <p class='data-text'>${data.main.temp_max} F</p></div>`
 
     // location-container
     let sunset = new Date(data.sys.sunset*1000);
     let sunrise = new Date(data.sys.sunrise*1000);
-    document.querySelector('.location-container').innerHTML = `<div>Sunrise: ${sunrise.toLocaleTimeString()}</div><br> <div>Sunset: ${sunset.toLocaleTimeString()}</div>`
+    document.querySelector('.location-container').innerHTML = `<div class='data-text'>Sunrise: ${sunrise.toLocaleTimeString()}</div><br> <div class='data-text'>Sunset: ${sunset.toLocaleTimeString()}</div>`
 
     // forecast-container
-    document.querySelector('.forecast-container').innerHTML = `<img  src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png"> <h2 class='forecast'>${data.weather[0].description}</h2>`
+    document.querySelector('.forecast-container').innerHTML = `<i class="owf owf-${data.weather[0].id}-d owf-5x"></i> <h2 class='forecast'>${data.weather[0].description}</h2>`
 }
 getLocation()
 
