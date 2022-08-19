@@ -3,9 +3,6 @@ const search = document.querySelector('#search')
 const btnJoke = document.querySelector('#btn-joke')
 const displayJokeDiv = document.querySelector('#display-joke')
 
-
-
-
 btnJoke.addEventListener("click", function(){
     fetch(`https://icanhazdadjoke.com/search?term=${search.value}`, {
   headers: {
