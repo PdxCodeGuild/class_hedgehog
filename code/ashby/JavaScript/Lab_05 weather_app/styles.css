@@ -66,6 +66,7 @@ h1,h2,h3,h4,h5,h6{
     padding: 5px 5px;
     background-color:#bde0fe;
     border-radius:5px;
+    height: 30%;
 }
 
 .temp-container{
@@ -74,12 +75,13 @@ h1,h2,h3,h4,h5,h6{
     gap: 2px;
     grid-area: temp;
     justify-content:space-evenly
-
+    
 }
 .temp-container > div{
     text-align: center;
     background-color:#bde0fe;
     border-radius:5px;
+    width:25%;
 }
 
 .forecast-container{
