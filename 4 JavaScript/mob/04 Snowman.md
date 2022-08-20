@@ -1,5 +1,5 @@
 
-# Vue Snowman
+# Snowman
 
 Let's write a program to play a game of [Snowman](https://en.wikipedia.org/wiki/Snowman_(game))! Snowman is a word game where a secret word is chosen, then players have to guess letters until they get the word correct or they run out of chances and lose.
 
