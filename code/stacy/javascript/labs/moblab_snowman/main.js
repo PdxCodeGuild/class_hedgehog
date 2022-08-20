@@ -1,3 +1,4 @@
+const snowmanImg = document.querySelector("#snowman-img")
 const guessBtn = document.querySelector("#guess-btn")
 const userInterface = document.querySelector("#user-interface")
 const lettersDiv = document.querySelector("#letters-div")
@@ -24,11 +25,12 @@ function gameOver(word) {
         }
         lettersDiv.innerHTML = ""
         userInterface.innerHTML = ""
+        snowmanImg.src = "https://www.hanginghyena.com/static/branding/art/Snowman-1.jpg"
+        guessWord.value = ""
     }, 5000)
 }
 
 function playSnowman() {
-
     const randomLength = (Math.floor(Math.random() * 7)) + 6
     fetch(`https://random-word-api.herokuapp.com/word?length=${randomLength}`).then(response => response.json()).then(data => displayWord(data[0]))
 }
@@ -36,11 +38,15 @@ function playSnowman() {
 function displayWord(word) {
     guessBtn.addEventListener("click", function() {
         if (guessWord.value === word) {
-            console.log("You win!")
+            snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-WIN.jpg`
+            gameOver(word)
         } else {
             guesses += 1
             if (guesses === 10) {
                 gameOver(word)
+                snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-END.jpg`
+            } else {
+                snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-${guesses+1}.jpg`
             }
         }
     })
@@ -68,10 +74,17 @@ function displayLetter(letter, word, button) {
                 lettersDiv.childNodes[i].textContent = letter 
             }
         }
+        if (lettersDiv.textContent === word) {
+            snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-WIN.jpg`
+            gameOver(word)
+        }
     } else {
         guesses += 1
         if (guesses === 10) {
             gameOver(word)
+            snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-END.jpg`
+        } else {
+            snowmanImg.src = `https://www.hanginghyena.com/static/branding/art/Snowman-${guesses+1}.jpg`
         }
     }
 }
