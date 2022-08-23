@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPI</title>
+    <script src="./secret.js"></script>
+    <script defer src="./main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #weather-el {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-e;
+        }
+
+        h1{
+            color: rgb(38, 109, 109);
+        }
+        i {
+            margin: 10px;
+        }
+            
+    </style>
+</head>
+<body class="bg-slate-800 text-white">
+    
+    <div id="weather-el">
+        <h1 class="text-4xl">Weather API</h1>
+        <hr/>
+        <p class="text-6xl" id="temp"></p>
+        <div>
+            <p class="text-4xl" id="sunrise"></p>
+            <p  class="text-4xl" id="sunset"></p>
+        </div>
+        <img id="icon" src="" alt="represents local weather">
+        <p id="description-el"></p>
+    </div>
+</body>
+</html>
