@@ -18,7 +18,7 @@ class Group(models.Model):
         return self.name
 
 class User(AbstractUser):
-    location = models.ForeignKey(Location, on_delete=models.PROTECT, blank=True, null=True)
+    location = models.ForeignKey(Location, on_delete=models.PROTECT, blank=True, null=True, related_name="user")
     groups = models.ManyToManyField(Group, related_name="users", blank=True)
     private = models.BooleanField(default=True)
     restricted = models.BooleanField(default=False)
