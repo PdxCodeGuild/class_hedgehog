@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="./main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-800 text-white">
+    <div id="app">
+        <h1>Hello {{message}}!</h1>
+        <input v-on:keypress.enter="surprise()" v-model="message" type="text" class="text-black">
+        <button v-on:click="surprise()">Click me!</button>
+
+        <h1>Todo List</h1>
+        <input v-on:keypress.enter="addTodo()" v-model="todoText" type="text" class="text-black">
+        <button v-on:click="addTodo()">Add Todo</button>
+        
+        <h3>ToDo:</h3>
+        <ul>
+            <li  v-for="todo in uncompletedTodos" >
+                <span v-bind:class="todo.completed ? 'completed' : ''" v-on:click="toggleComplete(todo.id)">{{todo.text}}</span>
+                <button v-on:click="removeTodo(todo.id)">&times;</button>
+            </li>
+        </ul>
+        
+        <h3>ToDone: {{percentComplete}}% completed</h3>
+        <ul>
+            <li  v-for="todo in completedTodos" >
+                <span v-bind:class="todo.completed ? 'completed' : ''" v-on:click="toggleComplete(todo.id)">{{todo.text}}</span>
+                <button v-on:click="removeTodo(todo.id)">&times;</button>
+            </li>
+        </ul>
+        
+    </div>
+</body>
+</html>
