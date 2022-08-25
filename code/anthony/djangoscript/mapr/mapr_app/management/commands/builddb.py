@@ -12,6 +12,7 @@ class Command(BaseCommand):
         for x in range(5):
             group = Group()
             group.name = f"testGroup{x}"
+            group.private = False
             group.save()
             groups.append(group)
         
@@ -35,5 +36,5 @@ class Command(BaseCommand):
             location.save()
 
             user.location = location
-            
+
             user.save()
