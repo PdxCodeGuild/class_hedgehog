@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Forecast</title>
+    <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./secrets.js"></script>
+    <script defer src="./main.js"></script>
+    <style>
+        html {
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <h1>Your Area's WX Forecast</h1>
+    <div id="weather-data" class="width-1/2 flex flex-col items-center">
+        <p class="text-8xl" id="temp"></p>
+        <div class="flex space-x-4">
+            <p id="sunrise"></p>
+            <p id="sunset"></p>
+        </div>
+        <i id="icon" class="owf text-9xl"></i>
+        <p id="weather-description"></p>
+    </div>
+</body>
+</html>
