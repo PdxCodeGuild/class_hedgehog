@@ -5,7 +5,7 @@ from mapr_app.models import User, Location
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         
-        Location.objects.filter(user).delete()
+        Location.objects.filter(user__is_staff=False).delete()
         users = User.objects.all()
 
         for user in users:
