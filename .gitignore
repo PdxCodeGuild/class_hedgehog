@@ -131,3 +131,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 code/randall/python/creds.py
+/code/stacy/capstone/.gitignore
