@@ -1,8 +1,9 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from django.core import serializers
 import json
 from .models import User, Group
+from django.contrib import auth
 
 def index(request):
     return render(request, "mapr_app/index.html")
@@ -28,10 +29,25 @@ def get_users(request):
     return JsonResponse(users, safe=False)
     
 def get_groups(request):
-    groups = list(Group.objects.filter(private=False).values())
+    groups = list(Group.objects.filter(private=False, users__username=request.user).values())
     return JsonResponse({"data": groups})
 
 def get_group_by_id(request, group_id):
     group = Group.objects.get(id=group_id)
     users = list(group.users.filter(private=False, restricted=False).values("username", "id", "location__latitude", "location__longitude"))
     return JsonResponse({"data": users})
+
+def login(request):
+    if request.method == "GET":
+        return render(request, "mapr_app/login.html")
+    elif request.method == "POST":
+        data = json.loads(request.body)
+        username = data.get("username", "")
+        password = data.get("password", "")
+
+        user = auth.authenticate(request, username=username, password=password)
+        if user == None:
+            return JsonResponse({"message": "Invalid username or password"})
+        else:
+            auth.login(request, user)
+            return JsonResponse({"message": "Ok"})

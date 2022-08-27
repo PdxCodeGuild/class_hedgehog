@@ -17,6 +17,7 @@
 </head>
 <body>
     <h1>Mapr</h1>
+    <a href="{% url 'login' %}">login</a>
     
     <select id="group-selector">
         <option selected>Select a Group</option>
@@ -64,16 +65,6 @@
 
             })
         })
-
-
-        // fetch("/api/users")
-        // .then(response => response.json())
-        // .then(data => {
-        //     for(user of data)
-        //     L.marker([user.location.lat, user.location.long]).addTo(map)
-        //     .bindPopup(user.username)
-        //     .openPopup();
-        // })
     </script>
 </body>
 </html>
