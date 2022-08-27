@@ -826,3 +826,6 @@ life_events = [
     "You were imprisoned for a crime you didn't commit."
 ]
 # END sourced from https://creativerogues.tumblr.com/post/631529713014374400/1d20-dark-secrets-your-dd-character-would-prefer
+
+# 5e tools pull monster data in conjunction with Kobold+
+# for example: https://5e.tools/bestiary.html#adult%20amethyst%20dragon_ftd
