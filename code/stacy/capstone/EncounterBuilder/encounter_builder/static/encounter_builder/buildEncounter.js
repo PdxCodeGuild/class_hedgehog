@@ -10,6 +10,15 @@ const deadly = document.querySelector("#deadly")
 const dailyBudget = document.querySelector("#daily-budget")
 const expDiv = document.querySelector("#exp-div")
 const deleteBtn = document.querySelector("#delete-btn")
+const stablockDiv = document.querySelector("#statblock-div")
+const crSelector = document.querySelector("#cr-selector")
+const monstersByCR = document.querySelector("#monsters-by-cr")
+
+let easyEXP = 0
+let mediumEXP = 0
+let hardEXP= 0
+let deadlyEXP = 0
+let dayEXP = 0
 
 document.querySelector("input[type='Number']").addEventListener("change", function() {
     calculateEXP()
@@ -69,9 +78,43 @@ addPlayerBtn.addEventListener("click", function(){
     }
 })
 
+function calculateMonsterEXP() {
+    encounter_multipliers_per_number_of_monsters
+
+}
+
+monsters_by_challenge_rating
+
 addMonsterBtn.addEventListener("click", function(){
-    let p = document.createElement("p");
+    let div = document.createElement("div");
+    
 })
+
+function enumerateCRs() {
+    for (let cr in monsters_by_challenge_rating) {
+        let option = document.createElement("option")
+        option.value = cr
+        option.innerText = cr
+        crSelector.append(option)
+    }
+}
+
+// crSelector.addEventListener("change", function() {
+//     let cr = crSelector.value
+//     enumerateCRs(cr)
+// });
+
+// function elaborateMonsters(cr) {
+//     for (let monster of monsters_by_challenge_rating[cr]) {
+//         let option = document.createElement("option")
+//         option.value = monster
+//         option.innerText = monster
+//         crSelector.append(option)
+//     }
+// }
+
+enumerateCRs()
+
 
 // monster should default to empty. field for monster name, field for cr. field for exp.
 // total exp, adjusted exp

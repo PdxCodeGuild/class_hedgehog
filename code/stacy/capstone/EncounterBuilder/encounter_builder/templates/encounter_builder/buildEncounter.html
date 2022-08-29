@@ -10,7 +10,7 @@
     <script defer src="{% static 'encounter_builder/buildEncounter.js' %}"></script>
     <script defer src="{% static 'encounter_builder/EXP_by_CR.js' %}"></script>
     <script defer src="{% static 'encounter_builder/EXPThreshold.js' %}"></script>
-    <script defer src="{% static 'encounter_builder/monsters_by_CR.js' %}"></script>
+    <script src="{% static 'encounter_builder/monsters_by_CR.js' %}"></script>
     <style>
         html {
             background-color: grey;
@@ -38,6 +38,11 @@
         <button id="add-monster-btn">Add monster</button>
         <div id="monsters-div">
         </div>
+    </div>
+    <div id="statblock-div">
+        <select id="cr-selector"></select>
+        <select id="monsters-by-cr"></select>
+        <div id="monster-statblock"></div>
     </div>
 </body>
 </html>
