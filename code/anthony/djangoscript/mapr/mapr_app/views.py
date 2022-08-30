@@ -10,6 +10,9 @@ from .models import User, Group, Location
 def index(request):
     return render(request, "mapr_app/index.html")
 
+def vue_index(request):
+    return render(request, "mapr_app/vue-index.html")
+
 
 def get_users(request):
     # query = User.objects.filter(restricted=False, private=False).values('username', 'location__latitude', 'location__longitude', 'groups__name')
