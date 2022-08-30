@@ -1,10 +1,12 @@
 const current = document.querySelector('#current')
+const map = document.querySelector('#map')
+const map2 = document.querySelector('#map2')
 
 const choices = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"]
 
 navigator.geolocation.getCurrentPosition(position => {
-    console.log(position.coords.latitude)
-    console.log(position.coords.longitude)
+    const lat = position.coords.latitude
+    const lon = position.coords.longitude
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly,daily&appid=${appid}`, {
         headers: {
           accept: "application/json"
@@ -12,7 +14,10 @@ navigator.geolocation.getCurrentPosition(position => {
       }).then(response => response.json())
       .then(data => weather(data))
       .catch(err => console.error(err))
+      document.getElementById('map').src = `https://www.openstreetmap.org/export/embed.html?bbox=${lon}%2C${lat}%2C${lon}%2C${lat}&amp;layer=mapnik&amp;marker=${lat}%2C${lon}`
+      document.getElementById('map2').href = `https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=11/${lat}/${lon}`
 })
+
 
 
 function weather(data){
