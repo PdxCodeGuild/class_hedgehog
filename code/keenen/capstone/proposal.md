@@ -7,7 +7,7 @@ As a pilot trains and moves through the ranks, honing in their skills and earnin
 
 ## Project Overview
 
-Pilot's Examiner Planner (PEP) aims to make this process much more ergonomic as a 'one-stop-shop,' user-friendly interface that allows users to locate examiners based on specific criteria chosen by the user (ie. location, examiner/designee type, authorizations, name, phone, email, etc.). Examiners will also be able to integrate their availability via calendar functionality to allow the user to see when the examiner will be availble next. Both the user, and examiner, will be able to communicate internally amongst one another to eliminate the need for pesky phone calls and voice mails; we'll keep those as a last resort. 
+Pilot's Examiner Planner (PEP) aims to make this process much more ergonomic as a 'one-stop-shop,' user-friendly interface that allows users to locate examiners based on specific criteria chosen by the user (ie. location, examiner/designee type, authorizations, name, phone, email, etc.). Examiners will also be able to integrate their availability via calendar functionality to allow the user to see when the examiner will be availble next. Both the user, and examiner, will be able to communicate internally amongst one another to eliminate the need for pesky phone calls and emails; we'll keep those as a last resort. 
 
 ## Functionality
 
