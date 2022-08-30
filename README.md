@@ -1,6 +1,6 @@
 # Class Hedgehog
 Evening Python Fullstack bootcamp.
-May 23 - Sep 23
+May 23 - Sep 30
 
 Instructor:
 - Anthony Wallace

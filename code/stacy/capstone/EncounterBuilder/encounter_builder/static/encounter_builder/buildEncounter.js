@@ -10,7 +10,7 @@ const deadly = document.querySelector("#deadly")
 const dailyBudget = document.querySelector("#daily-budget")
 const expDiv = document.querySelector("#exp-div")
 const deleteBtn = document.querySelector("#delete-btn")
-const stablockDiv = document.querySelector("#statblock-div")
+const stablockDiv = document.querySelector("#monster-selector-div")
 const crSelector = document.querySelector("#cr-selector")
 const monstersByCR = document.querySelector("#monsters-by-cr")
 
@@ -99,19 +99,20 @@ function enumerateCRs() {
     }
 }
 
-// crSelector.addEventListener("change", function() {
-//     let cr = crSelector.value
-//     enumerateCRs(cr)
-// });
+crSelector.addEventListener("change", function() {
+    let cr = crSelector.value
+    elaborateMonsters(cr)
+});
 
-// function elaborateMonsters(cr) {
-//     for (let monster of monsters_by_challenge_rating[cr]) {
-//         let option = document.createElement("option")
-//         option.value = monster
-//         option.innerText = monster
-//         crSelector.append(option)
-//     }
-// }
+function elaborateMonsters(cr) {
+    monstersByCR.options.length = 0
+    for (let monster of monsters_by_challenge_rating[cr]) {
+        let option = document.createElement("option")
+        option.value = monster
+        option.innerText = monster
+        monstersByCR.append(option)
+    }
+}
 
 enumerateCRs()
 
