@@ -14,6 +14,10 @@
     <h1>OK</h1>
 
     <div id="app">
+        <div id="search-div">
+            <input name="poke-search" v-on:keypress.enter="pokeSearch([[searchTerm]])" v-model="searchTerm" type="text" placeholder="Enter pokemon name">
+            <button v-on:click="pokeSearch([[searchTerm]])" id="poke-search-btn">Find poke!</button>
+        </div>
         <div id="pokemon-div">
             <div v-for="poke in pokemon" v-bind:value="poke.id"><div>No: [[poke.number]], Name: [[poke.name]]</div><img v-bind:src="poke.image_front" v-bind:alt="'Picture of ' + poke.name"></div>
         </div>
