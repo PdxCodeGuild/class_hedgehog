@@ -6,10 +6,10 @@ import json
 # Create your views here.
 def index(request):
 
-    return 
+    return render(request, "pokeapp/index.html")
 
 def pokemon(request):
     # Create a view pokemon that gets a list of Pokemon out of the database and turns them into a dictionary to be passed to JsonResponse. Verify this works by going to localhost:8000/pokemon/ in your browser and seeing a list of pokemon in JSON
     pokemon = Pokemon.objects.all()
-    data = list(pokemon.values("number", "name"))
+    data = list(pokemon.values("number", "name", "image_front"))
     return JsonResponse({"data": data}, safe=False)
