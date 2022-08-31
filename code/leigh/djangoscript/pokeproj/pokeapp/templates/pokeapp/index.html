@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke App</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="{% static 'pokeapp/app.js' %}"></script>
+</head>
+<body>
+    <h1>Poke App</h1>
+    <div id="app">
+        <input v-on:keypress.enter="searchPokemon()" v-model="search" type="text" placholder="Search Pokemon">
+        <button v-on:click="searchPokemon()">Search</button>
+        {% comment %} <img v-bind:src="pokemons[0].image_front" alt=> {% endcomment %}
+        {% comment %} <div>[[pokemons]]</div> {% endcomment %}
+        <button v-on:click="backPage()">back</button>
+        <button v-on:click="forwardPage()">forward</button>
+        <ul>
+            <li v-for='pokemon in pokemons'>
+                <img v-bind:src="pokemon.image_front" alt=[[pokemon.name]]>
+                <ul>
+                    <li>[[pokemon.name]]</li>
+                    <li>Number: [[pokemon.number]]</li>
+                    <li>Height: [[pokemon.height]]</li>
+                    <li>Weight: [[pokemon.weight]]</li>
+                    <li>Types: <ul v-for='type in pokemon.types'>
+                        <li>[[type.name]]</li>
+                    </ul></li>
+                </ul>
+            </li>
+        </ul>
+        <button v-on:click="backPage()">back</button>
+        <button v-on:click="forwardPage()">forward</button>
+    </div>
+</body>
+</html>
