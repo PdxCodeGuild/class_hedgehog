@@ -1,20 +1,26 @@
+
 from django.core.management.base import BaseCommand
 import json
+from pokeapp.models import Pokemon
 
-class load(self, *args, *kwargs):
-    try:
-        f = open('./pokemon.json')
-        contents = json.load(f)
-        for i in contents['pokemon']:
-            number = contents['number']
-            name = contents['name']
-            height = contents['height']
-            weight = contents['weight']
-            image_front = contents['sprites']['front_default']
-            image_back = contents['sprites']['back_default']
-            types = [type['type']['name'] for type in contents['types']]
-       
-    except (IOError, OSError) as e:
-        print(e)
-    finally:
-        f.close()
+class Command(BaseCommand):
+    def handle(self, *args, **kwargs):
+        try:
+            pokemon = Pokemon.objects.all()
+            with open('pokemon.json', encoding= 'utf-8') as f:
+                print(f.read())
+                contents = json.loads(f.read())
+            # for i in contents['pokemon']:
+            #     pokemon.number = contents['number']
+            #     pokemon.name = contents['name']
+            #     pokemon.height = contents['height']
+            #     pokemon.weight = contents['weight']
+            #     pokemon.image_front = contents['sprites']['front_default']
+            #     pokemon.image_back = contents['sprites']['back_default']
+            #     pokemon.types = contents['types'].join(",")
+            #     pokemon.save()  
+        
+        except (IOError, OSError) as e:
+            print(e)
+        finally:
+            f.close()
