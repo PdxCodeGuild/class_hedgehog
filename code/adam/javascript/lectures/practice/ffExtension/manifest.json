@@ -1,0 +1,27 @@
+{
+
+    "manifest_version": 2,
+    "name": "Leads Tracker",
+    "version": "1.0",
+    "description": "Save leads quickly to local storage",
+    "icons": {
+      "48": "icons/icon.png"
+    },
+    "permissions": ["tabs"],
+    "background": {
+      "scripts": ["main.js"]
+    },
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "borderify@example.com"
+      }
+    },
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "64": "icons/icon.png"
+      }
+    }
+    
+  }
+  

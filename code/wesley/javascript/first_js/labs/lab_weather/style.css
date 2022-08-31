@@ -1,0 +1,20 @@
+body {
+    background-color: dimgrey;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: monospace;
+    text-align: center;
+}
+.content {
+    display: flex;
+    font-family: monospace;
+    padding: 10vmin;
+    box-sizing: border-box;
+}
+
+#current {
+    padding: 5vmin;
+}
