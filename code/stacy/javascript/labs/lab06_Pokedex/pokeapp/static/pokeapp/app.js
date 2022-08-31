@@ -7,18 +7,18 @@ const app = Vue.createApp({
             // variables go here
             message: "It works!",
             pokemon: [],
-            selectedPokemon: [],
-
-
-
+            searchTerm: ""
         }
     },
     methods: {
         // functions go here
-        getPokemon: function() {
-
+        pokeSearch: function(searchTerm) {
+            fetch(`/pokemon/?searchTerm=${searchTerm}`)
+            .then(response => response.json())
+            .then(data => {
+                this.pokemon = data.data
+            })
         },
-
 
     },
     watch: {
@@ -26,7 +26,6 @@ const app = Vue.createApp({
         pokemon: function() {
 
         },
-
     },
     created: function() {
         // what happens when app is created?
