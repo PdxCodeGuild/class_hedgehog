@@ -4,5 +4,6 @@ from . import views
 app_name = 'pokedex'
 urlpatterns = [
 path('', views.index, name='index'),
-path('pokemon', views.pokemon, name='pokemon')
+path('pokemon', views.pokemon, name='pokemon'),
+path('pokemon/<str:search>/', views.fetchPokemon, name='search'),
 ]

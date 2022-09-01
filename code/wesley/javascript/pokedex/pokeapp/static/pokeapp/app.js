@@ -7,10 +7,11 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        fetchPokemon: function(search) {
+        fetchPokemon: function() {
             fetch(`./pokemon/${this.search}`)
             .then(response => response.json())
             .then(data => {
+                // console.log(data) check to see what the data is returning if nothing is showing.
                 this.pokemon = data.poke
             })
         }
