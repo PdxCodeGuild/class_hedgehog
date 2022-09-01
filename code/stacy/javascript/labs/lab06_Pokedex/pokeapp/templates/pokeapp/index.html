@@ -19,10 +19,16 @@
             <button v-on:click="pokeSearch([[searchTerm]])" id="poke-search-btn">Find poke!</button>
         </div>
         <div id="pokemon-div">
-            <div v-for="poke in pokemon" v-bind:value="poke.id"><div>No: [[poke.number]], Name: [[poke.name]]</div><img v-bind:src="poke.image_front" v-bind:alt="'Picture of ' + poke.name"></div>
+            <div v-for="poke in pokemon" v-bind:value="poke.id" ><div v-if="poke.number"> No: [[poke.number]], Name: [[poke.name]] </div><img v-if="poke.number" v-bind:src="poke.image_front" v-bind:alt="'Picture of ' + poke.name"></div>
         </div>
-
+        <div id="pagination">
+            <button id="previous-btn" v-bind:href="'?page='+this.page" v-on:click="previousPage()" v-if="">Previous</button> 
+            Page [[page]]
+            <button id="next-btn" v-bind:href="'?page='+this.page" v-on:click="nextPage()">Next</button> 
+        </div>
     </div>
+
+
 
 </body>
 </html>
