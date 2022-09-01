@@ -1,11 +1,16 @@
 
 from django.core.management.base import BaseCommand
 import json
-from pokeapp.models import Pokemon
+from pokeapp.models import Pokemon, PokemonType
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
+
+        # for loop for type in contents:
+            # if type is already in Types don't add.
+
         with open('pokemon.json') as f:
             contents = json.loads(f.read())
         for poke in contents['pokemon']:

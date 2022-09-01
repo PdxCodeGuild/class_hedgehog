@@ -14,8 +14,8 @@
     <h1>Pokédex</h1>
     <div id="app">
         <div id="search">
-            <input type="text" name="search" v-on:keypress.enter='fetchPokemon()' v-model="search" placeholder="Enter a term">
-            <button v-on:click='fetchPokemon()'>Search</button>
+            <input type="text" v-on:keypress.enter='fetchPokemon()' v-model="search" placeholder="Enter a term">
+            <button v-on:click='fetchPokemon()' id='search-btn'>Search</button>
         </div>
         <div v-for="poke in pokemon" v-bind:value="poke.id">
             <div> 

@@ -7,12 +7,16 @@ def index(request):
     return render(request, 'pokeapp/index.html')
 
 def pokemon(request):
+    pokemon = Pokemon.objects.all()
+    poke = list(pokemon.values('number', 'name', 'image_front'))
+    return JsonResponse({'poke': poke}, safe=False)
+
+def fetchPokemon (request, search):
     if request.method == "GET":
-        search = request.GET.get("search")
-        if search != None:
-            pokemon = Pokemon.objects.filter(name__icontains='mew')
-            data = list(pokemon.values("number", "name", "image_front"))
-        else:    
-            pokemon = Pokemon.objects.all()
-            poke = list(pokemon.values('number', 'name', 'image_front'))
-            return JsonResponse({'poke': poke}, safe=False)
+        pokemon = Pokemon.objects.filter(name__icontains=search)
+        poke = list(pokemon.values("number", "name", "image_front"))
+        return JsonResponse({'poke': poke}, safe=False)
+    else:    
+        pokemon = Pokemon.objects.all()
+        poke = list(pokemon.values('number', 'name', 'image_front'))
+        return JsonResponse({'poke': poke}, safe=False)
