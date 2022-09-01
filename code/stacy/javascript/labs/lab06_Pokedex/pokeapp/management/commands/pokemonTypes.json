@@ -3,6 +3,7 @@
     "bug", 
     "dragon", 
     "electric", 
+    "fairy",
     "fighting", 
     "fire", 
     "flying", 
@@ -14,6 +15,7 @@
     "poison", 
     "psychic", 
     "rock", 
+    "steel", 
     "water"
     ]
 }

@@ -17,4 +17,10 @@ class Pokemon(models.Model):
     types = models.ManyToManyField(PokemonType, related_name="types", blank=True)
 
     def __str__(self):
-        return f"No: {self.number}, Name: {self.name}, Types: {list((self.types.values('name')))}"
+        type_query = list((self.types.values('name')))
+        type_string = ''
+        type_list = []
+        for query in type_query:
+            type_list.append(query.get("name"))
+        type_string += ", ".join(type_list)
+        return f"No: {self.number}, Name: {self.name}, Types: {(type_string)}"

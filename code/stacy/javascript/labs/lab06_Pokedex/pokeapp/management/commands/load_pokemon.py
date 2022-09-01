@@ -6,10 +6,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
         f = open("pokeapp\management\commands\pokemon.json")
         contents = json.load(f)
-        # for x in range(len(contents['pokemon'])):
-        for x in range(5):
+        all_types = []
+        for x in range(len(contents['pokemon'])):
+        # for x in range(5): # for testing purposes
+            #### add pokemon first, before manytomany
             poke = Pokemon()
             poke.number = contents["pokemon"][x]["number"]
             poke.name = contents['pokemon'][x]['name']
@@ -17,11 +20,22 @@ class Command(BaseCommand):
             poke.weight = contents["pokemon"][x]["weight"] / 10
             poke.image_front = contents["pokemon"][x]["image_front"]
             poke.image_back = contents["pokemon"][x]["image_back"]
-            poke.save()
+            poke.save() #### have to save, Pokemon object has to exist and be saved before manytomany relationship can be established
+
+            #### create pokemontypes
             pokemon_types = contents["pokemon"][x]["types"]
+            for single_type in pokemon_types:
+                if single_type not in all_types:
+                    all_types.append(single_type)
+                    new_type = PokemonType()
+                    new_type.name = single_type
+                    new_type.save()
+
+            #### create manytomany relationship
             for type in pokemon_types:
                 newtype = PokemonType.objects.get(name=type)
                 poke.types.add(newtype)
-            poke.save()
+            
+            poke.save() #### final save after manytomany relationship is established
 
 
