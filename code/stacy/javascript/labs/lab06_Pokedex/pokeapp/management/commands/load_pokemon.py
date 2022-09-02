@@ -18,8 +18,14 @@ class Command(BaseCommand):
             poke.name = contents['pokemon'][x]['name']
             poke.height = contents["pokemon"][x]["height"] / 10
             poke.weight = contents["pokemon"][x]["weight"] / 10
-            poke.image_front = contents["pokemon"][x]["image_front"]
-            poke.image_back = contents["pokemon"][x]["image_back"]
+            if contents["pokemon"][x]["image_front"] == None:
+                poke.image_front = "No front image available"
+            else:
+                poke.image_front = contents["pokemon"][x]["image_front"]
+            if contents["pokemon"][x]["image_back"] == None:
+                poke.image_back = "No back image available"
+            else:
+                poke.image_back = contents["pokemon"][x]["image_back"]
             poke.save() #### have to save, Pokemon object has to exist and be saved before manytomany relationship can be established
 
             #### create pokemontypes
