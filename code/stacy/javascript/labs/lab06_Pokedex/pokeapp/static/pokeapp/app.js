@@ -18,34 +18,39 @@ const app = Vue.createApp({
             fetch(`/pokemon/?searchTerm=${searchTerm}`)
             .then(response => response.json())
             .then(data => {
-                this.pokemon = data.data
+            this.pokemon = data.data
             })
         },
         previousPage: function(){
-            if(this.page === 1){}
-            this.page -= 1
-            fetch(`/pokemon/?page=${this.page}`)
-            .then(response => response.json())
-            .then(data => {
+            if (this.page === 1) {
+                pass
+            } else {
+                this.page -= 1
+                fetch(`/pokemon/?page=${this.page}`)
+                .then(response => response.json())
+                .then(data => {
                 console.log(data.data, "hello")
                 this.pokemon = data.data
-            })
+                })
+            }
         },
         nextPage: function(){
-            this.page += 1
-            fetch(`/pokemon/?page=${this.page}`)
-            .then(response => response.json())
-            .then(data => {
+            if (this.page >= this.maxPage) {
+                pass
+            } else {
+                this.page += 1
+                fetch(`/pokemon/?page=${this.page}`)
+                .then(response => response.json())
+                .then(data => {
                 console.log(data.data, "hello")
                 this.pokemon = data.data
-            })
+                })
+            }
         },
     },
     watch: {
         // onchange functions go here, tied to variables in data
-        pokemon: function() {
-
-        },
+        
     },
     created: function() {
         // what happens when app is created?
