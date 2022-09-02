@@ -1,26 +1,41 @@
 
 from django.core.management.base import BaseCommand
 import json
-from pokeapp.models import Pokemon
+from pokeapp.models import Pokemon, PokemonType
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
-        try:
-            pokemon = Pokemon.objects.all()
-            with open('pokemon.json', encoding= 'utf-8') as f:
-                print(f.read())
-                contents = json.loads(f.read())
-            # for i in contents['pokemon']:
-            #     pokemon.number = contents['number']
-            #     pokemon.name = contents['name']
-            #     pokemon.height = contents['height']
-            #     pokemon.weight = contents['weight']
-            #     pokemon.image_front = contents['sprites']['front_default']
-            #     pokemon.image_back = contents['sprites']['back_default']
-            #     pokemon.types = contents['types'].join(",")
-            #     pokemon.save()  
+        Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
+
+        # for loop for type in contents:
+            # if type is already in Types don't add.
+        with open('pokemon.json') as f:
+            contents = json.loads(f.read())
+        for poke in contents['pokemon']:
+            poketype = PokemonType()
+            for type in poke['types']:
+                try:
+                    poketype = PokemonType.objects.get(name = type)
+                except PokemonType.DoesNotExist:
+                    poketype = PokemonType.objects.create(name = type)
+
         
-        except (IOError, OSError) as e:
-            print(e)
-        finally:
-            f.close()
+
+        with open('pokemon.json') as f:
+            contents = json.loads(f.read())
+        for poke in contents['pokemon']:
+            pokemon = Pokemon()
+            pokemon.number = poke['number']
+            pokemon.name = poke['name']
+            pokemon.height = poke['height']
+            pokemon.weight = poke['weight']
+            pokemon.image_front = poke['image_front']
+            pokemon.image_back = poke['image_back']
+            pokemon.save() 
+            for name in poke['types']:
+                pokemon.types.add(PokemonType.objects.filter(name=name)[0].id)
+            pokemon.save()
+             
+        
+       
