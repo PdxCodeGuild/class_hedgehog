@@ -67,5 +67,5 @@ Use pagination to only show 20 pokemon at a time, allow the user to switch betwe
 
 ## Part 8: More Pokemon (optional)
 
-Check out the [script](./pokedex.py) that creates the json file, you can use it to load even more pokemon into your database!
+Check out the [script](./data/pokedex.py) that creates the json file, you can use it to load even more pokemon into your database!
 
