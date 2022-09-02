@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script defer src="{% static 'pokeapp/app.js'%}"></script>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <div id="app">
+        <div id="search">
+            <input type="text" v-on:keypress.enter='fetchPokemon()' v-model="search" placeholder="Enter a term">
+            <button v-on:click='fetchPokemon()' id='search-btn'>Search</button>
+        </div>
+        <div v-for="poke in pokemon" v-bind:value="poke.id">
+            <div> 
+              [[poke.number]] : [[poke.name]]
+            </div>
+            <img v-bind:src="poke.image_front" v-bind:alt="'Image of ' + poke.name">
+        </div>
+    </div>
+    
+    
+</body>
+</html>

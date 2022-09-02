@@ -17,6 +17,7 @@
 </head>
 <body>
     <h1>Mapr</h1>
+    <a href="{% url 'login' %}">login</a>
     
     <select id="group-selector">
         <option selected>Select a Group</option>
@@ -26,7 +27,9 @@
 
     <script>
         const groupSelector = document.querySelector("#group-selector")
-        var map = L.map('map').setView([51.505, -0.09], 2);
+        let map = L.map('map').setView([0, 0], 2);
+        let layerGroup = L.layerGroup();
+        layerGroup.addTo(map);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -35,6 +38,7 @@
         fetch("/api/groups")
         .then(response => response.json())
         .then(data => {
+
             for(group of data.data) {
                 let option = document.createElement('option')
                 option.value = group.id
@@ -49,18 +53,18 @@
             if (!id) return;
             fetch(`/api/groups/${id}`)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                layerGroup.clearLayers()
+                for(user of data.data)
+                layerGroup.addLayer(
+                    L.marker([user.location__latitude, user.location__longitude])
+                    .bindPopup(user.username)
+                    .openPopup()
+                    )
+                map.setView([0, 0], 2);
+
+            })
         })
-
-
-        // fetch("/api/users")
-        // .then(response => response.json())
-        // .then(data => {
-        //     for(user of data)
-        //     L.marker([user.location.lat, user.location.long]).addTo(map)
-        //     .bindPopup(user.username)
-        //     .openPopup();
-        // })
     </script>
 </body>
 </html>

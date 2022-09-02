@@ -6,5 +6,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         User.objects.filter(is_staff=False).delete()
         for x in range(10):
-            User.objects.create_user(f'testUser{x}', '', 'password')
-            print(f"created user testUser{x}")
+            user = User.objects.create_user(f"testUser{x}", '', 'password')
+            user.private = False
+            user.save()
+            print(f"Created user: testUser{x}")

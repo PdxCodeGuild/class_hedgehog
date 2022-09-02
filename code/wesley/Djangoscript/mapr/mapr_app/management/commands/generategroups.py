@@ -4,6 +4,7 @@ from mapr_app.models import Group, User
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
+        Group.objects.all().delete()
         users = User.objects.all()
         groups = []
 

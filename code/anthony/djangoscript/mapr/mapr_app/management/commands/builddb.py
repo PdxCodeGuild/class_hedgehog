@@ -16,7 +16,7 @@ class Command(BaseCommand):
             group.save()
             groups.append(group)
         
-        for x in range(20):
+        for x in range(1000):
             user = User.objects.create_user(f"testUser{x}", '', 'password')
             if x % 2:
                 user.private = False
