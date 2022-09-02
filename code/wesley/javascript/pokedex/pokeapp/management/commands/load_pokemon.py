@@ -10,6 +10,17 @@ class Command(BaseCommand):
 
         # for loop for type in contents:
             # if type is already in Types don't add.
+        with open('pokemon.json') as f:
+            contents = json.loads(f.read())
+        for poke in contents['pokemon']:
+            poketype = PokemonType()
+            for type in poke['types']:
+                try:
+                    poketype = PokemonType.objects.get(name = type)
+                except PokemonType.DoesNotExist:
+                    poketype = PokemonType.objects.create(name = type)
+
+        
 
         with open('pokemon.json') as f:
             contents = json.loads(f.read())
@@ -21,7 +32,10 @@ class Command(BaseCommand):
             pokemon.weight = poke['weight']
             pokemon.image_front = poke['image_front']
             pokemon.image_back = poke['image_back']
-            pokemon.types = poke['types']
-            pokemon.save()  
+            pokemon.save() 
+            for name in poke['types']:
+                pokemon.types.add(PokemonType.objects.filter(name=name)[0].id)
+            pokemon.save()
+             
         
        
