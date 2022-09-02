@@ -7,44 +7,69 @@ const app = Vue.createApp({
             // variables go here
             message: "It works!",
             pokemon: [],
-            searchTerm: "",
+            searchTerm: null,
             page: 1,
             maxPage: 0,
         }
     },
     methods: {
         // functions go here
-        pokeSearch: function(searchTerm) {
-            fetch(`/pokemon/?searchTerm=${searchTerm}`)
+        pokeSearch: function() {
+            fetch(`/pokemon/?searchTerm=${this.searchTerm}&page=${this.page}`)
             .then(response => response.json())
             .then(data => {
             this.pokemon = data.data
             })
         },
         previousPage: function(){
-            if (this.page === 1) {
-                pass
+            
+            if (this.searchTerm === null) {
+                if (this.page === 1) {
+                    pass
+                } else {
+                    this.page -= 1
+                    fetch(`/pokemon/?page=${this.page}`)
+                    .then(response => response.json())
+                    .then(data => {
+                    this.pokemon = data.data
+                    })
+                }
             } else {
-                this.page -= 1
-                fetch(`/pokemon/?page=${this.page}`)
-                .then(response => response.json())
-                .then(data => {
-                console.log(data.data, "hello")
-                this.pokemon = data.data
-                })
+                if (this.page === 1) {
+                    pass
+                } else {
+                    this.page -= 1
+                    fetch(`/pokemon/?page=${this.page}&searchTerm=${this.searchTerm}`)
+                    .then(response => response.json())
+                    .then(data => {
+                    this.pokemon = data.data
+                    })
+                }
             }
         },
         nextPage: function(){
-            if (this.page >= this.maxPage) {
-                pass
+            if (this.searchTerm === null) {
+                if (this.page === this.maxPage) {
+                    pass
+                } else {
+                    this.page += 1
+                    fetch(`/pokemon/?page=${this.page}`)
+                    .then(response => response.json())
+                    .then(data => {
+                    this.pokemon = data.data
+                    })
+                }
             } else {
-                this.page += 1
-                fetch(`/pokemon/?page=${this.page}`)
-                .then(response => response.json())
-                .then(data => {
-                console.log(data.data, "hello")
-                this.pokemon = data.data
-                })
+                if (this.page === this.maxPage) {
+                    pass
+                } else {
+                    this.page += 1
+                    fetch(`/pokemon/?page=${this.page}&searchTerm=${this.searchTerm}`)
+                    .then(response => response.json())
+                    .then(data => {
+                    this.pokemon = data.data
+                    })
+                }
             }
         },
     },
