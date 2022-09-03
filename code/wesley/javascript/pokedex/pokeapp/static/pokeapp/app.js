@@ -4,6 +4,8 @@ const app = Vue.createApp({
         return {
             pokemon: [],
             search: '',
+            page: 1,
+            limit: 20,
         }
     },
     methods: {
@@ -11,14 +13,20 @@ const app = Vue.createApp({
             fetch(`./pokemon/${this.search}`)
             .then(response => response.json())
             .then(data => {
-                // console.log(data) check to see what the data is returning if nothing is showing.
+                // console.log(data) check to see what the data is returning if nothing is
                 this.pokemon = data.poke
             })
+        },
+        backPage: function() {
+
+        },
+        nextPage: function() {
+
         }
     },
     
     created: function() {
-        fetch('./pokemon')
+        fetch(`./pokemon`)
         .then(response => response.json())
         .then(data => {
             this.pokemon = data.poke
