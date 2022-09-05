@@ -24,8 +24,8 @@ class Command(BaseCommand):
                                 current_pokemon = Pokemon.objects.create(
                                         number = pokemon['number'],
                                         name = pokemon['name'],
-                                        height = round(int(pokemon['height']/10)),
-                                        weight = round(int(pokemon['weight']/10)),
+                                        height = int(pokemon['height'])/10,
+                                        weight = int(pokemon['weight'])/10,
                                         image_front = pokemon['image_front'],
                                         image_back = pokemon['image_back'],
                                         types = ', '.join(pokemon['types']),        
