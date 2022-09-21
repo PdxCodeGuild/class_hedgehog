@@ -3,7 +3,7 @@
 
 ## Intro 
 
-As a pilot trains and moves through the ranks, honing in their skills and earning new ratings and certificates, they must navigate the difficult process of locating and scheduling an FAA Designated Pilot Examiner (DPE) to start the initial process when applying for an FAA checkride. This process currently proves to be very cumbersome and often takes a very long time to receive a response in reagrd to scheduling as the only communication is via email and/or phone, which often leads to unreturned voicemails and/or messages. 
+As a pilot trains and moves through the ranks, honing in their skills and earning new ratings and certificates, they must navigate the difficult process of locating and scheduling an FAA Designated Pilot Examiner (DPE) to start the initial process when applying for an FAA checkride. This process currently proves to be very cumbersome and often takes a very long time to receive a response in regard to scheduling as the only communication is via email and/or phone, which often leads to unreturned voicemails and/or messages. 
 
 ## Project Overview
 
