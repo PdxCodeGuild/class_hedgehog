@@ -1,0 +1,174 @@
+<div class="statblock-wrapper" >
+    <div class="stat-block">
+        <div> <!-- start statblock sub-div -->
+            <div class="creature-heading"> <!-- start creature heading -->
+                <h1 id="monster-name">[[statblock.name]]</h1>
+                <h2 id="monster-type">[[statblock.size]] [[statblock.type]], [[statblock.alignment]]</h2>
+            </div> <!-- end creature heading -->
+            
+            <svg height="5" width="100%" class="tapered-rule">
+                <polyline points="0,0 400,2.5 0,5"></polyline>
+            </svg>
+            
+            <div> <!-- start top stats (ac, hp, etc) -->
+                <div>
+                    <div><b>Armor Class:</b> [[statblock.ac]]</div>
+                </div> 
+                <div>
+                    <div> <b>Hit Points:</b> [[statblock.hp]] </div>
+                </div> 
+                <div class="property-line last">
+                    <div><b>Speed: </b>[[statblock.speed]]</div>
+                </div> 
+
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+
+                <!-- start ability scores -->
+                <div class="scores">
+
+                    <div class="scores-strength">
+                        <h4>STR</h4>
+                        <p id="strpts">[[statblock.strength]] ([[strMod]])</p>
+                    </div> <!-- scores strength -->
+                    
+                    <div class="scores-dexterity">
+                        <h4>DEX</h4>
+                        <p id="dexpts">[[statblock.dexterity]] ([[dexMod]])</p>
+                    </div> <!-- scores dexterity -->
+                    
+                    <div class="scores-constitution">
+                        <h4>CON</h4>
+                        <p id="conpts">[[statblock.constitution]] ([[conMod]])</p>
+                    </div> <!-- scores constitution -->
+                    
+                    <div class="scores-intelligence">
+                        <h4>INT</h4>
+                        <p id="intpts">[[statblock.intelligence]] ([[intMod]])</p>
+                    </div> <!-- scores intelligence -->
+                    
+                    <div class="scores-wisdom">
+                        <h4>WIS</h4>
+                        <p id="wispts">[[statblock.wisdom]] ([[wisMod]])</p>
+                    </div> <!-- scores wisdom -->
+                    
+                    <div class="scores-charisma">
+                        <h4>CHA</h4>
+                        <p id="chapts">[[statblock.charisma]] ([[chaMod]])</p>
+                    </div> <!-- scores charisma -->
+                    
+                </div> <!-- end ability scores -->
+                
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+
+                <!-- start saving throws, skills, vulnerabilities etc -->
+                <div id="properties-list">
+                    <div class="property-line first">
+                        <div v-if="statblock.saving_throws !== ''">
+                            <div><b>Saving Throws: </b>[[statblock.saving_throws]]</div> 
+                        </div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.skills !== ''">
+                            <div><b>Skills: </b>[[statblock.skills]]</div>
+                        </div>
+                    </div>
+                    <div v-if="statblock.damage_vulnerabilities !== ''">
+                        <div><b>Damage Vulnerabilities: </b>[[statblock.damage_vulnerabilities]]</div>
+                    </div>
+                    <div v-if="statblock.damage_resistances !== ''">
+                        <div><b>Damage Resistances: </b>[[statblock.damage_resistances]]</div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.damage_immunities !== ''">
+                            <div><b>Damage Immunities: </b>[[statblock.damage_immunities]]</div> 
+                        </div>
+                    </div>
+                    <div v-if="statblock.condition_immunities !== ''">
+                        <div><b>Condition Immunities: </b>[[statblock.condition_immunities]]</div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.senses !== ''">
+                            <div><b>Senses: </b>[[statblock.senses]]</div>
+                        </div>
+                    </div>
+                    <div class="property-line">
+                        <div v-if="statblock.languages !== ''">
+                            <div><b>Languages: </b>[[statblock.languages]]</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="challenge-rating-line" class="property-line last">
+                    <div><b>Challenge: </b>[[statblock.cr]]</div>
+                </div> <!-- end saves, skils, etc -->
+            </div> <!-- end top stats -->
+            <div v-if="statblock.traits !== ''"> <!-- start traits -->
+
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+
+                <h4>Traits</h4>
+                <div>[[statblock.traits]]</div>
+            </div> <!-- end traits -->
+
+            <svg height="5" width="100%" class="tapered-rule">
+                <polyline points="0,0 400,2.5 0,5"></polyline>
+            </svg>
+            
+            <div class="actions"> <!-- start actions -->
+                <div id="traits-list-left">
+                    <h3>Actions</h3>
+                <div class="property-block">
+                    <div>
+                        [[statblock.actions]]
+                    </div>
+                </div> 
+                </div> 
+            </div> 
+            <div v-if="statblock.bonus_actions !== ''">
+                <h4>Bonus Actions</h4>
+                <div>[[statblock.bonus_actions]]</div>
+            </div>
+            <div v-if="statblock.reactions !== ''">
+                <h4>Reactions</h4>
+                <div>[[statblock.reactions]]</div>
+            </div>
+            <div class="actions">
+                <div v-if="statblock.legendary_action !== ''">
+                    <svg height="5" width="100%" class="tapered-rule">
+                        <polyline points="0,0 400,2.5 0,5"></polyline>
+                    </svg>
+                    <h3>Legendary Actions</h3>
+                    <div class="property-block">[[statblock.legendary_action]]
+                    </div>
+                </div>
+                <div v-if="statblock.lair_actions !== ''">
+                    <svg height="5" width="100%" class="tapered-rule">
+                        <polyline points="0,0 400,2.5 0,5"></polyline>
+                    </svg>
+                    <h4>Lair Actions</h4>
+                    <div>[[statblock.lair_actions]]</div>
+                </div>
+            </div> <!-- end actions -->
+            <div v-if="statblock.regional_effects !== ''"> <!-- start regional effects and environements -->
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+                <h4>Regional Effects</h4>
+                <div>[[statblock.regional_effects]]</div>
+            </div>
+            <div v-if="statblock.environment !== ''">
+                <svg height="5" width="100%" class="tapered-rule">
+                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                </svg>
+                <h4>Environments</h4>
+                <div>[[statblock.environment]]</div>
+                <hr class="bottom-statblock">
+            </div> <!-- end regional effects and environments -->
+        </div> <!-- end statblock sub-div -->
+    </div> <!-- end statblock -->
+</div> <!-- end statblock wrapper -->
