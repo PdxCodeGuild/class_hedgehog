@@ -27,3 +27,37 @@ def examiner(request):
             
     }
         return render(request, 'pep_app/index.html', context)
+
+def state_search(request):
+    if request.method == 'POST':
+        data = {
+    "isInternal": False,
+    "countryId":184,
+    "pageModel":{
+        "first":0,
+        "rows":10,
+        "sortOrder":1,
+        "filters":{},
+        "globalFilter": None
+    },
+    "selectedFunctionCodes":[],
+    "designeeTypeId":24,
+    "isLocationSearch": True,
+    "firstName": None,
+    "lastName": None,
+    "designator": None,
+    "city": None,
+    "county": None,
+    "stateId":int(request.POST.get('states')[0]),
+    "zipCode": None,
+    "firstClassAME": False,
+    "examinerAME": False,
+    "himsAME": False
+}
+        states = requests.post('https://designee.faa.gov/designeeapi/api/Cloa/Search/',json=data)
+        print('hello', states.status_code)
+        print(request.POST)
+        print(int(request.POST.get('states')[0]))
+        return render(request, 'pep_app/index.html', {'designee': states.json()})
+    else:
+        return render(request, 'pep_app/index.html')
