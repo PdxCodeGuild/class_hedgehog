@@ -2,6 +2,11 @@
 
 {% block context %}
 
-<h3>{{msg}}</h3>
+<form method="GET" action="{% url 'home'%}">
+    <input type="text" name="q" placeholder="Search Pokemon...">
+</form>
+{% for pokemon in pokesearch %}
+        <a href=""><h1> #{{pokemon.number}} || {{pokemon.name}}</h1></a>
+{% endfor %}
 
 {% endblock context %}

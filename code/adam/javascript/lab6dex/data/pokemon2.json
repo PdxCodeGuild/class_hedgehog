@@ -1,0 +1,42 @@
+{
+    "pokemon": [
+        {
+            "number": 1,
+            "name": "bulbasaur",
+            "height": 7,
+            "weight": 69,
+            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+            "types": [
+                "poison",
+                "grass"
+            ],
+            "url": "https://pokemon.fandom.com/wiki/bulbasaur"
+        },
+        {
+            "number": 6,
+            "name": "charizard",
+            "height": 17,
+            "weight": 905,
+            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png",
+            "types": [
+                "flying",
+                "fire"
+            ],
+            "url": "https://pokemon.fandom.com/wiki/charizard"
+        },
+        {
+            "number": 9,
+            "name": "blastoise",
+            "height": 16,
+            "weight": 855,
+            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
+            "types": [
+                "water"
+            ],
+            "url": "https://pokemon.fandom.com/wiki/blastoise"
+        }
+    ]
+}
