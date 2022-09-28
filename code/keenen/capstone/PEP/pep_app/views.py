@@ -5,6 +5,12 @@ import requests
 def index(request):
     return render (request, 'pep_app/index.html')
 
+def about(request):
+    return render(request, 'pep_app/about.html')
+
+def login(request):
+    return render(request, 'pep_app/login.html')
+
 def examiner(request):
         state_id = request.POST.get('states', None)
         # print(request.POST.get('states'))

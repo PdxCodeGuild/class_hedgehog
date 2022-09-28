@@ -14,8 +14,9 @@
     <div class="topnav">
       <div>
         <a class="active" href="{% url 'index' %}">Home</a>
-        <a href="#about">About</a>
+        <a href="{% url 'about' %}">About</a>
         <a href="{% url 'examiner' %}">Locate Examiners</a>
+        <a href="{% url 'login' %}">Login/Logout</a>
       </div>
       <input type="text" placeholder="Search..." id="search" />
     </div>
