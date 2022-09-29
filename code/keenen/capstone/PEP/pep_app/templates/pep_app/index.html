@@ -9,19 +9,23 @@
     <title>PEP Home</title>
   </head>
   <body>
-      <div class="topnav">
-        <div>
-          <a class="active" href="{% url 'index' %}">Home</a>
-          <a href="{% url 'about' %}">About</a>
-          {% if user.is_authenticated%}
-          <a href="{% url 'examiner' %}">Locate Examiners</a>
-          {% endif %}
-          <a href="{% url 'login' %}">Login/Logout</a>
-        </div>
-        <input type="text" placeholder="Search..." id="search" />
+    <div class="topnav">
+      <div>
+        <a class="active" href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        {% if user.is_authenticated%}
+        <a href="{% url 'examiner' %}">Locate Examiners</a>
+        <a href="{% url 'login' %}">Logout</a>
+        {% else %} <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <a href="{% url 'signup' %}">Signup</a>
       </div>
-      <br>
-    <h1>PEP Home</h1>
-
+      <input type="text" placeholder="Search..." id="search" />
+    </div>
+    <br />
+    <h1>Welcome to the Pilot's Examiner Planner!</h1>
+    <hr />
+    <br />
+    <div class="background-image"></div>
   </body>
 </html>

@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="topnav">
+        <div>
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'about' %}">About</a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'examiner' %}">Locate Examiners</a>
+          {% endif %}
+          <a href="{% url 'about' %}">Login/Logout</a>
+          <a class="active" href="{% url 'login' %}">Signup</a>
+        </div>
+        <input type="text" placeholder="Search..." id="search" />
+      </div>
+      <br />
+      <h1>Login/Logout</h1>
+      <hr>
+    <div class="signup">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+
+    </div>
+</body>
+</html>

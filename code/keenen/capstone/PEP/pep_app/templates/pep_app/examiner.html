@@ -9,87 +9,87 @@
     <title>Designated Pilot Examiners</title>
   </head>
   <body>
-      <div class="topnav">
-        <div>
-          <a href="{% url 'index' %}">Home</a>
-          <a href="{% url 'about' %}">About</a>
-          {% if user.is_authenticated%}
-          <a class="active" href="{% url 'examiner' %}">Locate Examiners</a>
-          {% endif %}
-          <a href="{% url 'login' %}">Login/Logout</a>
-        </div>
-        <input type="text" placeholder="Search..." id="search" />
+    <div class="topnav">
+      <div>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        {% if user.is_authenticated%}
+        <a class="active" href="{% url 'examiner' %}">Locate Examiners</a>
+        <a href="{% url 'login' %}">Logout</a>
+        {% else %} <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <a href="{% url 'signup' %}">Signup</a>
       </div>
-      <br>
+      <input type="text" placeholder="Search..." id="search" />
+    </div>
+    <br />
     <h1>Designated Pilot Examiners</h1>
-
+    <hr />
 
     <input type="hidden" value="{{stateId}}" />
 
-   
-<div class="choose_state">
-    <form action="" method="POST">
-      {% csrf_token %}
-
-      <label for="states">Choose a State</label>
-      <select name="states" id="states">
-        
-        <option value="">- All -</option>
-        <option value="2">Alabama</option>
-        <option value="1">Alaska</option>
-        <option value="4">Arizona</option>
-        <option value="3">Arkansas</option>
-        <option value="5">California</option>
-        <option value="6">Colorado</option>
-        <option value="7">Connecticut</option>
-        <option value="8">DC</option>
-        <option value="9">Delaware</option>
-        <option value="10">Florida</option>
-        <option value="11">Georgia</option>
-        <option value="12">Hawaii</option>
-        <option value="14">Idaho</option>
-        <option value="15">Illinois</option>
-        <option value="16">Indiana</option>
-        <option value="13">Iowa</option>
-        <option value="17">Kansas</option>
-        <option value="18">Kentuck</option>
-        <option value="19">Louisiana</option>
-        <option value="22">Maine</option>
-        <option value="21">Maryland</option>
-        <option value="20">Massachusetts</option>
-        <option value="23">Michigan</option>
-        <option value="24">Minnesota</option>
-        <option value="26">Mississippi</option>
-        <option value="25">Missouri</option>
-        <option value="27">Montana</option>
-        <option value="30">Nebraska</option>
-        <option value="34">Nevada</option>
-        <option value="31">New Hampshire</option>
-        <option value="32">New Jersey</option>
-        <option value="33">New Mexico</option>
-        <option value="35">New York</option>
-        <option value="28">North Carolina</option>
-        <option value="29">North Dakota</option>
-        <option value="36">Ohio</option>
-        <option value="37">Oklahoma</option>
-        <option value="38">Oregon</option>
-        <option value="39">Pennsylvania</option>
-        <option value="40">Rhode Island</option>
-        <option value="41">South Carolina</option>
-        <option value="42">South Dakota</option>
-        <option value="43">Tennessee</option>
-        <option value="44">Texas</option>
-        <option value="45">Utah</option>
-        <option value="47">Vermont</option>
-        <option value="46">Virginia</option>
-        <option value="48">Washington</option>
-        <option value="50">West Virginia</option>
-        <option value="49">Wisconsin</option>
-        <option value="51">Wyoming</option>
-      </select>
-      <input type="submit" />
-    </form>
-</div>
+    <br />
+    <div class="choose-state">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <label for="states">Choose a State</label>
+        <select name="states" id="states">
+          <option value="">- All -</option>
+          <option value="2">Alabama</option>
+          <option value="1">Alaska</option>
+          <option value="4">Arizona</option>
+          <option value="3">Arkansas</option>
+          <option value="5">California</option>
+          <option value="6">Colorado</option>
+          <option value="7">Connecticut</option>
+          <option value="8">DC</option>
+          <option value="9">Delaware</option>
+          <option value="10">Florida</option>
+          <option value="11">Georgia</option>
+          <option value="12">Hawaii</option>
+          <option value="14">Idaho</option>
+          <option value="15">Illinois</option>
+          <option value="16">Indiana</option>
+          <option value="13">Iowa</option>
+          <option value="17">Kansas</option>
+          <option value="18">Kentuck</option>
+          <option value="19">Louisiana</option>
+          <option value="22">Maine</option>
+          <option value="21">Maryland</option>
+          <option value="20">Massachusetts</option>
+          <option value="23">Michigan</option>
+          <option value="24">Minnesota</option>
+          <option value="26">Mississippi</option>
+          <option value="25">Missouri</option>
+          <option value="27">Montana</option>
+          <option value="30">Nebraska</option>
+          <option value="34">Nevada</option>
+          <option value="31">New Hampshire</option>
+          <option value="32">New Jersey</option>
+          <option value="33">New Mexico</option>
+          <option value="35">New York</option>
+          <option value="28">North Carolina</option>
+          <option value="29">North Dakota</option>
+          <option value="36">Ohio</option>
+          <option value="37">Oklahoma</option>
+          <option value="38">Oregon</option>
+          <option value="39">Pennsylvania</option>
+          <option value="40">Rhode Island</option>
+          <option value="41">South Carolina</option>
+          <option value="42">South Dakota</option>
+          <option value="43">Tennessee</option>
+          <option value="44">Texas</option>
+          <option value="45">Utah</option>
+          <option value="47">Vermont</option>
+          <option value="46">Virginia</option>
+          <option value="48">Washington</option>
+          <option value="50">West Virginia</option>
+          <option value="49">Wisconsin</option>
+          <option value="51">Wyoming</option>
+        </select>
+        <input type="submit" , value="Locate Examiners" />
+      </form>
+    </div>
 
     <ul>
       <table>
@@ -99,7 +99,6 @@
           <th>Phone / Email</th>
           <th>Function(s) Authorized</th>
           <th>Office Name</th>
-          
         </tr>
         {% for examiner in examiners.data %}
         <tr>
@@ -107,12 +106,12 @@
           <td>{{examiner.completeAddress}}</td>
           <td>{{examiner.phoneEmail}}</td>
           <td>{{examiner.functionCodes}}</td>
-          <td>{{examiner.officeName}}</td>          
+          <td>{{examiner.officeName}}</td>
         </tr>
         {% endfor %}
       </table>
     </ul>
-    {{designee}} 
+    {{designee}}
   </body>
 </html>
 

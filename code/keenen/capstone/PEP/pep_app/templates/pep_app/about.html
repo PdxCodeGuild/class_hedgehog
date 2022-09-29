@@ -1,27 +1,88 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'pep_app/styles.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'pep_app/styles.css' %}" />
     <title>About</title>
-</head>
-<body>
-    <h1>PEP About</h1>
-
+  </head>
+  <body>
     <div class="topnav">
-        <div>
-          <a href="{% url 'index' %}">Home</a>
-          <a class="active" href="{% url 'about' %}">About</a>
-          {% if user.is_authenticated%}
-          <a href="{% url 'examiner' %}">Locate Examiners</a>
-          {% endif %}
-          <a href="{% url 'login' %}">Login/Logout</a>
-        </div>
-        <input type="text" placeholder="Search..." id="search" />
+      <div>
+        <a href="{% url 'index' %}">Home</a>
+        <a class="active" href="{% url 'about' %}">About</a>
+        {% if user.is_authenticated%}
+        <a href="{% url 'examiner' %}">Locate Examiners</a>
+        <a href="{% url 'login' %}">Logout</a>
+        {% else %} <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <a href="{% url 'signup' %}">Signup</a>
       </div>
+      <input type="text" placeholder="Search..." id="search" />
+    </div>
+    <br />
+    <h1>About PEP</h1>
+    <hr />
+    <br />
 
-</body>
+    <div class="about-intro">
+      <h2>Introduction</h2>
+      <hr width="25%" />
+      <p>
+        The Pilot's Examiner Planner (PEP) app is a one-stop-shop for a pilot
+        that is seeking a checkride from an FAA Designated Pilot Examiner (DPE).
+        As a pilot trains and moves through the ranks, honing in their skills
+        while earning new ratings and certificates, they must navigate the
+        difficult process of locating and scheduling a DPE to start the initial
+        process when applying for an FAA checkride. This process currently
+        proves to be very cumbersome and often takes an unneccesary amount of
+        time to receive a response regarding scheduling, as the only
+        communication is via email and/or phone, which often leads to unreturned
+        voicemails and/or messages.
+      </p>
+      <br />
+    </div>
+
+    <div class="why">
+      <h2>The Why</h2>
+      <hr width="15%" />
+      <br />
+      <p>
+        Throughout my aviation journey, I've always noticed that, when trying to
+        schedule a checkride or even just getting in touch with a DPE to do so,
+        has really been a struggle. Usually, once your flight instructor deems
+        that you are checkride-ready, they're the ones that try to schedule your
+        checkride for you. That being said, flight instructors are, often, very
+        busy. They have multiple students that are in different phases of their
+        training and most are seeking different licenses (PPL, instrument,
+        commercial, comm/multi, etc.). You can probably tell how that might
+        become overwhelming for one person to be responsible for. Then there's
+        also the difficulty when it comes to trying to find a DPE that is
+        available within the near future, and that's if your flight instructor
+        can even get ahold of them. With the PEP app, a lot of that stress can
+        be taken off of the flight instructor and the responisbility of
+        scheduling can be placed with the applicant pilot.
+        <br />
+        <br />
+        Pilot's Examiner Planner aims to make this process much more ergonomic
+        as a 'one-stop-shop,' user-friendly interface that allows users (pilot
+        applicants) to locate examiners based on specific criteria chosen by the
+        user (ie. location, examiner/designee type, authorizations, name, phone,
+        email, etc.). Examiners will also be able to integrate their
+        availability via calendar functionality to allow the user to see when
+        the examiner will be availble next. Both, the user and examiner, will be
+        able to communicate internally, amongst one another, to eliminate the
+        need for pesky phone calls and emails; we'll keep those as a last
+        resort. Pilots will also be able to post, on a blog-type page, where
+        they are located, who they used as their DPE, pass/fail, general
+        expectation of requirements specific to the DPE that they used, and the
+        cost of that DPE (prices range anywhere from $500-$1500 on average and
+        depending on what type of checkride you are doing (instrcutor ratings
+        are generally more expensive and take 6-8 hours on average)).
+      </p>
+      <br />
+    </div>
+  </body>
 </html>

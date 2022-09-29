@@ -15,13 +15,16 @@
         <a href="{% url 'about' %}">About</a>
         {% if user.is_authenticated %}
         <a href="{% url 'examiner' %}">Locate Examiners</a>
+        <a class="active" href="{% url 'login' %}">Logout</a>
+        {% else %}<a href="{% url 'login' %}">Login</a>
         {% endif %}
-        <a class="active" href="{% url 'login' %}">Login/Logout</a>
+        <a href="{% url 'signup' %}">Signup</a>
       </div>
       <input type="text" placeholder="Search..." id="search" />
     </div>
     <br />
     <h1>Login/Logout</h1>
+    <hr />
 
     <div class="login">
       <form method="post">
@@ -32,7 +35,7 @@
           </h3>
           {% else %}
           <p>You are not logged in</p>
-          
+
           <a href="{% url 'login' %}"><button type="submit">Log In</button></a>
           {% endif %}
         </div>
@@ -41,7 +44,6 @@
       <a href="{% url 'logout' %}"><button type="submit">Log Out</button></a>
       {% endif %}
       <br />
-      
     </div>
   </body>
 </html>

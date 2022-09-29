@@ -1,4 +1,6 @@
-
+body {
+    background-color: rgb(255, 255, 255);
+}
 h1 {
     text-align: center
 }
@@ -44,28 +46,31 @@ tr:nth-child(even) {
 } 
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: rgba(177, 177, 177, 0.354);
     color: black;
 }
 
 .topnav a.active {
-    background-color: #2196F3;
-    color: white;
+    background-color: #20c1acb6;
+    color: rgb(255, 255, 255);
 }
 
 .topnav input {
   justify-self: flex-end;
 }
 
-.choose_state {
+.choose-state {
     display: flex;
     justify-content: center;
 }
 
 .hello {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+
+
 
 form {
     display: block;
@@ -77,4 +82,54 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
+.background-image {
+    background-image: url("https://spacenews.com/wp-content/uploads/2015/12/FAA_Space-traffic-management-879x485.jpg");
+    background-size: cover;
+    /* background-position: center; */
+    position: relative;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: auto;
+    border-radius: 5rem;
+
+    
+   /* background-attachment: fixed; */
+}
+
+.about-intro {
+    /* border-style: solid;
+    border-width: 1px; */
+    margin: 2rem;
+    width: 40%;
+    height: 50%;
+}
+
+.why {
+    /* border-style: solid;
+    border-width: 1px; */
+    margin: 1rem;
+    width: 50%;
+    height: 50%;
+    float: right;
+}
+
+.about-intro h2 {
+    display: flex;
+    justify-content: center;
+    margin: 0em;
+}
+
+.why h2 {
+    display: flex;
+    justify-content: center;
+    margin: 0em;
+    
+} 
+
+.why p {
+    margin: 0em;
+    
+}
+
 
