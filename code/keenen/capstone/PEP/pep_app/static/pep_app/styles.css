@@ -56,3 +56,25 @@ tr:nth-child(even) {
 .topnav input {
   justify-self: flex-end;
 }
+
+.choose_state {
+    display: flex;
+    justify-content: center;
+}
+
+.hello {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: block;
+}
+
+.login {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+

@@ -9,30 +9,39 @@
     <title>Login</title>
   </head>
   <body>
-    <h1>Login/Logout</h1>
-
     <div class="topnav">
       <div>
         <a href="{% url 'index' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
+        {% if user.is_authenticated %}
         <a href="{% url 'examiner' %}">Locate Examiners</a>
+        {% endif %}
         <a class="active" href="{% url 'login' %}">Login/Logout</a>
       </div>
       <input type="text" placeholder="Search..." id="search" />
     </div>
+    <br />
+    <h1>Login/Logout</h1>
 
-    <form method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">Log In</button>
-    </form>
-
-    <div>
-      {% if user.is_authenticated %} Hi {{ user.username }}!
-      <p><a href="{% url 'logout' %}">Log Out</a></p>
-      {% else %}
-      <p>You are not logged in</p>
-      <a href="{% url 'login' %}">Log In</a>
+    <div class="login">
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <div class="hello">
+          <h3 class="hello">
+            {% if user.is_authenticated %} Hi {{ user.username }}!
+          </h3>
+          {% else %}
+          <p>You are not logged in</p>
+          
+          <a href="{% url 'login' %}"><button type="submit">Log In</button></a>
+          {% endif %}
+        </div>
+      </form>
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}"><button type="submit">Log Out</button></a>
       {% endif %}
+      <br />
+      
     </div>
   </body>
 </html>

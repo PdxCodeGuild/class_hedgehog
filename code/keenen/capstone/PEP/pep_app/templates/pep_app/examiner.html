@@ -9,22 +9,25 @@
     <title>Designated Pilot Examiners</title>
   </head>
   <body>
+      <div class="topnav">
+        <div>
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'about' %}">About</a>
+          {% if user.is_authenticated%}
+          <a class="active" href="{% url 'examiner' %}">Locate Examiners</a>
+          {% endif %}
+          <a href="{% url 'login' %}">Login/Logout</a>
+        </div>
+        <input type="text" placeholder="Search..." id="search" />
+      </div>
+      <br>
     <h1>Designated Pilot Examiners</h1>
 
-    <div class="topnav">
-      <div>
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a class="active" href="{% url 'examiner' %}">Locate Examiners</a>
-        <a href="{% url 'login' %}">Login/Logout</a>
-      </div>
-      <input type="text" placeholder="Search..." id="search" />
-    </div>
 
     <input type="hidden" value="{{stateId}}" />
 
    
-
+<div class="choose_state">
     <form action="" method="POST">
       {% csrf_token %}
 
@@ -86,6 +89,7 @@
       </select>
       <input type="submit" />
     </form>
+</div>
 
     <ul>
       <table>
