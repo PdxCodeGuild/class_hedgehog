@@ -96,23 +96,22 @@ form {
     
    /* background-attachment: fixed; */
 }
-
+/* 
 .about-intro {
-    /* border-style: solid;
-    border-width: 1px; */
+   
     margin: 2rem;
     width: 40%;
     height: 50%;
 }
 
 .why {
-    /* border-style: solid;
-    border-width: 1px; */
+    
     margin: 1rem;
     width: 50%;
     height: 50%;
     float: right;
 }
+}*/
 
 .about-intro h2 {
     display: flex;
@@ -126,10 +125,43 @@ form {
     margin: 0em;
     
 } 
-
+/*  
 .why p {
     margin: 0em;
     
+ } */
+
+.choose-state label {
+    /* font-size: 50px; */
+} 
+
+.entire-about {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
+.about-top {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
 
+.about-bottom {
+    height: 50%;
+    display: flex;
+}
+
+.why-div {
+    width: 50%;
+}
+
+.about-intro {
+    width: 50%;
+}
+
+.image-div {
+    width: 50%;
+
+}

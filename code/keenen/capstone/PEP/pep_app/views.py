@@ -11,11 +11,13 @@ def index(request):
 def about(request):
     return render(request, 'pep_app/about.html')
 
-def login(request):
-    return render(request, 'pep_app/login.html')
+# Using built in django login page
+# def login(request):
+#     print("LOGIN FUNCTION")
+#     return render(request, 'registration/login.html')
 
 def signup(request):
-    return render(request, 'pep_app/signup.html')
+    return render(request, 'registration/signup.html')
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
