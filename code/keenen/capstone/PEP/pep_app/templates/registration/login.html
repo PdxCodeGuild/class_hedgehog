@@ -16,7 +16,7 @@
         {% if user.is_authenticated %}
         <a href="{% url 'examiner' %}">Locate Examiners</a>
         <a class="active" href="{% url 'login' %}">Logout</a>
-        {% else %}<a href="{% url 'login' %}">Login</a>
+        {% else %}<a class="active" href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Signup</a>
         {% endif %}{% if user.is_authenticated %}
         <p class="hello-user">Hello {{user.username}}!</p>
@@ -31,22 +31,27 @@
     <hr />
 
     
-    <div class="login">
-      <form method="post">
-        {% csrf_token %} {{ form.as_p }}
-        <div class="hello">
-          <h3 class="hello">
-            {% if user.is_authenticated %} You've logged in as {{ user.username }}<br>and now have access to the<br>Locate Examiners tab.
-          </h3>
-          {% else %}
+    <div class="hello">
+      <h3 class="hello">
+        {% if user.is_authenticated %} You've logged in as {{ user.username }}<br>and now have access to the<br>Locate Examiners tab.
+      </h3>
+      {% else %}
+      <div class="login">
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
           <p>You are not logged in. <br>Please login to access <br> Locate Examiners tab.</p>
 
-          <a href="{% url 'login' %}"><button type="submit">Log In</button></a>
+          <div class="login-out-btn-div">
+            <a href="{% url 'login' %}"><button type="submit">Log In</button></a>
+          </div>
           {% endif %}
         </div>
       </form>
       {% if user.is_authenticated %}
-      <a href="{% url 'logout' %}"><button type="submit">Log Out</button></a>
+
+      <div class="login-out-btn-div">
+        <a href="{% url 'logout' %}"><button type="submit">Log Out</button></a>
+      </div>
       {% endif %}
       <br />
     </div>

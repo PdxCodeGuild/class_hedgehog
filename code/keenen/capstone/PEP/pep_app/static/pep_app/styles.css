@@ -97,6 +97,31 @@ form {
     align-items: center;
 }
 
+.login p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .logout-btn-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.login-out-btn-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .logout-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
 .background-image {
     background-image: url("https://spacenews.com/wp-content/uploads/2015/12/FAA_Space-traffic-management-879x485.jpg");
     background-size: cover;
