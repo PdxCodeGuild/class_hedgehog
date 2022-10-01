@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="topnav">
-      <div>
+      <!-- <div> -->
         <a class="active" href="{% url 'index' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         {% if user.is_authenticated%}
@@ -18,12 +18,19 @@
         <a href="{% url 'login' %}">Logout</a>
         {% else %} <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}{% if user.is_authenticated %}
+        <p class="hello-user">Hello {{user.username}}!</p>
         {% endif %}
+      <!-- </div> -->
+      <div class="search">
+        <input type="text" placeholder="Search..." id="search" />
       </div>
-      <input type="text" placeholder="Search..." id="search" />
     </div>
     <br />
+    {% if user.is_authenticated %}
     <h1>Welcome to the Pilot's Examiner Planner!</h1>
+    {% else %} <h1>Pilot's Examiner Planner</h1>
+    {% endif %}
     <hr />
     <br />
     <div class="background-image"></div>

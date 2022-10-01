@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="topnav">
-      <div>
+      <!-- <div> -->
         <a href="{% url 'index' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
         {% if user.is_authenticated %}
@@ -18,23 +18,28 @@
         <a class="active" href="{% url 'login' %}">Logout</a>
         {% else %}<a href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}{% if user.is_authenticated %}
+        <p class="hello-user">Hello {{user.username}}!</p>
         {% endif %}
+      <!-- </div> -->
+      <div class="search">
+        <input type="text" placeholder="Search..." id="search" />
       </div>
-      <input type="text" placeholder="Search..." id="search" />
     </div>
     <br />
     <h1>Login/Logout</h1>
     <hr />
 
+    
     <div class="login">
       <form method="post">
         {% csrf_token %} {{ form.as_p }}
         <div class="hello">
           <h3 class="hello">
-            {% if user.is_authenticated %} Hi {{ user.username }}!
+            {% if user.is_authenticated %} You've logged in as {{ user.username }}<br>and now have access to the<br>Locate Examiners tab.
           </h3>
           {% else %}
-          <p>You are not logged in</p>
+          <p>You are not logged in. <br>Please login to access <br> Locate Examiners tab.</p>
 
           <a href="{% url 'login' %}"><button type="submit">Log In</button></a>
           {% endif %}

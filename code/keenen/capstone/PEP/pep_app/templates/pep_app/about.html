@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="topnav">
-      <div>
+      <!-- <div> -->
         <a href="{% url 'index' %}">Home</a>
         <a class="active" href="{% url 'about' %}">About</a>
         {% if user.is_authenticated%}
@@ -18,9 +18,13 @@
         <a href="{% url 'login' %}">Logout</a>
         {% else %} <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Signup</a>
-        {% endif %}
+        {% endif %} {% if user.is_authenticated %}
+      <!-- </div> -->
+      <p class="hello-user">Hello {{user.username}}!</p>
+      {% endif %}
+      <div class="search">
+        <input type="text" placeholder="Search..." id="search" />
       </div>
-      <input type="text" placeholder="Search..." id="search" />
     </div>
     <br />
     <h1>About PEP</h1>
@@ -33,70 +37,73 @@
           <h2>Introduction</h2>
           <hr width="25%" />
           <p>
-            The Pilot's Examiner Planner (PEP) app is a one-stop-shop for a pilot
-            that is seeking a checkride from an FAA Designated Pilot Examiner (DPE).
-            As a pilot trains and moves through the ranks, honing in their skills
-            while earning new ratings and certificates, they must navigate the
-            difficult process of locating and scheduling a DPE to start the initial
-            process when applying for an FAA checkride. This process currently
-            proves to be very cumbersome and often takes an unneccesary amount of
-            time to receive a response regarding scheduling, as the only
-            communication is via email and/or phone, which often leads to
-            un-returned voicemails and/or messages.
+            The Pilot's Examiner Planner (PEP) app is a one-stop-shop for a
+            pilot that is seeking a checkride from an FAA Designated Pilot
+            Examiner (DPE). As a pilot trains and moves through the ranks,
+            honing in their skills while earning new ratings and certificates,
+            they must navigate the difficult process of locating and scheduling
+            a DPE to start the initial process when applying for an FAA
+            checkride. This process currently proves to be very cumbersome and
+            often takes an unneccesary amount of time to receive a response
+            regarding scheduling, as the only communication is via email and/or
+            phone, which often leads to un-returned voicemails and/or messages.
           </p>
           <br />
         </div>
         <div class="image-div">
-          <!-- <img src="" alt=""> -->
+          <img class="intro-img" src="https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/151512255_3816455671803085_4627642946094344429_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=a3jPcumtCzMAX9GAHLi&_nc_ht=scontent-ord5-1.xx&oh=00_AT_ONIbAw0iqpzhBqZVV5Pr4aApBlAslNqIOHQEuWyEJAA&oe=635EC227" alt="">
         </div>
       </div>
-      <div class='about-bottom'>
+      <div class="about-bottom">
         <div class="image-div">
-          <!-- <img src="" alt=""> -->
+          <img class="why-img" src="https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-9/124090113_10157962905523391_800580443182011533_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=nBiItSTkGyUAX_g9_l-&_nc_ht=scontent-ord5-1.xx&oh=00_AT_Cdub-pVfqtUkgCjcmBkXZag_xy1gK9xLNkoFMG_8QsA&oe=635D3030" alt="">
         </div>
         <div class="why-div">
           <div class="why">
             <h2>The Why</h2>
             <hr width="15%" />
-            <br />
             <p>
-              Throughout my aviation journey, I've always noticed that when trying to
-              schedule a checkride, or even just getting in touch with a DPE to do so,
-              it has really been a struggle. Usually, once your flight instructor
-              deems that you are checkride-ready, they're the ones that try to
-              schedule your checkride for you. That being said, flight instructors
-              are, often, very busy. They have multiple students that are in different
-              phases of their flight training and most are seeking different licenses
-              (PPL, instrument, commercial, comm/multi, etc.). You can probably tell
-              how that might become overwhelming for one person. Then there's also the
-              difficulty when it comes to trying to find a DPE that is available
-              within the near future, and that's if your flight instructor can even
-              get ahold of them. With the PEP app, a lot of that stress can be taken
-              off of the flight instructor and the responisbility of scheduling can be
+              Throughout my aviation journey, I've always noticed that when
+              trying to schedule a checkride, or even just getting in touch with
+              a DPE to do so, it has really been a struggle. Usually, once your
+              flight instructor deems that you are checkride-ready, they're the
+              ones that try to schedule your checkride for you. That being said,
+              flight instructors are, often, very busy. They have multiple
+              students that are in different phases of their flight training and
+              most are seeking different licenses (PPL, instrument, commercial,
+              comm/multi, etc.). You can probably tell how that might become
+              overwhelming for one person. Then there's also the difficulty when
+              it comes to trying to find a DPE that is available within the near
+              future, and that's if your flight instructor can even get ahold of
+              them. With the PEP app, a lot of that stress can be taken off of
+              the flight instructor and the responisbility of scheduling can be
               placed upon the applicant pilot.
               <br />
               <br />
-              Pilot's Examiner Planner aims to make this process much more ergonomic
-              as a 'one-stop-shop,' user-friendly interface that allows users (pilot
-              applicants) to locate examiners based on specific criteria chosen by the
-              user (ie. location, examiner/designee type, authorizations, name, phone,
-              email, etc.). Examiners will also be able to integrate their
-              availability via calendar functionality to allow the user to see when
-              the examiner will be available next. Both, the user and examiner, will
-              be able to communicate internally, amongst one another, to eliminate the
+              Pilot's Examiner Planner aims to make this process much more
+              ergonomic as a 'one-stop-shop,' user-friendly interface that
+              allows users (pilot applicants) to locate examiners based on
+              specific criteria chosen by the user (ie. location,
+              examiner/designee type, authorizations, name, phone, email, etc.).
+              Examiners will also be able to integrate their availability via
+              calendar functionality to allow the user to see when the examiner
+              will be available next. Both, the user and examiner, will be able
+              to communicate internally, amongst one another, to eliminate the
               need for pesky phone calls and emails; we'll keep those as a last
-              resort. Pilots will also be able to post, on a blog-type page, where
-              they are located, who they used as their DPE, pass/fail, general
-              expectation of requirements specific to the DPE that they used, and the
-              cost of that DPE (prices range anywhere from $500-$1500 on average and
-              depending on what type of checkride you are doing (instructor ratings
-              are generally more expensive and take ~6-8 hours on average)).
+              resort. Pilots will also be able to post, on a blog-type page,
+              where they are located, who they used as their DPE, pass/fail,
+              general expectation of requirements specific to the DPE that they
+              used, and the cost of that DPE (prices range anywhere from
+              $500-$1500 on average and depending on what type of checkride you
+              are doing (instructor ratings are generally more expensive and
+              take ~6-8 hours on average)).
             </p>
             <br />
           </div>
         </div>
-       
       </div>
     </div>
   </body>
-</html>
+  </html>
+  
+        
