@@ -22,3 +22,4 @@ def get_users(request):
         })
 
     return JsonResponse(users, safe=False)
+

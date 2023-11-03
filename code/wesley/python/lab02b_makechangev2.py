@@ -14,6 +14,6 @@ leftover = dollar_amount
 
 for coin in coins:
     change = leftover//coin[1]
-    leftover = leftover - change * coin[1]
+    leftover -= change * coin[1]
     print(f"You have {int(change)} {coin[0]} ")
     
